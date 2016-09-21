@@ -63,8 +63,8 @@
     </style>
 </head>
 <body>
-<div class="borColor"></div>
 @include('layouts.navbar')
+<div class="borColor"></div>
 {{ Html::image('image/bander01.png','banner', array('width'=>'100%', 'height'=>'100%')) }}
 @include('layouts.search')
 <div class="container">
