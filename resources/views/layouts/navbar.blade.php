@@ -22,19 +22,3 @@
     </div><!--/.nav-collapse -->
 </div>
 
-<style>
-    .nav2{margin-top: -2%;}
-    .nav2 .navbar-brand{margin-left: -5%;margin-top:1%;font-family: ThaiNeue;font-size: 38px}
-    .nav2 ul{margin-right: -15%;margin-top:.5%;padding-top:10px;font-family: ThaiNeue;font-size: 28px}
-</style>
-<nav class="nav navbar-static-top nav2" role="navigation">
-	<a class="navbar-brand" href="#">MSU:HELP</a>
-	<ul class="nav navbar-nav navbar-right">
-		<li class="active">
-			<a href="#">ผู้ว่าจ้าง</a>
-		</li>
-		<li>
-			<a href="#">Path-time</a>
-		</li>
-	</ul>
-</nav>

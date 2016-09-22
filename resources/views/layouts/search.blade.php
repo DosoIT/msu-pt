@@ -1,3 +1,18 @@
+<style>
+    @media only screen and (max-device-width: 480px) {
+        /* styles for mobile browsers smaller than 480px; (iPhone) */
+        .col-xs-12 h2 {
+            background-color: #00bcd4;
+        }
+
+        .col-xs-3, .col-xs-3 h2 {
+            background-color: #00bcd4;
+        }
+
+    }
+</style>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-12" id="src">
@@ -15,14 +30,16 @@
                 </div>
                 <div class="col-xs-2">
                     <label for="ex2"><h3 style="color: transparent">.</h3></label>
-                    <select name="slPrice" id="slPrice" class="form-control" style="font-family: 'ThaiNeue'; font-size: large">
+                    <select name="slPrice" id="slPrice" class="form-control"
+                            style="font-family: 'ThaiNeue'; font-size: large">
                         <option value="f">ราคาเต็มวัน</option>
                         <option value="h">ราคาครึ่งวัน</option>
                     </select>
                 </div>
                 <div class="col-xs-3">
                     <label for="ex2"><h3 style="font-family: 'ThaiNeue';">สถานที่</h3></label>
-                    <select name="slPlace" id="slPlace" class="form-control" style="font-family: 'ThaiNeue'; font-size: large">
+                    <select name="slPlace" id="slPlace" class="form-control"
+                            style="font-family: 'ThaiNeue'; font-size: large">
                         <option value="">แกดำ</option>
                         <option value="">โกสุมพิสัย</option>
                         <option value="">บ้านหนองอุ่ม</option>
@@ -40,7 +57,8 @@
                     </select>
                 </div>
                 <div class="col-xs-2">
-                    <button type="submit" class="w3-btn w3-blue" style="margin-top: 25%;position: absolute;font-family: 'ThaiNeue';font-size: large">ค้นหา
+                    <button type="submit" class="w3-btn w3-blue"
+                            style="margin-top: 25%;position: absolute;font-family: 'ThaiNeue';font-size: large">ค้นหา
                     </button>
                 </div>
             </div>
