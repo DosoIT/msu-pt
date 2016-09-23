@@ -114,8 +114,6 @@
                             <p>Facilis illum inventore iste nobis quos sapiente.</p>
                             <p>Asperiores minima qui quod repudiandae temporibus ut?</p>
                             <p>Ex incidunt magni nostrum obcaecati odit voluptatem?</p>
-
-
                              </p>
                 		</div>
                 	</form>
