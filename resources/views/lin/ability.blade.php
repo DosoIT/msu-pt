@@ -93,7 +93,6 @@
                         <p>ตัดต่อภาพ</p>
                         <p>ตัดต่อวีดีโอ</p>
                     </div>
-
                     <div class="page-header"></div>
                     <h3>ลักษณะงาน</h3><br>
                     <div class="input_fields_02">
@@ -103,11 +102,12 @@
                         <p>ตัดต่อวีดีโอได้ครัช</p>
                     </div>
                 </div>
-                <br><br>
-            </div>
-            <div align="center">
-                <br><br> <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary btn-lg">
+                <div align="center">
+                    <br><br> <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary btn-lg">
+                </div>
             </div>
         </form>
+
+
     </div>
 @endsection

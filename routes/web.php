@@ -30,3 +30,10 @@ Route::resource('managePortfolio', 'NoomController@managePortfolio');
 Route::get('/ability', function () {
     return view('lin.ability');
 });
+Route::get('/profile_employer', function () {
+    return view('lin.profile_employer');
+});
+
+Route::get('/post', function () {
+    return view('lin.post_employer');
+});
