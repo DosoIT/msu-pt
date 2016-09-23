@@ -78,59 +78,5 @@
 {{--Script--}}
 {!! Html::script('js/jquery.min.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
-<script>
-    $(document).ready(function () {
-        var colors = ["#ff33ac", "#f44336", "#ffff00", "00ffff", "#FF5733", "#2ECC71", "#3498DB", "#8E44AD"];
-        var ran = Math.floor(Math.random() * colors.length);
-        $(".borColor").css("background-color", colors[ran]);
-    });
-    $('.img-responsive').hover(function () {
-        $(this).addClass('transition');
-    }, function () {
-        $(this).removeClass('transition');
-    });
-</script>
-<script>
-    //load picture ตอนเลือกมา
-    var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-    };
-
-    //เพิ่มฟิวกรอกข้อมูล ความสามารถ
-    $(document).ready(function() {
-        var max_fields      = 10; //maximum input boxes allowed
-        var wrapper         = $(".input_fields_01"); //Fields wrapper
-        var add_button      = $(".add_field_01"); //Add button ID
-        var x = 1;
-        $(add_button).click(function(e){ //on add input button click
-            e.preventDefault();
-            if(x < max_fields){ //max input box allowed
-                x++; //text box increment
-                $(wrapper).prepend('<div><input type="text" name="skill[]" class="form-control"/><a  class="remove_field01  btn btn-danger btn-xs">ลบ</a></div>'); //add input box
-            }
-        });
-        $(wrapper).on("click",".remove_field01", function(e){ //user click on remove text
-            e.preventDefault(); $(this).parent('div').remove(); x--;
-        })
-    });
-    //เพิ่มฟิวกรอกข้อมูล ลักษณะงาน
-    $(document).ready(function() {
-        var max_fields      = 10; //maximum input boxes allowed
-        var wrapper         = $(".input_fields_02"); //Fields wrapper
-        var add_button      = $(".add_field_02"); //Add button ID
-        var x = 1;
-        $(add_button).click(function(e){ //on add input button click
-            e.preventDefault();
-            if(x < max_fields){ //max input box allowed
-                x++; //text box increment
-                $(wrapper).prepend('<div><input type="text" name="job[]" class="form-control"/><a  class="remove_field02  btn btn-danger btn-xs">ลบ</a></div>'); //add input box
-            }
-        });
-        $(wrapper).on("click",".remove_field02", function(e){ //user click on remove text
-            e.preventDefault(); $(this).parent('div').remove(); x--;
-        })
-    });
-</script>
 </body>
 </html>
