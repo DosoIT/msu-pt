@@ -26,5 +26,5 @@ Route::resource('editPortfolio', 'NoomController@editPortfolio');
 Route::resource('managePortfolio', 'NoomController@managePortfolio');
 
 Route::get('/ability', function () {
-    return view('layouts.ability_member');
+    return view('lin.ability');
 });
