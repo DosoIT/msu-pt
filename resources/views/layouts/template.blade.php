@@ -79,6 +79,18 @@
 {!! Html::script('js/jquery.min.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
 <script>
+    $(document).ready(function () {
+        var colors = ["#ff33ac", "#f44336", "#ffff00", "00ffff", "#FF5733", "#2ECC71", "#3498DB", "#8E44AD"];
+        var ran = Math.floor(Math.random() * colors.length);
+        $(".borColor").css("background-color", colors[ran]);
+    });
+    $('.img-responsive').hover(function () {
+        $(this).addClass('transition');
+    }, function () {
+        $(this).removeClass('transition');
+    });
+</script>
+<script>
 //load picture ตอนเลือกมา
     var loadFile = function(event) {
         var output = document.getElementById('output');
