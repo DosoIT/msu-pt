@@ -60,7 +60,6 @@
             text-decoration: none;
         }
     </style>
-
     <div class="container">
         <form>
             <div class="row well" align="center">
