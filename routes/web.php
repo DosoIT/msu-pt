@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('/page1', function () {
     return view('layouts.template');
 });
+
+Route::resource('editPh', 'NoomController');
+Route::resource('manageProfile', 'NoomController@manageProfile');
+Route::resource('addPortfolio', 'NoomController@addPortfolio');
+Route::resource('editPortfolio', 'NoomController@editPortfolio');
+Route::resource('managePortfolio', 'NoomController@managePortfolio');
