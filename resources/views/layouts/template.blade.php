@@ -102,6 +102,7 @@
     .page-footer .tag {
         margin-left: -50px;
     }
+
     .page-footer .tag a {
         border-bottom: 1px solid #9acfea;
     }
@@ -109,7 +110,6 @@
     .page-footer .tag a:hover {
         border-color: transparent;
         color: #ff1aba;
-
     }
 </style>
 <footer>
@@ -152,7 +152,8 @@
                 Add:<a href="#">Mahasarakham University</a><br>
                 Tel:<a href="#">043700219</a><br>
                 Email:<a href="#" style="color: #20ff07">it@msu.ac.th</a><br>
-                Hotline:<a href="#" style="color: #20ff07">096669999</a><hr>
+                Hotline:<a href="#" style="color: #20ff07">096669999</a>
+                <hr>
                 <a href="#">{!! Html::image('image/minimap.jpg','minimap',array('width'=>180,'height'=>100)) !!}</a>
             </div>
         </div>
