@@ -37,6 +37,7 @@
         padding: 14px 14px 0;
         overflow: hidden;
         background-color: rgba(255, 255, 255, .8);
+        border-radius: 7px;
     }
 
 </style>
