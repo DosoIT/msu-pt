@@ -70,6 +70,44 @@
 @include('layouts.search')
 {{--@include('layouts.recommd')--}}
 {{--@include('layouts.folio')--}}
+<div class="container">
+    <div class="row">
+        @yield('content')
+        {{--<div class="col-xs-12"><h2 style="font-family: 'ThaiNeue'; font-size: 48px">แนะนำ</h2></div>--}}
+    {{--</div>--}}
+    {{--<div class="row">--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<br>--}}
+    {{--<div class="row">--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+        {{--<div class="col-xs-3 img-responsive">--}}
+            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
+        {{--</div>--}}
+    </div>
+
+</div>
+@include('layouts.recommd')
+@include('layouts.folio')
 <hr style="border: 1px solid crimson">
 {{--Footer--}}
 @include('layouts.footer')
@@ -88,5 +126,50 @@
         $(this).removeClass('transition');
     });
 </script>
+
+
+<script>
+//load picture ตอนเลือกมา
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+//เพิ่มฟิวกรอกข้อมูล ความสามารถ
+$(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_01"); //Fields wrapper
+    var add_button      = $(".add_field_01"); //Add button ID
+    var x = 1;
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).prepend('<div><input type="text" name="skill[]" class="form-control"/><a  class="remove_field01  btn btn-danger btn-xs">ลบ</a></div>'); //add input box
+        }
+    });
+    $(wrapper).on("click",".remove_field01", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+//เพิ่มฟิวกรอกข้อมูล ลักษณะงาน
+$(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_02"); //Fields wrapper
+    var add_button      = $(".add_field_02"); //Add button ID
+    var x = 1;
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).prepend('<div><input type="text" name="job[]" class="form-control"/><a  class="remove_field02  btn btn-danger btn-xs">ลบ</a></div>'); //add input box
+        }
+    });
+    $(wrapper).on("click",".remove_field02", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+
 </body>
 </html>
