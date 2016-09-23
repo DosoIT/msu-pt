@@ -7,11 +7,9 @@
             color: gray;
             display: inline-block;
         }
-
         .remove_field {
             color: #fff;
         }
-
         /*เมนู*/
         .dropbtn {
             background-color: #cccccc;
@@ -106,12 +104,10 @@
                     </div>
                 </div>
                 <br><br>
-
             </div>
             <div align="center">
                 <br><br> <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary btn-lg">
             </div>
         </form>
     </div>
-
 @endsection
