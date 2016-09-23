@@ -68,47 +68,16 @@
 @include('layouts.navbar')
 @include('layouts.nav2')
 @include('layouts.search')
-<<<<<<< HEAD
+
 <div class="container">
     <div class="row">
         @yield('content')
-        {{--<div class="col-xs-12"><h2 style="font-family: 'ThaiNeue'; font-size: 48px">แนะนำ</h2></div>--}}
-    {{--</div>--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    {{--<br>--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
     </div>
-
 </div>
-=======
+
 @include('layouts.recommd')
 @include('layouts.folio')
->>>>>>> origin/master
+
 <hr style="border: 1px solid crimson">
 {{--Footer--}}
 <style>
