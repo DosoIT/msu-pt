@@ -73,41 +73,8 @@
 <div class="container">
     <div class="row">
         @yield('content')
-        {{--<div class="col-xs-12"><h2 style="font-family: 'ThaiNeue'; font-size: 48px">แนะนำ</h2></div>--}}
-    {{--</div>--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    {{--<br>--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
-        {{--<div class="col-xs-3 img-responsive">--}}
-            {{--<img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">--}}
-        {{--</div>--}}
     </div>
-
 </div>
-@include('layouts.recommd')
-@include('layouts.folio')
 <hr style="border: 1px solid crimson">
 {{--Footer--}}
 @include('layouts.footer')
@@ -118,7 +85,7 @@
     $(document).ready(function () {
         var colors = ["#ff33ac", "#f44336", "#ffff00", "00ffff", "#FF5733", "#2ECC71", "#3498DB", "#8E44AD"];
         var ran = Math.floor(Math.random() * colors.length);
-        $(".borColor").css("border", "2px solid " + colors[ran]);
+        $(".borColor").css("background-color", colors[ran]);
     });
     $('.img-responsive').hover(function () {
         $(this).addClass('transition');
@@ -126,8 +93,6 @@
         $(this).removeClass('transition');
     });
 </script>
-
-
 <script>
 //load picture ตอนเลือกมา
     var loadFile = function(event) {
@@ -170,6 +135,5 @@ $(document).ready(function() {
     })
 });
 </script>
-
 </body>
 </html>

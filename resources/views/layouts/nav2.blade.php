@@ -158,7 +158,7 @@
             <a href="#">Part-time</a>
         </li>
     </ul>
-    <div class="borColor"></div>
+    {{--<div class="borColor"></div>--}}
 </nav>
 <div class="row">
     {{ Html::image('image/bander01.png','banner', array('width'=>'100%', 'height'=>'100%')) }}
