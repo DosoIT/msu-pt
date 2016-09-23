@@ -63,7 +63,6 @@
 </head>
 <body>
 	@include('layouts.navbar')
-	<div class="borColor"></div>
         <div class="col-md-offset-9">
             <p></p>
             <p> <a href="#" class="btn btn-primary glyphicon glyphicon-edit">Edit</a>
@@ -140,18 +139,5 @@
 	{{--Script--}}
 {!! Html::script('js/jquery.min.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
-<script>
-    $(document).ready(function () {
-        var colors = ["#ff33ac", "#f44336", "#ffff00", "00ffff", "#FF5733", "#2ECC71", "#3498DB", "#8E44AD"];
-        var ran = Math.floor(Math.random() * colors.length);
-        $(".borColor").css("border", "2px solid " + colors[ran]);
-        $('[data-toggle="popover"]').popover();
-    });
-    $('.img-responsive').hover(function () {
-       $(this).addClass('transition');
-    },function () {
-        $(this).removeClass('transition');
-    });
-</script>
 </body>
 </html>
