@@ -104,6 +104,19 @@
                         <p>ออกแบบ เว็บดีไซน์ได้</p>
                         <p>ตัดต่อวีดีโอได้ครัช</p>
                     </div>
+                            </div>
+                		</div>
+                		<div class="col-md-6  form-group">
+                			<h4>ลักษณะงาน</h4>
+                			 <p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <p>Ab blanditiis enim ipsum optio recusandae reiciendis!</p>
+                            <p>Facilis illum inventore iste nobis quos sapiente.</p>
+                            <p>Asperiores minima qui quod repudiandae temporibus ut?</p>
+                            <p>Ex incidunt magni nostrum obcaecati odit voluptatem?</p>
+                             </p>
+                		</div>
+                	</form>
                 </div>
                 <br><br>
 
