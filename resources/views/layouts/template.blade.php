@@ -131,6 +131,12 @@ $(document).ready(function() {
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
 });
+
+    $(document).read(function () {
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+    });
 </script>
 </body>
 </html>
