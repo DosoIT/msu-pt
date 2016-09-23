@@ -10,12 +10,25 @@
     </div>
     <div class="navbar-collapse collapse" id="searchbar">
         <ul class="nav navbar-nav navbar-right">
-            <li><a data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-lock"></i> สมัครสมาชิก/เข้าสู่ระบบ</a></li>
+            <li><a data-toggle="modal" data-target=".bs-example-modal-sm" style="cursor: pointer"><i class="glyphicon glyphicon-lock"></i> สมัครสมาชิก/เข้าสู่ระบบ</a></li>
         </ul>
     </div>
 </div>
 {{--จบ--}}
-
+{!! Html::script('js/jquery.min.js') !!}
+{!! Html::script('js/bootstrap.min.js') !!}
+<script>
+    $(document).ready(function () {
+        var colors = ["#ff33ac", "#f44336", "#ffff00", "00ffff", "#FF5733", "#2ECC71", "#3498DB", "#8E44AD"];
+        var ran = Math.floor(Math.random() * colors.length);
+        $(".borColor").css("background-color", colors[ran]);
+    });
+    $('.img-responsive').hover(function () {
+        $(this).addClass('transition');
+    }, function () {
+        $(this).removeClass('transition');
+    });
+</script>
 {{--Login form--}}
 
 <style>
@@ -24,6 +37,7 @@
         padding: 14px 14px 0;
         overflow: hidden;
         background-color: rgba(255, 255, 255, .8);
+        border-radius: 7px;
     }
 
 </style>

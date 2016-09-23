@@ -98,7 +98,7 @@
             <h1 align="center">เพิ่มผลงาน</h1>
             <form>
                 <div class="col-xs-4" align="center">
-                    <img src="..." alt="เลือกรูปภาพ" class="img-rounded" width="200" height="200" id="output">
+                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200" height="200" id="output">
                     <br><br><input type="file" name="file" id="file" class="inputfile" onchange="loadFile(event)"/>
                     <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                 </div>
