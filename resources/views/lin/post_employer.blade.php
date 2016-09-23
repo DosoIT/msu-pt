@@ -4,7 +4,8 @@
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span> แก้ไขโปร์ไฟล์</button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> เพิ่มประกาศรับสมัคร์</button>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> เพิ่มประกาศรับสมัคร์
+                </button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm">
@@ -12,49 +13,59 @@
                         <div class="col-sm-6 col-md-4" align="center">
                             <br>
                             <img src="{{url('image/jeremy.jpg')}}" class="img-Thumbnail" width="150" height="150">
-                            <input type="file" name="myPic">
+                            <p></p>
+                            <input type="file" name="myPic" style="margin-left: 2.7cm ">
                         </div>
-                        <div class="col-sm-6 col-md-8">
-                            <h4 class="col-md-offset-1">ประวัติการประกาศโฟสรับสมัคร</h4>
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                <tr>
-                                    <th width="8">No.</th>
-                                    <th width="150">รายการ</th>
-                                    <th width="100">วันที่โฟส</th>
-                                    <th width="20">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>รับพนักงาน Part-Time</td>
-                                    <td>10/10/2559</td>
-                                    <td>
-                                        <button class="btn btn-success" ><a href="#" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                        <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>รับพนักงาน เซ้งพาณิชย์</td>
-                                    <td>10/10/2559</td>
-                                    <td>
-                                        <button class="btn btn-success" ><a href="#" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                        <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>รับพนักงาน เด็กเสิร์ฟนมปั่น</td>
-                                    <td>20/10/2559</td>
-                                    <td>
-                                        <button class="btn btn-success" ><a href="#" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                        <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-sm-6 col-md-7">
+                            <div class="row">
+                                <form class="form-horizontal" role="form">
+                                    <fieldset>
+                                        <legend> <<<< ประการโฟสรับสมัครงาน >>>></legend>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">ชื่อ :</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="Name" class="form-control">
+                                            </div>
+                                            <label class="col-sm-2 control-label">นามสกุล :</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="Last Name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">ที่อยู่ :</label>
+                                            <div class="col-sm-10">
+                                                <textarea name="" id="" cols="30" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="textinput">โทร :</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="080-xxxxxxx" class="form-control">
+                                            </div>
+                                            <label class="col-sm-2 control-label">E-mail :</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="@hotmail.com" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">FB :</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="Siriwut Patsan" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <div class="pull-right">
+                                                    <button type="submit" class="btn btn-default">Cancel</button>
+                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                            </div><!-- /.row -->
                         </div>
                     </div>
                 </div>

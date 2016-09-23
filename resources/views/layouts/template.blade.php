@@ -76,6 +76,8 @@
 {{--Footer--}}
 @include('layouts.footer')
 {{--Script--}}
+{!! Html::script('js/jquery.min.js') !!}
+{!! Html::script('js/bootstrap.min.js') !!}
 <script>
 //load picture ตอนเลือกมา
     var loadFile = function(event) {
@@ -117,6 +119,12 @@ $(document).ready(function() {
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
 });
+
+    $(document).read(function () {
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+    });
 </script>
 </body>
 </html>

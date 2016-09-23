@@ -152,7 +152,7 @@
     <a class="navbar-brand" href="#">MSU:HELP</a>
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="#">ผู้ว่าจ้าง</a>
+            <a href="{{url('employer')}}">ผู้ว่าจ้าง</a>
         </li>
         <li>
             <a href="#">Part-time</a>
@@ -161,5 +161,5 @@
     {{--<div class="borColor"></div>--}}
 </nav>
 <div class="row">
-    {{ Html::image('image/bander01.png','banner', array('width'=>'100%', 'height'=>'100%')) }}
+    {{ Html::image('image/bander01.png','banner', array('width'=>'100%', 'height'=>'420px')) }}
 </div>

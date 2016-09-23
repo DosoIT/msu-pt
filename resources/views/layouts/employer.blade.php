@@ -1,82 +1,62 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MSU Helping</title>
-    {!! Html::style('css/bootstrap.min.css') !!}
-    {!! Html::style('css/bootstrap.css') !!}
-    {!! Html::style('css/w3.css') !!}
-    <style>
-        @font-face {
-            font-family: Naipol;
-            src: url('fonts/NP-Naipol-All-in-One-Regular-3.000.ttf');
+@extends('layouts.template')
+<style>
+    @media only screen and (min-width:960px){
+        .pg{
+            margin-left: 40%;
         }
+    }
 
-        @font-face {
-            font-family: ThaiNeue;
-            src: url('fonts/ThaiSansNeue-Light.ttf');
+    @media only screen and (min-width: 1440px) {
+        .pg {
+            margin-left: 40%;
         }
+    }
 
-        .navbar-xs {
-            min-height: 28px;
-            height: 28px;
-            width: 100%;
+    @media only screen and (device-width: 768px) {
+        /* styles for mobile browsers smaller than 480px; (iPhone) */
+        .pg {
+            margin-left: 30%;
         }
+    }
+</style>
+@section('content')
+    <div class="container">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+                <h1 style="font-family: ThaiNeue">ประกาศรับสมัครงาน</h1>
 
-        .navbar-xs .navbar-brand {
-            padding: 0px 12px;
-            font-size: 16px;
-            line-height: 28px;
-        }
+                <div class="row">
+                    <div class="col-xs-3 img-responsive">
+                        <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                             height="236">
+                    </div>
+                    <div class="col-xs-3 img-responsive">
+                        <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                             height="236">
+                    </div>
+                    <div class="col-xs-3 img-responsive">
+                        <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                             height="236">
+                    </div>
+                    <div class="col-xs-3 img-responsive">
+                        <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                             height="236">
+                    </div>
+                </div>
+                <hr style="border: 1px solid #8c8c8c">
 
-        .navbar-xs .navbar-nav > li > a {
-            padding-top: 0px;
-            padding-bottom: 0px;
-            line-height: 28px;
-        }
-
-        .img-ban {
-            margin-top: -18px;
-            position: fixed;
-            width: 100%;
-            left: 50%;
-            /* bring your own prefixes */
-            transform: translate(-50%);
-        }
-
-        .img-zoom {
-            width: 310px;
-            -webkit-transition: all .2s ease-in-out;
-            -moz-transition: all .2s ease-in-out;
-            -o-transition: all .2s ease-in-out;
-            -ms-transition: all .2s ease-in-out;
-        }
-
-        .transition {
-            -webkit-transform: scale(2);
-            -moz-transform: scale(2);
-            -o-transform: scale(2);
-            transform: scale(2);
-        }
-    </style>
-</head>
-<body>
-@include('layouts.navbar')
-@include('layouts.nav2')
-@include('layouts.search')
-<div class="container">
-    <div class="row">
-        @yield('content')
+                <div class="pg">
+                    <ul class="w3-pagination pg">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<hr style="border: 1px solid crimson">
-{{--Footer--}}
-@include('layouts.footer')
-{{--Script--}}
-{!! Html::script('js/jquery.min.js') !!}
-{!! Html::script('js/bootstrap.min.js') !!}
-</body>
-</html>
+@endsection

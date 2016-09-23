@@ -33,7 +33,6 @@ Route::get('/ability', function () {
 Route::get('/profile_employer', function () {
     return view('lin.profile_employer');
 });
-
 Route::get('/post', function () {
     return view('lin.post_employer');
 });
