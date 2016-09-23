@@ -59,6 +59,7 @@
             -o-transform: scale(2);
             transform: scale(2);
         }
+
     </style>
 </head>
 <body>
@@ -108,9 +109,13 @@
                 		<div class="col-md-6  form-group">
                 			<h4>ลักษณะงาน</h4>
                 			 <p>
-                                ......................................................... <br>
-                                ......................................................... <br>
-                                ......................................................... <br>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                            <p>Ab blanditiis enim ipsum optio recusandae reiciendis!</p>
+                            <p>Facilis illum inventore iste nobis quos sapiente.</p>
+                            <p>Asperiores minima qui quod repudiandae temporibus ut?</p>
+                            <p>Ex incidunt magni nostrum obcaecati odit voluptatem?</p>
+
+
                              </p>
                 		</div>
                 	</form>
