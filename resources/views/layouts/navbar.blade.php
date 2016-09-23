@@ -12,7 +12,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a data-toggle="modal" data-target=".bs-example-modal-sm"><i class="glyphicon glyphicon-lock"></i> สมัครสมาชิก/เข้าสู่ระบบ</a></li>
         </ul>
-    </div><!--/.nav-collapse -->
+    </div>
 </div>
 {{--จบ--}}
 
@@ -24,9 +24,8 @@
         padding: 14px 14px 0;
         overflow: hidden;
         background-color: rgba(255, 255, 255, .8);
-
-
     }
+
 </style>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm" role="document">
