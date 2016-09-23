@@ -9,7 +9,6 @@
     {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('css/bootstrap.css') !!}
     {!! Html::style('css/w3.css') !!}
-
     <style>
         @font-face {
             font-family: Naipol;
@@ -68,8 +67,6 @@
 @include('layouts.navbar')
 @include('layouts.nav2')
 @include('layouts.search')
-{{--@include('layouts.recommd')--}}
-{{--@include('layouts.folio')--}}
 <div class="container">
     <div class="row">
         @yield('content')

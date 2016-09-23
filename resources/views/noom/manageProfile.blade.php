@@ -81,7 +81,7 @@
             </div>
         </div>
         <form>
-            <div class="row" align="center">
+            <div class="row well" align="center">
                 <img src="{{url('image/profile.jpg')}}" class="img-circle" width="150" height="150">
                 <br><br><label class="label-font">Noom Attapon Jangpai</label>
                 <div class="page-header"></div>
