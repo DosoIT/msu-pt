@@ -18,9 +18,13 @@ Route::get('/', function () {
 Route::get('/page1', function () {
     return view('layouts.template');
 });
-Route::get('/employer',function (){
+Route::get('/employer', function () {
     return view('layouts.employer');
 });
+Route::get('/employer_dt', function () {
+    return view('layouts.employer_detail');
+});
+
 Route::resource('editPh', 'NoomController');
 Route::resource('manageProfile', 'NoomController@manageProfile');
 Route::resource('addPortfolio', 'NoomController@addPortfolio');
