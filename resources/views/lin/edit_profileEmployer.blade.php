@@ -3,7 +3,7 @@
     <div class="container ">
         <div class="row">
             <div class="page-header col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span> แก้ไขโปร์ไฟล์</button>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>แก้ไขโปร์ไฟล์</button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> เพิ่มประกาศรับสมัคร์
                 </button>
             </div>
@@ -20,7 +20,7 @@
                             <div class="row">
                                 <form class="form-horizontal" role="form">
                                     <fieldset>
-                                        <legend>   ประการโฟสรับสมัครงาน</legend>
+                                        <legend>แก้ไขโปร์ไฟล์</legend>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">ชื่อ :</label>
                                             <div class="col-sm-4">
@@ -40,25 +40,24 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="textinput">โทร :</label>
                                             <div class="col-sm-4">
-                                                <input type="text" placeholder="080-xxxxxxx" class="form-control">
+                                                <input type="text" placeholder="080-xxxxxxx" class="form-control" value="">
                                             </div>
                                             <label class="col-sm-2 control-label">E-mail :</label>
                                             <div class="col-sm-4">
-                                                <input type="text" placeholder="@hotmail.com" class="form-control">
+                                                <input type="text" placeholder="@hotmail.com" class="form-control" value="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">FB :</label>
                                             <div class="col-sm-4">
-                                                <input type="text" placeholder="Siriwut Patsan" class="form-control">
+                                                <input type="text" placeholder="Siriwut Patsan" class="form-control" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <div class="pull-right">
-                                                    <button type="submit" class="btn btn-default">Cancel</button>
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                <div class="pull-left">
+                                                    <button type="submit" class="btn btn-success">Save</button>
                                                 </div>
                                             </div>
                                         </div>

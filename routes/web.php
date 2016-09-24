@@ -40,3 +40,6 @@ Route::get('/profile_employer', function () {
 Route::get('/post', function () {
     return view('lin.post_employer');
 });
+Route::get('/editprofile', function () {
+    return view('lin.edit_profileEmployer');
+});
