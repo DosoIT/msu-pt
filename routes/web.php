@@ -34,12 +34,15 @@ Route::resource('managePortfolio', 'NoomController@managePortfolio');
 Route::get('/ability', function () {
     return view('lin.ability');
 });
-Route::get('/profile_employer', function () {
-    return view('lin.profile_employer');
+Route::get('/detail_employer', function () {
+    return view('lin.detail_employer');
 });
 Route::get('/post', function () {
     return view('lin.post_employer');
 });
 Route::get('/editprofile', function () {
     return view('lin.edit_profileEmployer');
+});
+Route::get('/employer_pro', function () {
+    return view('lin.profileEmployer');
 });

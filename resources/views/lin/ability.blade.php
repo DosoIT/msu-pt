@@ -61,8 +61,8 @@
     <div class="container">
         <form>
             <div class="row well" align="center">
-                <img src="{{url('image/profile.jpg')}}" class="img-circle" width="150" height="150">
-                <br><br><label class="label-font">Noom Attapon Jangpai</label>
+                <img src="{{url('image/jeremy.jpg')}}" class="img-circle" width="150" height="150">
+                <br><br><label class="label-font">JeremyLin Corei5</label>
                 <div class="page-header"></div>
 
                 <div class="col-xs-6 " align="center">
