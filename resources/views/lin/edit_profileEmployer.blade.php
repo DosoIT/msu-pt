@@ -4,7 +4,8 @@
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span><a href="{{ url('editprofile') }}">แก้ไขโปร์ไฟล์</a></button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> <a href="detail_employer"> เพิ่มประกาศรับสมัคร์</a>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
+                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a>
                 </button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
@@ -18,7 +19,7 @@
                         </div>
                         <div class="col-sm-6 col-md-7">
                             <div class="row">
-                                <form class="form-horizontal" role="form">
+                                <form class="form-horizontal" role="form" action="{{ url('detail_employer') }}">
                                     <fieldset>
                                         <legend>แก้ไขโปร์ไฟล์</legend>
                                         <div class="form-group">
@@ -61,7 +62,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </fieldset>
                                 </form>
                             </div><!-- /.row -->

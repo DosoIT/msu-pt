@@ -46,3 +46,6 @@ Route::get('/editprofile', function () {
 Route::get('/employer_pro', function () {
     return view('lin.profileEmployer');
 });
+Route::get('/editpostemployer', function () {
+    return view('lin.editpost_employer');
+});

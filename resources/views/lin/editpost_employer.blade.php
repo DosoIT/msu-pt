@@ -35,7 +35,7 @@
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm">
                     <div class="row">
-                        <h1 align="center">ประกาศรับสมัครงาน</h1>
+                        <h1 align="center">แก้ไขประกาศ</h1>
                         <form action="{{ url('detail_employer') }}">
                             <div class="col-xs-4" align="center">
                                 <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
@@ -83,7 +83,7 @@
                                     <label for="exampleInputPassword1">E-mail</label>
                                     <input type="email" class="form-control" placeholder="Facebook" value="xxx@xxx.com">
                                 </div>
-                                <button type="submit" class="btn btn-success btn-lg">ประกาศ</button>
+                                <button type="submit" class="btn btn-success btn-lg">แก้ไข</button>
                             </div>
                         </form>
                     </div>
