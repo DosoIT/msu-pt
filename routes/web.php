@@ -24,6 +24,10 @@ Route::get('/employer',function (){
 Route::get('/employer_dt',function (){
     return view('layouts.employer_detail');
 });
+Route::get('/show_all_pt',function (){
+    return view('layouts.show_all_pt');
+});
+
 
 Route::resource('editPh', 'NoomController');
 Route::resource('manageProfile', 'NoomController@manageProfile');
