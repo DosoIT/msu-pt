@@ -1,6 +1,14 @@
 @extends('layouts/template')
 @section('content')
     <style>
+        h1{
+            font-size: 30pt;
+            font-family: ThaiNeue;
+        }
+        label {
+            font-size: 18pt;
+            font-family: ThaiNeue;
+        }
         thead {
             background-color: #bce8f1;
             font-size: 1.2em;
@@ -171,15 +179,15 @@
             <div class="page-header">
 
                 <div class="dropdown">
-                    <a href="manageProfile" class="dropbtn"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a>
+                    <button class="btn btn-default  btn-lg" ><a href="manageProfile" ><i
+                                    class="glyphicon glyphicon-user" ></i> โปรไฟล์</a></button>
                 </div>
 
                 <div class="dropdown">
-                    <button class="dropbtn"><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
+                    <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
                     <div class="dropdown-content">
                         <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
                         <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
-
                     </div>
                 </div>
 
@@ -190,8 +198,8 @@
         <br>
         <div class="row">
             <div class="col-xs-12">
-                <table class="table table-hover ">
-                    <thead>
+                <table class="table table-hover " >
+                    <thead style="font-family: ThaiNeue;font-size: 16pt;">
                     <tr>
                         <th>ลำดับที่</th>
                         <th>ชื่อผลงาน</th>
@@ -200,7 +208,7 @@
                         <th>ลบ</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="font-family: ThaiNeue;font-size: 18pt;">
                     <tr>
                         <td>1</td>
                         <td>คันแทนา</td>

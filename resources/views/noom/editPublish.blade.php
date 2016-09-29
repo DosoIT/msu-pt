@@ -28,11 +28,11 @@
     </style>
     <div class="container">
         <div class="row">
-            <div class="page-header">
-                <h3>
-                    <span class="label label-default">แก้ไขโปรไฟล์</span>
-                    <span class="label label-default">เพิ่มประกาศรับสมัคร</span>
-                </h3>
+            <div class="page-header col-md-offset-1">
+                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
+                    <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
+                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
             </div>
         </div>
 

@@ -1,6 +1,14 @@
 @extends('layouts/template')
 @section('content')
     <style>
+        h1{
+            font-size: 30pt;
+            font-family: ThaiNeue;
+        }
+        label {
+            font-size: 18pt;
+            font-family: ThaiNeue;
+        }
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -78,16 +86,17 @@
     <div class="container">
         <div class="row">
             <div class="page-header">
+
                 <div class="dropdown">
-                    <a href="manageProfile" class="dropbtn"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a>
+                    <button class="btn btn-default  btn-lg" ><a href="manageProfile" ><i
+                                    class="glyphicon glyphicon-user" ></i> โปรไฟล์</a></button>
                 </div>
 
                 <div class="dropdown">
-                    <button class="dropbtn"><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
+                    <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
                     <div class="dropdown-content">
                         <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
                         <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
-
                     </div>
                 </div>
 
@@ -122,7 +131,7 @@
                         <input type="text" class="form-control" placeholder="สถานที่">
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-lg">เพิ่ม</button>
+                    <button type="submit" class="btn btn-success btn-lg" style="font-family: ThaiNeue;">เพิ่ม</button>
                 </div>
 
             </form>
