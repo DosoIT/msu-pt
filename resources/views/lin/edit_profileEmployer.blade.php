@@ -22,7 +22,7 @@
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
-        label {
+        .labeltext {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
@@ -30,7 +30,7 @@
             font-family: ThaiNeue;
             font-size: 12pt;
         }
-        a {
+        .alink {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
@@ -43,9 +43,10 @@
     <div class="container ">
         <div class="row">
             <div class="page-header col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span><a href="{{ url('editprofile') }}">แก้ไขโปร์ไฟล์</a></button>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
+                    <a href="{{ url('editprofile') }}" class="alink">แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร</a>
+                    <a href="{{ url('post') }}" class="alink"> เพิ่มประกาศรับสมัคร</a>
                 </button>
             </div>
             <div class="col-xs-12  col-md-12">
@@ -64,33 +65,33 @@
                                     <fieldset>
                                         <legend class="font">แก้ไขโปร์ไฟล์</legend>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">ชื่อ :</label>
+                                            <label class="col-sm-2 control-label labeltext">ชื่อ :</label>
                                             <div class="col-sm-4">
                                                 <input type="text" placeholder="Name" class="form-control textinput">
                                             </div>
-                                            <label class="col-sm-2 control-label">นามสกุล :</label>
+                                            <label class="col-sm-2 control-label labeltext">นามสกุล :</label>
                                             <div class="col-sm-4">
                                                 <input type="text" placeholder="Last Name" class="form-control textinput">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">ที่อยู่ :</label>
+                                            <label class="col-sm-2 control-label labeltext">ที่อยู่ :</label>
                                             <div class="col-sm-10">
                                                 <textarea name="" id="" cols="30" rows="3" class="textinput"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="textinput">โทร :</label>
+                                            <label class="col-sm-2 control-label labeltext" for="textinput">โทร :</label>
                                             <div class="col-sm-4">
                                                 <input type="text" placeholder="080-xxxxxxx" class="form-control textinput" value="">
                                             </div>
-                                            <label class="col-sm-2 control-label">E-mail :</label>
+                                            <label class="col-sm-2 control-label labeltext">E-mail :</label>
                                             <div class="col-sm-4">
                                                 <input type="text" placeholder="@hotmail.com" class="form-control textinput" value="">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Faecbook :</label>
+                                            <label class="col-sm-2 control-label labeltext">Faecbook :</label>
                                             <div class="col-sm-4">
                                                 <input type="text" placeholder="Siriwut Patsan" class="form-control textinput" value="">
                                             </div>
