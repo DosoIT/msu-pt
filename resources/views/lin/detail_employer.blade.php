@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <style>
-        h4 {
+        .fonts {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
@@ -13,9 +13,13 @@
             font-family: ThaiNeue;
             font-size: 18pt;
         }
-        a {
+        .link {
             font-family: ThaiNeue;
             font-size: 18pt;
+        }
+        .fontheader {
+            font-family: ThaiNeue;
+            font-size: 25pt;
         }
 
     </style>
@@ -24,9 +28,9 @@
         <div class="row" >
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
+                    <a href="{{ url('editprofile') }}" class="link"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
+                    <a href="{{ url('post') }}" class="link"> เพิ่มประกาศรับสมัคร์</a></button>
             </div>
                 <div class="col-xs-12 col-sm-6 col-md-12">
                         <div class="row">
@@ -38,7 +42,7 @@
                                 <h4 class="fonts">สถานที่ : ท่านขอนย่าน</h4>
                             </div>
                             <div class="col-sm-6 col-md-8">
-                                <h4 class="col-md-offset-1">ประวัติการประกาศโฟสรับสมัคร</h4>
+                                <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร</h4>
                                 <table class="table table-hover " width="100%">
                                     <thead>
                                     <tr bgcolor="#bce8f1">
@@ -54,8 +58,8 @@
                                         <td>รับพนักงาน Part-Time</td>
                                         <td>10/10/2559</td>
                                         <td>
-                                            <button class="btn btn-warning" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <button class="btn btn-warning" ><a href="editpostemployer" class="link"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-danger" ><a href="#" class="link"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -63,8 +67,8 @@
                                         <td>รับพนักงาน เซ้งพาณิชย์</td>
                                         <td>10/10/2559</td>
                                         <td>
-                                            <button class="btn btn-warning" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <button class="btn btn-warning" ><a href="editpostemployer" class="link"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-danger" ><a href="#" class="link"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -72,8 +76,8 @@
                                         <td>รับพนักงาน เด็กเสิร์ฟนมปั่น</td>
                                         <td>20/10/2559</td>
                                         <td>
-                                            <button class="btn btn-warning" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <button class="btn btn-warning" ><a href="editpostemployer" class="link"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-danger" ><a href="#" class="link"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
                                     </tbody>

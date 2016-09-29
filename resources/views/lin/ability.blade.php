@@ -11,6 +11,10 @@
             color: gray;
             display: inline-block;
         }
+        .fonth{
+            font-family: ThaiNeue;
+            font-size: 30pt;
+        }
         .remove_field {
             color: #fff;
         }
@@ -66,11 +70,11 @@
         <form>
             <div class="row well" align="center">
                 <img src="{{url('image/jeremy.jpg')}}" class="img-circle" width="150" height="150">
-                <br><br><label class="label-font">JeremyLin Corei5</label>
+                <br><br><label class="label-font fonth">JeremyLin Corei5</label>
                 <div class="page-header"></div>
 
                 <div class="col-xs-6" align="center">
-                    <h4>ที่อยู่</h4>
+                    <h4 class="fonth">ที่อยู่</h4>
                     <h5 class="font">
                         192 ม.2 ต.หนองน้ำใส อ.บ้านไผ่ จ.ขอนแก่น นะครัช
                     </h5>
@@ -90,7 +94,7 @@
                     </div>
                 </div>
                 <div class="col-xs-6 font" align="left">
-                    <h3>ความสามารถ</h3>
+                    <h3 class="fonth">ความสามารถ</h3>
                     <div class="input_fields_01">
                         <p>ซักผ้าเก่ง</p>
                         <p>เขียนโปรแกรม</p>
@@ -98,7 +102,7 @@
                         <p>ตัดต่อวีดีโอ</p>
                     </div>
                     <div class="page-header"></div>
-                    <h3>ลักษณะงาน</h3>
+                    <h3 class="fonth">ลักษณะงาน</h3>
                     <div class="input_fields_02">
                         <p>สามารถใช้ Photo Shop ได้</p>
                         <p>เขียนโปรแกรมได้</p>
@@ -106,20 +110,20 @@
                         <p>ตัดต่อวีดีโอได้ครัช</p>
                     </div>
                 </div>
-                    <p style="margin-left: -25cm; ">ผลงานต่างๆ</p>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
-                    </div>
-                    <div class="col-md-3">
-                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
-                    </div>
-                    <div class="col-md-3">
-                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
-                    </div>
-                    <div class="col-md-3">
-                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
-                    </div>
+                </div>
+            <p class="fonth">ผลงานต่างๆ</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                </div>
+                <div class="col-md-3">
+                    <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                </div>
+                <div class="col-md-3">
+                    <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                </div>
+                <div class="col-md-3">
+                    <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
                 </div>
             </div>
         </form>

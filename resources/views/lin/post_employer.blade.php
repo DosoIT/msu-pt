@@ -22,6 +22,14 @@
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
+        .font{
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        .fontheader{
+            font-family: ThaiNeue;
+            font-size: 28pt;
+        }
     </style>
 
     <div class="container ">
@@ -33,9 +41,9 @@
                     <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
-                <div class="well well-sm">
+                <div class="well well-sm font">
                     <div class="row">
-                        <h1 align="center">ประกาศรับสมัครงาน</h1>
+                        <h1 align="center" class="fontheader">ประกาศรับสมัครงาน</h1>
                         <form action="{{ url('detail_employer') }}">
                             <div class="col-xs-4" align="center">
                                 <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
