@@ -81,7 +81,7 @@
             </div>
         </div>
         <form>
-            <div class="row well" align="center">
+            <div class="row " align="center">
                 <img src="{{url('image/pic-default.png')}}" class="img-circle" width="150" height="150">
                 <br><br><label class="label-font">Noom Attapon Jangpai</label>
                 <div class="page-header"></div>

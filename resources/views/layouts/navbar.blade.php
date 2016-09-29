@@ -10,7 +10,7 @@
 
 </style>
 {{--ยังไม่ login--}}
-<div class="navbar navbar-xs navbar-default borColor" style="display: none;">
+<div class="navbar navbar-xs navbar-default borColor" >
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
@@ -32,7 +32,7 @@
 </div>
 {{--จบ--}}
 {{--login แล้ว--}}
-<div class="navbar navbar-xs navbar-default ">
+<div class="navbar navbar-xs navbar-default  " style="display: none;">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
@@ -85,7 +85,7 @@
         min-width: 250px;
         padding: 14px 14px 0;
         overflow: hidden;
-        background-color: rgba(255, 255, 255, .8);
+        background-color: rgba(255, 255, 255, .2);
         border-radius: 7px;
     }
 
@@ -95,7 +95,7 @@
         <div class="modal-body">
             <form method="post" action="#" role="login">
                 <div align="center">
-                    <h1 style="color: #1b6d85;font-weight: bold;">เข้าสู่ระบบ</h1>
+                    <h1 style="color: #9acfea;font-weight: bold;">เข้าสู่ระบบ</h1>
                     <div class="form-group">
                         <input type="text" name="email" placeholder="Username" class="form-control" required/>
                     </div>
