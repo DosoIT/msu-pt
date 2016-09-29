@@ -12,11 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts/template');
-});
-
-Route::get('/page1', function () {
-    return view('layouts.template');
+    return view('layouts.home');
 });
 Route::get('/employer',function (){
     return view('layouts.employer');
