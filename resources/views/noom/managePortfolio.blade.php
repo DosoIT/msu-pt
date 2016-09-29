@@ -1,6 +1,9 @@
 @extends('layouts/template')
 @section('content')
     <style>
+        td{
+
+        }
         h1{
             font-size: 30pt;
             font-family: ThaiNeue;
@@ -199,13 +202,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <table class="table table-hover " >
-                    <thead style="font-family: ThaiNeue;font-size: 16pt;">
+                    <thead style="font-family: ThaiNeue;font-size: 18pt;">
                     <tr>
                         <th>ลำดับที่</th>
                         <th>ชื่อผลงาน</th>
                         <th>รูปภาพผลงาน</th>
-                        <th>แก้ไข</th>
-                        <th>ลบ</th>
+                        <th>Action</th>
+
                     </tr>
                     </thead>
                     <tbody style="font-family: ThaiNeue;font-size: 18pt;">
@@ -223,9 +226,10 @@
                             <img src="{{url('image/pic-default.png')}}" id="myImg" width="30" height="30">
                             {{--จบ--}}
                         </td>
-                        <td><a href="editPortfolio"><img src="{{url('image/edit.png')}}" width="30" height="30"></a>
+                        <td>
+                            <button class="btn btn-warning" ><a href="editPortfolio" ><li class="glyphicon glyphicon-pencil"></li> Edit</a></button>
+                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li> Delect</a></button>
                         </td>
-                        <td><a href="#"><img src="{{url('image/del.png')}}" width="30" height="30"></a></td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -241,9 +245,10 @@
                             <img src="{{url('image/pic-default.png')}}" id="myImg" width="30" height="30">
                             {{--จบ--}}
                         </td>
-                        <td><a href="editPortfolio"><img src="{{url('image/edit.png')}}" width="30" height="30"></a>
+                        <td>
+                            <button class="btn btn-warning" ><a href="editPortfolio" ><li class="glyphicon glyphicon-pencil"></li> Edit</a></button>
+                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li> Delect</a></button>
                         </td>
-                        <td><a href="#"><img src="{{url('image/del.png')}}" width="30" height="30"></a></td>
                     </tr>
                     </tbody>
                 </table>

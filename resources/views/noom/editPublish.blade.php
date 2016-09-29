@@ -1,6 +1,13 @@
 @extends('layouts/template')
 @section('content')
     <style>
+        .h-header{
+            font-family: ThaiNeue;
+        }
+        label{
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -29,15 +36,15 @@
     <div class="container">
         <div class="row">
             <div class="page-header col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
+                <button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
+                <button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
             </div>
         </div>
 
         <div class="row">
-            <h1 align="center">แก้ไขประกาศ</h1>
+            <h1 align="center" class="h-header">แก้ไขประกาศ</h1>
             <form>
                 <div class="col-xs-4" align="center">
                     <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
@@ -69,7 +76,7 @@
                         <textarea name="" class="form-control" rows="5">1.xxxxx</textarea>
                     </div>
                     <br><br>
-                    <h3>ช่องทางการติดต่อ</h3>
+                    <h3 class="h-header">ช่องทางการติดต่อ</h3>
                     <div class="headerline"></div>
                     <br>
                     <div class="form-group">
