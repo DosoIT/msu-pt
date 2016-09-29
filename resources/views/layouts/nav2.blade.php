@@ -149,13 +149,13 @@
 
 </style>
 <nav class="nav navbar-static-top nav2" role="navigation">
-    <a class="navbar-brand" href="#">MSU:HELP</a>
+    <a class="navbar-brand" href="{{url('/')}}">MSU:HELP</a>
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="{{url('employer')}}">ผู้ว่าจ้าง</a>
         </li>
         <li>
-            <a href="#">Part-time</a>
+            <a href="{{url('show_pt')}}">Part-time</a>
         </li>
     </ul>
     {{--<div class="borColor"></div>--}}

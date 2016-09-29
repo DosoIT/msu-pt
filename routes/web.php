@@ -17,13 +17,18 @@ Route::get('/', function () {
 Route::get('/employer',function (){
     return view('layouts.employer');
 });
+Route::get('/show_pt',function (){
+    return view('layouts.show_pt');
+});
 Route::get('/employer_dt',function (){
     return view('layouts.employer_detail');
 });
 Route::get('/show_all_pt',function (){
     return view('layouts.show_all_pt');
 });
-
+Route::get('/create_account',function (){
+    return view('layouts.create_account');
+});
 
 Route::resource('editPh', 'NoomController');
 Route::resource('manageProfile', 'NoomController@manageProfile');

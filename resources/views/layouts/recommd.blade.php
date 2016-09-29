@@ -4,31 +4,55 @@
     </div>
     <div class="row">
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
         <div class="col-xs-3 img-responsive">
-            <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304" height="236">
+            <a href="{{url('ability')}}">
+                <img src="image/bander01.png" class="img-thumbnail img-zoom" alt="Cinque Terre" width="304"
+                     height="236">
+            </a>
         </div>
     </div>
     <hr style="border: 1px solid #8c8c8c">

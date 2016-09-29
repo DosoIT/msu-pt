@@ -68,6 +68,7 @@
 @include('layouts.navbar')
 @include('layouts.nav2')
 @include('layouts.search')
+@include('layouts.category')
 <div class="container">
     <div class="row">
         @yield('content')
