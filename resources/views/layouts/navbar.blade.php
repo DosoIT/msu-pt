@@ -4,65 +4,69 @@
     .drop {
         position: relative;
         display: inline-block;
-        margin-right: 30px;
+        margin-right: 5px;
         margin-top: 1px;
     }
 
 </style>
-{{--ยังไม่ login--}}
-<div class="navbar navbar-xs navbar-default borColor" >
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">My Project</a>
-    </div>
-    <div class="navbar-collapse collapse" id="searchbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a data-toggle="modal" data-target=".bs-example-modal-sm" style="cursor: pointer">
-                    <i class="glyphicon glyphicon-lock"></i>
-                    สมัครสมาชิก/เข้าสู่ระบบ
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-{{--จบ--}}
+
 {{--login แล้ว--}}
-<div class="navbar navbar-xs navbar-default  " style="display: none;">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">My Project</a>
-    </div>
-    <div class="navbar-collapse collapse" id="searchbar">
-        <ul class="nav navbar-nav navbar-right drop">
-            <li>
-                <div class="dropdown">
-                    <div class="dropdown-toggle" >
-                        <img src="{{url('image/pic-default.png')}}" class="img-circle"  width="20" height="20">
-                        Noom Attapon Jangpai
-                        <i class="glyphicon glyphicon-list" data-toggle="dropdown" style="cursor: pointer"></i>
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">จัดการข้อมูล</a></li>
-                            <li><a href="#">ออกจากระบบ</a></li>
-                        </ul>
+@if(session('chk'))
+    <div class="navbar navbar-xs navbar-default  ">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Project</a>
+        </div>
+        <div class="navbar-collapse collapse" id="searchbar">
+            <ul class="nav navbar-nav navbar-right drop">
+                <li>
+                    <div class="dropdown">
+                        <div class="dropdown-toggle">
+                            <img src="{{url('image/pic-default.png')}}" class="img-circle" width="20" height="20">
+                            Noom Attapon Jangpai &nbsp;
+                            <i class="glyphicon glyphicon-list" data-toggle="dropdown" style="cursor: pointer"></i>
+                            <ul class="dropdown-menu">
+                                @if(session('chk') == 'noom')
+                                    <li><a href="{{url('manageProfile')}}">จัดการข้อมูล</a></li>
+                                @elseif(session('chk') == 'lin')
+                                    <li><a href="{{url('detail_employer')}}">จัดการข้อมูล</a></li>
+                                @endif
+                                <li><a href="{{url('logout')}}">ออกจากระบบ</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-
-
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+    {{--จบ--}}
+@else
+    {{--ยังไม่ login--}}
+    <div class="navbar navbar-xs navbar-default borColor">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Project </a>
+        </div>
+        <div class="navbar-collapse collapse" id="searchbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="modal" data-target=".bs-example-modal-sm" style="cursor: pointer">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        สมัครสมาชิก/เข้าสู่ระบบ
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+@endif
 {{--จบ--}}
 {!! Html::script('js/jquery.min.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
@@ -88,23 +92,25 @@
         background-color: rgba(255, 255, 255, .2);
         border-radius: 7px;
     }
-
 </style>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-body">
-            <form method="post" action="#" role="login">
+            <form action="{{url('profile')}}" method="post" role="login">
+                <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                 <div align="center">
                     <h1 style="color: #9acfea;font-weight: bold;">เข้าสู่ระบบ</h1>
                     <div class="form-group">
-                        <input type="text" name="email" placeholder="Username" class="form-control" required/>
+                        <input type="text" name="username" placeholder="Username" class="form-control" required/>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Password" required/>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password"
+                               required/>
                     </div>
                     <button type="submit" name="go" class="btn  btn-primary ">เข้าสู่ระบบ</button>
                     <div>
-                        <a href="#" style="color: #a4aaae;font-family: ThaiNeue; font-size: 14pt;">Create account</a>
+                        <a href="#" style="color: #a4aaae;font-family: ThaiNeue; font-size: 14pt;">Create
+                            account</a>
                     </div>
                 </div>
             </form>

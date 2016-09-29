@@ -35,7 +35,11 @@ Route::resource('manageProfile', 'NoomController@manageProfile');
 Route::resource('addPortfolio', 'NoomController@addPortfolio');
 Route::resource('editPortfolio', 'NoomController@editPortfolio');
 Route::resource('managePortfolio', 'NoomController@managePortfolio');
-
+Route::resource('profile','TestLoginController');
+Route::get('/logout', function () {
+    session()->forget('chk');
+    return view('layouts.home');
+});
 Route::get('/ability', function () {
     return view('lin.ability');
 });
