@@ -10,6 +10,8 @@
     {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('css/bootstrap.css') !!}
     {!! Html::style('css/w3.css') !!}
+    {!! Html::style('ui/build/css/metro.css') !!}
+    {!! Html::style('ui/build/css/metro-icons.css') !!}
     <style>
         @font-face {
             font-family: Naipol;
@@ -80,6 +82,7 @@
 {{--Script--}}
 {!! Html::script('js/jquery.min.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
+{!! Html::script('ui/build/js/metro.js') !!}
 <script>
 //load picture ตอนเลือกมา
     var loadFile = function(event) {
