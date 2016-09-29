@@ -109,7 +109,7 @@
                     </div>
                     <button type="submit" name="go" class="btn  btn-primary ">เข้าสู่ระบบ</button>
                     <div>
-                        <a href="#" style="color: #a4aaae;font-family: ThaiNeue; font-size: 14pt;">Create
+                        <a href="{{url('create_account')}}" style="color: #a4aaae;font-family: ThaiNeue; font-size: 14pt;">Create
                             account</a>
                     </div>
                 </div>

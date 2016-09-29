@@ -139,10 +139,10 @@
 
                        <div class="ch-gender">
                            <input type="radio" id="gender" name="gender" value="emyer">
-                           <label class="w3-validate capM">Male</label>
+                           <label class="w3-validate capM">ผู้ว่าจ้าง</label>
 
                            <input type="radio" id="gender" name="gender" value="emyies">
-                           <label class="w3-validate capF">Female</label>
+                           <label class="w3-validate capF">Part-Time</label>
                        </div>
 
                     </fieldset>
@@ -181,7 +181,7 @@
 
                     <div style="border: 3px dashed #808080;margin-top: 50px;"></div>
                     <br>
-                    <button type="submit" class="btn btn-success btn-lg" style="font-family: ThaiNeue;">เพิ่ม</button>
+                    <button type="submit" class="btn btn-success btn-lg" style="font-family: ThaiNeue;">สมัครสมาชิก</button>
                 </div>
 
             </form>
