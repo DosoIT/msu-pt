@@ -46,7 +46,7 @@
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
+                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm">

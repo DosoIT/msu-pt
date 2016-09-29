@@ -30,16 +30,18 @@
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editprofile') }}" class="link"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}" class="link"> เพิ่มประกาศรับสมัคร์</a></button>
+                    <a href="{{ url('post') }}" class="link"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
                 <div class="col-xs-12 col-sm-6 col-md-12">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4" align="center">
+                            <div class="col-sm-6 col-md-4" align="center" ">
                                 <br>
                                 <img src="{{url('image/jeremy.jpg')}}" class="img-Thumbnail" width="150" height="150">
                                 <h4 class="fonts">Jeremylin Corei5</h4>
-                                <h4 class="fonts">โทร : 0874236079</h4>
-                                <h4 class="fonts">สถานที่ : ท่านขอนย่าน</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30" height="30"> โทร : 0874236079</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30" height="30"> Facebook : Siriwut Patsan</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30" height="30"> E-mail : Siriwut@hotmail.com</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/location.png') }}" width="30" height="30"> สถานที่ : ท่านขอนย่าน</h4>
                             </div>
                             <div class="col-sm-6 col-md-8">
                                 <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร</h4>

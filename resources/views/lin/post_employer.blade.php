@@ -30,15 +30,19 @@
             font-family: ThaiNeue;
             font-size: 28pt;
         }
+        .link {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
     </style>
 
     <div class="container ">
         <div class="row">
             <div class="page-header col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
+                <button class="btn btn-default link"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
+                <button class="btn btn-default link"><span class="glyphicon glyphicon-plus"></span>
+                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm font">
@@ -91,7 +95,7 @@
                                     <label for="exampleInputPassword1">E-mail</label>
                                     <input type="email" class="form-control" placeholder="Facebook" value="">
                                 </div>
-                                <button type="submit" class="btn btn-success btn-lg">ประกาศ</button>
+                                <button type="submit" class="btn btn-success btn-lg link">ประกาศ</button>
                             </div>
                         </form>
                     </div>
