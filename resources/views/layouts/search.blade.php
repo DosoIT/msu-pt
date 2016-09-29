@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-xs-2">
                     <button type="submit" class="w3-btn w3-blue"
-                            style="margin-top: 25%;position: absolute;font-family: 'ThaiNeue';font-size: large">ค้นหา
+                            style="margin-top: 32%;position: absolute;font-family: 'ThaiNeue';font-size: large">ค้นหา
                     </button>
                 </div>
             </div>

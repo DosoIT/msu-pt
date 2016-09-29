@@ -9,14 +9,19 @@
     .btn-category{
         margin-left: 10%;
     }
-    .btn-category .bt{
+    .btn-category .bt {
         font-family: ThaiNeue;
         font-size: 18pt;
         width: 150px;
+        color: #0f0f0f;
+    }
+    .bt a{
+        color: #000;
     }
     i{
         margin-left: -8px;
         padding-left: -1px;
+        color: #0f0f0f;
     }
 </style>
 
