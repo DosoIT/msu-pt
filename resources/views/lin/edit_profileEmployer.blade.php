@@ -1,5 +1,19 @@
 @extends('layouts.template')
 @section('content')
+    <style>
+        label {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        input {
+            font-family: ThaiNeue;
+            font-size: 12pt;
+        }
+        a {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+    </style>
     <div class="container ">
         <div class="row">
             <div class="page-header col-md-offset-1">
@@ -21,7 +35,7 @@
                             <div class="row">
                                 <form class="form-horizontal" role="form" action="{{ url('detail_employer') }}">
                                     <fieldset>
-                                        <legend>แก้ไขโปร์ไฟล์</legend>
+                                        <legend class="font">แก้ไขโปร์ไฟล์</legend>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">ชื่อ :</label>
                                             <div class="col-sm-4">
@@ -49,7 +63,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">FB :</label>
+                                            <label class="col-sm-2 control-label">Faecbook :</label>
                                             <div class="col-sm-4">
                                                 <input type="text" placeholder="Siriwut Patsan" class="form-control" value="">
                                             </div>
@@ -58,7 +72,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <div class="pull-left">
-                                                    <button type="submit" class="btn btn-success">Save</button>
+                                                    <button type="submit" class="btn btn-success">บันทึก</button>
                                                 </div>
                                             </div>
                                         </div>

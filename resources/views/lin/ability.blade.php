@@ -1,6 +1,10 @@
 @extends('layouts/template')
 @section('content')
     <style>
+        .font{
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
         .label-font {
             font-size: 1.5em;
             font-weight: 700;
@@ -65,16 +69,16 @@
                 <br><br><label class="label-font">JeremyLin Corei5</label>
                 <div class="page-header"></div>
 
-                <div class="col-xs-6 " align="center">
+                <div class="col-xs-6" align="center">
                     <h4>ที่อยู่</h4>
-                    <h5>
+                    <h5 class="font">
                         192 ม.2 ต.หนองน้ำใส อ.บ้านไผ่ จ.ขอนแก่น นะครัช
                     </h5>
                     <div class="page-header"></div>
                     <div class="dropdown">
                         <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">ข้อมูลการติดต่อ
                             <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
+                        <ul class=" dropdown-menu">
                             <li><a href="#">
                                     <span class="glyphicon glyphicon-phone"> 0874236079</span></a></li>
                             <li><a href="https://www.facebook.com/siriwut.patsan"><span class="glyphicon glyphicon-star"> SiriwutPatsan</span></a></li>
@@ -85,8 +89,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xs-6" align="left">
-                    <h3>ความสามารถ</h3><br>
+                <div class="col-xs-6 font" align="left">
+                    <h3>ความสามารถ</h3>
                     <div class="input_fields_01">
                         <p>ซักผ้าเก่ง</p>
                         <p>เขียนโปรแกรม</p>
@@ -94,7 +98,7 @@
                         <p>ตัดต่อวีดีโอ</p>
                     </div>
                     <div class="page-header"></div>
-                    <h3>ลักษณะงาน</h3><br>
+                    <h3>ลักษณะงาน</h3>
                     <div class="input_fields_02">
                         <p>สามารถใช้ Photo Shop ได้</p>
                         <p>เขียนโปรแกรมได้</p>
@@ -102,12 +106,22 @@
                         <p>ตัดต่อวีดีโอได้ครัช</p>
                     </div>
                 </div>
-                <div align="center">
-                    <br><br> <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary btn-lg">
+                    <p style="margin-left: -25cm; ">ผลงานต่างๆ</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{url('image/bander01.png')}}" class="img-Thumbnail" width="250" height="200">
+                    </div>
                 </div>
             </div>
         </form>
-
-
     </div>
 @endsection

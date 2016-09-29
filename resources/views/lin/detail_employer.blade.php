@@ -1,7 +1,19 @@
 @extends('layouts.template')
 @section('content')
     <style>
-        .fonts {
+        h4 {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        td {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        tr {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        a {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
@@ -16,7 +28,7 @@
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร์</a></button>
             </div>
-                <div class="col-xs-12 col-sm-6 col-md-12 fonts">
+                <div class="col-xs-12 col-sm-6 col-md-12">
                         <div class="row">
                             <div class="col-sm-6 col-md-4" align="center">
                                 <br>
@@ -42,7 +54,7 @@
                                         <td>รับพนักงาน Part-Time</td>
                                         <td>10/10/2559</td>
                                         <td>
-                                            <button class="btn btn-success" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-warning" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
                                             <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
@@ -51,7 +63,7 @@
                                         <td>รับพนักงาน เซ้งพาณิชย์</td>
                                         <td>10/10/2559</td>
                                         <td>
-                                            <button class="btn btn-success" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-warning" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
                                             <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
@@ -60,7 +72,7 @@
                                         <td>รับพนักงาน เด็กเสิร์ฟนมปั่น</td>
                                         <td>20/10/2559</td>
                                         <td>
-                                            <button class="btn btn-success" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-warning" ><a href="editpostemployer" ><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
                                             <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>

@@ -22,9 +22,25 @@
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
+        label {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        input {
+            font-family: ThaiNeue;
+            font-size: 12pt;
+        }
+        a {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+        }
+        h1 {
+            font-family: ThaiNeue;
+            font-size: 26pt;
+        }
     </style>
 
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>

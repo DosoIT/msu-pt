@@ -47,25 +47,25 @@
                             <div class="col-xs-8">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">หัวข้อ</label>
-                                    <input type="text" class="form-control" placeholder="หัวข้อ" value="xxxxx">
+                                    <input type="text" class="form-control" placeholder="หัวข้อ" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">ประเภทงาน</label>
                                     <select name="" class="form-control">
-                                        <option>พนักงานเสิร์ฟ</option>
+                                        <option></option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">รายละเอียด</label>
-                                    <textarea name="" class="form-control" rows="5">รับจำนวน 2 คน</textarea>
+                                    <textarea name="" class="form-control" rows="5"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">สถานที่</label>
-                                    <input type="text" class="form-control" placeholder="สถานที่" value="แชมป์หมูกระทะ">
+                                    <input type="text" class="form-control" placeholder="สถานที่" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
-                                    <textarea name="" class="form-control" rows="5">1.xxxxx</textarea>
+                                    <textarea name="" class="form-control" rows="5"></textarea>
                                 </div>
                                 <br><br>
                                 <h3>ช่องทางการติดต่อ</h3>
@@ -73,15 +73,15 @@
                                 <br>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">เบอร์โทร</label>
-                                    <input type="number" class="form-control" placeholder="เบอร์โทร" value="1234567890">
+                                    <input type="number" class="form-control" placeholder="เบอร์โทร" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Facebook</label>
-                                    <input type="text" class="form-control" placeholder="Facebook" value="xxxxxxx">
+                                    <input type="text" class="form-control" placeholder="Facebook" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">E-mail</label>
-                                    <input type="email" class="form-control" placeholder="Facebook" value="xxx@xxx.com">
+                                    <input type="email" class="form-control" placeholder="Facebook" value="">
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg">ประกาศ</button>
                             </div>
