@@ -111,7 +111,9 @@
 
         <div class="row">
             <h1 align="center"><i class="fa fa-user-plus"></i>&nbsp;สมัครสมาชิก</h1>
-            <form>
+            <form   method="POST" action="{{ url('register') }}" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
+
                 <div class="col-xs-4" align="center">
                     <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
                          height="200" id="output">
@@ -121,7 +123,7 @@
                     {{--Login Form--}}
                     <fieldset>
                         <div class="input-control modern text iconic">
-                            <input type="text">
+                            <input type="text" name="user_name" >
                             <span class="label">You login</span>
                             <span class="informer">Please enter you login or email</span>
                             <span class="placeholder">Input login</span>
@@ -129,7 +131,7 @@
                         </div>
 
                         <div class="input-control modern password iconic" data-role="input">
-                            <input type="password">
+                            <input type="password" name="pass">
                             <span class="label">You password</span>
                             <span class="informer">Please enter you password</span>
                             <span class="placeholder">Input password</span>
@@ -138,10 +140,10 @@
                         </div>
 
                        <div class="ch-gender">
-                           <input type="radio" id="gender" name="gender" value="emyer">
+                           <input type="radio" id="gender" name="status" value="1">
                            <label class="w3-validate capM">ผู้ว่าจ้าง</label>
 
-                           <input type="radio" id="gender" name="gender" value="emyies">
+                           <input type="radio" id="gender" name="status" value="2">
                            <label class="w3-validate capF">Part-Time</label>
                        </div>
 
@@ -151,32 +153,43 @@
                 <div class="col-xs-8">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อ</label>
-                        <input type="text" class="form-control" placeholder="ชื่อ">
+                        <input type="text" class="form-control" placeholder="ชื่อ" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">นามสกุล</label>
-                        <input type="text" class="form-control" placeholder="นามสกุล">
+                        <input type="text" class="form-control" placeholder="นามสกุล" name="lastname" required>
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword1">เพศ : </label>
+                        <input type="radio" id="sex" name="sex" value="1">
+                        <label class="w3-validate capM">ชาย</label>
+
+                        <input type="radio" id="sex" name="sex" value="2">
+                        <label class="w3-validate capF">หญิง</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">วันเกิด</label>
+                        <input type="date" class="form-control" placeholder="อาชีพ" name="date" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="exampleInputPassword1">ที่อยู่</label>
-                        <textarea name="" class="form-control" rows="5"></textarea>
+                        <textarea name="address" class="form-control" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">เบอร์โทรศัพท์</label>
-                        <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์">
+                        <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" name="tel" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">อีเมลล์</label>
-                        <input type="email" class="form-control" placeholder="อีเมลล์">
+                        <input type="email" class="form-control" placeholder="อีเมลล์" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">facebook</label>
-                        <input type="text" class="form-control" placeholder="facebook">
+                        <input type="text" class="form-control" placeholder="facebook" name="facebook" required>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">อาชีพ</label>
-                        <input type="text" class="form-control" placeholder="อาชีพ">
-                    </div>
+
 
 
                     <div style="border: 3px dashed #808080;margin-top: 50px;"></div>

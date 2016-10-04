@@ -58,3 +58,7 @@ Route::get('/employer_pro', function () {
 Route::get('/editpostemployer', function () {
     return view('lin.editpost_employer');
 });
+Auth::routes();
+
+//Auth
+Route::resource('register', 'CreateAccountController');
