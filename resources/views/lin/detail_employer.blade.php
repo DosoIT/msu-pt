@@ -21,6 +21,11 @@
             font-family: ThaiNeue;
             font-size: 25pt;
         }
+        .li{
+            font-family: ThaiNeue;
+            font-size: 16pt;
+            color: #1d1d1d;
+        }
 
     </style>
 
@@ -34,7 +39,7 @@
             </div>
                 <div class="col-xs-12 col-sm-6 col-md-12">
                         <div class="row">
-                            <div class="col-sm-6 col-md-4" align="center" ">
+                            <div class="col-sm-6 col-md-4" align="center">
                                 <br>
                                 <img src="{{url('image/jeremy.jpg')}}" class="img-Thumbnail" width="150" height="150">
                                 <h4 class="fonts">Jeremylin Corei5</h4>
@@ -45,7 +50,7 @@
                             </div>
                             <div class="col-sm-6 col-md-8">
                                 <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร</h4>
-                                <table class="table table-hover " width="100%">
+                                <table class="table table-hover table-responsive" width="100%">
                                     <thead>
                                     <tr bgcolor="#bce8f1">
                                         <th width="8">No.</th>
@@ -60,8 +65,8 @@
                                         <td>รับพนักงาน Part-Time</td>
                                         <td>10/10/2559</td>
                                         <td>
-                                            <button class="btn btn-warning" ><a href="editpostemployer" class="link"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger" ><a href="#" class="link"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <button class="btn btn-warning btn-sm" ><a href="editpostemployer" class="link li"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-danger btn-sm" ><a href="#" class="link li"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -69,8 +74,8 @@
                                         <td>รับพนักงาน เซ้งพาณิชย์</td>
                                         <td>10/10/2559</td>
                                         <td>
-                                            <button class="btn btn-warning" ><a href="editpostemployer" class="link"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger" ><a href="#" class="link"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <button class="btn btn-warning btn-sm" ><a href="editpostemployer" class="link li"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-danger btn-sm" ><a href="#" class="link li"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -78,8 +83,8 @@
                                         <td>รับพนักงาน เด็กเสิร์ฟนมปั่น</td>
                                         <td>20/10/2559</td>
                                         <td>
-                                            <button class="btn btn-warning" ><a href="editpostemployer" class="link"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger" ><a href="#" class="link"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <button class="btn btn-warning btn-sm" ><a href="editpostemployer" class="link li"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
+                                            <button class="btn btn-danger btn-sm" ><a href="#" class="link li"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
                                         </td>
                                     </tr>
                                     </tbody>
