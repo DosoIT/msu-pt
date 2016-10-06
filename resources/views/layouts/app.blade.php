@@ -9,8 +9,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-<<<<<<< HEAD
 <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <style>
@@ -18,7 +16,7 @@
             /* styles for browsers larger than 960px; */
             .navbar-xs {
                 background-color: black;
-                width: 120%;
+                width: 115%;
                 height: 1%;
             }
 
@@ -33,8 +31,9 @@
 
             .drop > li > a {
                 text-align: center;
-                padding-left: 50px;
-                padding-right: 50px;
+                padding-left: 0px;
+                padding-right: 0px;
+                margin-right: 10px;
             }
         }
 
@@ -63,11 +62,6 @@
 
         }
     </style>
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-=======
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
@@ -75,12 +69,10 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
->>>>>>> origin/master
         ]); ?>
     </script>
 </head>
 <body>
-<<<<<<< HEAD
 <nav class="navbar-xs">
     <div class="container">
         <div class="navbar-header">
@@ -96,7 +88,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand brand" href="{{ url('/') }}">
-{{--                {{ config('app.name', 'Laravel') }}--}}
+                {{--{{ config('app.name', 'Laravel') }}--}}
                 {{ 'คณะวิทยาการสารสนเทศ' }}
             </a>
         </div>
@@ -116,14 +108,15 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-circle-o" style="color: #20ff07"></i>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/manageProfile') }}">Profile</a></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
 
@@ -143,69 +136,5 @@
 @yield('contents')
 <!-- Scripts -->
 <script src="/js/app.js"></script>
-{{--Script--}}
-
-=======
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    @yield('content')
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
->>>>>>> origin/master
 </body>
 </html>

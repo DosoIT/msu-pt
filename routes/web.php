@@ -1,16 +1,4 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
 Route::get('/', function () {
     return view('layouts.home');
 });
@@ -35,7 +23,7 @@ Route::resource('manageProfile', 'NoomController@manageProfile');
 Route::resource('addPortfolio', 'NoomController@addPortfolio');
 Route::resource('editPortfolio', 'NoomController@editPortfolio');
 Route::resource('managePortfolio', 'NoomController@managePortfolio');
-Route::resource('profile','TestLoginController');
+
 Route::get('/logout', function () {
     session()->forget('chk');
     return view('layouts.home');
@@ -59,10 +47,5 @@ Route::get('/editpostemployer', function () {
     return view('lin.editpost_employer');
 });
 Auth::routes();
-
-<<<<<<< HEAD
 Route::get('/home', 'HomeController@index');
-=======
-//Auth
-Route::resource('register', 'CreateAccountController');
->>>>>>> origin/master
+

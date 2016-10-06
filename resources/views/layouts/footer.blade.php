@@ -1,42 +1,87 @@
 <style>
-    footer {
-        width: 100%;
-        height: 300px;
-        border: 1px solid #0f0f0f;
-        background-color: #0f0f0f;
-        color: #d9edf7;
+    @media only screen and (min-width: 960px) {
+        /* styles for browsers larger than 960px; */
+        footer {
+            width: 100%;
+            height: 60%;
+            border: 1px solid #0f0f0f;
+            background-color: #0f0f0f;
+            color: #d9edf7;
+        }
+
+        .page-footer {
+            margin-top: 2%;
+            padding-left: 10%;
+        }
+
+        .page-footer hr {
+            width: 20%;
+            margin-top: 1%;
+            border-bottom: 1px solid #2ca02c;
+
+        }
+
+        .page-footer a:hover {
+            border-color: transparent;
+            color: #ff1aba;
+
+        }
+
+        .page-footer .tag {
+            margin-left: -50px;
+        }
+
+        .page-footer .tag a {
+            border-bottom: 1px solid #9acfea;
+        }
+
+        .page-footer .tag a:hover {
+            border-color: transparent;
+            color: #ff1aba;
+        }
     }
 
-    .page-footer {
-        margin-top: 2%;
-        padding-left: 10%;
+    @media only screen and (min-width: 1440px) {
+        footer {
+            width: 100%;
+            height: 40%;
+            border: 1px solid #0f0f0f;
+            background-color: #0f0f0f;
+            color: #d9edf7;
+        }
+
+        .page-footer {
+            margin-top: 2%;
+            padding-left: 10%;
+        }
+
+        .page-footer hr {
+            width: 20%;
+            margin-top: 1%;
+            border-bottom: 1px solid #2ca02c;
+
+        }
+
+        .page-footer a:hover {
+            border-color: transparent;
+            color: #ff1aba;
+
+        }
+
+        .page-footer .tag {
+            margin-left: -50px;
+        }
+
+        .page-footer .tag a {
+            border-bottom: 1px solid #9acfea;
+        }
+
+        .page-footer .tag a:hover {
+            border-color: transparent;
+            color: #ff1aba;
+        }
     }
 
-    .page-footer hr {
-        width: 20%;
-        margin-top: 1%;
-        border-bottom: 1px solid #2ca02c;
-
-    }
-
-    .page-footer a:hover {
-        border-color: transparent;
-        color: #ff1aba;
-
-    }
-
-    .page-footer .tag {
-        margin-left: -50px;
-    }
-
-    .page-footer .tag a {
-        border-bottom: 1px solid #9acfea;
-    }
-
-    .page-footer .tag a:hover {
-        border-color: transparent;
-        color: #ff1aba;
-    }
 </style>
 <footer>
     <div class="col-xs-3 col-sm-3 col-md-12">
