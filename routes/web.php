@@ -58,3 +58,6 @@ Route::get('/employer_pro', function () {
 Route::get('/editpostemployer', function () {
     return view('lin.editpost_employer');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

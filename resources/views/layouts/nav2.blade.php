@@ -11,7 +11,7 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: -8%;
+            margin-left: 10%;
             margin-top: 1px;
             font-family: ThaiNeue;
             font-size: 38px
@@ -36,7 +36,7 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: -8%;
+            margin-left: -15%;
             margin-top: 1px;
             font-family: ThaiNeue;
             font-size: 38px
@@ -48,6 +48,10 @@
             padding-top: 10px;
             font-family: ThaiNeue;
             font-size: 28px
+        }
+        .nav2 ul li a:hover{
+            margin-top: 15px;
+            zoom: 1;
         }
     }
     @media only screen and (min-width:1440px){
@@ -61,15 +65,15 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: -1%;
-            margin-top: 1px;
+            margin-left: -36%;
+            margin-top: 10px;
             font-family: ThaiNeue;
             font-size: 38px
         }
 
         .nav2 ul {
-            margin-right: -10%;
-            margin-top: -.5%;
+            margin-right: 4%;
+            margin-top: 3px;
             padding-top: 10px;
             font-family: ThaiNeue;
             font-size: 28px
@@ -90,7 +94,7 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: -25%;
+            margin-left: 0%;
             margin-top: 1px;
             font-family: ThaiNeue;
             font-size: 20px
@@ -124,7 +128,7 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: -8%;
+            margin-left: 10%;
             margin-top: 1px;
             font-family: ThaiNeue;
             font-size: 38px

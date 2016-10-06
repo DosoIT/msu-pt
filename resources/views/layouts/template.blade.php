@@ -67,7 +67,8 @@
     </style>
 </head>
 <body>
-@include('layouts.navbar')
+{{--@include('layouts.navbar')--}}
+@include('layouts.app')
 @include('layouts.nav2')
 @include('layouts.search')
 @include('layouts.category')
