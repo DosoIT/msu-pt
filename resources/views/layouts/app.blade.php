@@ -136,5 +136,5 @@
 @yield('contents')
 <!-- Scripts -->
 <script src="/js/app.js"></script>
-</body>
-</html>
+{{--</body>--}}
+{{--</html>--}}
