@@ -138,3 +138,8 @@
 <script src="/js/app.js"></script>
 {{--</body>--}}
 {{--</html>--}}
+
+{!! Html::script('js/jquery.min.js') !!}
+{!! Html::script('js/bootstrap.min.js') !!}
+</body>
+</html>
