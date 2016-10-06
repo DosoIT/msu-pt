@@ -60,4 +60,9 @@ Route::get('/editpostemployer', function () {
 });
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/home', 'HomeController@index');
+=======
+//Auth
+Route::resource('register', 'CreateAccountController');
+>>>>>>> origin/master

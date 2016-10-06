@@ -1,10 +1,11 @@
 @extends('layouts/template')
 @section('content')
     <style>
-        .h3-header{
+        .h3-header {
             font-size: 20pt;
             font-family: ThaiNeue;
         }
+
         label {
             font-size: 12pt;
             font-family: ThaiNeue;
@@ -71,8 +72,8 @@
             <div class="page-header">
 
                 <div class="dropdown">
-                    <button class="btn btn-default  btn-lg" ><a href="manageProfile" ><i
-                                    class="glyphicon glyphicon-user" ></i> โปรไฟล์</a></button>
+                    <button class="btn btn-default  btn-lg"><a href="manageProfile"><i
+                                    class="glyphicon glyphicon-user"></i> โปรไฟล์</a></button>
                 </div>
 
                 <div class="dropdown">
@@ -120,12 +121,22 @@
                         <button class="add_field_02 btn btn-success">เพิ่มความสามารถ</button>
                         <br>
                     </div>
+
+                    <div class="page-header"></div>
+                    <h3 class="h3-header">ประเภทงาน</h3><br>
+                    <div >
+                        <select name="cat_id" class="form-control">
+                            <option value="1">ถ่างภาพ</option>
+                            <option value="2">ตัดต่อวิดีโอ</option>
+                        </select>
+                    </div>
                 </div>
                 <br><br>
 
             </div>
             <div align="center">
-                <br><br> <input type="submit" value="บันทึกข้อมูล" class="btn btn-success btn-lg " style="font-family: ThaiNeue;">
+                <br><br> <input type="submit" value="บันทึกข้อมูล" class="btn btn-success btn-lg "
+                                style="font-family: ThaiNeue;">
             </div>
         </form>
     </div>
