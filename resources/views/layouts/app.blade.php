@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-<!-- Styles -->
+    <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <style>
         @media only screen and (min-width: 960px) {
@@ -68,7 +68,7 @@
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
+                'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 </head>
@@ -109,11 +109,16 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <i class="fa fa-circle-o" style="color: #20ff07"></i>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/manageProfile') }}">Profile</a></li>
+                            @if(Auth::user()->status =='PartTime')
+                                <li><a href="{{ url('/profile') }}">Profile</a></li>
+                            @elseif(Auth::user()->status =='ผู้ว่าจ้าง')
+                                <li><a href="{{ url('/postEmployer') }}">Profile</a></li>
+                            @endif
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">

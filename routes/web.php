@@ -19,10 +19,15 @@ Route::get('/create_account',function (){
 });
 
 Route::resource('editPh', 'NoomController');
-Route::resource('manageProfile', 'NoomController@manageProfile');
+
 Route::resource('addPortfolio', 'NoomController@addPortfolio');
 Route::resource('editPortfolio', 'NoomController@editPortfolio');
 Route::resource('managePortfolio', 'NoomController@managePortfolio');
+
+//noom  manage Database
+Route::resource('manageProfile', 'ManageProfileController');
+Route::resource('profile', 'ProfileController');
+
 
 Route::get('/logout', function () {
     session()->forget('chk');

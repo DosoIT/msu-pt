@@ -16,7 +16,7 @@
             border-top: 4px solid black;
         }
 
-        .panel-heading, label{
+        .panel-heading, label {
             font-family: ThaiNeue;
             font-size: 16pt;
         }
@@ -92,10 +92,19 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-6" >
+                                    <input type="radio" id="status" name="status" value="ผู้ว่าจ้าง"> ผู้ว่าจ้าง
+                                    <input type="radio" id="status" name="status" value="PartTime"> Part Time
+                                </div>
+                            </div>
 
                             <div class="form-group">
+
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="w3-btn w3-hover-blue animated zoomIn" style="font-family: ThaiNeue;font-size: 16pt;margin-left: 100px">
+                                    <button type="submit" class="w3-btn w3-hover-blue animated zoomIn"
+                                            style="font-family: ThaiNeue;font-size: 16pt;margin-left: 100px">
                                         สมัครสมาชิก
                                     </button>
                                 </div>

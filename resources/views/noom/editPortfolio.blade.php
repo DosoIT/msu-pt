@@ -88,8 +88,14 @@
             <div class="page-header">
 
                 <div class="dropdown">
-                    <button class="btn btn-default  btn-lg" >
-                        <a href="manageProfile" > <i class="glyphicon glyphicon-user" ></i> โปรไฟล์</a></button>
+                    <a href="profile">
+                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        </button>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
+                    </div>
                 </div>
 
                 <div class="dropdown">
