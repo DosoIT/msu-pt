@@ -25,7 +25,10 @@
             }
 
             .navbar-xs .brand {
+                font-family: ThaiNeue;
+                font-size: 16pt;
                 color: #00AFF0;
+                margin-top: -2px;
                 margin-left: -200px;
             }
 
@@ -58,6 +61,31 @@
                 padding-left: 50px;
                 padding-right: 50px;
                 margin-right: 0;
+            }
+
+            .navbar-content
+            {
+                width:320px;
+                padding: 15px;
+                padding-bottom:0px;
+            }
+            .navbar-content:before, .navbar-content:after
+            {
+                display: table;
+                content: "";
+                line-height: 0;
+            }
+            .navbar-nav.navbar-right:last-child {
+                margin-right: 15px !important;
+            }
+            .navbar-footer
+            {
+                background-color:#DDD;
+            }
+            .navbar-footer-content { padding:15px 15px 15px 15px; }
+            .dropdown-menu {
+                padding: 0px;
+                overflow: hidden;
             }
 
         }
@@ -112,23 +140,52 @@
                             {{ Auth::user()->name }}
                             <span class="caret"></span>
                         </a>
+{{--<<<<<<< HEAD--}}
 
-                        <ul class="dropdown-menu" role="menu">
-                            @if(Auth::user()->status =='PartTime')
-                                <li><a href="{{ url('/profile') }}">Profile</a></li>
-                            @elseif(Auth::user()->status =='ผู้ว่าจ้าง')
-                                <li><a href="{{ url('/postEmployer') }}">Profile</a></li>
-                            @endif
+                        {{--<ul class="dropdown-menu" role="menu">--}}
+                            {{--@if(Auth::user()->status =='PartTime')--}}
+                                {{--<li><a href="{{ url('/profile') }}">Profile</a></li>--}}
+                            {{--@elseif(Auth::user()->status =='ผู้ว่าจ้าง')--}}
+                                {{--<li><a href="{{ url('/postEmployer') }}">Profile</a></li>--}}
+                            {{--@endif--}}
+{{--=======--}}
+                        {{--<ul class="dropdown-menu">--}}
+{{-->>>>>>> origin/master--}}
                             <li>
-                                <a href="{{ url('/logout') }}"
-                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
+                                <div class="navbar-content">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            {!! Html::image('image/pic-default.png') !!}
+                                            <p class="text-center small" style="margin-top: 10%"><a href="#">Change Photo</a></p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span>{{ Auth::user()->name }}</span>
+                                            <p class="text-muted small" style="margin-top: 10%;margin-left: -10px">{{ Auth::user()->email }}</p>
+                                            <div class="divider"></div>
+                                            <a href="{{ url('/manageProfile') }}" class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="navbar-footer">
+                                    <div class="navbar-footer-content">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a href="{{ url('password/reset') }}" class="w3-btn w3-white w3-border w3-round-large" onclick="event.preventDefault();document.getElementById('reset-form').submit();">เปลี่ยนรหัสผ่าน</a>
+                                                <form id="reset-form" action="{{ url('password/reset') }}" method="POST"
+                                                      style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="{{ url('/logout') }}" class="w3-btn w3-white w3-border w3-round-large pull-right" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ออกจากระบบ</a>
+                                                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                                      style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </li>

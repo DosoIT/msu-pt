@@ -36,7 +36,7 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: -15%;
+            margin-left: 0%;
             margin-top: 1px;
             font-family: ThaiNeue;
             font-size: 38px
@@ -67,8 +67,9 @@
         .nav2 .navbar-brand {
             margin-left: -36%;
             margin-top: 10px;
-            font-family: ThaiNeue;
-            font-size: 38px
+            font-family: Aileron;
+            font-size: 38px;
+            color: #8c8c8c;
         }
 
         .nav2 ul {
@@ -76,7 +77,13 @@
             margin-top: 3px;
             padding-top: 10px;
             font-family: ThaiNeue;
-            font-size: 28px
+            font-size: 36px;
+        }
+        .nav2 ul li a{
+            color: #8c8c8c;
+        }
+        .bner{
+            margin-left: 100%;
         }
     }
     @media only screen and (min-width:2000px){
@@ -130,7 +137,7 @@
         .nav2 .navbar-brand {
             margin-left: 10%;
             margin-top: 1px;
-            font-family: ThaiNeue;
+            /*font-family: ThaiNeue;*/
             font-size: 38px
         }
 
@@ -150,10 +157,9 @@
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
         /* For landscape layouts only */
     }
-
 </style>
 <nav class="nav navbar-static-top nav2" role="navigation">
-    <a class="navbar-brand" href="{{url('/')}}">MSU:HELP</a>
+    <a class="navbar-brand" href="{{url('/')}}">MSU:HELPING</a>
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="{{url('detail_employer')}}">ผู้ว่าจ้าง</a>
@@ -163,7 +169,7 @@
         </li>
     </ul>
     {{--<div class="borColor"></div>--}}
+    {!! Html::image('image/it-ban.png','banner') !!}
 </nav>
-<div class="row">
-    {{ Html::image('image/bander01.png','banner', array('width'=>'100%', 'height'=>'420px')) }}
-</div>
+
+
