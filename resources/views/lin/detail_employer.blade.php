@@ -35,7 +35,7 @@
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editprofile') }}" class="link"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}" class="link"> เพิ่มประกาศรับสมัคร</a></button>
+                    <a href="{{ url('postEmployer') }}" class="link"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
                 <div class="col-xs-12 col-sm-6 col-md-12">
                         <div class="row">
@@ -53,40 +53,32 @@
                                 <table class="table table-hover table-responsive" width="100%">
                                     <thead>
                                     <tr bgcolor="#bce8f1">
-                                        <th width="8">No.</th>
+                                        <th width="2">No.</th>
                                         <th width="150">รายการ</th>
                                         <th width="100">วันที่โฟส</th>
-                                        <th width="20">Action</th>
+                                        <th width="50">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($work_post as $row)
                                     <tr>
-                                        <td>1</td>
-                                        <td>รับพนักงาน Part-Time</td>
-                                        <td>10/10/2559</td>
+                                        <td>{{ $row->wp_id }}</td>
+                                        <td>{{ $row->wp_titel }}</td>
+                                        <td>{{ $row->created_at }}</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm" ><a href="editpostemployer" class="link li"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger btn-sm" ><a href="#" class="link li"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
+                                            <form action="{{ route('postEmployer.edit',$row->wp_id) }}" >
+                                                {{ method_field('GET') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-warning btn-sm link li" ><li class="glyphicon glyphicon-pencil"></li>Edit</button>
+                                            </form>
+                                            <form action="{{ route('postEmployer.destroy',$row->wp_id) }}" method="post" onclick="return confirm('คุณต้องการที่จะลบโพสต์ ใช่หรือไม่')">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger btn-sm link li" ><li class="glyphicon glyphicon-trash"></li>Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>รับพนักงาน เซ้งพาณิชย์</td>
-                                        <td>10/10/2559</td>
-                                        <td>
-                                            <button class="btn btn-warning btn-sm" ><a href="editpostemployer" class="link li"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger btn-sm" ><a href="#" class="link li"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>รับพนักงาน เด็กเสิร์ฟนมปั่น</td>
-                                        <td>20/10/2559</td>
-                                        <td>
-                                            <button class="btn btn-warning btn-sm" ><a href="editpostemployer" class="link li"><li class="glyphicon glyphicon-pencil"></li>Edit</a></button>
-                                            <button class="btn btn-danger btn-sm" ><a href="#" class="link li"><li class="glyphicon glyphicon-trash"></li>Delect</a></button>
-                                        </td>
-                                    </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

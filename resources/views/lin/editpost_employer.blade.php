@@ -9,32 +9,39 @@
             position: absolute;
             z-index: -1;
         }
+
         .inputfile + label {
             font-size: 1.25em;
             font-weight: 700;
             color: gray;
             display: inline-block;
         }
+
         .inputfile + label {
             cursor: pointer; /* "hand" cursor */
         }
+
         .headerline {
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
-        label {
+
+        .label a {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
-        input {
+
+        .input {
             font-family: ThaiNeue;
             font-size: 12pt;
         }
-        a {
+
+        .aherf {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
-        h1 {
+
+        .h1 {
             font-family: ThaiNeue;
             font-size: 26pt;
         }
@@ -44,64 +51,74 @@
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
+                    <a href="{{ url('editprofile') }}" class="aherf"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}"> เพิ่มประกาศรับสมัคร</a></button>
+                    <a href="{{ url('postEmployer') }}" class="aherf"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm">
                     <div class="row">
-                        <h1 align="center">แก้ไขประกาศ</h1>
-                        <form action="{{ url('detail_employer') }}">
-                            <div class="col-xs-4" align="center">
-                                <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
-                                     height="200" id="output">
-                                <br><br><input type="file" name="file" id="file" class="inputfile" onchange="loadFile(event)"/>
-                                <label for="file">
-                                    <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">หัวข้อ</label>
-                                    <input type="text" class="form-control" placeholder="หัวข้อ" value="xxxxx">
+                        <h1 class="h1" align="center">แก้ไขประกาศ</h1>
+                         @foreach($edit_post as $row)
+                            <form action="{{ url('postEmployer',$row->wp_id) }}" method="post">
+                                {{ method_field('PUT') }}
+                                {{ csrf_field() }}
+                                <div class="col-xs-4" align="center">
+                                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded"
+                                         width="200"
+                                         height="200" id="output">
+                                    <br><br><input type="file" name="pic" id="file" class="inputfile input"
+                                                   onchange="loadFile(event)"/>
+                                    <label for="file">
+                                        <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">ประเภทงาน</label>
-                                    <select name="" class="form-control">
-                                        <option>พนักงานเสิร์ฟ</option>
-                                    </select>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputEmail1">หัวข้อ</label>
+                                        <input type="text" class="form-control input" placeholder="หัวข้อ"
+                                               value="{{ $row->wp_titel }}" name="titel">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputPassword1">ประเภทงาน</label>
+                                        <select name="description" class="form-control">
+                                            <option>{{ $row->wp_description }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputPassword1">รายละเอียด</label>
+                                        <textarea name="detail" class="form-control input" rows="5" >{{ $row->wp_detail }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputPassword1">สถานที่</label>
+                                        <input type="text" name="location" class="form-control input" placeholder="สถานที่"
+                                               value="{{ $row->wp_location }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
+                                        <textarea name="property" class="form-control input" rows="5">{{ $row->wp_property }}</textarea>
+                                    </div>
+                                    <br><br>
+                                    <h3>ช่องทางการติดต่อ</h3>
+                                    <div class="headerline"></div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputPassword1">เบอร์โทร</label>
+                                        <input type="number" class="form-control input" placeholder="เบอร์โทร"
+                                               value="{{ $row->wp_tel }}" name="tel">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Facebook</label>
+                                        <input type="text" class="form-control input" placeholder="Facebook" value="{{ $row->wp_fb }}" name="fb">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label a" for="exampleInputPassword1">E-mail</label>
+                                        <input type="email" class="form-control input" placeholder="Facebook"
+                                               value="{{ $row->wp_email }}" name="email">
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-lg">แก้ไขประกาศ</button>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">รายละเอียด</label>
-                                    <textarea name="" class="form-control" rows="5">รับจำนวน 2 คน</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">สถานที่</label>
-                                    <input type="text" class="form-control" placeholder="สถานที่" value="แชมป์หมูกระทะ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
-                                    <textarea name="" class="form-control" rows="5">1.xxxxx</textarea>
-                                </div>
-                                <br><br>
-                                <h3>ช่องทางการติดต่อ</h3>
-                                <div class="headerline"></div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">เบอร์โทร</label>
-                                    <input type="number" class="form-control" placeholder="เบอร์โทร" value="1234567890">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Facebook</label>
-                                    <input type="text" class="form-control" placeholder="Facebook" value="xxxxxxx">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">E-mail</label>
-                                    <input type="email" class="form-control" placeholder="Facebook" value="xxx@xxx.com">
-                                </div>
-                                <button type="submit" class="btn btn-success btn-lg">แก้ไข</button>
-                            </div>
-                        </form>
+                                @endforeach
+                            </form>
                     </div>
                     <!-- /.row -->
                 </div>

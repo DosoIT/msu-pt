@@ -52,6 +52,7 @@
             <div class="col-xs-12  col-md-12">
                 <div class="well well-sm">
                     <div class="row">
+                        @foreach($edit_post as $row)
                         <div class="col-xs-3" align="center">
                             <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
                                  height="200" id="output">
@@ -108,6 +109,7 @@
                                 </form>
                             </div><!-- /.row -->
                         </div>
+                            @endforeach
                     </div>
                 </div>
             </div>

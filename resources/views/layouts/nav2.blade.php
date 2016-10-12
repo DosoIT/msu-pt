@@ -162,7 +162,7 @@
     <a class="navbar-brand" href="{{url('/')}}">MSU:HELPING</a>
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="{{url('detail_employer')}}">ผู้ว่าจ้าง</a>
+            <a href="{{url('showpostEmployer')}}">ผู้ว่าจ้าง</a>
         </li>
         <li>
             <a href="{{url('show_pt')}}">Part-time</a>
