@@ -31,21 +31,19 @@ Route::get('/logout', function () {
 Route::get('/ability', function () {
     return view('lin.ability');
 });
-Route::get('/detail_employer', function () {
-    return view('lin.detail_employer');
-});
-Route::get('/post', function () {
-    return view('lin.post_employer');
-});
 Route::get('/editprofile', function () {
     return view('lin.edit_profileEmployer');
 });
 Route::get('/employer_pro', function () {
     return view('lin.profileEmployer');
 });
-Route::get('/editpostemployer', function () {
-    return view('lin.editpost_employer');
-});
+
+
 Auth::routes();
 Route::get('/home', 'HomeController@index');
+
+Route::resource('postEmployer','Employer\ManageEmployerController');
+Route::resource('showpostEmployer','Employer\ShowPostController');
+
+
 
