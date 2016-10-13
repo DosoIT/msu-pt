@@ -173,8 +173,7 @@
                                 {{--<li><a href="{{ url('/postEmployer') }}">Profile</a></li>--}}
                             {{--@endif--}}
 {{--=======--}}
-                        {{--<ul class="dropdown-menu">--}}
-{{-->>>>>>> origin/master--}}
+                        <ul class="dropdown-menu">
                             <li>
                                 <div class="navbar-content">
                                     <div class="row">
