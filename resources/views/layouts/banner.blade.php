@@ -140,16 +140,16 @@
 <script>
     $('#example1').typeIt({
         strings: ['Hello guys.','<b>Welcome to my site.</b>', 'we are freelance...'],
-        speed: 80,
+        speed: 35,
 //        breakLines: false,
         autoStart: false
     }, setTimeout(function () {
         $('.desktop').hide('slow');
         $('.keyboard').hide('slow');
         $('#example1').addClass('animated fadeOut');
-    }, 7000));
+    }, 4000));
 
     setTimeout(function () {
         $('.bannerImg').hide('slow');
-    },7300);
+    },4300);
 </script>
