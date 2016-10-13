@@ -185,7 +185,7 @@
                                             <span>{{ Auth::user()->name }}</span>
                                             <p class="text-muted small" style="margin-top: 10%;margin-left: -10px">{{ Auth::user()->email }}</p>
                                             <div class="divider"></div>
-                                            <a href="{{ url('/manageProfile') }}" class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
+                                            <a href="{{ url('/profile') }}" class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
                                         </div>
                                     </div>
                                 </div>
