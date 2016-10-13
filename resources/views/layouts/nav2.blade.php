@@ -36,10 +36,11 @@
         }
 
         .nav2 .navbar-brand {
-            margin-left: 0%;
+            margin-left: -15%;
             margin-top: 1px;
-            font-family: ThaiNeue;
-            font-size: 38px
+            font-family: Aileron;
+            font-size: 38px;
+            color: #8c8c8c;
         }
 
         .nav2 ul {
@@ -47,10 +48,14 @@
             margin-top: -.5%;
             padding-top: 10px;
             font-family: ThaiNeue;
-            font-size: 28px
+            font-size: 30px
+        }
+        .nav2 ul li a{
+            color: #8c8c8c;
         }
         .nav2 ul li a:hover{
             margin-top: 15px;
+            color: #8c8c8c;
             zoom: 1;
         }
     }

@@ -38,6 +38,30 @@
                 padding-right: 0px;
                 margin-right: 10px;
             }
+            .navbar-content
+            {
+                width:320px;
+                padding: 15px;
+                padding-bottom:0px;
+            }
+            .navbar-content:before, .navbar-content:after
+            {
+                display: table;
+                content: "";
+                line-height: 0;
+            }
+            .navbar-nav.navbar-right:last-child {
+                margin-right: 15px !important;
+            }
+            .navbar-footer
+            {
+                background-color:#DDD;
+            }
+            .navbar-footer-content { padding:15px 15px 15px 15px; }
+            .dropdown-menu {
+                padding: 0px;
+                overflow: hidden;
+            }
         }
 
         @media only screen and (min-width: 1440px) {
