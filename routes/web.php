@@ -36,19 +36,18 @@ Route::get('/logout', function () {
 Route::get('/ability', function () {
     return view('lin.ability');
 });
-Route::get('/editprofile', function () {
+Route::get('/edit', function () {
     return view('lin.edit_profileEmployer');
 });
-Route::get('/employer_pro', function () {
-    return view('lin.profileEmployer');
-});
-
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('postEmployer','Employer\ManageEmployerController');
 Route::resource('showpostEmployer','Employer\ShowPostController');
+
+//Edit Profile Employer
+Route::resource('editprofileEmployer', 'Employer\EditProfileController');
 
 
 

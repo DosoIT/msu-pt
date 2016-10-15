@@ -26,14 +26,27 @@
             font-size: 16pt;
             color: #1d1d1d;
         }
-
     </style>
-
+    @if (\Session::has('updates'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('updates') !!}</li>
+            </ul>
+        </div>
+    @endif
+    @if (\Session::has('insert'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('insert') !!}</li>
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <div class="row" >
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editprofile') }}" class="link"> แก้ไขโปร์ไฟล์</a></button>
+                    <a href="editprofileEmployer" class="link"> แก้ไขโปร์ไฟล์</a>
+                </button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('postEmployer') }}" class="link"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
@@ -42,7 +55,7 @@
                             <div class="col-sm-6 col-md-4" align="center">
                                 <br>
                                 <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
-                                <h4 class="fonts">Jeremylin Corei5</h4>
+                                <h4 class="fonts">{{ Auth::user()->name }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30" height="30"> โทร : 0874236079</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30" height="30"> Facebook : Siriwut Patsan</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30" height="30"> E-mail : Siriwut@hotmail.com</h4>
@@ -54,9 +67,9 @@
                                     <thead>
                                     <tr bgcolor="#bce8f1">
                                         <th width="2">No.</th>
-                                        <th width="150">รายการ</th>
-                                        <th width="100">วันที่โฟส</th>
-                                        <th width="50">Action</th>
+                                        <th width="500">รายการ</th>
+                                        <th width="350">วันที่โฟส</th>
+                                        <th width="20" colspan="2">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,6 +84,8 @@
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-warning btn-sm link li" ><li class="glyphicon glyphicon-pencil"></li>Edit</button>
                                             </form>
+                                        </td>
+                                        <td>
                                             <form action="{{ route('postEmployer.destroy',$row->wp_id) }}" method="post" onclick="return confirm('คุณต้องการที่จะลบโพสต์ ใช่หรือไม่')">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}

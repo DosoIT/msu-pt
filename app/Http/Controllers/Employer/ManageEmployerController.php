@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\EmployerPostModel;
+use Illuminate\Support\Facades\Session;
 
 class ManageEmployerController extends Controller
 {
@@ -39,9 +40,11 @@ class ManageEmployerController extends Controller
      */
     public function store(Request $request)
     {
-
         $wppost = new EmployerPostModel();
-        $wppost->wp_pic = $request->pic;
+
+        $imageName = time() . '.' . $request->pic->getClientOriginalExtension();
+            $request->pic->move(public_path('picture'), $imageName);
+        $wppost->wp_pic = $imageName;
         $wppost->wp_titel = $request->titelpost;
         $wppost->wp_detail = $request->detail;
         $wppost->wp_location = $request->location;
@@ -52,7 +55,8 @@ class ManageEmployerController extends Controller
         $wppost->wp_email = $request->email;
         $wppost->save();
 
-        return redirect('showpostEmployer')->with('message','suss');
+        Session::get('insert');
+        return redirect('showpostEmployer')->with('insert','บันทึกข้อมูลเรียบร้อย');
 
     }
 
@@ -97,7 +101,8 @@ class ManageEmployerController extends Controller
             'wp_fb' => $request->fb,
             'wp_email' => $request->email,
         ]);
-        return redirect('showpostEmployer')->with('message','อัพเดตข้อมูลเรียบร้อยแล้ว');
+        Session::get('updates');
+        return redirect('showpostEmployer')->with('updates','อัพเดตข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
