@@ -49,7 +49,7 @@ class EditProfileController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Employer;
 
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,23 +41,22 @@ class ManageEmployerController extends Controller
      */
     public function store(Request $request)
     {
-        $wppost = new EmployerPostModel();
-
         $imageName = time() . '.' . $request->pic->getClientOriginalExtension();
-            $request->pic->move(public_path('picture'), $imageName);
-        $wppost->wp_pic = $imageName;
-        $wppost->wp_titel = $request->titelpost;
-        $wppost->wp_detail = $request->detail;
-        $wppost->wp_location = $request->location;
-        $wppost->wp_description = $request->description;
-        $wppost->wp_property = $request->property;
-        $wppost->wp_tel = $request->tel;
-        $wppost->wp_fb = $request->fb;
-        $wppost->wp_email = $request->email;
-        $wppost->save();
+        $request->pic->move(public_path('picture'), $imageName);
+        $wppost = new EmployerPostModel();
+            $wppost->wp_pic = $imageName;
+            $wppost->wp_titel = $request->titelpost;
+            $wppost->wp_detail = $request->detail;
+            $wppost->wp_location = $request->location;
+            $wppost->wp_description = $request->description;
+            $wppost->wp_property = $request->property;
+            $wppost->wp_tel = $request->tel;
+            $wppost->wp_fb = $request->fb;
+            $wppost->wp_email = $request->email;
+            $wppost->save();
 
-        Session::get('insert');
-        return redirect('showpostEmployer')->with('insert','บันทึกข้อมูลเรียบร้อย');
+            Session::get('insert');
+            return redirect('showpostEmployer')->with('insert','บันทึกข้อมูลเรียบร้อย');
 
     }
 
