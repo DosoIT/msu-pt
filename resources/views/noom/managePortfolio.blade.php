@@ -1,17 +1,20 @@
-@extends('layouts/template')
+@extends('layouts/back_end')
 @section('content')
     <style>
-        td{
+        td {
 
         }
-        h1{
+
+        h1 {
             font-size: 30pt;
             font-family: ThaiNeue;
         }
+
         label {
             font-size: 18pt;
             font-family: ThaiNeue;
         }
+
         thead {
             background-color: #bce8f1;
             font-size: 1.2em;
@@ -207,7 +210,7 @@
         <br>
         <div class="row">
             <div class="col-xs-12">
-                <table class="table table-hover " >
+                <table class="table table-hover ">
                     <thead style="font-family: ThaiNeue;font-size: 18pt;">
                     <tr>
                         <th>ลำดับที่</th>
@@ -218,44 +221,33 @@
                     </tr>
                     </thead>
                     <tbody style="font-family: ThaiNeue;font-size: 18pt;">
-                    <tr>
-                        <td>1</td>
-                        <td>คันแทนา</td>
-                        <td>
-                        {{--ขยายรูป--}}
-                        <!-- The Modal -->
-                            <div id="myModal" class="modal">
-                                <span class="close">×</span>
-                                <img class="modal-content" id="img01">
-                                <div id="caption"></div>
-                            </div>
-                            <img src="{{url('image/pic-default.png')}}" id="myImg" width="30" height="30">
-                            {{--จบ--}}
-                        </td>
-                        <td>
-                            <button class="btn btn-warning" ><a href="editPortfolio" ><li class="glyphicon glyphicon-pencil"></li> Edit</a></button>
-                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li> Delect</a></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>นาทงน้อย</td>
-                        <td>
-                        {{--ขยายรูป--}}
-                        <!-- The Modal -->
-                            <div id="myModal" class="modal">
-                                <span class="close">×</span>
-                                <img class="modal-content" id="img01">
-                                <div id="caption"></div>
-                            </div>
-                            <img src="{{url('image/pic-default.png')}}" id="myImg" width="30" height="30">
-                            {{--จบ--}}
-                        </td>
-                        <td>
-                            <button class="btn btn-warning" ><a href="editPortfolio" ><li class="glyphicon glyphicon-pencil"></li> Edit</a></button>
-                            <button class="btn btn-danger" ><a href="#" ><li class="glyphicon glyphicon-trash"></li> Delect</a></button>
-                        </td>
-                    </tr>
+                    <?php  $i=1;?>
+                    @foreach($port as $value)
+                        <tr>
+                            <td>{{ $i }}</td>
+                            <td>{{$value->pf_name}}</td>
+                            <td>
+                            {{--ขยายรูป--}}
+                            <!-- The Modal -->
+                                <div id="myModal" class="modal">
+                                    <span class="close">×</span>
+                                    <img class="modal-content" id="img01">
+                                    <div id="caption"></div>
+                                </div>
+                                <img src="{{url('image/pic-default.png')}}" id="myImg" width="30" height="30">
+                                {{--จบ--}}
+                            </td>
+                            <td>
+                                <button class="btn btn-warning"><a href="editPortfolio">
+                                        <li class="glyphicon glyphicon-pencil"></li>
+                                        Edit</a></button>
+                                <button class="btn btn-danger"><a href="#">
+                                        <li class="glyphicon glyphicon-trash"></li>
+                                        Delect</a></button>
+                            </td>
+                        </tr>
+                        <?php $i++;?>
+                    @endforeach
                     </tbody>
                 </table>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CategoryModel;
 use App\ClassifyModel;
 use App\DiscriptionModel;
+use App\PortFolioModel;
 use App\SkillModel;
 use App\UserDetailModel;
 use Illuminate\Support\Facades\Auth;
@@ -32,5 +33,16 @@ class ProfileController extends Controller
             'cate' => $cate,
             'classify' => $classify
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function showmanagePF()
+    {
+        $port = PortFolioModel::where('user_id', Auth::user()->id)->get();
+
+
+       return view('noom.managePortfolio',['port'=>$port]);
     }
 }

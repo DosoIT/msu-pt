@@ -1,14 +1,16 @@
-@extends('layouts/template')
+@extends('layouts/back_end')
 @section('content')
     <style>
-        h1{
+        h1 {
             font-size: 30pt;
             font-family: ThaiNeue;
         }
+
         label {
             font-size: 18pt;
             font-family: ThaiNeue;
         }
+
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -111,30 +113,31 @@
         <br><br>
         <div class="row">
             <h1 align="center">เพิ่มผลงาน</h1>
-            <form>
+            <form action="{{url('addPortfolio')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                 <div class="col-xs-4" align="center">
-                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200" height="200" id="output">
-                    <br><br><input type="file" name="file" id="file" class="inputfile" onchange="loadFile(event)"/>
+                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
+                         height="200" id="output">
+                    <br><br><input type="file" name="image[]" id="file" class="inputfile" onchange="loadFile(event)"
+                                   required multiple/>
                     <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                 </div>
                 <div class="col-xs-8">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อผลงาน</label>
-                        <input type="text" class="form-control" placeholder="ชื่อผลงาน">
+                        <input type="text" class="form-control" placeholder="ชื่อผลงาน" name="pf_name" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1"> </label>
-                        <select name="" class="form-control">
-                            <option>เลือกประเภท</option>
+                        <label for="exampleInputPassword1">ประเภท </label>
+                        <select name="cate" class="form-control">
+                            @foreach($cate as $value)
+                                <option value="{{$value->c_id}}">{{$value->c_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">รายละเอียด</label>
-                        <textarea name="" class="form-control" rows="5"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">สถานที่</label>
-                        <input type="text" class="form-control" placeholder="สถานที่">
+                        <textarea name="pf_detail" class="form-control" rows="5" required></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-success btn-lg" style="font-family: ThaiNeue;">เพิ่ม</button>

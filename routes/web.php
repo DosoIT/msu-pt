@@ -22,11 +22,19 @@ Route::resource('editPh', 'NoomController');
 
 Route::resource('addPortfolio', 'NoomController@addPortfolio');
 Route::resource('editPortfolio', 'NoomController@editPortfolio');
-Route::resource('managePortfolio', 'NoomController@managePortfolio');
+//Route::resource('managePortfolio', 'NoomController@managePortfolio');
 
 //noom  manage Database
+//โปรไฟล์
 Route::resource('manageProfile', 'ManageProfileController');
 Route::resource('profile', 'ProfileController');
+
+//ผลงาน
+Route::resource('addPortfolio','ManagePortFolioController');
+
+Route::resource('managePortfolio', 'ProfileController@showmanagePF');
+
+
 
 
 Route::get('/logout', function () {
