@@ -80,6 +80,13 @@
             </ul>
         </div>
     @endif
+    @if (\Session::has('delete'))
+        <div class="alert alert-danger">
+            <ul>
+                <li>{!! \Session::get('delete') !!}</li>
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="page-header col-md-offset-1">
@@ -97,13 +104,14 @@
                         <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
                         <h4 class="fonts">{{ Auth::user()->name }}</h4>
                         <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30" height="30">
-                            โทร : 0874236079</h4>
+                            โทร : </h4>
                         <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30"
-                                                            height="30"> Facebook : Siriwut Patsan</h4>
+                                                            height="30"> Facebook : </h4>
                         <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30" height="30">
-                            E-mail : Siriwut@hotmail.com</h4>
+                            E-mail : </h4>
                         <h4 class="fonts" align="left"><img src="{{ url('image/location.png') }}" width="30"
-                                                            height="30"> สถานที่ : ท่านขอนย่าน</h4>
+                                                            height="30"> สถานที่ : </h4>
+
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt" title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส" alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
@@ -178,6 +186,7 @@
                             @endif
                             </tbody>
                         </table>
+                        {{ $post_work->links() }}
                     </div>
                 </div>
             </div>

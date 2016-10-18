@@ -40,8 +40,10 @@ class EditProfileController extends Controller
     public function store(Request $request)
     {
         //insert data
+
         $imageName = time() . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('picture'), $imageName);
+        $imageName = null;
         $profile = new ProfileEmployerModel();
         $profile->em_pic = $imageName;
         $profile->em_name = $request->fullname;
@@ -51,8 +53,8 @@ class EditProfileController extends Controller
         $profile->em_email = $request->email;
         $profile->save();
 
-        //Session::get('insert');
-        return redirect('lin.edit_profileEmployer');
+        Session::get('insert');
+        return redirect('showprofileEmployer')->with('insert','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**

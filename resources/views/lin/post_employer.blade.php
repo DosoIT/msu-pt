@@ -52,7 +52,7 @@
                             <div class="col-xs-4" align="center">
                                 <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
                                      height="200" id="output">
-                                <br><br><input type="file" name="pic" id="file" class="inputfile" onchange="loadFile(event)"/>
+                                <br><br><input type="file" name="pic" id="file"  class="inputfile" onchange="loadFile(event)"/>
                                 <label for="file">
                                     <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                             </div>
@@ -85,7 +85,7 @@
                                 <br>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">เบอร์โทร</label>
-                                    <input type="number" name="tel" class="form-control" placeholder="เบอร์โทร"  maxlength="10ssss">
+                                    <input type="tel" name="tel" class="form-control" placeholder="เบอร์โทร"  maxlength="10" onkeyup="if(isNaN(this.value)){alert('ราคาต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Facebook</label>

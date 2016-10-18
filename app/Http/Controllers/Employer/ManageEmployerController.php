@@ -116,6 +116,7 @@ class ManageEmployerController extends Controller
     {
 
         $del = EmployerPostModel::where('wp_id',$id)->delete(['wp_id' => $id]);
-        return redirect('showpostEmployer');
+        Session::get('delete');
+        return redirect('showpostEmployer')->with('delete','ลบข้อมูลเรียบร้อยแล้ว');
     }
 }

@@ -65,23 +65,14 @@
                                 {{ method_field('PUT')}}
                                 {{ csrf_field() }}
                                 <div class="col-xs-4" align="center">
-                                    {{--@if( ! empty($row->wp_pic))--}}
-                                    {{--<img src="{{ url('picture/'.$row->wp_pic) }} }}" alt="เลือกรูปภาพ" class="img-rounded"--}}
-                                         {{--width="200"--}}
-                                         {{--height="200" id="output">--}}
-                                    {{--<br><br><input type="file" name="pic" id="file" class="inputfile input"--}}
-                                                   {{--onchange="loadFile(event)"/>--}}
-                                    {{--<label for="file">--}}
-                                        {{--<i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>--}}
-                                    {{--@endif--}}
-                                    <img src="{{ url('picture/'.$row->wp_pic) }} }}" alt="เลือกรูปภาพ" class="img-rounded"
+                                    <img src="{{ url('picture/'.$row->wp_pic) }}" alt="เลือกรูปภาพ" class="img-rounded"
                                          width="200"
                                          height="200" id="output">
+
                                     <br><br><input type="file" name="pic" id="file" class="inputfile input"
                                                    onchange="loadFile(event)"/>
                                     <label for="file">
                                         <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
-
                                 </div>
                                 <div class="col-xs-8">
                                     <div class="form-group">

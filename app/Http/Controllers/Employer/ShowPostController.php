@@ -17,8 +17,13 @@ class ShowPostController extends Controller
      */
     public function index()
     {
-        $emp=EmployerPostModel::all();
-        return view('lin.detail_employer',['post_work'=>$emp]);
+//        $emp=EmployerPostModel::all();
+//        return view('lin.detail_employer',['post_work'=>$emp]);
+
+        $data = array(
+          'post_work'=>EmployerPostModel::paginate(5)
+        );
+        return view('lin.detail_employer',$data);
     }
 
     /**
