@@ -81,6 +81,7 @@
                         <div class="row">
                             <div class="col-sm-6 col-md-4" align="center">
                                 <br>
+
                                 <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
                                 <h4 class="fonts">{{ Auth::user()->name }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30" height="30"> โทร : 0874236079</h4>
@@ -174,7 +175,6 @@
                 }, 800);
                 return false;
             });
-
             $('#back-to-top').tooltip('show');
 
         });

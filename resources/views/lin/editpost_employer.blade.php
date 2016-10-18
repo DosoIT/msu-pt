@@ -52,7 +52,7 @@
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editprofile') }}" class="aherf"> แก้ไขโปร์ไฟล์</a></button>
+                    <a href="{{ url('editProfileEmployer') }}" class="aherf"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('postEmployer') }}" class="aherf"> เพิ่มประกาศรับสมัคร</a></button>
             </div>

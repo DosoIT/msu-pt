@@ -44,25 +44,31 @@
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editprofileEmployer') }}" class="alink">แก้ไขโปร์ไฟล์</a></button>
+                    <a href="{{ url('editProfileEmployer') }}" class="alink">แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('post') }}" class="alink"> เพิ่มประกาศรับสมัคร</a>
                 </button>
             </div>
+                @if (\Session::has('insert'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li>{!! \Session::get('insert') !!}</li>
+                        </ul>
+                    </div>
+                @endif
             <div class="col-xs-12  col-md-12">
                 <div class="well well-sm">
+                    <form action="{{ url('editProfileEmployer') }}" method="post" class="form-horizontal" role="form"  enctype="multipart/form-data">
                     <div class="row">
-                        @foreach($edit_post as $row)
                         <div class="col-xs-3" align="center">
                             <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
-                                 height="200" id="output">
-                            <br><br><input type="file" name="file" id="file" class="inputfile" onchange="loadFile(event)"/>
+                                 height="200" id="output" required="">
+                            <br><br><input type="file" name="image" id="file" class="inputfile" onchange="loadFile(event)"/>
                             <label for="file">
                                 <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                         </div>
-                        <div class="col-sm-5 col-md-8">
-                            <div class="row">
-                                <form class="form-horizontal" role="form" action="{{ url('detail_employer') }}">
+                            <div class="col-sm-5 col-md-8">
+                                <div class="row">
                                     <fieldset>
                                         <legend class="font">แก้ไขโปร์ไฟล์</legend>
                                         <div class="form-group">
@@ -96,16 +102,17 @@
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <div class="pull-left">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <button type="submit" class="btn btn-success btn-lg textinput">บันทึก</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </fieldset>
-                                </form>
-                            </div><!-- /.row -->
-                        </div>
-                            @endforeach
+                                </div><!-- end row2 -->
+                            </div>
+                        </div></form>
                     </div>
+                    <!-- end row1 -->
                 </div>
             </div>
         </div>

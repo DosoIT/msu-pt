@@ -45,15 +45,19 @@ Route::get('/ability', function () {
 Route::get('/edit', function () {
     return view('lin.edit_profileEmployer');
 });
+Route::get('/editProfileEmp', function () {
+    return view('lin.profile');
+});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('postEmployer','Employer\ManageEmployerController');
 Route::resource('showpostEmployer','Employer\ShowPostController');
-
-//Edit Profile Employer
+//Profile Employer
 Route::resource('editProfileEmployer', 'Employer\EditProfileController');
+Route::resource('showprofileEmployer','Employer\ShowProfileEmployer');
 
 
 

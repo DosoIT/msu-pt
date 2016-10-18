@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\EmployerPostModel;
 use App\ProfileEmployerModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\EmployerDetailModel;
 
-class EditProfileController extends Controller
+class ShowProfileEmployer extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,8 @@ class EditProfileController extends Controller
      */
     public function index()
     {
-        return view('lin.edit_profileEmployer');
+        $data = EmployerPostModel::all();
+        return view('lin.edit_profileEmployer',(['profile' => $data]) );
     }
 
     /**
@@ -39,20 +40,7 @@ class EditProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //insert data
-        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move(public_path('picture'), $imageName);
-        $profile = new ProfileEmployerModel();
-        $profile->em_pic = $imageName;
-        $profile->em_name = $request->fullname;
-        $profile->em_location = $request->address;
-        $profile->em_tel = $request->tel;
-        $profile->em_fb = $request->facebook;
-        $profile->em_email = $request->email;
-        $profile->save();
-
-        //Session::get('insert');
-        return redirect('lin.edit_profileEmployer');
+        //
     }
 
     /**
@@ -63,7 +51,7 @@ class EditProfileController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
