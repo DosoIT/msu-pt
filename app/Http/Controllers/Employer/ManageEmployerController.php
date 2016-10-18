@@ -41,6 +41,7 @@ class ManageEmployerController extends Controller
      */
     public function store(Request $request)
     {
+        //insert data
         $imageName = time() . '.' . $request->pic->getClientOriginalExtension();
         $request->pic->move(public_path('picture'), $imageName);
         $wppost = new EmployerPostModel();

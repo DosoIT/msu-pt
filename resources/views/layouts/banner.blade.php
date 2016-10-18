@@ -127,8 +127,6 @@
 <body>
 {!! Html::style('css/animate.css') !!}
 <div class="bannerImg">
-    {{--    {{ Html::image('image/forWeb/banner-image.png','banner') }}--}}
-    {{--{{ Html::image('image/forWeb/completeDK.png','banner') }}--}}
     <div class="desktop"></div>
     <div class="keyboard"></div>
     <p id="example1"></p>
@@ -151,5 +149,6 @@
 
     setTimeout(function () {
         $('.bannerImg').hide('slow');
-    },4300);
+        window.location.href='/homepage';
+    }, 5000);
 </script>

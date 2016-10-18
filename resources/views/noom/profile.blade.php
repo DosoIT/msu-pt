@@ -1,6 +1,9 @@
 @extends('layouts/back_end')
 @section('content')
     <style>
+        .a{
+            font-family: ThaiNeue;
+        }
         .h3-header {
             font-size: 20pt;
             font-family: ThaiNeue;

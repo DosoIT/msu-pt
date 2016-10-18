@@ -22,14 +22,17 @@
             font-family: ThaiNeue;
             src: url('fonts/ThaiSansNeue-Light.ttf');
         }
+
         @font-face {
             font-family: Domino;
             src: url('fonts/WP DOMINO novel.ttf');
         }
+
         @font-face {
             font-family: Manif;
             src: url('fonts/MANIFESTO.ttf');
         }
+
         @font-face {
             font-family: Aileron;
             src: url('fonts/Ailerons-Typeface.otf');
@@ -85,7 +88,6 @@
 <body>
 {{--@include('layouts.navbar')--}}
 @include('layouts.app')
-@include('layouts.banner')
 @include('layouts.nav2')
 @include('layouts.search')
 @include('layouts.category')

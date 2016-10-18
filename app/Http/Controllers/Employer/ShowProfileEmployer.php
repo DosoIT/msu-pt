@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\EmployerPostModel;
+use App\ProfileEmployerModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\EmployerPostModel;
 
-class ShowPostController extends Controller
+class ShowProfileEmployer extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +18,8 @@ class ShowPostController extends Controller
      */
     public function index()
     {
-        $emp=EmployerPostModel::all();
-        return view('lin.detail_employer',['post_work'=>$emp]);
+        $data = EmployerPostModel::all();
+        return view('lin.edit_profileEmployer',(['profile' => $data]) );
     }
 
     /**

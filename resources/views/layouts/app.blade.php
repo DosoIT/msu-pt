@@ -12,8 +12,12 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <style>
+        body{
+            background-color: #ffffff;
+        }
         @media only screen and (min-width: 960px) {
             /* styles for browsers larger than 960px; */
+
             .navbar-xs {
                 background-color: black;
                 width: 115%;
@@ -139,7 +143,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand brand" href="{{ url('/') }}">
+            <a class="navbar-brand brand" href="{{ url('/homepage') }}">
                 {{--{{ config('app.name', 'Laravel') }}--}}
                 {{ 'คณะวิทยาการสารสนเทศ' }}
             </a>
@@ -164,15 +168,6 @@
                             {{ Auth::user()->name }}
                             <span class="caret"></span>
                         </a>
-{{--<<<<<<< HEAD--}}
-
-                        {{--<ul class="dropdown-menu" role="menu">--}}
-                            {{--@if(Auth::user()->status =='PartTime')--}}
-                                {{--<li><a href="{{ url('/profile') }}">Profile</a></li>--}}
-                            {{--@elseif(Auth::user()->status =='ผู้ว่าจ้าง')--}}
-                                {{--<li><a href="{{ url('/postEmployer') }}">Profile</a></li>--}}
-                            {{--@endif--}}
-{{--=======--}}
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="navbar-content">

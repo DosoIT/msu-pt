@@ -1,5 +1,11 @@
 <?php
 Route::get('/', function () {
+    return view('layouts.banner');
+});
+Route::get('/home', function (){
+    return view('home');
+});
+Route::get('/homepage', function () {
     return view('layouts.home');
 });
 Route::get('/employer',function (){
@@ -31,7 +37,6 @@ Route::resource('profile', 'ProfileController');
 
 //ผลงาน
 Route::resource('addPortfolio','ManagePortFolioController');
-
 Route::resource('managePortfolio', 'ProfileController@showmanagePF');
 
 
@@ -41,21 +46,29 @@ Route::get('/logout', function () {
     session()->forget('chk');
     return view('layouts.home');
 });
+//
+//Route::get('/logout', function () {
+//    return view('home');
+//});
 Route::get('/ability', function () {
     return view('lin.ability');
 });
 Route::get('/edit', function () {
     return view('lin.edit_profileEmployer');
 });
+Route::get('/editProfileEmp', function () {
+    return view('lin.profile');
+});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('postEmployer','Employer\ManageEmployerController');
 Route::resource('showpostEmployer','Employer\ShowPostController');
-
-//Edit Profile Employer
+//Profile Employer
 Route::resource('editProfileEmployer', 'Employer\EditProfileController');
+Route::resource('showprofileEmployer','Employer\ShowProfileEmployer');
 
 
 
