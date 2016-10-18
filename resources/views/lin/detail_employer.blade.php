@@ -31,6 +31,9 @@
             font-size: 16pt;
             color: #1d1d1d;
         }
+        .cnt:hover{
+             background-color: #00AFF0;
+        }
     </style>
     <style>
         .back-to-top {
@@ -103,8 +106,7 @@
                                                             height="30"> สถานที่ : ท่านขอนย่าน</h4>
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge"
-                                                                                                 alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
+                        <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt" title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส" alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
                         </h4>
                         <table class="table table-hover table-condensed" width="100%">
                             <thead>
@@ -118,35 +120,35 @@
                             <tbody>
                             <?php $count = 1 ?>
                             @if(!empty($post_work))
-                            @foreach($post_work as $row)
-                                <tr class="active">
-                                    <td><?php echo $count++ ?></td>
-                                    <td><a href="#detail" data-toggle="modal"> {{ $row->wp_titel }}</a></td>
-                                    <td>{{ $row->created_at }}</td>
-                                    <td>
-                                        <form action="{{ route('postEmployer.edit',$row->wp_id) }}">
-                                            {{ method_field('GET') }}
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-warning btn-sm link li">
-                                                <li class="glyphicon glyphicon-pencil"></li>
-                                                Edit
-                                            </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('postEmployer.destroy',$row->wp_id) }}" method="post"
-                                              onclick="return confirm('คุณต้องการที่จะลบโพสต์ ใช่หรือไม่')">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger btn-sm link li">
-                                                <li class="glyphicon glyphicon-trash"></li>
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                                @else
+                                @foreach($post_work as $row)
+                                    <tr class="active">
+                                        <td><?php echo $count++ ?></td>
+                                        <td><a href="#detail" data-toggle="modal"> {{ $row->wp_titel }}</a></td>
+                                        <td>{{ $row->created_at }}</td>
+                                        <td>
+                                            <form action="{{ route('postEmployer.edit',$row->wp_id) }}">
+                                                {{ method_field('GET') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-warning btn-sm link li">
+                                                    <li class="glyphicon glyphicon-pencil"></li>
+                                                    Edit
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('postEmployer.destroy',$row->wp_id) }}" method="post"
+                                                  onclick="return confirm('คุณต้องการที่จะลบโพสต์ ใช่หรือไม่')">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger btn-sm link li">
+                                                    <li class="glyphicon glyphicon-trash"></li>
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr class="active">
                                     <td><?php echo $count++ ?></td>
                                     <td><a href="#detail" data-toggle="modal"> </a></td>
@@ -190,7 +192,7 @@
                         <h4 class="modal-title" id="myModalLabel">รายละเอียด</h4>
                     </div>
                     <div class="modal-body row">
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -223,7 +225,7 @@
                 return false;
             });
             $('#back-to-top').tooltip('show');
-
+            $(".cnt").tooltip();
         });
     </script>
     {{-- End Back to top --}}
