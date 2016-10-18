@@ -12,11 +12,12 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <style>
+        body{
+            background-color: #ffffff;
+        }
         @media only screen and (min-width: 960px) {
             /* styles for browsers larger than 960px; */
-            body{
-                background-color: #ffffff;
-            }
+
             .navbar-xs {
                 background-color: black;
                 width: 115%;

@@ -145,10 +145,10 @@
         $('.desktop').hide('slow');
         $('.keyboard').hide('slow');
         $('#example1').addClass('animated fadeOut');
-    }, 3000));
+    }, 4000));
 
     setTimeout(function () {
         $('.bannerImg').hide('slow');
         window.location.href='/homepage';
-    }, 4000);
+    }, 5000);
 </script>

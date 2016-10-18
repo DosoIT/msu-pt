@@ -88,9 +88,6 @@
 <body>
 {{--@include('layouts.navbar')--}}
 @include('layouts.app')
-@section('contents')
-    @include('layouts.banner')
-@endsection
 @include('layouts.nav2')
 @include('layouts.search')
 @include('layouts.category')
