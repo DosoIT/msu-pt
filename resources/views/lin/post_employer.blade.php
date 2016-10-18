@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">ประเภทงาน</label>
                                     <select name="description" class="form-control">
-                                        <option></option>
+                                        <option >กลางคืน</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

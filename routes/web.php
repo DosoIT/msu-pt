@@ -2,6 +2,9 @@
 Route::get('/', function () {
     return view('layouts.banner');
 });
+Route::get('/home', function (){
+    return view('home');
+});
 Route::get('/homepage', function () {
     return view('layouts.home');
 });
@@ -39,19 +42,21 @@ Route::get('/logout', function () {
 Route::get('/ability', function () {
     return view('lin.ability');
 });
-Route::get('/editprofile', function () {
+Route::get('/edit', function () {
     return view('lin.edit_profileEmployer');
 });
-Route::get('/employer_pro', function () {
-    return view('lin.profileEmployer');
-});
-
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('postEmployer','Employer\ManageEmployerController');
 Route::resource('showpostEmployer','Employer\ShowPostController');
+
+//Edit Profile Employer
+Route::resource('editProfileEmployer', 'Employer\EditProfileController');
+
+
+
 
 
 

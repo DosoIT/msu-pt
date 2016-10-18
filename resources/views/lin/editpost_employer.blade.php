@@ -39,6 +39,7 @@
         .aherf {
             font-family: ThaiNeue;
             font-size: 18pt;
+            color: #0f0f0f;
         }
 
         .h1 {
@@ -59,42 +60,52 @@
                 <div class="well well-sm">
                     <div class="row">
                         <h1 class="h1" align="center">แก้ไขประกาศ</h1>
-                         @foreach($edit_post as $row)
+                        @foreach($edit_post as $row)
                             <form action="{{ url('postEmployer',$row->wp_id) }}" method="post">
-                                {{ method_field('PUT') }}
+                                {{ method_field('PUT')}}
                                 {{ csrf_field() }}
                                 <div class="col-xs-4" align="center">
-                                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded"
+                                    {{--@if( ! empty($row->wp_pic))--}}
+                                    {{--<img src="{{ url('picture/'.$row->wp_pic) }} }}" alt="เลือกรูปภาพ" class="img-rounded"--}}
+                                         {{--width="200"--}}
+                                         {{--height="200" id="output">--}}
+                                    {{--<br><br><input type="file" name="pic" id="file" class="inputfile input"--}}
+                                                   {{--onchange="loadFile(event)"/>--}}
+                                    {{--<label for="file">--}}
+                                        {{--<i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>--}}
+                                    {{--@endif--}}
+                                    <img src="{{ url('picture/'.$row->wp_pic) }} }}" alt="เลือกรูปภาพ" class="img-rounded"
                                          width="200"
                                          height="200" id="output">
                                     <br><br><input type="file" name="pic" id="file" class="inputfile input"
                                                    onchange="loadFile(event)"/>
                                     <label for="file">
                                         <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+
                                 </div>
                                 <div class="col-xs-8">
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputEmail1">หัวข้อ</label>
+                                        <label for="exampleInputEmail1">หัวข้อ</label>
                                         <input type="text" class="form-control input" placeholder="หัวข้อ"
                                                value="{{ $row->wp_titel }}" name="titel">
                                     </div>
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputPassword1">ประเภทงาน</label>
+                                        <label for="exampleInputPassword1">ประเภทงาน</label>
                                         <select name="description" class="form-control">
                                             <option>{{ $row->wp_description }}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputPassword1">รายละเอียด</label>
+                                        <label for="exampleInputPassword1">รายละเอียด</label>
                                         <textarea name="detail" class="form-control input" rows="5" >{{ $row->wp_detail }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputPassword1">สถานที่</label>
+                                        <label for="exampleInputPassword1">สถานที่</label>
                                         <input type="text" name="location" class="form-control input" placeholder="สถานที่"
                                                value="{{ $row->wp_location }}">
                                     </div>
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
+                                        <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
                                         <textarea name="property" class="form-control input" rows="5">{{ $row->wp_property }}</textarea>
                                     </div>
                                     <br><br>
@@ -102,7 +113,7 @@
                                     <div class="headerline"></div>
                                     <br>
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputPassword1">เบอร์โทร</label>
+                                        <label for="exampleInputPassword1">เบอร์โทร</label>
                                         <input type="number" class="form-control input" placeholder="เบอร์โทร"
                                                value="{{ $row->wp_tel }}" name="tel">
                                     </div>
@@ -111,7 +122,7 @@
                                         <input type="text" class="form-control input" placeholder="Facebook" value="{{ $row->wp_fb }}" name="fb">
                                     </div>
                                     <div class="form-group">
-                                        <label class="label a" for="exampleInputPassword1">E-mail</label>
+                                        <label for="exampleInputPassword1">E-mail</label>
                                         <input type="email" class="form-control input" placeholder="Facebook"
                                                value="{{ $row->wp_email }}" name="email">
                                     </div>
@@ -125,4 +136,5 @@
             </div>
         </div>
     </div>
+
 @endsection

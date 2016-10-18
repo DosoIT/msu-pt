@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\EmployerPostModel;
+use App\EmployerDetailModel;
 
-class ShowPostController extends Controller
+class EditProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +17,7 @@ class ShowPostController extends Controller
      */
     public function index()
     {
-        //$show_post = EmployerPostModel::all();
-        //return view('lin.detail_employer',['work_post' => $show_post] );
-            $data = array(
-                'postwork' => EmployerPostModel::paginate(5)
-            );
-        return view('lin.detail_employer',$data);
+        return view('lin.edit_profileEmployer');
     }
 
     /**
@@ -54,7 +49,7 @@ class ShowPostController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
