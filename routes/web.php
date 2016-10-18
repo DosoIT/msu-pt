@@ -34,11 +34,10 @@ Route::resource('managePortfolio', 'NoomController@managePortfolio');
 Route::resource('manageProfile', 'ManageProfileController');
 Route::resource('profile', 'ProfileController');
 
-
-Route::get('/logout', function () {
-    session()->forget('chk');
-    return view('layouts.home');
-});
+//
+//Route::get('/logout', function () {
+//    return view('home');
+//});
 Route::get('/ability', function () {
     return view('lin.ability');
 });

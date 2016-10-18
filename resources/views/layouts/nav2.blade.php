@@ -1,4 +1,7 @@
 <style>
+    body{
+        background-color: #ffffff;
+    }
     @media only screen and (max-width: 480px) {
         /* STYLES HERE for BROWSER WINDOWS with a max-width of 480px.
            This will work on desktops when the window is narrowed.  */

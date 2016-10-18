@@ -145,7 +145,7 @@
         $('.desktop').hide('slow');
         $('.keyboard').hide('slow');
         $('#example1').addClass('animated fadeOut');
-    }, 33000));
+    }, 3000));
 
     setTimeout(function () {
         $('.bannerImg').hide('slow');

@@ -14,6 +14,9 @@
     <style>
         @media only screen and (min-width: 960px) {
             /* styles for browsers larger than 960px; */
+            body{
+                background-color: #ffffff;
+            }
             .navbar-xs {
                 background-color: black;
                 width: 115%;
@@ -139,7 +142,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand brand" href="{{ url('/') }}">
+            <a class="navbar-brand brand" href="{{ url('/homepage') }}">
                 {{--{{ config('app.name', 'Laravel') }}--}}
                 {{ 'คณะวิทยาการสารสนเทศ' }}
             </a>
