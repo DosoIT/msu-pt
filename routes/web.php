@@ -1,5 +1,8 @@
 <?php
 Route::get('/', function () {
+    return view('layouts.banner');
+});
+Route::get('/homepage', function () {
     return view('layouts.home');
 });
 Route::get('/employer',function (){

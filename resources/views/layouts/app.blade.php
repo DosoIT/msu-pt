@@ -164,15 +164,6 @@
                             {{ Auth::user()->name }}
                             <span class="caret"></span>
                         </a>
-{{--<<<<<<< HEAD--}}
-
-                        {{--<ul class="dropdown-menu" role="menu">--}}
-                            {{--@if(Auth::user()->status =='PartTime')--}}
-                                {{--<li><a href="{{ url('/profile') }}">Profile</a></li>--}}
-                            {{--@elseif(Auth::user()->status =='ผู้ว่าจ้าง')--}}
-                                {{--<li><a href="{{ url('/postEmployer') }}">Profile</a></li>--}}
-                            {{--@endif--}}
-{{--=======--}}
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="navbar-content">
