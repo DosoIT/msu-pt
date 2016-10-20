@@ -84,7 +84,10 @@ class ManageProfileController extends Controller
             $discripmodel->user_id = Auth::user()->id;
             $discripmodel->save();
         }
+
+       return redirect('profile');
     }
+
 
     /**
      * Display the specified resource.

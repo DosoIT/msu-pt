@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ManagePortFolioController extends Controller
 {
@@ -53,7 +54,7 @@ class ManagePortFolioController extends Controller
         $portdata = PortFolioModel::all()->max('pf_id');
         foreach ($request->image as $value) {
             $pic_port = new PicPortFolioModel();
-            $imageName = time() . '.' . $value->getClientOriginalExtension();
+            $imageName = random_int(1, 9999999) . '.' . $value->getClientOriginalExtension();
             $pic_port->pfpic_name = $imageName;
             $pic_port->pf_id = $portdata;
             $pic_port->save();
@@ -83,7 +84,9 @@ class ManagePortFolioController extends Controller
      */
     public function edit($id)
     {
-        echo "edit";
+        $port = PortFolioModel::where('pf_id', $id)->get();
+        $cate = CategoryModel::all();
+        return view('noom/editPortfolio', ['data' => $port, 'cate' => $cate]);
     }
 
     /**
@@ -95,7 +98,12 @@ class ManagePortFolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "update";
+        PortFolioModel::where('pf_id', $id)->update([
+            'pf_name' => $request->pf_name,
+            'pf_detail' => $request->pf_detail,
+            'c_id' => $request->c_id
+        ]);
+        return redirect('managePortfolio');
     }
 
     /**
@@ -106,6 +114,17 @@ class ManagePortFolioController extends Controller
      */
     public function destroy($id)
     {
-        echo "del";
+        $delete = PortFolioModel::where('pf_id', $id);
+        $delete->delete();
+
+
+        $delpic = PicPortFolioModel::where('pf_id', $id)->get();
+
+        foreach ($delpic as $value) {
+            File::delete('images/' . $value->pfpic_name);
+            $del = PicPortFolioModel::where('pfpic_id', $value->pfpic_id);
+            $del->delete();
+        }
+        return redirect('managePortfolio');
     }
 }

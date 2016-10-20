@@ -1,4 +1,4 @@
-@extends('layouts/template')
+@extends('layouts/back_end')
 @section('content')
     <style>
         .inputfile {
@@ -73,10 +73,12 @@
             color: #fff;
             text-decoration: none;
         }
-        h1{
+
+        h1 {
             font-size: 30pt;
             font-family: ThaiNeue;
         }
+
         label {
             font-size: 18pt;
             font-family: ThaiNeue;
@@ -111,37 +113,45 @@
         <br><br>
         <div class="row">
             <h1 align="center">แก้ไขผลงาน</h1><br>
-            <form>
-                <div class="col-xs-4" align="center">
-                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
-                         height="200" id="output">
-                    <br><br><input type="file" name="file" id="file" class="inputfile" onchange="loadFile(event)"/>
-                    <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
-                </div>
-                <div class="col-xs-8">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">ชื่อผลงาน</label>
-                        <input type="text" class="form-control" placeholder="ชื่อผลงาน" value="คันแทนา">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1"> </label>
-                        <select name="" class="form-control">
-                            <option>พนักงานเสิร์ฟ</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">รายละเอียด</label>
-                        <textarea name="" class="form-control" rows="5">โหดจุง</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">สถานที่</label>
-                        <input type="text" class="form-control" placeholder="สถานที่" value="เลนกลาง">
-                    </div>
+            @foreach($data as $value)
+                <form action="{{ url('addPortfolio',$value->pf_id) }}" method="post">
+                    {{ method_field('PUT') }}
+                    {{ csrf_field() }}
+                    <div class="col-xs-2" align="center">
 
-                    <button type="submit" class="btn btn-warning btn-lg">แก้ไข</button>
-                </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ชื่อผลงาน</label>
+                            <input type="text" class="form-control" name="pf_name" value="{{$value->pf_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> </label>
+                            <select name="c_id" class="form-control">
+                                @foreach($cate as $item)
+                                    @if($value->c_id == $item->c_id)
+                                        <option value="{{$item->c_id}}" selected>{{$item->c_name}}</option>
+                                    @else
+                                        <option value="{{$item->c_id}}">{{$item->c_name}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">รายละเอียด</label>
+                            <textarea name="pf_detail" class="form-control" rows="5">
+                                {{ $value->pf_detail }}
+                            </textarea>
+                        </div>
 
-            </form>
+
+                        <button type="submit" class="btn btn-warning btn-lg">แก้ไข</button>
+                    </div>
+                    <div class="col-xs-2" align="center">
+
+                    </div>
+                </form>
+            @endforeach
         </div>
     </div>
 @endsection

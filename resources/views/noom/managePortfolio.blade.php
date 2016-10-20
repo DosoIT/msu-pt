@@ -216,12 +216,12 @@
                         <th>ลำดับที่</th>
                         <th>ชื่อผลงาน</th>
                         <th>รูปภาพผลงาน</th>
-                        <th>Action</th>
+                        <th colspan="2">Action</th>
 
                     </tr>
                     </thead>
                     <tbody style="font-family: ThaiNeue;font-size: 18pt;">
-                    <?php  $i=1;?>
+                    <?php  $i = 1;?>
                     @foreach($port as $value)
                         <tr>
                             <td>{{ $i }}</td>
@@ -237,13 +237,26 @@
                                 <img src="{{url('image/pic-default.png')}}" id="myImg" width="30" height="30">
                                 {{--จบ--}}
                             </td>
-                            <td>
-                                <button class="btn btn-warning"><a href="editPortfolio">
+                            <td align="right">
+                                <form action="{{ route('addPortfolio.edit',$value->pf_id) }}" method="post">
+                                    {{ method_field('GET') }}
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-warning">
                                         <li class="glyphicon glyphicon-pencil"></li>
-                                        Edit</a></button>
-                                <button class="btn btn-danger"><a href="#">
+                                        Edit
+                                    </button>
+                                </form>
+                            </td>
+                            <td align="Left">
+                                <form action="{{ url('addPortfolio',$value->pf_id) }}" method="post">
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-danger" Onclick="return ConfirmDelete();">
                                         <li class="glyphicon glyphicon-trash"></li>
-                                        Delect</a></button>
+                                        Delete
+                                    </button>
+                                </form>
+
                             </td>
                         </tr>
                         <?php $i++;?>
@@ -275,6 +288,15 @@
         // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
+        }
+    </script>
+    <script>
+        function ConfirmDelete() {
+            var x = confirm("ต้องการลบข้อมูล หรือไม่ !!");
+            if (x)
+                return true;
+            else
+                return false;
         }
     </script>
 @endsection

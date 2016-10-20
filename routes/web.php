@@ -26,9 +26,8 @@ Route::get('/create_account',function (){
 
 Route::resource('editPh', 'NoomController');
 
-Route::resource('addPortfolio', 'NoomController@addPortfolio');
-Route::resource('editPortfolio', 'NoomController@editPortfolio');
-//Route::resource('managePortfolio', 'NoomController@managePortfolio');
+
+
 
 //noom  manage Database
 //โปรไฟล์
