@@ -40,7 +40,6 @@
             color: #ff1aba;
         }
     }
-
     @media only screen and (min-width: 1440px) {
         footer {
             width: 100%;
@@ -81,7 +80,6 @@
             color: #ff1aba;
         }
     }
-
 </style>
 <footer>
     <div class="col-xs-3 col-sm-3 col-md-12">

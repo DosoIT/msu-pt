@@ -1,170 +1,125 @@
 @extends('layouts/back_end')
 @section('content')
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .a{
-            font-family: ThaiNeue;
-        }
-        .h3-header {
-            font-size: 20pt;
-            font-family: ThaiNeue;
-        }
-
-        label {
-            font-size: 18pt;
-            font-family: ThaiNeue;
-        }
-
-        .label-font {
-            font-size: 22pt;
-            font-weight: 700;
-            color: gray;
-            display: inline-block;
-            font-family: ThaiNeue;
-        }
-
-        .remove_field {
-            color: #fff;
-        }
-
-        /*เมนู*/
-        .dropbtn {
-            background-color: #fff;
-            color: black;
-            padding: 16px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            font-size: 18px;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-
-        }
-
-        .dropdown-content a:hover {
-            background-color: #00bcd4;
-            color: #fff;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif
         }
 
         #img-resize {
-            width: 150px;
-            height: 150px;
+            width: 100%;
         }
-
     </style>
-
-    <div class="container">
-        <div class="row">
-            <div class="page-header">
-
-                <div class="dropdown">
-                    <a href="profile">
-                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
-                        </button>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
-                    <div class="dropdown-content">
-                        <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="row " align="center">
-            @foreach($userDetail as $value)
-                <img src="{{ url('picture/'.$value->picture) }}" class="img-circle" id="img-resize">
-            @endforeach
-            <br><br><label class="label-font">{{ Auth::user()->name }} </label>
-            <div class="page-header"></div>
-
-
-            <div class="col-xs-6 " align="center">
-                @foreach($userDetail as $valueUser)
-                    <h3 class="h3-header">ที่อยู่</h3>
-                    <label align="left">{{ $valueUser->address }}</label>
-                    <div class="page-header"></div>
-
-
-                    <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
-                    <div align="left">
-                        <img src="{{ url('image/call.png') }}" width="30" height="30"> :
-                        <label>{{ $valueUser->tel }}</label><br><br>
-                        <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
-                        <label>{{ $valueUser->facebook }}</label><br><br>
-                        <img src="{{ url('image/email.png') }}" width="30" height="30"> :
-                        <label>{{$valueUser->email}}</label>
-                    </div>
-
-                @endforeach
-            </div>
-            <div class="col-xs-6" align="left">
-
-
-                <h3 class="h3-header">ประเภทงาน</h3><br>
-                <div>
-                    @foreach($cate as $valueCate)
-                        @foreach($classify as $valueclassify)
-                            @if($valueCate->c_id == $valueclassify->c_id)
-                                <label>{{$valueCate->c_name}}</label><br>
-                            @endif
+    <body>
+    <!-- Page Container -->
+    <div class="w3-container w3-content w3-margin-top" style="max-width:1400px;">
+        <!-- The Grid -->
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <!-- Left Column -->
+            <div class="w3-quarter">
+                <div class="w3-white w3-text-grey w3-card-4">
+                    <div class="w3-display-container">
+                        @foreach($userDetail as $value)
+                            <img src="{{ url('picture/'.$value->picture) }}" id="img-resize">
                         @endforeach
-                    @endforeach
+                        <div class="w3-container">
+                            <h4><b>{{ Auth::user()->name }}</b></h4>
+                        </div>
+                    </div>
+                    @foreach($userDetail as $valueUser)
+                        <div class="w3-container">
+                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
+                            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->address }}</p>
+                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ Auth::user()->email}}</p>
+                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->tel }}</p>
+                            <hr>
+                            @endforeach
+                            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b>
+                            </p>
+                            @foreach($skill as $valueSkill)
+                                <p style="margin-left: 25px"> - {{$valueSkill->s_detail}}</p>
+                            @endforeach
+                            <br>
+                            <p class="w3-large w3-text-theme"><b><i
+                                            class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                            <p>English</p>
+                            <p>Spanish</p>
+                            <p>German</p>
+                            <br>
+                        </div>
+                </div>
+                <br>
+                <!-- End Left Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-twothird">
+
+                <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+                    <h2 class="w3-text-grey w3-padding-16"><i
+                                class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience
+                    </h2>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
+                                    class="w3-tag w3-teal w3-round">Current</span></h6>
+                        <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est
+                            reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
+                            iste.</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014
+                        </h6>
+                        <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est
+                            reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
+                            iste.</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012
+                        </h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
+                    </div>
                 </div>
 
-                <div class="page-header"></div>
-                <h3 class="h3-header">ความสามารถ</h3><br>
-                @foreach($skill as $valueSkill)
-
-                    <label>{{$valueSkill->s_detail}}</label><br>
-
-                @endforeach
-
-                <div class="page-header"></div>
-                <h3 class="h3-header">ลักษณะงาน</h3><br>
-                @foreach($discript as $valuediscript)
-
-                    <label>{{$valuediscript->dt_detail}}</label><br>
-
-                @endforeach
+                <div class="w3-container w3-card-2 w3-white">
+                    <h2 class="w3-text-grey w3-padding-16"><i
+                                class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education
+                    </h2>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+                        <p>Web Development! All I need to know in one place</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>London Business School</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
+                        <p>Master Degree</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>School of Coding</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
+                        <p>Bachelor Degree</p><br>
+                    </div>
+                </div>
+                <!-- End Right Column -->
             </div>
-            <br><br>
-
+            <!-- End Grid -->
         </div>
-
-        <br><br>
-
+        <!-- End Page Container -->
     </div>
+    <script>
+        function openLeftMenu() {
+            document.getElementById("leftMenu").style.display = "block";
+        }
+        function closeLeftMenu() {
+            document.getElementById("leftMenu").style.display = "none";
+        }
+    </script>
 
 @endsection

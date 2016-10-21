@@ -2,6 +2,9 @@
 Route::get('/', function () {
     return view('layouts.banner');
 });
+Route::get('/profiles', function () {
+    return view('layouts.profiles');
+});
 Route::get('/home', function (){
     return view('home');
 });
