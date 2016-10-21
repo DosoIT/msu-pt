@@ -25,14 +25,24 @@
         .font{
             font-family: ThaiNeue;
             font-size: 18pt;
+            text-transform: lowercase;
         }
         .fontheader{
             font-family: ThaiNeue;
-            font-size: 28pt;
+            font-size: 30pt;
+            text-transform: uppercase;
         }
         .link {
             font-family: ThaiNeue;
             font-size: 18pt;
+        }
+        .textinput{
+            font-size: 15pt;
+            background: #DCDCDC;
+        }
+        .headertext{
+            font-size: 20pt;
+            text-transform: uppercase;
         }
     </style>
 
@@ -40,7 +50,7 @@
         <div class="row">
             <div class="page-header col-md-offset-1">
                 <button class="btn btn-default link"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editprofile') }}"> แก้ไขโปร์ไฟล์</a></button>
+                    <a href="{{ url('editProfileEmployer') }}"> แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default link"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('postEmployer') }}"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
@@ -56,47 +66,46 @@
                                 <label for="file">
                                     <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                             </div>
-                            <div class="col-xs-8">
+                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">หัวข้อ</label>
-                                    <input type="text" class="form-control" placeholder="หัวข้อ" name="titelpost" required>
+                                    <label for="exampleTitle inputWarning">ชื่อบริษัท/หัวข้อ</label>
+                                    <input type="text" class="form-control textinput" size="5" placeholder="หัวข้อ" name="titelpost" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">ประเภทงาน</label>
-                                    <select name="description" class="form-control">
-                                        <option >กลางคืน</option>
+                                    <label for="exampleDescription" class="control-label">ประเภทงาน</label>
+                                    <select name="description" class="form-control textinput">
+                                        <option>กลางคืน</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">รายละเอียด</label>
-                                    <textarea name="detail" class="form-control" rows="5"></textarea>
+                                    <label for="exampleDetail" class="control-label">รายละเอียด</label>
+                                    <textarea name="detail" class="form-control textinput" rows="2"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">สถานที่</label>
-                                    <input type="text" class="form-control" placeholder="สถานที่" value="" name="location">
+                                    <label for="exampleAddress" class="control-label">สถานที่</label>
+                                    <input type="text" class="form-control textinput" placeholder="สถานที่" value="" name="location">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
-                                    <textarea name="property" class="form-control" rows="5"></textarea>
+                                    <label for="exampleProperty" class="control-label">คุณสมบัติผู้สมัคร</label>
+                                    <textarea name="property" class="form-control textinput" rows="2"></textarea>
                                 </div>
-                                <br><br>
-                                <h3>ช่องทางการติดต่อ</h3>
+                                <h3 class="headertext">ช่องทางการติดต่อ</h3>
                                 <div class="headerline"></div>
                                 <br>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">เบอร์โทร</label>
-                                    <input type="tel" name="tel" class="form-control" placeholder="เบอร์โทร"  maxlength="10" onkeyup="if(isNaN(this.value)){alert('ราคาต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" >
+                                    <label for="exampleTel" class="control-label">เบอร์โทร</label>
+                                    <input type="tel" name="tel" class="form-control textinput" placeholder="เบอร์โทร"  maxlength="10" onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Facebook</label>
-                                    <input type="text" name="fb" class="form-control" placeholder="Facebook">
+                                    <label for="exampleFacebook" class="control-label">Facebook</label>
+                                    <input type="text" name="fb" class="form-control textinput" placeholder="Facebook">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">E-mail</label>
-                                    <input type="email" class="form-control" placeholder="E-mail" value="" name="email">
+                                    <label for="exampleEmail" class="control-label">E-mail</label>
+                                    <input type="email" class="form-control textinput" placeholder="E-mail" value="" name="email">
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-success btn-lg link">ประกาศ</button>
+                                <button type="submit" class="btn btn-success btn-lg link col-sm-2 col-xs-2 col-md-2">ประกาศ</button>
                             </div>
                         </form>
                     </div>

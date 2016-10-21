@@ -31,11 +31,11 @@
             font-size: 16pt;
             color: #1d1d1d;
         }
-        .cnt:hover{
-             background-color: #00AFF0;
+
+        .cnt:hover {
+            background-color: #00AFF0;
         }
-    </style>
-    <style>
+
         .back-to-top {
             cursor: pointer;
             position: fixed;
@@ -100,21 +100,41 @@
                 <div class="row">
                     <div class="col-sm-6 col-md-4" align="center">
                         <br>
-
-                        <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
-                        <h4 class="fonts">{{ Auth::user()->name }}</h4>
-                        <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30" height="30">
-                            โทร : </h4>
-                        <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30"
-                                                            height="30"> Facebook : </h4>
-                        <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30" height="30">
-                            E-mail : </h4>
-                        <h4 class="fonts" align="left"><img src="{{ url('image/location.png') }}" width="30"
-                                                            height="30"> สถานที่ : </h4>
+                        @if(!empty($profile))
+                            @foreach($profile as $values)
+                                <img src="{{url('picture/'.$values->picture)}}" class="img-Thumbnail" width="150"
+                                     height="150">
+                                <h4 class="fonts">{{ Auth::user()->name }}</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
+                                                                    height="30">
+                                    โทร : {{ $values->tel }}</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30"
+                                                                    height="30">
+                                    Facebook : {{ $values->facebook }}</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
+                                                                    height="30">
+                                    E-mail : {{ $values->email }} </h4>
+                            @endforeach
+                        @else
+                            <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
+                            <h4 class="fonts">{{ Auth::user()->name }}</h4>
+                            <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
+                                                                height="30">
+                                โทร : </h4>
+                            <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30"
+                                                                height="30"> Facebook : </h4>
+                            <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
+                                                                height="30">
+                                E-mail : </h4>
+                            <h4 class="fonts" align="left"><img src="{{ url('image/location.png') }}" width="30"
+                                                                height="30"> สถานที่ : </h4>
+                        @endif
 
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt" title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส" alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
+                        <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt"
+                                                                                                 title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส"
+                                                                                                 alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
                         </h4>
                         <table class="table table-hover table-condensed" width="100%">
                             <thead>
@@ -131,7 +151,23 @@
                                 @foreach($post_work as $row)
                                     <tr class="active">
                                         <td><?php echo $count++ ?></td>
-                                        <td><a href="#detail" data-toggle="modal"> {{ $row->wp_titel }}</a></td>
+                                        <td>
+                                            <a href="{{ route('showpostEmployer.show',$row->wp_id) }}"
+                                               data-toggle="modal" data-target="#detail{{ $row->wp_id }}">
+                                                {{ method_field('GET') }}
+                                                {{ csrf_field() }}
+                                                {{ $row->wp_titel }}
+                                            </a>
+                                            {{--model--}}
+                                            <div class="modal fade" id="detail{{ $row->wp_id }}" tabindex="-1"
+                                                 role="dialog" aria-labelledby="myModalLabel">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{--end model--}}
+                                        </td>
                                         <td>{{ $row->created_at }}</td>
                                         <td>
                                             <form action="{{ route('postEmployer.edit',$row->wp_id) }}">
@@ -191,25 +227,6 @@
                 </div>
             </div>
         </div>
-        {{--model--}}
-        <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">รายละเอียด</h4>
-                    </div>
-                    <div class="modal-body row">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{--end model--}}
         <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"
            title="Click to return on the top page"
            data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span>

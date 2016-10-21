@@ -17,6 +17,7 @@ class CreateWorkPostTable extends Migration
             $table->increments('wp_id');
             $table->string('wp_pic');
             $table->string('wp_titel');
+            $table->string('wp_company');
             $table->string('wp_detail');
             $table->string('wp_location');
             $table->string('wp_description');
@@ -27,7 +28,6 @@ class CreateWorkPostTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
