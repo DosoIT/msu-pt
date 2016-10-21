@@ -113,7 +113,7 @@
                                     Facebook : {{ $values->facebook }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
                                                                     height="30">
-                                    E-mail : {{ $values->email }} </h4>
+                                    ที่อยู่ : {{ $values->address }} </h4>
                             @endforeach
                         @else
                             <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">

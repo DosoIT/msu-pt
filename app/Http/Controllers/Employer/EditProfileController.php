@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Employer;
 
 use App\ProfileEmployerModel;
+use App\UserDetailModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\EmployerDetailModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class EditProfileController extends Controller
 {
@@ -18,7 +21,8 @@ class EditProfileController extends Controller
      */
     public function index()
     {
-        //return view('lin.edit_profileEmployer');
+        $profile = UserDetailModel::where('user_id', Auth::user()->id)->get();
+        return view('lin.edit_profileEmployer', ['profile' => $profile]);
     }
 
     /**
@@ -34,33 +38,18 @@ class EditProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //insert data
-//
-//        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-//        $request->image->move(public_path('picture'), $imageName);
-//        $profile = new ProfileEmployerModel();
-//        $profile->em_pic = $imageName;
-//        $profile->em_name = $request->fullname;
-//        $profile->em_location = $request->address;
-//        $profile->em_tel = $request->tel;
-//        $profile->em_fb = $request->facebook;
-//        $profile->em_email = $request->email;
-//        $profile->save();
-//
-//        //Session::get('insert');
-////        return redirect('showprofileEmployer')->with('insert','บันทึกข้อมูลเรียบร้อย');
-//        return redirect('showprofileEmployer');
+        //insert
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -71,7 +60,7 @@ class EditProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -82,19 +71,41 @@ class EditProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->image == null) {
+            $update = UserDetailModel::where('id', $id)->update
+            (['address' => $request->address,
+                'tel' => $request->tel,
+                'facebook' => $request->facebook,
+                'email' => $request->email,
+            ]);
+        } else {
+            $img = UserDetailModel::where('id', $id)->get();
+            foreach ($img as $value) {
+                File::delete('picture/' . $value->picture);
+                $imageName = rand(1,999999999) . '.' . $request->image->getClientOriginalExtension();
+                $request->image->move(public_path('picture'), $imageName);
+                $update = UserDetailModel::where('id', $id)->update
+                (['address' => $request->address,
+                    'tel' => $request->tel,
+                    'facebook' => $request->facebook,
+                    'email' => $request->email,
+                    'picture' => $imageName
+                ]);
+            }
+        }
+        return redirect('showpostEmployer');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
