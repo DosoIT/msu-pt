@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\UserDetailModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\EmployerPostModel;
+use Illuminate\Support\Facades\Auth;
 
 class ShowPostController extends Controller
 {
@@ -21,9 +23,12 @@ class ShowPostController extends Controller
 //        return view('lin.detail_employer',['post_work'=>$emp]);
 
         $data = array(
-          'post_work'=>EmployerPostModel::paginate(5)
+            'post_work' => EmployerPostModel::paginate(5)
         );
-        return view('lin.detail_employer',$data);
+        $member = array(
+            'profile' => UserDetailModel::where('user_id', Auth::user()->id)->get()
+        );
+        return view('lin.detail_employer', $data, $member);
     }
 
     /**
@@ -39,7 +44,7 @@ class ShowPostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,18 +55,19 @@ class ShowPostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $em_post = EmployerPostModel::where('wp_id', $id)->get();
+        return view('lin.detail_post', ['detail_post' => $em_post]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -72,8 +78,8 @@ class ShowPostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -84,7 +90,7 @@ class ShowPostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -80,7 +80,7 @@
     </div>
     <div class="row">
         <?php
-        $conn = mysqli_connect("localhost", "root", "root", "msu_pt");
+        $conn = mysqli_connect("localhost", "root", "", "testlaravel");
         mysqli_set_charset($conn, "utf8");
         $sql = "SELECT * FROM user_detail";
         $result = mysqli_query($conn, $sql);

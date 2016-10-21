@@ -68,7 +68,6 @@ Route::resource('postEmployer','Employer\ManageEmployerController');
 Route::resource('showpostEmployer','Employer\ShowPostController');
 //Profile Employer
 Route::resource('editProfileEmployer', 'Employer\EditProfileController');
-Route::resource('showprofileEmployer','Employer\ShowProfileEmployer');
 
 
 

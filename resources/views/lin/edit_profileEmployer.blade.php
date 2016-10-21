@@ -37,6 +37,8 @@
         .textinput{
             margin-top: 11px;
             margin-left: -20px;
+            font-size: 15pt;
+            background: #DCDCDC;
         }
 
     </style>
@@ -46,7 +48,7 @@
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editProfileEmployer') }}" class="alink">แก้ไขโปร์ไฟล์</a></button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('post') }}" class="alink"> เพิ่มประกาศรับสมัคร</a>
+                    <a href="{{ url('postEmployer') }}" class="alink"> เพิ่มประกาศรับสมัคร</a>
                 </button>
             </div>
                 @if (\Session::has('insert'))
@@ -90,7 +92,7 @@
                                             </div>
                                             <label class="col-sm-2 control-label labeltext">Faecbook :</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="facebook" class="form-control textinput" value="">
+                                                <input type="text" name="facebook" class="form-control textinput" value="" placeholder="Facebook">
                                             </div>
                                             <label class="col-sm-2 control-label labeltext">E-mail :</label>
                                             <div class="col-sm-4">
@@ -103,7 +105,8 @@
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <div class="pull-left">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-success btn-lg textinput">บันทึก</button>
+                                                    <button type="submit" class="btn btn-success btn-lg" style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
+                                                        บันทึก</button>
                                                 </div>
                                             </div>
                                         </div>
