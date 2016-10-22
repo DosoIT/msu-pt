@@ -1,6 +1,4 @@
 @extends('layouts.template')
-{!! Html::style('css/sweetalert.css') !!}
-{!! Html::script('js/sweetalert.min.js') !!}
 @section('content')
     <style>
         .inputfile {
@@ -69,14 +67,12 @@
             @endif
             <div class="col-xs-12  col-md-12">
                 <div class="well well-sm">
-                    @foreach($profile as $value)
-                        <form action="{{ url('editProfileEmployer',$value->id) }}" method="post"
-                              class="form-horizontal" role="form" enctype="multipart/form-data">
-                            {{ method_field('PUT')}}
-                            {{ csrf_field() }}
+                    @if(count($profile)<1)
+                        <form action="{{ url('editProfileEmployer') }}" method="post"
+                              class="form-horizontal" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-xs-4" align="center">
-                                    <img src="{{url('picture/'.$value->picture)}}" alt="เลือกรูปภาพ" class="img-rounded"
+                                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded"
                                          width="200"
                                          height="200" id="output" required="">
                                     <br><br><input type="file" name="image" id="file" class="inputfile"
@@ -87,23 +83,19 @@
                                 <div class="col-sm-8 col-md-8">
                                     <div class="row">
                                         <fieldset>
-                                            <legend class="font">แก้ไขโปร์ไฟล์</legend>
+                                            <legend class="font">เพิ่มโปร์ไฟล์</legend>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 control-label labeltext">ชื่อเข้าใช้งาน :</label>
                                                 <div class="col-sm-5">
                                                     <input type="text" name="fullname" class="form-control textinput"
                                                            value="{{ Auth::user()->name }}" disabled>
-                                                </div>
-                                                <div class="">
-                                                    <span class="glyphicon glyphicon-flash" style="margin-right: -110cm;"></span>
+                                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
                                                 <div class="col-sm-5">
-                                                <textarea name="address" id="" rows="2" class="form-control textinput">
-                                                    {{ $value->address  }}
-                                                </textarea>
+                                                <textarea name="address" id="" rows="2" class="form-control textinput" required=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -111,22 +103,31 @@
                                                     :</label>
                                                 <div class="col-sm-5">
                                                     <input type="tel" name="tel" placeholder="080-xxxxxxx"
-                                                           class="form-control textinput" value="{{ $value->tel  }}"
-                                                           maxlength="10" onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
+                                                           class="form-control textinput" value=""
+                                                           maxlength="10" required
+                                                           onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label labeltext">Faecbook :</label>
                                                 <div class="col-sm-5">
                                                     <input type="text" name="facebook" class="form-control textinput"
-                                                           value="{{ $value->facebook  }}" placeholder="Facebook">
+                                                           value="" placeholder="Facebook" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label labeltext">E-mail :</label>
+                                                <div class="col-sm-5">
+                                                    <input type="text" name="email" class="form-control textinput"
+                                                           value="{{ Auth::user()->email }}" placeholder="Facebook" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                     <div class="pull-left">
-                                                        <button type="submit" class="btn btn-success btn-lg btnS"
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <button type="submit" class="btn btn-success btn-lg"
                                                                 style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
                                                             บันทึก
                                                         </button>
@@ -138,18 +139,92 @@
                                 </div>
                             </div>
                         </form>
-                    @endforeach
+                    @else
+                        @foreach($profile as $value)
+                            <form action="{{ url('editProfileEmployer',$value->id) }}" method="post"
+                                  class="form-horizontal" role="form" enctype="multipart/form-data">
+                                {{ method_field('PUT')}}
+                                {{ csrf_field() }}
+                                <div class="row">
+                                    <div class="col-xs-4" align="center">
+                                        <img src="{{url('picture/'.$value->picture)}}" alt="เลือกรูปภาพ"
+                                             class="img-rounded"
+                                             width="200"
+                                             height="200" id="output" required="">
+                                        <br><br><input type="file" name="image" id="file" class="inputfile"
+                                                       onchange="loadFile(event)"/>
+                                        <label for="file">
+                                            <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+                                    </div>
+                                    <div class="col-sm-8 col-md-8">
+                                        <div class="row">
+                                            <fieldset>
+                                                <legend class="font">แก้ไขโปร์ไฟล์</legend>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 control-label labeltext">ชื่อเข้าใช้งาน
+                                                        :</label>
+                                                    <div class="col-sm-5">
+                                                        <input type="text" name="fullname"
+                                                               class="form-control textinput"
+                                                               value="{{ Auth::user()->name }}" disabled>
+                                                    </div>
+                                                    <div class="">
+                                                        <span class="glyphicon glyphicon-flash"
+                                                              style="margin-right: -110cm;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
+                                                    <div class="col-sm-5">
+                                                <textarea name="address" id="" rows="2" class="form-control textinput">
+                                                    {{ $value->address  }}
+                                                </textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label labeltext" for="textinput">โทร
+                                                        :</label>
+                                                    <div class="col-sm-5">
+                                                        <input type="tel" name="tel" placeholder="080-xxxxxxx"
+                                                               class="form-control textinput" value="{{ $value->tel  }}"
+                                                               maxlength="10"
+                                                               onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label labeltext">Faecbook :</label>
+                                                    <div class="col-sm-5">
+                                                        <input type="text" name="facebook"
+                                                               class="form-control textinput"
+                                                               value="{{ $value->facebook  }}" placeholder="Facebook">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-3 col-sm-10 col-md-10">
+                                                        <div class="pull-left">
+                                                            <button type="submit" class="btn btn-success btn-lg"
+                                                                    style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
+                                                                บันทึก
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div><!-- end row2 -->
+                                    </div>
+                                </div>
+                            </form>
+                        @endforeach
+                    @endif
                 </div>
                 <!-- end row1 -->
             </div>
         </div>
-        </div>
+    </div>
     </div>
     <script>
         $('#back-to-top').tooltip('show');
         $(".alert").tooltip();
-        $(".btnS").click(function () {
-            swal("เรียบร้อย!", "ทำรายการตามที่ขอเรียบร้อย!", "success");
-        })
     </script>
 @endsection
