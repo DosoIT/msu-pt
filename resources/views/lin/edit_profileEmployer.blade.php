@@ -1,4 +1,6 @@
 @extends('layouts.template')
+{!! Html::style('css/sweetalert.css') !!}
+{!! Html::script('js/sweetalert.min.js') !!}
 @section('content')
     <style>
         .inputfile {
@@ -124,7 +126,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                     <div class="pull-left">
-                                                        <button type="submit" class="btn btn-success btn-lg"
+                                                        <button type="submit" class="btn btn-success btn-lg btnS"
                                                                 style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
                                                             บันทึก
                                                         </button>
@@ -146,5 +148,8 @@
     <script>
         $('#back-to-top').tooltip('show');
         $(".alert").tooltip();
+        $(".btnS").click(function () {
+            swal("Good job!", "You clicked the button!", "success");
+        })
     </script>
 @endsection

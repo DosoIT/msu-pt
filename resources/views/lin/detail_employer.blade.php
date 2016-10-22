@@ -1,4 +1,5 @@
 @extends('layouts.template')
+{!! Html::style('css/sweetalert.css') !!}
 @section('content')
     <style>
         .fonts {
@@ -237,6 +238,7 @@
         </a>
     </div>
     {{--end container--}}
+    {!! Html::script('js/sweetalert.min.js') !!}
     <script>
         $(document).ready(function () {
             $(window).scroll(function () {

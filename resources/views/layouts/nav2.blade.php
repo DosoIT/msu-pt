@@ -61,9 +61,9 @@
         }
 
         .nav2 ul li a:hover {
-            margin-top: 15px;
+            /*margin-top: 15px;*/
             color: #8c8c8c;
-            zoom: 1;
+            /*zoom: 1;*/
         }
     }
 
@@ -95,10 +95,6 @@
 
         .nav2 ul li a {
             color: #8c8c8c;
-        }
-
-        .bner {
-            margin-left: 100%;
         }
     }
 

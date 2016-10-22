@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/bootstrap-switch.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #ffffff;
@@ -22,12 +24,12 @@
                 background-color: black;
                 width: 115%;
                 height: 1%;
+                border-bottom: 2px solid #b91a6c;
             }
 
             .navbar-xs a {
                 color: #f0f0f0;
             }
-
             .navbar-xs .brand {
                 font-family: ThaiNeue;
                 font-size: 16pt;
@@ -41,6 +43,11 @@
                 padding-left: 0px;
                 padding-right: 0px;
                 margin-right: 10px;
+                background-color: transparent;
+            }
+
+            .drop > li > a:hover {
+                background-color: transparent;
             }
 
             .navbar-content {
@@ -128,8 +135,6 @@
         }
     </style>
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
     <!-- Scripts -->
     <script>
         window.Laravel =; <?php echo json_encode([
@@ -168,11 +173,12 @@
             <ul class="nav navbar-nav navbar-right drop">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}" style="background-color: #00AFF0">Login</a></li>
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle aa" data-toggle="dropdown" role="button" aria-expanded="false">
                             <i class="fa fa-circle-o" style="color: #20ff07"></i>
                             {{ Auth::user()->name }}
                             <span class="caret"></span>
@@ -183,8 +189,7 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             {!! Html::image('image/pic-default.png') !!}
-                                            <p class="text-center small" style="margin-top: 10%"><a href="#">Change
-                                                    Photo</a></p>
+                                            <p class="text-center small" style="margin-top: 10%"><a href="#">Change Photo</a></p>
                                         </div>
                                         <div class="col-md-7">
                                             <span>{{ Auth::user()->name }}</span>
@@ -198,7 +203,9 @@
                                                 <a href="{{ url('/profile') }}"
                                                    class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
                                             @endif
-
+                                            <div class="divider"></div>
+                                            <input type="checkbox" name="my-checkbox" data-size="mini" data-off-text="กลางวัน" data-on-text="กลางคืน" data-label-text="โหมด">
+                                            <div class="divider"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -243,5 +250,22 @@
 
 {!! Html::script('js/jquery.min.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
+{!! Html::script('js/bootstrap-switch.min.js') !!}
+<script !src="">
+    $(".aa").click(function () {
+        $(this).css('background-color','transparent');
+    })
+    $("[name='my-checkbox']").bootstrapSwitch();
+    $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+        console.log(this); // DOM element
+        console.log(event); // jQuery event
+        console.log(state); // true | false
+        if(state==true){
+            $('body').css('background-color','#000');
+        }else{
+            $('body').css('background-color','#fff');
+        }
+    });
+</script>
 </body>
 </html>
