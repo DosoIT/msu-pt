@@ -140,6 +140,7 @@
                             </div>
                         </form>
                     @else
+                        {{--my data--}}
                         @foreach($profile as $value)
                             <form action="{{ url('editProfileEmployer',$value->id) }}" method="post"
                                   class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -168,10 +169,6 @@
                                                                class="form-control textinput"
                                                                value="{{ Auth::user()->name }}" disabled>
                                                     </div>
-                                                    <div class="">
-                                                        <span class="glyphicon glyphicon-flash"
-                                                              style="margin-right: -110cm;"></span>
-                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
@@ -199,7 +196,14 @@
                                                                value="{{ $value->facebook  }}" placeholder="Facebook">
                                                     </div>
                                                 </div>
-
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label labeltext">E-mail :</label>
+                                                    <div class="col-sm-5">
+                                                        <input type="text" name="email"
+                                                               class="form-control textinput"
+                                                               value="{{ $value->email }}" placeholder="Facebook">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                         <div class="pull-left">
