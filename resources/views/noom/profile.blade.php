@@ -9,6 +9,7 @@
         #img-resize {
             width: 100%;
         }
+
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -28,6 +29,7 @@
         .inputfile + label {
             cursor: pointer; /* "hand" cursor */
         }
+
         .h3-header {
             font-size: 20pt;
             font-family: ThaiNeue;
@@ -72,6 +74,7 @@
             min-width: 200px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             font-size: 18px;
+
         }
 
         .dropdown-content a {
@@ -97,22 +100,31 @@
     <div class="w3-container w3-content w3-margin-top" style="max-width:1400px;">
         <div class="page-header">
 
-            <div class="dropdown">
-                <a href="profile"><button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</button></a>
-                <div class="dropdown-content">
-                    <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                    <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
-                </div>
+            <div style="margin-bottom: -55px;" align="left">
+                <h1>{{Auth::user()->name}} Profile</h1>
             </div>
 
-            <div class="dropdown">
-                <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
-                <div class="dropdown-content">
-                    <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
-                    <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
+            <div align="right" style="margin-right:100px; ">
+                <div class="dropdown">
+                    <a href="profile">
+                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        </button>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="manageProfile" align="left"><i class="glyphicon glyphicon-wrench"></i>
+                            จัดการโปรไฟล์</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
+                    <div class="dropdown-content">
+                        <a href="addPortfolio" align="left"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
+                        <a href="managePortfolio" align="left"><i class="glyphicon glyphicon-wrench"></i>
+                            จัดการผลงาน</a>
+                    </div>
                 </div>
             </div>
-
         </div>
         <!-- The Grid -->
         <div class="w3-row-padding" style="margin:0 -16px">
@@ -120,9 +132,13 @@
             <div class="w3-quarter">
                 <div class="w3-white w3-text-grey w3-card-4">
                     <div class="w3-display-container">
-                        @foreach($userDetail as $value)
-                            <img src="{{ url('picture/'.$value->picture) }}" id="img-resize">
-                        @endforeach
+                        @if(count($userDetail))
+                            @foreach($userDetail as $value)
+                                <img src="{{ url('picture/'.$value->picture) }}" id="img-resize">
+                            @endforeach
+                        @else
+                            <img src="{{ url('image/pic-default.png') }}" id="img-resize">
+                        @endif
                         <div class="w3-container">
                             <h4><b>{{ Auth::user()->name }}</b></h4>
                         </div>
@@ -130,9 +146,15 @@
                     @foreach($userDetail as $valueUser)
                         <div class="w3-container">
                             <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
-                            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->address }}</p>
-                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ Auth::user()->email}}</p>
-                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->tel }}</p>
+                            <p>
+                                <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->address }}
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ Auth::user()->email}}
+                            </p>
+                            <p>
+                                <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->tel }}
+                            </p>
                             <hr>
                             @endforeach
                             <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b>

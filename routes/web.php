@@ -27,11 +27,9 @@ Route::get('/create_account',function (){
     return view('layouts.create_account');
 });
 
+
+
 Route::resource('editPh', 'NoomController');
-
-
-
-
 //noom  manage Database
 //โปรไฟล์
 Route::resource('manageProfile', 'ManageProfileController');

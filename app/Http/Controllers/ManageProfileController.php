@@ -23,8 +23,18 @@ class ManageProfileController extends Controller
     public function index()
     {
         $categrory = CategoryModel::all();
+        $detail = UserDetailModel::where('user_id',Auth::user()->id)->get();
+        $classify = ClassifyModel::where('user_id',Auth::user()->id)->get();
+        $skill = SkillModel::where('user_id',Auth::user()->id)->get();
+        $decrip = DiscriptionModel::where('user_id',Auth::user()->id)->get();
 
-        return view('noom/manageProfile', ['cate' => $categrory]);
+        return view('noom/manageProfile', [
+            'cate' => $categrory,
+            'detail'=>$detail,
+            'classify'=>$classify,
+            'skill'=>$skill,
+            'decrip'=>$decrip
+        ]);
     }
 
     /**

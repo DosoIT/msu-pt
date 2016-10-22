@@ -1,14 +1,21 @@
 @extends('layouts/back_end')
 @section('content')
     <style>
-        h1{
+        .ft {
+            font-size: 14pt;
+            font-family: ThaiNeue;
+        }
+
+        h1 {
             font-size: 30pt;
             font-family: ThaiNeue;
         }
+
         label {
             font-size: 18pt;
             font-family: ThaiNeue;
         }
+
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -28,6 +35,7 @@
         .inputfile + label {
             cursor: pointer; /* "hand" cursor */
         }
+
         .h3-header {
             font-size: 20pt;
             font-family: ThaiNeue;
@@ -99,7 +107,10 @@
             <div class="page-header">
 
                 <div class="dropdown">
-                    <a href="profile"><button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</button></a>
+                    <a href="profile">
+                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        </button>
+                    </a>
                     <div class="dropdown-content">
                         <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
                         <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
@@ -116,82 +127,156 @@
 
             </div>
         </div>
-        <form action="{{url('manageProfile')}}" method="post" enctype="multipart/form-data">
+        @if(count($detail) >0)
+            @foreach($detail as $item)
+                <form action="{{ url('editProfileEmployer',$item->id) }}" method="post"
+                      class="form-horizontal" role="form" enctype="multipart/form-data">
+                    {{ method_field('PUT')}}
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
+                    <div class="row " align="center">
+                        <img src="{{url('picture/'.$item->picture)}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
+                             height="150" id="output">
+                        <br><br><input type="file" name="image" id="file" class="inputfile" onchange="loadFile(event)"/>
+                        <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
 
-            <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
+                        <br><br><label class="label-font">{{ Auth::user()->name }}</label>
+                        <div class="page-header"></div>
 
-            <div class="row " align="center">
+                        <div class="col-xs-6 " align="center">
+                            <h3 class="h3-header">ที่อยู่</h3>
+                            <textarea ea name="address" class="form-control">{{$item->address}}</textarea>
+                            <div class="page-header"></div>
+                            <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
+                            <div align="center">
+                                <img src="{{ url('image/call.png') }}" width="30" height="30"> :
+                                <input type="text" name="tel" value="{{$item->tel}}"><br><br>
+                                <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
+                                <input type="text" name="facebook" value="{{$item->facebook}}"><br><br>
+                                <img src="{{ url('image/email.png') }}" width="30" height="30"> :
+                                <input type="email" name="email" value="{{$item->email}}">
+                            </div>
+                        </div>
+                        <div class="col-xs-6" align="left">
+                            <h3 class="h3-header">ประเภทงาน</h3><br>
+                            <div>
 
+                                <select name="cat_id" class="form-control ft">
+                                    @foreach($classify as $key)
+                                        @foreach($cate as $cat_value)
+                                            @if($cat_value->c_id == $key->c_id)
+                                                <option value="{{$cat_value->c_id}}"
+                                                        selected>{{$cat_value->c_name}}</option>
+                                            @else
+                                                <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}</option>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                </select>
+                            </div>
 
-                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200" height="150" id="output">
+                            <div class="page-header"></div>
+                            <h3 class="h3-header">ความสามารถ</h3><br>
+                            <div class="input_fields_01">
+                                <br>
+                                <div>
+                                    @foreach($skill as $kk)
+                                        <input type="text" name="skill[]" class="form-control" value="{{$kk->s_detail}}"
+                                               required/>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="page-header"></div>
+                            <h3 class="h3-header">ลักษณะงาน</h3><br>
+                            <div class="input_fields_02">
+                                <br>
+                                <div>
+                                    @foreach( $decrip as $dd)
+                                        <input type="text" name="job[]" class="form-control"
+                                               value="{{$dd->dt_detail}}"/>
+                                    @endforeach
+                                </div>
+
+                                <br>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                    <div align="center">
+                        <br><br>
+                        <input type="submit" value="แก้ไขข้อมูล" class="btn btn-success"
+                               style="font-family: ThaiNeue;font-size: 18pt;height: 30px;">
+                    </div>
+                </form>
+            @endforeach
+            <br><br>
+
+        @else
+            <form action="{{url('manageProfile')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
+                <div class="row " align="center">
+                    <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
+                         height="150" id="output">
                     <br><br><input type="file" name="image" id="file" class="inputfile" onchange="loadFile(event)"/>
                     <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
 
+                    <br><br><label class="label-font">{{ Auth::user()->name }}</label>
+                    <div class="page-header"></div>
 
-                <br><br><label class="label-font">{{ Auth::user()->name }}</label>
-                <div class="page-header"></div>
-
-
-                <div class="col-xs-6 " align="center">
-                    <h3 class="h3-header">ที่อยู่</h3>
-                    <textarea ea name="address" class="form-control">
+                    <div class="col-xs-6 " align="center">
+                        <h3 class="h3-header">ที่อยู่</h3>
+                        <textarea ea name="address" class="form-control">
 
                     </textarea>
-                    <div class="page-header"></div>
-
-
-                    <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
-                    <div align="left">
-                        <img src="{{ url('image/call.png') }}" width="30" height="30"> :
-                        <input type="text" name="tel" ><br><br>
-                        <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
-                        <input type="text" name="facebook" ><br><br>
-                        <img src="{{ url('image/email.png') }}" width="30" height="30"> :
-                        <input type="email" name="email" >
+                        <div class="page-header"></div>
+                        <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
+                        <div align="left">
+                            <img src="{{ url('image/call.png') }}" width="30" height="30"> :
+                            <input type="text" name="tel"><br><br>
+                            <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
+                            <input type="text" name="facebook"><br><br>
+                            <img src="{{ url('image/email.png') }}" width="30" height="30"> :
+                            <input type="email" name="email">
+                        </div>
                     </div>
+                    <div class="col-xs-6" align="left">
+                        <h3 class="h3-header">ประเภทงาน</h3><br>
+                        <div>
+                            <select name="cat_id" class="form-control">
+                                @foreach($cate as $cat_value)
+                                    <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="page-header"></div>
+                        <h3 class="h3-header">ความสามารถ</h3><br>
+                        <div class="input_fields_01">
+                            <br>
+                            <div><input type="text" name="skill[]" class="form-control" required/></div>
+                            <button class="add_field_01 btn btn-success">เพิ่มความสามารถ</button>
+                        </div>
+
+                        <div class="page-header"></div>
+                        <h3 class="h3-header">ลักษณะงาน</h3><br>
+                        <div class="input_fields_02">
+                            <br>
+                            <div><input type="text" name="job[]" class="form-control" required/></div>
+                            <button class="add_field_02 btn btn-success">เพิ่มความสามารถ</button>
+                            <br>
+                        </div>
+                    </div>
+                    <br><br>
                 </div>
-                <div class="col-xs-6" align="left">
-
-
-                    <h3 class="h3-header">ประเภทงาน</h3><br>
-
-                    <div>
-                        <select name="cat_id" class="form-control">
-                            @foreach($cate as $cat_value)
-                                <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="page-header"></div>
-                    <h3 class="h3-header">ความสามารถ</h3><br>
-                    <div class="input_fields_01">
-                        <br>
-                        <div><input type="text" name="skill[]" class="form-control" required /></div>
-                        <button class="add_field_01 btn btn-success">เพิ่มความสามารถ</button>
-                    </div>
-
-                    <div class="page-header"></div>
-                    <h3 class="h3-header">ลักษณะงาน</h3><br>
-                    <div class="input_fields_02">
-                        <br>
-                        <div><input type="text" name="job[]" class="form-control" required /></div>
-                        <button class="add_field_02 btn btn-success">เพิ่มความสามารถ</button>
-                        <br>
-                    </div>
-
-
+                <div align="center">
+                    <br><br>
+                    <input type="submit" value="บันทึกข้อมูล" class="btn btn-success"
+                           style="font-family: ThaiNeue;font-size: 18pt;height: 30px;">
                 </div>
-                <br><br>
-
-            </div>
-            <div align="center">
-                <br><br>
-                <input type="submit" value="บันทึกข้อมูล" class="btn btn-success"
-                                style="font-family: ThaiNeue;font-size: 18pt;height: 30px;">
-            </div>
-        </form>
-        <br><br>
+            </form>
+            <br><br>
+        @endif
 
     </div>
 
