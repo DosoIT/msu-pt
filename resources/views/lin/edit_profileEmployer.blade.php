@@ -103,7 +103,6 @@
                                                 <div class="col-sm-5">
                                                 <textarea name="address" id="" rows="2" class="form-control textinput">
                                                     {{ $value->address  }}
-                                                    ppp
                                                 </textarea>
                                                 </div>
                                             </div>
