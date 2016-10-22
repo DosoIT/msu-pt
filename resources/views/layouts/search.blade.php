@@ -39,22 +39,17 @@
                 </div>
                 <div class="col-xs-3">
                     <label for="ex2"><h2 style="font-family: 'ThaiNeue';">สถานที่</h2></label>
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                    mysqli_set_charset($conn, "utf8");
+                    $sql = "SELECT * FROM tb_locations";
+                    $query = mysqli_query($conn, $sql);
+                    ?>
                     <select name="slPlace" id="slPlace" class="form-control"
                             style="font-family: 'ThaiNeue'; font-size: large;border:1px solid #000000;">
-                        <option value="">แกดำ</option>
-                        <option value="">โกสุมพิสัย</option>
-                        <option value="">บ้านหนองอุ่ม</option>
-                        <option value="">กันทรวิชัย</option>
-                        <option value="">กุดรัง</option>
-                        <option value="">ชื่นชม</option>
-                        <option value="">เชียงยืน</option>
-                        <option value="">นาเชือก</option>
-                        <option value="">นาดูน</option>
-                        <option value="">บรบือ</option>
-                        <option value="">พยัคฆภูมิพิสัย</option>
-                        <option value="">เมืองมหาสารคาม</option>
-                        <option value="">ยางสีสุราช</option>
-                        <option value="">วาปีปทุม</option>
+                        <?php while ($values = mysqli_fetch_array($query)){ ?>
+                        <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="col-xs-2">

@@ -43,7 +43,28 @@ class EditProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //insert
+        //insert data
+        if ($request->image == null){
+            $insert = new UserDetailModel();
+            $insert->user_id = $request->user_id;
+            $insert->address = $request->address;
+            $insert->tel = $request->tel;
+            $insert->facebook = $request->facebook;
+            $insert->email = $request->email;
+            $insert->save();
+        }else{
+            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('picture'), $imageName);
+            $insert = new UserDetailModel();
+            $insert->user_id = $request->user_id;
+            $insert->address = $request->address;
+            $insert->tel = $request->tel;
+            $insert->facebook = $request->facebook;
+            $insert->email = $request->email;
+            $insert->picture= $imageName;
+            $insert->save();
+        }
+        return redirect('showpostEmployer')->with('insertprofile', 'บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งตัวแปรไป ปริ้นค่า
     }
 
     /**
@@ -88,7 +109,7 @@ class EditProfileController extends Controller
             $img = UserDetailModel::where('id', $id)->get();
             foreach ($img as $value) {
                 File::delete('picture/' . $value->picture);
-                $imageName = rand(1,999999999) . '.' . $request->image->getClientOriginalExtension();
+                $imageName = rand(1, 999999999) . '.' . $request->image->getClientOriginalExtension();
                 $request->image->move(public_path('picture'), $imageName);
                 $update = UserDetailModel::where('id', $id)->update
                 (['address' => $request->address,
@@ -99,7 +120,7 @@ class EditProfileController extends Controller
                 ]);
             }
         }
-        return redirect('showpostEmployer')->with('updateprofile','อัพเดตข้อมูลเรียบร้อยแล้ว'); //ส่งตัวแปรไป ปริ้นค่า
+        return redirect('showpostEmployer')->with('updateprofile', 'อัพเดตข้อมูลเรียบร้อยแล้ว'); //ส่งตัวแปรไป ปริ้นค่า
     }
 
     /**

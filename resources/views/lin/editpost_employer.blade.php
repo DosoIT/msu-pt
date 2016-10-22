@@ -65,7 +65,7 @@
                     <div class="row">
                         <h1 class="h1" align="center">แก้ไขประกาศ</h1>
                         @foreach($edit_post as $row)
-                            <form action="{{ url('postEmployer',$row->wp_id) }}" method="post">
+                            <form action="{{ url('postEmployer',$row->wp_id) }}" method="post" enctype="multipart/form-data">
                                 {{ method_field('PUT')}}
                                 {{ csrf_field() }}
                                 <div class="col-xs-4" align="center">
