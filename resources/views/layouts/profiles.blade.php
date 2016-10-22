@@ -2,7 +2,6 @@
 <head>
     {!! Html::style("css/bootstrap.min.css") !!}
     {!! Html::script("js/jquery.min.js") !!}
-
     <style>
         .ul-fix > li {
             float: left;

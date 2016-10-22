@@ -5,18 +5,8 @@
         html, body, h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto", sans-serif
         }
-
         #img-resize {
             width: 100%;
-        }
-
-        .inputfile {
-            width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
         }
 
         .inputfile + label {
@@ -30,38 +20,10 @@
             cursor: pointer; /* "hand" cursor */
         }
 
-        .h3-header {
-            font-size: 20pt;
-            font-family: ThaiNeue;
-        }
-
         label {
             font-size: 12pt;
             font-family: ThaiNeue;
         }
-
-        .label-font {
-            font-size: 18pt;
-            font-weight: 700;
-            color: gray;
-            display: inline-block;
-            font-family: ThaiNeue;
-        }
-
-        .remove_field {
-            color: #fff;
-        }
-
-        /*เมนู*/
-        .dropbtn {
-            background-color: #fff;
-            color: black;
-            padding: 16px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-        }
-
         .dropdown {
             position: relative;
             display: inline-block;
@@ -96,82 +58,94 @@
         }
     </style>
     <body>
-    <!-- Page Container -->
-    <div class="w3-container w3-content w3-margin-top" style="max-width:1400px;">
-        <div class="page-header">
-
-            <div style="margin-bottom: -55px;" align="left">
-                <h1>{{Auth::user()->name}} Profile</h1>
-            </div>
-
-            <div align="right" style="margin-right:100px; ">
+    <div class="container">
+        <div class="row">
+            <div class="page-header w3-right">
                 <div class="dropdown">
                     <a href="profile">
                         <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
                         </button>
                     </a>
                     <div class="dropdown-content">
-                        <a href="manageProfile" align="left"><i class="glyphicon glyphicon-wrench"></i>
-                            จัดการโปรไฟล์</a>
+                        <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
                     <div class="dropdown-content">
-                        <a href="addPortfolio" align="left"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
-                        <a href="managePortfolio" align="left"><i class="glyphicon glyphicon-wrench"></i>
-                            จัดการผลงาน</a>
+                        <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
+                        <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="w3-container w3-content w3-margin-top" style="max-width:1400px;">
         <!-- The Grid -->
         <div class="w3-row-padding" style="margin:0 -16px">
             <!-- Left Column -->
-            <div class="w3-quarter">
+            <div class="w3-third">
+
                 <div class="w3-white w3-text-grey w3-card-4">
                     <div class="w3-display-container">
-                        @if(count($userDetail))
-                            @foreach($userDetail as $value)
-                                <img src="{{ url('picture/'.$value->picture) }}" id="img-resize">
-                            @endforeach
-                        @else
-                            <img src="{{ url('image/pic-default.png') }}" id="img-resize">
-                        @endif
-                        <div class="w3-container">
-                            <h4><b>{{ Auth::user()->name }}</b></h4>
+                        <img src="image/pic-default.png" style="width:100%" alt="Avatar">
+                        <div class="w3-display-bottomleft w3-container w3-text-black">
+                            <h2>Jane Doe</h2>
                         </div>
                     </div>
-                    @foreach($userDetail as $valueUser)
-                        <div class="w3-container">
-                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
-                            <p>
-                                <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->address }}
-                            </p>
-                            <p>
-                                <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ Auth::user()->email}}
-                            </p>
-                            <p>
-                                <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ $valueUser->tel }}
-                            </p>
-                            <hr>
-                            @endforeach
-                            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b>
-                            </p>
-                            @foreach($skill as $valueSkill)
-                                <p style="margin-left: 25px"> - {{$valueSkill->s_detail}}</p>
-                            @endforeach
-                            <br>
-                            <p class="w3-large w3-text-theme"><b><i
-                                            class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-                            <p>English</p>
-                            <p>Spanish</p>
-                            <p>German</p>
-                            <br>
+                    <div class="w3-container">
+                        <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
+                        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
+                        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
+                        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+                        <hr>
+
+                        <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                        <p>Adobe Photoshop</p>
+                        <div class="w3-progress-container w3-round-xlarge w3-small">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:90%">
+                                <div class="w3-center w3-text-white">90%</div>
+                            </div>
                         </div>
-                </div>
-                <br>
+                        <p>Photography</p>
+                        <div class="w3-progress-container w3-round-xlarge w3-small">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:80%">
+                                <div class="w3-center w3-text-white">80%</div>
+                            </div>
+                        </div>
+                        <p>Illustrator</p>
+                        <div class="w3-progress-container w3-round-xlarge w3-small">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:75%">
+                                <div class="w3-center w3-text-white">75%</div>
+                            </div>
+                        </div>
+                        <p>Media</p>
+                        <div class="w3-progress-container w3-round-xlarge w3-small">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:50%">
+                                <div class="w3-center w3-text-white">50%</div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                        <p>English</p>
+                        <div class="w3-progress-container w3-round-xlarge">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:100%"></div>
+                        </div>
+                        <p>Spanish</p>
+                        <div class="w3-progress-container w3-round-xlarge">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:55%"></div>
+                        </div>
+                        <p>German</p>
+                        <div class="w3-progress-container w3-round-xlarge">
+                            <div class="w3-progressbar w3-round-xlarge w3-teal" style="width:25%"></div>
+                        </div>
+                        <br>
+                    </div>
+                </div><br>
+
                 <!-- End Left Column -->
             </div>
 
@@ -179,39 +153,28 @@
             <div class="w3-twothird">
 
                 <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-                    <h2 class="w3-text-grey w3-padding-16"><i
-                                class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience
-                    </h2>
+                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
                     <div class="w3-container">
                         <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
-                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
-                                    class="w3-tag w3-teal w3-round">Current</span></h6>
-                        <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est
-                            reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
-                            iste.</p>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                        <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
                         <hr>
                     </div>
                     <div class="w3-container">
                         <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014
-                        </h6>
-                        <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est
-                            reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
-                            iste.</p>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+                        <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
                         <hr>
                     </div>
                     <div class="w3-container">
                         <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012
-                        </h6>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
                     </div>
                 </div>
 
                 <div class="w3-container w3-card-2 w3-white">
-                    <h2 class="w3-text-grey w3-padding-16"><i
-                                class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education
-                    </h2>
+                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
                     <div class="w3-container">
                         <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
                         <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
@@ -230,10 +193,13 @@
                         <p>Bachelor Degree</p><br>
                     </div>
                 </div>
+
                 <!-- End Right Column -->
             </div>
+
             <!-- End Grid -->
         </div>
+
         <!-- End Page Container -->
     </div>
     <script>
