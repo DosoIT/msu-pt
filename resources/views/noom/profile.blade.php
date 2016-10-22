@@ -9,10 +9,111 @@
         #img-resize {
             width: 100%;
         }
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .inputfile + label {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: gray;
+            display: inline-block;
+        }
+
+        .inputfile + label {
+            cursor: pointer; /* "hand" cursor */
+        }
+        .h3-header {
+            font-size: 20pt;
+            font-family: ThaiNeue;
+        }
+
+        label {
+            font-size: 12pt;
+            font-family: ThaiNeue;
+        }
+
+        .label-font {
+            font-size: 18pt;
+            font-weight: 700;
+            color: gray;
+            display: inline-block;
+            font-family: ThaiNeue;
+        }
+
+        .remove_field {
+            color: #fff;
+        }
+
+        /*เมนู*/
+        .dropbtn {
+            background-color: #fff;
+            color: black;
+            padding: 16px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+        }
+
+        .dropdown-content a:hover {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+
+        }
     </style>
     <body>
     <!-- Page Container -->
     <div class="w3-container w3-content w3-margin-top" style="max-width:1400px;">
+        <div class="page-header">
+
+            <div class="dropdown">
+                <a href="profile"><button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</button></a>
+                <div class="dropdown-content">
+                    <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
+                <div class="dropdown-content">
+                    <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
+                    <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
+                </div>
+            </div>
+
+        </div>
         <!-- The Grid -->
         <div class="w3-row-padding" style="margin:0 -16px">
             <!-- Left Column -->
