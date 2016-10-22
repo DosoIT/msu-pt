@@ -22,13 +22,13 @@ class ShowPostController extends Controller
 //        $emp=EmployerPostModel::all();
 //        return view('lin.detail_employer',['post_work'=>$emp]);
 
-        $data = array(
-            'post_work' => EmployerPostModel::paginate(5)
-        );
-        $member = array(
-            'profile' => UserDetailModel::where('user_id', Auth::user()->id)->get()
-        );
-        return view('lin.detail_employer', $data, $member);
+
+            $post_work = EmployerPostModel::paginate(5);
+
+
+            $profile = UserDetailModel::where('user_id', Auth::user()->id)->get();
+
+        return view('lin.detail_employer', ['profile'=>$profile,'post_work'=>$post_work]);
     }
 
     /**

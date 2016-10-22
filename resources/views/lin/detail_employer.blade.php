@@ -64,6 +64,65 @@
             bottom: 18px; /* height of link element */
             right: 20px; /* padding from the left side of the window */
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+        }
+
+        .dropdown-content a:hover {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+
+        }
+
+        .dropdown:hover {
+            background-color: #2a88bd;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .ig {
+            position: static;
+        }
     </style>
 
     @if (\Session::has('updates'))
@@ -87,6 +146,13 @@
             </ul>
         </div>
     @endif
+    @if (\Session::has('insertprofile'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('insertprofile') !!}</li>
+            </ul>
+        </div>
+    @endif
     @if (\Session::has('updateprofile'))
         <div class="alert alert-success">
             <ul>
@@ -97,17 +163,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editProfileEmployer') }}" class="link"> แก้ไขโปร์ไฟล์</a>
-                </button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('postEmployer') }}" class="link"> เพิ่มประกาศรับสมัคร</a></button>
+                <div class="dropdown">
+                    <a href="showpostEmployer">
+                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        </button>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="{{ url('postEmployer') }}">
+                    <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
+                         เพิ่มประกาศรับสมัคร</button>
+                    </a>
+                </div>
             </div>
+            <br>
+            <br>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="row">
                     <div class="col-sm-6 col-md-4" align="center">
-                        <br>    {{-- ถ้ามีข้อมูล --}}
-                        @if(!empty($profile))
+                        <br> {{-- ถ้ามีข้อมูล --}}
+                        @if(count($profile)>0)
                             @foreach($profile as $values)
                                 <img src="{{url('picture/'.$values->picture)}}" class="img-Thumbnail" width="180"
                                      height="180">
@@ -119,10 +197,11 @@
                                                                     height="30">
                                     Facebook : {{ $values->facebook }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
-                                                                    height="30">
+                                                                    height="3">
                                     ที่อยู่ : {{ $values->address }} </h4>
                             @endforeach
-                        @else {{-- ถ้าไม่มี --}}
+                        @else
+                            {{-- ถ้าไม่มี --}}
                             <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
                             <h4 class="fonts">{{ Auth::user()->name }}</h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
@@ -139,8 +218,8 @@
                     </div>
                     <div class="col-sm-8 col-md-8">
                         <h4 class="fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt"
-                             title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส"
-                              alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
+                                                                                 title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส"
+                                                                                 alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
                         </h4>
                         <table class="table table-hover table-condensed" width="100%">
                             <thead>
@@ -180,7 +259,8 @@
                                                 {{ method_field('GET') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-warning btn-sm link li">
-                                                    <li class="glyphicon glyphicon-pencil"></li>Edit
+                                                    <li class="glyphicon glyphicon-pencil"></li>
+                                                    Edit
                                                 </button>
                                             </form>
                                         </td>
@@ -190,7 +270,8 @@
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm link li">
-                                                    <li class="glyphicon glyphicon-trash"></li>Delete
+                                                    <li class="glyphicon glyphicon-trash"></li>
+                                                    Delete
                                                 </button>
                                             </form>
                                         </td>
