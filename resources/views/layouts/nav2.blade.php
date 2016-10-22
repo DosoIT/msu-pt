@@ -185,7 +185,7 @@
         @if(Auth::guest())
             <li><a href="#">กรุณาล็อกอินเพื่อใช้งานระบบ</a></li>
         @else
-            <li><a href="{{url('showpostEmployer')}}" disable>ผู้ว่าจ้าง</a></li>
+            <li><a href="{{url('show_all_pt')}}" disable>ผู้ว่าจ้าง</a></li>
             <li><a href="{{url('show_pt')}}">Part-time</a></li>
         @endif
     </ul>

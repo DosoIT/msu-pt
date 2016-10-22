@@ -12,12 +12,12 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <style>
-        body{
+        body {
             background-color: #ffffff;
         }
+
         @media only screen and (min-width: 960px) {
             /* styles for browsers larger than 960px; */
-
             .navbar-xs {
                 background-color: black;
                 width: 115%;
@@ -42,26 +42,31 @@
                 padding-right: 0px;
                 margin-right: 10px;
             }
-            .navbar-content
-            {
-                width:320px;
+
+            .navbar-content {
+                width: 320px;
                 padding: 15px;
-                padding-bottom:0px;
+                padding-bottom: 0px;
             }
-            .navbar-content:before, .navbar-content:after
-            {
+
+            .navbar-content:before, .navbar-content:after {
                 display: table;
                 content: "";
                 line-height: 0;
             }
+
             .navbar-nav.navbar-right:last-child {
                 margin-right: 15px !important;
             }
-            .navbar-footer
-            {
-                background-color:#DDD;
+
+            .navbar-footer {
+                background-color: #DDD;
             }
-            .navbar-footer-content { padding:15px 15px 15px 15px; }
+
+            .navbar-footer-content {
+                padding: 15px 15px 15px 15px;
+            }
+
             .dropdown-menu {
                 padding: 0px;
                 overflow: hidden;
@@ -91,26 +96,30 @@
                 margin-right: 0;
             }
 
-            .navbar-content
-            {
-                width:320px;
+            .navbar-content {
+                width: 320px;
                 padding: 15px;
-                padding-bottom:0px;
+                padding-bottom: 0px;
             }
-            .navbar-content:before, .navbar-content:after
-            {
+
+            .navbar-content:before, .navbar-content:after {
                 display: table;
                 content: "";
                 line-height: 0;
             }
+
             .navbar-nav.navbar-right:last-child {
                 margin-right: 15px !important;
             }
-            .navbar-footer
-            {
-                background-color:#DDD;
+
+            .navbar-footer {
+                background-color: #DDD;
             }
-            .navbar-footer-content { padding:15px 15px 15px 15px; }
+
+            .navbar-footer-content {
+                padding: 15px 15px 15px 15px;
+            }
+
             .dropdown-menu {
                 padding: 0px;
                 overflow: hidden;
@@ -174,13 +183,22 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             {!! Html::image('image/pic-default.png') !!}
-                                            <p class="text-center small" style="margin-top: 10%"><a href="#">Change Photo</a></p>
+                                            <p class="text-center small" style="margin-top: 10%"><a href="#">Change
+                                                    Photo</a></p>
                                         </div>
                                         <div class="col-md-7">
                                             <span>{{ Auth::user()->name }}</span>
-                                            <p class="text-muted small" style="margin-top: 10%;margin-left: -10px">{{ Auth::user()->email }}</p>
+                                            <p class="text-muted small"
+                                               style="margin-top: 10%;margin-left: -10px">{{ Auth::user()->email }}</p>
                                             <div class="divider"></div>
-                                            <a href="{{ url('/profile') }}" class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
+                                            @if(Auth::user()->status == 'ผู้ว่าจ้าง')
+                                                <a href="{{ url('/showpostEmployer') }}"
+                                                   class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
+                                            @elseif(Auth::user()->status == 'PartTime')
+                                                <a href="{{ url('/profile') }}"
+                                                   class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -188,14 +206,18 @@
                                     <div class="navbar-footer-content">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <a href="{{ url('password/reset') }}" class="w3-btn w3-white w3-border w3-round-large" onclick="event.preventDefault();document.getElementById('reset-form').submit();">เปลี่ยนรหัสผ่าน</a>
+                                                <a href="{{ url('password/reset') }}"
+                                                   class="w3-btn w3-white w3-border w3-round-large"
+                                                   onclick="event.preventDefault();document.getElementById('reset-form').submit();">เปลี่ยนรหัสผ่าน</a>
                                                 <form id="reset-form" action="{{ url('password/reset') }}" method="POST"
                                                       style="display: none;">
                                                     {{ csrf_field() }}
                                                 </form>
                                             </div>
                                             <div class="col-md-6">
-                                                <a href="{{ url('/logout') }}" class="w3-btn w3-white w3-border w3-round-large pull-right" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ออกจากระบบ</a>
+                                                <a href="{{ url('/logout') }}"
+                                                   class="w3-btn w3-white w3-border w3-round-large pull-right"
+                                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">ออกจากระบบ</a>
                                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST"
                                                       style="display: none;">
                                                     {{ csrf_field() }}
