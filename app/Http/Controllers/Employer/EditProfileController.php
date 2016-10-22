@@ -99,7 +99,7 @@ class EditProfileController extends Controller
                 ]);
             }
         }
-        return redirect('showpostEmployer');
+        return redirect('showpostEmployer')->with('updateprofile','อัพเดตข้อมูลเรียบร้อยแล้ว'); //ส่งตัวแปรไป ปริ้นค่า
     }
 
     /**

@@ -1785,7 +1785,7 @@ $.widget("metro.accordion", {
 
             //=== build up the new children jquery object ===
             //join the left, right and normal children   
-            children = new Array();
+            children = [];
             children = childrenLeftFloated.concat(childrenAsUsual, childrenRightFloated);
 
             //convert the array to jquery object again

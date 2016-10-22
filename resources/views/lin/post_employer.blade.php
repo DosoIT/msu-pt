@@ -71,19 +71,34 @@
                                     <label for="exampleTitle inputWarning">ชื่อบริษัท/หัวข้อ</label>
                                     <input type="text" class="form-control textinput" size="5" placeholder="หัวข้อ" name="titelpost" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-left: -0.4cm;">
                                     <label for="exampleDescription" class="control-label">ประเภทงาน</label>
                                     <select name="description" class="form-control textinput">
                                         <option>กลางคืน</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <label for="exampleDescription" class="control-label">จำนวน</label>
+                                    <input type="text" name="total" class="form-control textinput" onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" required>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="exampleDetail" class="control-label">รายละเอียด</label>
                                     <textarea name="detail" class="form-control textinput" rows="2"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleAddress" class="control-label">สถานที่</label>
-                                    <input type="text" class="form-control textinput" placeholder="สถานที่" value="" name="location">
+                                    <select class="form-control textinput" name="location">
+                                        <?php
+                                        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                                        mysqli_set_charset($conn, "utf8");
+                                        $sql = "SELECT * FROM tb_locations";
+                                        $query = mysqli_query($conn, $sql);
+                                        while ($values = mysqli_fetch_array($query)){
+                                        ?>
+                                        <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
+                                            <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleProperty" class="control-label">คุณสมบัติผู้สมัคร</label>
@@ -91,10 +106,10 @@
                                 </div>
                                 <h3 class="headertext">ช่องทางการติดต่อ</h3>
                                 <div class="headerline"></div>
-                                <br>
                                 <div class="form-group">
                                     <label for="exampleTel" class="control-label">เบอร์โทร</label>
-                                    <input type="tel" name="tel" class="form-control textinput" placeholder="เบอร์โทร"  maxlength="10" onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" >
+                                    <input type="tel" name="tel" class="form-control textinput" placeholder="เบอร์โทร"
+                                           maxlength="10" onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFacebook" class="control-label">Facebook</label>
@@ -102,7 +117,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleEmail" class="control-label">E-mail</label>
-                                    <input type="email" class="form-control textinput" placeholder="E-mail" value="" name="email">
+                                    <input type="email" class="form-control textinput" placeholder="e-mail" value="" name="email">
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-success btn-lg link col-sm-2 col-xs-2 col-md-2">ประกาศ</button>

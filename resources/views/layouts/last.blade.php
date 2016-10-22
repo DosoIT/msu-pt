@@ -49,7 +49,7 @@
     <div class="row">
         <div class="items">
             <?php
-            $conn = mysqli_connect("localhost", "root", "root", "msu_pt");
+            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
             mysqli_set_charset($conn, "utf8");
             $sql = "SELECT * FROM user_detail";
             $result = mysqli_query($conn, $sql);

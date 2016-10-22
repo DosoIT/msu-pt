@@ -73,7 +73,7 @@
                             {{ method_field('PUT')}}
                             {{ csrf_field() }}
                             <div class="row">
-                                <div class="col-xs-3" align="center">
+                                <div class="col-xs-4" align="center">
                                     <img src="{{url('picture/'.$value->picture)}}" alt="เลือกรูปภาพ" class="img-rounded"
                                          width="200"
                                          height="200" id="output" required="">
@@ -82,41 +82,47 @@
                                     <label for="file">
                                         <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                                 </div>
-                                <div class="col-sm-5 col-md-8">
+                                <div class="col-sm-8 col-md-8">
                                     <div class="row">
                                         <fieldset>
                                             <legend class="font">แก้ไขโปร์ไฟล์</legend>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label labeltext">ชื่อ นามสกุล :</label>
-                                                <div class="col-sm-4">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 control-label labeltext">ชื่อเข้าใช้งาน :</label>
+                                                <div class="col-sm-5">
                                                     <input type="text" name="fullname" class="form-control textinput"
-                                                           value="{{ Auth::user()->name }}">
+                                                           value="{{ Auth::user()->name }}" disabled>
+                                                </div>
+                                                <div class="">
+                                                    <span class="glyphicon glyphicon-flash" style="margin-right: -110cm;"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label labeltext">ที่อยู่ :</label>
-                                                <div class="col-sm-10">
-                                                <textarea name="address" id="" cols="30" rows="3" class="textinput">
+                                                <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
+                                                <div class="col-sm-5">
+                                                <textarea name="address" id="" rows="2" class="form-control textinput">
                                                     {{ $value->address  }}
                                                 </textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label labeltext" for="textinput">โทร
+                                                <label class="col-sm-3 control-label labeltext" for="textinput">โทร
                                                     :</label>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-5">
                                                     <input type="tel" name="tel" placeholder="080-xxxxxxx"
-                                                           class="form-control textinput" value="{{ $value->tel  }}" maxlength="10">
+                                                           class="form-control textinput" value="{{ $value->tel  }}"
+                                                           maxlength="10" onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
                                                 </div>
-                                                <label class="col-sm-2 control-label labeltext">Faecbook :</label>
-                                                <div class="col-sm-4">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label labeltext">Faecbook :</label>
+                                                <div class="col-sm-5">
                                                     <input type="text" name="facebook" class="form-control textinput"
                                                            value="{{ $value->facebook  }}" placeholder="Facebook">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <div class="col-sm-offset-2 col-sm-10">
+                                                <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                     <div class="pull-left">
                                                         <button type="submit" class="btn btn-success btn-lg"
                                                                 style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
@@ -135,6 +141,10 @@
                 <!-- end row1 -->
             </div>
         </div>
+        </div>
     </div>
-    </div>
+    <script>
+        $('#back-to-top').tooltip('show');
+        $(".alert").tooltip();
+    </script>
 @endsection

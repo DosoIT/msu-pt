@@ -87,23 +87,30 @@
             </ul>
         </div>
     @endif
+    @if (\Session::has('updateprofile'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('updateprofile') !!}</li>
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <div class="row">
-            <div class="page-header col-md-offset-1">
+            <div class="col-md-offset-1">
                 <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
                     <a href="{{ url('editProfileEmployer') }}" class="link"> แก้ไขโปร์ไฟล์</a>
                 </button>
                 <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
                     <a href="{{ url('postEmployer') }}" class="link"> เพิ่มประกาศรับสมัคร</a></button>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="row">
                     <div class="col-sm-6 col-md-4" align="center">
-                        <br>
+                        <br>    {{-- ถ้ามีข้อมูล --}}
                         @if(!empty($profile))
                             @foreach($profile as $values)
-                                <img src="{{url('picture/'.$values->picture)}}" class="img-Thumbnail" width="150"
-                                     height="150">
+                                <img src="{{url('picture/'.$values->picture)}}" class="img-Thumbnail" width="180"
+                                     height="180">
                                 <h4 class="fonts">{{ Auth::user()->name }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
                                                                     height="30">
@@ -115,7 +122,7 @@
                                                                     height="30">
                                     ที่อยู่ : {{ $values->address }} </h4>
                             @endforeach
-                        @else
+                        @else {{-- ถ้าไม่มี --}}
                             <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
                             <h4 class="fonts">{{ Auth::user()->name }}</h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
@@ -129,12 +136,11 @@
                             <h4 class="fonts" align="left"><img src="{{ url('image/location.png') }}" width="30"
                                                                 height="30"> สถานที่ : </h4>
                         @endif
-
                     </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4 class="col-md-offset-1 fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt"
-                                                                                                 title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส"
-                                                                                                 alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
+                    <div class="col-sm-8 col-md-8">
+                        <h4 class="fontheader">ประวัติการประกาศโฟสรับสมัคร <span class="badge cnt"
+                             title="จำนวนที่โพส {{ count(\App\EmployerPostModel::all()) }} โพส"
+                              alt="จำนวนที่โฟส">{{ count(\App\EmployerPostModel::all()) }}</span>
                         </h4>
                         <table class="table table-hover table-condensed" width="100%">
                             <thead>
@@ -174,8 +180,7 @@
                                                 {{ method_field('GET') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-warning btn-sm link li">
-                                                    <li class="glyphicon glyphicon-pencil"></li>
-                                                    Edit
+                                                    <li class="glyphicon glyphicon-pencil"></li>Edit
                                                 </button>
                                             </form>
                                         </td>
@@ -185,8 +190,7 @@
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm link li">
-                                                    <li class="glyphicon glyphicon-trash"></li>
-                                                    Delete
+                                                    <li class="glyphicon glyphicon-trash"></li>Delete
                                                 </button>
                                             </form>
                                         </td>

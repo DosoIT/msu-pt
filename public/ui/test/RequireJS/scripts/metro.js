@@ -1777,7 +1777,7 @@ $.widget("metro.accordion", {
 
             //=== build up the new children jquery object ===
             //join the left, right and normal children   
-            children = new Array();
+            children = [];
             children = childrenLeftFloated.concat(childrenAsUsual, childrenRightFloated);
 
             //convert the array to jquery object again
@@ -4664,7 +4664,7 @@ $.widget("metro.input", {
         wrapper.insertAfter(input);
         input.attr('tabindex', '-1');
         button.attr('type', 'button');
-        wrapper.attr('placeholder', input.attr('placeholder'))
+        wrapper.attr('placeholder', input.attr('placeholder'));
 
         input.on('change', function(){
             var val = $(this).val();

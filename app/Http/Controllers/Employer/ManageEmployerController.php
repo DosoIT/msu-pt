@@ -93,15 +93,35 @@ class ManageEmployerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $updates = EmployerPostModel::where('wp_id',$id)->update(['wp_titel'=>$request->titel,
-            'wp_detail' => $request->detail,
-            'wp_location' => $request->location,
-            'wp_description' => $request->description,
-            'wp_property' => $request->property,
-            'wp_tel' => $request->tel,
-            'wp_fb' => $request->fb,
-            'wp_email' => $request->email,
-        ]);
+        if ($request->pic == null){
+            $updates = EmployerPostModel::where('wp_id',$id)->update(['wp_titel'=>$request->titel,
+                'wp_detail' => $request->detail,
+                'wp_location' => $request->location,
+                'wp_description' => $request->description,
+                'wp_property' => $request->property,
+                'wp_tel' => $request->tel,
+                'wp_fb' => $request->fb,
+                'wp_email' => $request->email,
+            ]);
+        }else{
+            $img = EmployerPostModel::where('wp_id',$id)->get();
+                foreach ($img as $value){
+                    File::delete('picture/' . $value->wp_pic);
+                    $imageName = rand(1,999999999) . '.' . $request->pic->getClientOriginalExtension();
+                    $request->pic->move(public_path('picture'), $imageName);
+                    $update = EmployerPostModel::where('wp_id', $id)->update([
+                        'wp_pic' => $imageName,
+                        'wp_titel'=>$request->titel,
+                        'wp_detail' => $request->detail,
+                        'wp_location' => $request->location,
+                        'wp_description' => $request->description,
+                        'wp_property' => $request->property,
+                        'wp_tel' => $request->tel,
+                        'wp_fb' => $request->fb,
+                        'wp_email' => $request->email,
+                    ]);
+            }
+        }
         Session::get('updates');
         return redirect('showpostEmployer')->with('updates','อัพเดตข้อมูลเรียบร้อยแล้ว');
     }
