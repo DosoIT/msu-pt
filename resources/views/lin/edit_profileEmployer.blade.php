@@ -149,7 +149,7 @@
         $('#back-to-top').tooltip('show');
         $(".alert").tooltip();
         $(".btnS").click(function () {
-            swal("Good job!", "You clicked the button!", "success");
+            swal("เรียบร้อย!", "ทำรายการตามที่ขอเรียบร้อย!", "success");
         })
     </script>
 @endsection
