@@ -44,28 +44,6 @@
             right: 20px;
             display: none;
         }
-
-        /*Back to top*/
-        .navbar-fixed-top + .content-container {
-            margin-top: 70px;
-        }
-
-        .content-container {
-            margin: 0 130px;
-        }
-
-        #top-link-block.affix-top {
-            position: absolute; /* allows it to "slide" up into view */
-            bottom: -82px; /* negative of the offset - height of link element */
-            right: 20px; /* padding from the left side of the window */
-        }
-
-        #top-link-block.affix {
-            position: fixed; /* keeps it on the bottom once in view */
-            bottom: 18px; /* height of link element */
-            right: 20px; /* padding from the left side of the window */
-        }
-
         .dropdown {
             position: relative;
             display: inline-block;
@@ -74,9 +52,9 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
+            /*background-color: #f9f9f9;*/
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
         }
 
         .dropdown:hover .dropdown-content {
@@ -120,10 +98,6 @@
             color: #fff;
             text-decoration: none;
         }
-
-        .ig {
-            position: static;
-        }
     </style>
 
     @if (\Session::has('updates'))
@@ -166,7 +140,7 @@
             <div class="col-md-offset-1">
                 <div class="dropdown">
                     <a href="showpostEmployer">
-                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
                         </button>
                     </a>
                     <div class="dropdown-content">
@@ -190,7 +164,7 @@
                             @foreach($profile as $values)
                                 <img src="{{url('picture/'.$values->picture)}}" class="img-Thumbnail" width="180"
                                      height="180">
-                                <h4 class="fonts">{{ Auth::user()->name }}</h4>
+                                <h4 class="fonts">Username : {{Auth::user()->name }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
                                                                     height="30">
                                     โทร : {{ $values->tel }}</h4>
@@ -204,7 +178,7 @@
                         @else
                             {{-- ถ้าไม่มี --}}
                             <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
-                            <h4 class="fonts">{{ Auth::user()->name }}</h4>
+                            <h4 class="fonts">Username : {{Auth::user()->name }}</h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
                                                                 height="30">
                                 โทร : </h4>
@@ -320,26 +294,4 @@
     </div>
     {{--end container--}}
     {!! Html::script('js/sweetalert.min.js') !!}
-    <script>
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 50) {
-                    $('#back-to-top').fadeIn();
-                } else {
-                    $('#back-to-top').fadeOut();
-                }
-            });
-            // scroll body to 0px on click
-            $('#back-to-top').click(function () {
-                $('#back-to-top').tooltip('hide');
-                $('body,html').animate({
-                    scrollTop: 0
-                }, 800);
-                return false;
-            });
-            $('#back-to-top').tooltip('show');
-            $(".cnt").tooltip();
-        });
-    </script>
-    {{-- End Back to top --}}
 @endsection

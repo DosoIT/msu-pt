@@ -9,50 +9,73 @@
             position: absolute;
             z-index: -1;
         }
+
         .inputfile + label {
             font-size: 1.25em;
             font-weight: 700;
             color: gray;
             display: inline-block;
         }
+
         .inputfile + label {
             cursor: pointer; /* "hand" cursor */
         }
+
         .headerline {
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
-        .font{
+
+        .font {
             font-family: ThaiNeue;
             font-size: 18pt;
             text-transform: lowercase;
         }
-        .fontheader{
+
+        .fontheader {
             font-family: ThaiNeue;
             font-size: 30pt;
             text-transform: uppercase;
         }
+
         .link {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
-        .textinput{
+
+        .textinput {
             font-size: 15pt;
             background: #DCDCDC;
         }
-        .headertext{
+
+        .headertext {
             font-size: 20pt;
             text-transform: uppercase;
+        }
+        .dropdown-menu{
+            background-color: #A8DEEE;
+            border: 1px solid #428BCA;
         }
     </style>
 
     <div class="container ">
         <div class="row">
-            <div class="page-header col-md-offset-1">
-                <button class="btn btn-default link"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editProfileEmployer') }}"> แก้ไขโปร์ไฟล์</a></button>
-                <button class="btn btn-default link"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('postEmployer') }}"> เพิ่มประกาศรับสมัคร</a></button>
+            <div class="col-md-offset-1">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-md" ng-click="sort = method1">Numbers</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="sort = method1" class="btn btn-default btn-md"> Sorting Method 1 </a>
+
+                        </li>
+                        <li><a ng-click="sort = method2" class="btn btn-default btn-md"> Sorting Method 2 </a>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm font">
@@ -60,18 +83,22 @@
                         <h1 align="center" class="fontheader">ประกาศรับสมัครงาน</h1>
                         <form action="{{ url('postEmployer') }}" method="post" enctype="multipart/form-data">
                             <div class="col-xs-4" align="center">
-                                <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
+                                <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded"
+                                     width="200"
                                      height="200" id="output">
-                                <br><br><input type="file" name="pic" id="file"  class="inputfile" onchange="loadFile(event)"/>
+                                <br><br><input type="file" name="pic" id="file" class="inputfile"
+                                               onchange="loadFile(event)"/>
                                 <label for="file">
                                     <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                             </div>
                             <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                 <div class="form-group">
                                     <label for="exampleTitle inputWarning">ชื่อบริษัท/หัวข้อ</label>
-                                    <input type="text" class="form-control textinput" size="5" placeholder="หัวข้อ" name="titelpost" required>
+                                    <input type="text" class="form-control textinput" size="5" placeholder="หัวข้อ"
+                                           name="titelpost" required>
                                 </div>
-                                <div class="form-group col-xs-7 col-sm-7 col-md-7 col-lg-7" style="margin-left: -0.4cm;">
+                                <div class="form-group col-xs-7 col-sm-7 col-md-7 col-lg-7"
+                                     style="margin-left: -0.4cm;">
                                     <label for="exampleDescription" class="control-label">ประเภทงาน</label>
                                     <?php
                                     $conn = mysqli_connect("localhost", "root", "", "msu_pt");
@@ -79,7 +106,7 @@
                                     $sql = "SELECT * FROM category";
                                     $query = mysqli_query($conn, $sql);
                                     ?>
-                                    <select name="description"  class="form-control textinput">
+                                    <select name="description" class="form-control textinput">
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                         <option value="<?php echo $values['c_name']; ?>"><?php echo $values['c_name']; ?></option>
                                         <?php } ?>
@@ -88,7 +115,9 @@
                                 </div>
                                 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                     <label for="exampleTotal" class="control-label">จำนวน</label>
-                                    <input type="text" name="total" class="form-control textinput" onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" required>
+                                    <input type="text" name="total" class="form-control textinput"
+                                           onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}"
+                                           required>
                                 </div>
                                 <br>
                                 <div class="form-group">
@@ -102,9 +131,9 @@
                                     $query = mysqli_query($conn, $sql);
                                     ?>
                                     <select class="form-control textinput" name="location">
-                                            <?php while ($values = mysqli_fetch_array($query)){ ?>
+                                        <?php while ($values = mysqli_fetch_array($query)){ ?>
                                         <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
-                                            <?php } ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -116,18 +145,22 @@
                                 <div class="form-group">
                                     <label for="exampleTel" class="control-label">เบอร์โทร</label>
                                     <input type="tel" name="tel" class="form-control textinput" placeholder="เบอร์โทร"
-                                           maxlength="10" onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" >
+                                           maxlength="10"
+                                           onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFacebook" class="control-label" id="fb">Facebook</label>
                                     <input type="text" name="fb" class="form-control textinput" placeholder="Facebook">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleEmail"  id="mail">E-mail</label>
-                                    <input type="email" class="form-control textinput" placeholder="E-mail" value="" name="email">
+                                    <label for="exampleEmail" id="mail">E-mail</label>
+                                    <input type="email" class="form-control textinput" placeholder="E-mail" value=""
+                                           name="email">
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-success btn-lg link col-sm-2 col-xs-2 col-md-2">ประกาศ</button>
+                                <button type="submit" class="btn btn-success btn-lg link col-sm-2 col-xs-2 col-md-2">
+                                    ประกาศ
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -137,7 +170,7 @@
         </div>
     </div>
     <script>
-        $('#mail').css('text-transform','capitalize');
-        $('#fb').css('text-transform','capitalize');
+        $('#mail').css('text-transform', 'capitalize');
+        $('#fb').css('text-transform', 'capitalize');
     </script>
 @endsection

@@ -46,7 +46,8 @@
             font-family: ThaiNeue;
             font-size: 26pt;
         }
-        .textinput{
+
+        .textinput {
             font-size: 15pt;
             background: #DCDCDC;
         }
@@ -54,18 +55,32 @@
 
     <div class="container">
         <div class="row">
-            <div class="page-header col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editProfileEmployer') }}" class="aherf"> แก้ไขโปร์ไฟล์</a></button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('postEmployer') }}" class="aherf"> เพิ่มประกาศรับสมัคร</a></button>
+            <div class="col-md-offset-1">
+                <div class="dropdown">
+                    <a href="showpostEmployer">
+                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
+                            โปรไฟล์
+                        </button>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="{{ url('postEmployer') }}">
+                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
+                            เพิ่มประกาศรับสมัคร
+                        </button>
+                    </a>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm">
                     <div class="row">
                         <h1 class="h1" align="center">แก้ไขประกาศ</h1>
                         @foreach($edit_post as $row)
-                            <form action="{{ url('postEmployer',$row->wp_id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ url('postEmployer',$row->wp_id) }}" method="post"
+                                  enctype="multipart/form-data">
                                 {{ method_field('PUT')}}
                                 {{ csrf_field() }}
                                 <div class="col-xs-4" align="center">
@@ -92,16 +107,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">รายละเอียด</label>
-                                        <textarea name="detail" class="form-control textinput" rows="5" >{{ $row->wp_detail }}</textarea>
+                                        <textarea name="detail" class="form-control textinput"
+                                                  rows="5">{{ $row->wp_detail }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">สถานที่</label>
-                                        <input type="text" name="location" class="form-control textinput" placeholder="สถานที่"
+                                        <input type="text" name="location" class="form-control textinput"
+                                               placeholder="สถานที่"
                                                value="{{ $row->wp_location }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
-                                        <textarea name="property" class="form-control textinput" rows="5">{{ $row->wp_property }}</textarea>
+                                        <textarea name="property" class="form-control textinput"
+                                                  rows="5">{{ $row->wp_property }}</textarea>
                                     </div>
                                     <br><br>
                                     <h3>ช่องทางการติดต่อ</h3>
@@ -114,7 +132,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Facebook</label>
-                                        <input type="text" class="form-control textinput" placeholder="Facebook" value="{{ $row->wp_fb }}" name="fb">
+                                        <input type="text" class="form-control textinput" placeholder="Facebook"
+                                               value="{{ $row->wp_fb }}" name="fb">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">E-mail</label>

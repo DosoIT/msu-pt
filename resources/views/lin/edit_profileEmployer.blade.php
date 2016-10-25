@@ -51,12 +51,24 @@
     </style>
     <div class="container ">
         <div class="row">
-            <div class="page-header col-md-offset-1">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>
-                    <a href="{{ url('editProfileEmployer') }}" class="alink">แก้ไขโปร์ไฟล์</a></button>
-                <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>
-                    <a href="{{ url('postEmployer') }}" class="alink"> เพิ่มประกาศรับสมัคร</a>
-                </button>
+            <div class="col-md-offset-1">
+                <div class="dropdown">
+                    <a href="showpostEmployer">
+                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
+                            โปรไฟล์
+                        </button>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="{{ url('postEmployer') }}">
+                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
+                            เพิ่มประกาศรับสมัคร
+                        </button>
+                    </a>
+                </div>
             </div>
             @if (\Session::has('insert'))
                 <div class="alert alert-success">
@@ -95,7 +107,8 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
                                                 <div class="col-sm-5">
-                                                <textarea name="address" id="" rows="2" class="form-control textinput" required=""></textarea>
+                                                    <textarea name="address" id="" rows="2"
+                                                              class="form-control textinput" required=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -119,7 +132,8 @@
                                                 <label class="col-sm-3 control-label labeltext">E-mail :</label>
                                                 <div class="col-sm-5">
                                                     <input type="text" name="email" class="form-control textinput"
-                                                           value="{{ Auth::user()->email }}" placeholder="Facebook" required>
+                                                           value="{{ Auth::user()->email }}" placeholder="Facebook"
+                                                           required>
                                                 </div>
                                             </div>
 
