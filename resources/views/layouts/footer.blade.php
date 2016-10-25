@@ -106,7 +106,7 @@
         display: none;
     }
     #back-to-top:hover {
-         background-color:#e74c3c;
+         background-color:#7cc1de;
          opacity:1;filter:"alpha(opacity=100)";
          -ms-filter:"alpha(opacity=100)";
      }
@@ -182,9 +182,7 @@
             }, 800);
             return false;
         });
-
         $('#back-to-top').tooltip('show');
-
     });
 </script>
 <!--End BackToTop Button -->
