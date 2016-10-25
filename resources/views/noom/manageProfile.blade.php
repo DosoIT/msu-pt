@@ -129,14 +129,14 @@
         </div>
         @if(count($detail) >0)
             @foreach($detail as $item)
-                <form action="{{ url('editProfileEmployer',$item->id) }}" method="post"
+                <form action="{{ url('manageProfile',$item->id) }}" method="post"
                       class="form-horizontal" role="form" enctype="multipart/form-data">
                     {{ method_field('PUT')}}
                     {{ csrf_field() }}
                     <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                     <div class="row " align="center">
                         <img src="{{url('picture/'.$item->picture)}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
-                             height="150" id="output">
+                             height="150" id="output" name="image">
                         <br><br><input type="file" name="image" id="file" class="inputfile" onchange="loadFile(event)"/>
                         <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
 
@@ -145,7 +145,7 @@
 
                         <div class="col-xs-6 " align="center">
                             <h3 class="h3-header">ที่อยู่</h3>
-                            <textarea ea name="address" class="form-control">{{$item->address}}</textarea>
+                            <textarea name="address" class="form-control">{{$item->address}}</textarea>
                             <div class="page-header"></div>
                             <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
                             <div align="center">
@@ -161,20 +161,23 @@
                             <h3 class="h3-header">ประเภทงาน</h3><br>
                             <div>
 
-                                <select name="cat_id" class="form-control ft">
-                                    @foreach($classify as $key)
+                                @foreach($classify as $key)
+                                    <input type="hidden" name="class_id" value="{{$key->cf_id}}">
+                                    <select name="cat_id" class="form-control ft">
                                         @foreach($cate as $cat_value)
                                             @if($cat_value->c_id == $key->c_id)
                                                 <option value="{{$cat_value->c_id}}"
-                                                        selected>{{$cat_value->c_name}}</option>
+                                                        selected>{{$cat_value->c_name}}
+                                                </option>
                                             @else
-                                                <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}</option>
+                                                <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}
+                                                </option>
                                             @endif
                                         @endforeach
-                                    @endforeach
-                                </select>
-                            </div>
+                                    </select>
+                                @endforeach
 
+                            </div>
                             <div class="page-header"></div>
                             <h3 class="h3-header">ความสามารถ</h3><br>
                             <div class="input_fields_01">
@@ -183,6 +186,9 @@
                                     @foreach($skill as $kk)
                                         <input type="text" name="skill[]" class="form-control" value="{{$kk->s_detail}}"
                                                required/>
+                                        <input type="hidden" name="skill_id[]" class="form-control"
+                                               value="{{$kk->s_id}}"
+                                        />
                                     @endforeach
                                 </div>
                             </div>
@@ -195,6 +201,8 @@
                                     @foreach( $decrip as $dd)
                                         <input type="text" name="job[]" class="form-control"
                                                value="{{$dd->dt_detail}}"/>
+                                        <input type="hidden" name="job_id[]" class="form-control"
+                                               value="{{$dd->dt_id}}"/>
                                     @endforeach
                                 </div>
 

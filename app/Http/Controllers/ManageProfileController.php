@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use phpDocumentor\Reflection\Types\Resource;
 
 class ManageProfileController extends Controller
@@ -23,17 +24,17 @@ class ManageProfileController extends Controller
     public function index()
     {
         $categrory = CategoryModel::all();
-        $detail = UserDetailModel::where('user_id',Auth::user()->id)->get();
-        $classify = ClassifyModel::where('user_id',Auth::user()->id)->get();
-        $skill = SkillModel::where('user_id',Auth::user()->id)->get();
-        $decrip = DiscriptionModel::where('user_id',Auth::user()->id)->get();
+        $detail = UserDetailModel::where('user_id', Auth::user()->id)->get();
+        $classify = ClassifyModel::where('user_id', Auth::user()->id)->get();
+        $skill = SkillModel::where('user_id', Auth::user()->id)->get();
+        $decrip = DiscriptionModel::where('user_id', Auth::user()->id)->get();
 
         return view('noom/manageProfile', [
             'cate' => $categrory,
-            'detail'=>$detail,
-            'classify'=>$classify,
-            'skill'=>$skill,
-            'decrip'=>$decrip
+            'detail' => $detail,
+            'classify' => $classify,
+            'skill' => $skill,
+            'decrip' => $decrip
         ]);
     }
 
@@ -95,7 +96,7 @@ class ManageProfileController extends Controller
             $discripmodel->save();
         }
 
-       return redirect('profile');
+        return redirect('profile');
     }
 
 
@@ -130,7 +131,58 @@ class ManageProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        //User Detail
+        if ($request->image == null) {
+            $update = UserDetailModel::where('id', $id)->update
+            (['address' => $request->address,
+                'tel' => $request->tel,
+                'facebook' => $request->facebook,
+                'email' => $request->email,
+            ]);
+        } else {
+            $img = UserDetailModel::where('id', $id)->get();
+            foreach ($img as $value) {
+                File::delete('picture/' . $value->picture);
+                $imageName = rand(1, 999999999) . '.' . $request->image->getClientOriginalExtension();
+                $request->image->move(public_path('picture'), $imageName);
+                $update = UserDetailModel::where('id', $id)->update
+                (['address' => $request->address,
+                    'tel' => $request->tel,
+                    'facebook' => $request->facebook,
+                    'email' => $request->email,
+                    'picture' => $imageName
+                ]);
+            }
+        }
+
+        //Skill
+        $s_id = $request->skill_id;
+        $s_detail = $request->skill;
+        for ($i = 0; $i < count($s_id); $i++) {
+            SkillModel::where('s_id', $s_id[$i])->update([
+                's_detail' => $s_detail[$i]
+            ]);
+        }
+
+        //Decript
+        $dt_id = $request->job_id;
+        $dt_detail = $request->job;
+        for ($i = 0; $i < count($dt_id); $i++) {
+            DiscriptionModel::where('dt_id', $dt_id[$i])->update([
+                'dt_detail' => $dt_detail[$i]
+            ]);
+        }
+
+        $cate_id = $request->cat_id;
+        $cf_id = $request->class_id;
+
+        ClassifyModel::where('cf_id', $cf_id)->update([
+            'c_id' => $cate_id
+        ]);
+
+        return redirect('profile');
+
     }
 
     /**
