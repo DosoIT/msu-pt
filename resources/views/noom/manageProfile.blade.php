@@ -153,30 +153,29 @@
                                 <input type="text" name="tel" value="{{$item->tel}}"><br><br>
                                 <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
                                 <input type="text" name="facebook" value="{{$item->facebook}}"><br><br>
-                                <img src="{{ url('image/email.png') }}" width="30" height="30"> :
-                                <input type="email" name="email" value="{{$item->email}}">
                             </div>
                         </div>
                         <div class="col-xs-6" align="left">
                             <h3 class="h3-header">ประเภทงาน</h3><br>
                             <div>
-
-                                @foreach($classify as $key)
-                                    <input type="hidden" name="class_id" value="{{$key->cf_id}}">
-                                    <select name="cat_id" class="form-control ft">
-                                        @foreach($cate as $cat_value)
-                                            @if($cat_value->c_id == $key->c_id)
-                                                <option value="{{$cat_value->c_id}}"
-                                                        selected>{{$cat_value->c_name}}
-                                                </option>
-                                            @else
-                                                <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </select>
+                                @foreach($cate as $cat_value)
+                                    <input type="checkbox" id="cate" name="cate_id[]"
+                                           @foreach($classify as $key)
+                                             @if($cat_value->c_id == $key->c_id)
+                                                  checked
+                                             @endif
+                                           @endforeach
+                                     value="{{$cat_value->c_id}}"> {{$cat_value->c_name}}<br>
                                 @endforeach
+                            </div>
 
+                            <div>
+                                <h3 class="h3-header">เรทราคา</h3>
+                                <label class="label-font ">เรื่มต้น :  </label>
+                                <input type="number" maxlength="100000" name="price_st" value="{{$item->price_st}}">
+                                <label class="label-font ">ถึง :  </label>
+                                <input type="number" maxlength="100000" name="price_F" value="{{$item->price_fn}}">
+                                <label class="label-font ">/ บาท  </label>
                             </div>
                             <div class="page-header"></div>
                             <h3 class="h3-header">ความสามารถ</h3><br>
@@ -213,6 +212,9 @@
                     </div>
                     <div align="center">
                         <br><br>
+                        @foreach($classify as $key)
+                            <input type="hidden" name="class_id[]" value="{{$key->cf_id}}">
+                        @endforeach
                         <input type="submit" value="แก้ไขข้อมูล" class="btn btn-success"
                                style="font-family: ThaiNeue;font-size: 18pt;height: 30px;">
                     </div>
@@ -234,9 +236,7 @@
 
                     <div class="col-xs-6 " align="center">
                         <h3 class="h3-header">ที่อยู่</h3>
-                        <textarea ea name="address" class="form-control">
-
-                    </textarea>
+                        <textarea ea name="address" class="form-control"></textarea>
                         <div class="page-header"></div>
                         <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
                         <div align="left">
@@ -244,18 +244,23 @@
                             <input type="text" name="tel"><br><br>
                             <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
                             <input type="text" name="facebook"><br><br>
-                            <img src="{{ url('image/email.png') }}" width="30" height="30"> :
-                            <input type="email" name="email">
+
                         </div>
                     </div>
                     <div class="col-xs-6" align="left">
                         <h3 class="h3-header">ประเภทงาน</h3><br>
                         <div>
-                            <select name="cat_id" class="form-control">
-                                @foreach($cate as $cat_value)
-                                    <option value="{{$cat_value->c_id}}">{{$cat_value->c_name}}</option>
-                                @endforeach
-                            </select>
+                            @foreach($cate as $cat_value)
+                                <input type="checkbox" id="cate" name="cate_id[]"
+                                       value="{{$cat_value->c_id}}"> {{$cat_value->c_name}}<br>
+                            @endforeach
+
+                        </div>
+                        <div>
+                            <h3 class="h3-header">เรทราคา</h3>
+                            <label class="label-font ">เรื่มต้น :  </label> <input type="number" maxlength="100000" name="price_st">
+                            <label class="label-font ">ถึง :  </label> <input type="number" maxlength="100000" name="price_F">
+                            <label class="label-font ">/ บาท  </label>
                         </div>
 
                         <div class="page-header"></div>

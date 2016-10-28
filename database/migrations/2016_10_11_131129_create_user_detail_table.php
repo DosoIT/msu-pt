@@ -19,8 +19,9 @@ class CreateUserDetailTable extends Migration
             $table->string('address');
             $table->string('tel');
             $table->string('facebook');
-            $table->string('email');
             $table->string('picture');
+            $table->string('price_st');
+            $table->string('price_fn');
             $table->timestamps();
         });
     }

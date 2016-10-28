@@ -69,15 +69,17 @@ class ManageProfileController extends Controller
         $user->address = $request->address;
         $user->tel = $request->tel;
         $user->facebook = $request->facebook;
-        $user->email = $request->email;
         $user->picture = $imageName;
+        $user->price_st = $request->price_st;
+        $user->price_fn = $request->price_F;
         $user->save();
 
-
-        $classify = new ClassifyModel();
-        $classify->user_id = Auth::user()->id;
-        $classify->c_id = $request->cat_id;
-        $classify->save();
+        foreach ($request->cate_id as $cate) {
+            $classify = new ClassifyModel();
+            $classify->user_id = Auth::user()->id;
+            $classify->c_id = $cate;
+            $classify->save();
+        }
 
 
         foreach ($request->skill as $skill) {
@@ -132,13 +134,15 @@ class ManageProfileController extends Controller
     public function update(Request $request, $id)
     {
 
+
         //User Detail
         if ($request->image == null) {
             $update = UserDetailModel::where('id', $id)->update
             (['address' => $request->address,
                 'tel' => $request->tel,
                 'facebook' => $request->facebook,
-                'email' => $request->email,
+                'price_st' => $request->price_st,
+                'price_fn' => $request->price_F,
             ]);
         } else {
             $img = UserDetailModel::where('id', $id)->get();
@@ -150,8 +154,9 @@ class ManageProfileController extends Controller
                 (['address' => $request->address,
                     'tel' => $request->tel,
                     'facebook' => $request->facebook,
-                    'email' => $request->email,
-                    'picture' => $imageName
+                    'picture' => $imageName,
+                    'price_st' => $request->price_st,
+                    'price_fn' => $request->price_F,
                 ]);
             }
         }
@@ -174,13 +179,21 @@ class ManageProfileController extends Controller
             ]);
         }
 
-        $cate_id = $request->cat_id;
+
+        //classify
+        $cate_id = $request->cate_id;
         $cf_id = $request->class_id;
+        foreach ($cf_id as $kk) {
+            $cf = ClassifyModel::where('cf_id', $kk);
+            $cf->delete();
+        }
+        foreach ($cate_id as $value) {
+            $cf = new ClassifyModel();
+            $cf->user_id = Auth::user()->id;
+            $cf->c_id = $value;
 
-        ClassifyModel::where('cf_id', $cf_id)->update([
-            'c_id' => $cate_id
-        ]);
-
+            $cf->save();
+        }
         return redirect('profile');
 
     }

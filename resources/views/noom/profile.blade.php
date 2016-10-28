@@ -70,7 +70,6 @@
                     </a>
                     <div class="dropdown-content">
                         <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
                     </div>
                 </div>
 
@@ -101,40 +100,47 @@
                             </div>
                             <br>
                             <div class="w3-container">
-                                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                                    @foreach($classify as $key)
-                                        @foreach($cate as $cat_value)
-                                            @if($cat_value->c_id == $key->c_id)
-                                                {{$cat_value->c_name}}
-                                            @endif
-                                        @endforeach
-                                    @endforeach
-                                </p>
-                                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                                    {{$item->address}}
-                                </p>
-                                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                                    {{Auth::user()->email }}
-                                </p>
-                                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                                    {{$item->tel}}
-                                </p>
-                                <hr>
+                                @foreach($classify as $key)
+                                    @foreach($cate as $cat_value)
+                                        @if($cat_value->c_id == $key->c_id)
+                                            <p>
+                                                <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i> {{$cat_value->c_name}}
+                                                @endif
+                                                @endforeach
+                                                @endforeach
+                                            </p>
+                                            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                                {{$item->address}}
+                                            </p>
+                                            <p>
+                                                <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                                {{Auth::user()->email }}
+                                            </p>
+                                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                                                {{$item->tel}}
+                                            </p>
+                                            <p class="w3-large"><b><i
+                                                            class="fa fa-money fa-fw w3-margin-right w3-text-teal"></i>เรทราคา : </b>
 
-                                <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>ความสามารถ</b>
-                                </p>
+                                                {{number_format($item->price_st) }} - {{number_format($item->price_fn)}}
+                                            </p>
+                                            <hr>
 
-                                @foreach($skill as $key)
-                                    <p> - {{$key->s_detail}}</p>
+                                            <p class="w3-large"><b><i
+                                                            class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>ความสามารถ</b>
+                                            </p>
 
-                                @endforeach
-                                <br>
+                                            @foreach($skill as $key)
+                                                <p> - {{$key->s_detail}}</p>
 
-                                <p class="w3-large w3-text-theme"><b><i
-                                                class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b>
-                                </p>
-                                <p>English</p>
-                                <br>
+                                            @endforeach
+                                            <br>
+
+                                            <p class="w3-large w3-text-theme"><b><i
+                                                            class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b>
+                                            </p>
+                                            <p>English</p>
+                                            <br>
                             </div>
                         </div>
                     @endforeach
@@ -154,7 +160,8 @@
                         <div class="w3-container">
                             @foreach($discript as $value)
                                 <h5 class="w3-opacity"><b>* {{$value->dt_detail}}</b></h5>
-                                <h6 class="w3-text-teal"><i class="fa  fa-fw w3-margin-right"></i></h6>                                </h6>
+                                <h6 class="w3-text-teal"><i class="fa  fa-fw w3-margin-right"></i>
+                                </h6>                                </h6>
 
                                 <hr>
                             @endforeach
