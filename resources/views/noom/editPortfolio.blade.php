@@ -90,21 +90,20 @@
             <div class="page-header">
 
                 <div class="dropdown">
-                    <a href="profile">
+                    <a href="/profile">
                         <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
                         </button>
                     </a>
                     <div class="dropdown-content">
-                        <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
+                        <a href="/manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
                     <div class="dropdown-content">
-                        <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
+                        <a href="/addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
+                        <a href="/managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
                     </div>
                 </div>
 

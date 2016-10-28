@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CategoryModel;
 use App\ClassifyModel;
 use App\DiscriptionModel;
+use App\LocationModel;
 use App\SkillModel;
 use App\UserDetailModel;
 use Illuminate\Http\Request;
@@ -24,17 +25,20 @@ class ManageProfileController extends Controller
     public function index()
     {
         $categrory = CategoryModel::all();
+        $local = LocationModel::all();
         $detail = UserDetailModel::where('user_id', Auth::user()->id)->get();
         $classify = ClassifyModel::where('user_id', Auth::user()->id)->get();
         $skill = SkillModel::where('user_id', Auth::user()->id)->get();
         $decrip = DiscriptionModel::where('user_id', Auth::user()->id)->get();
+
 
         return view('noom/manageProfile', [
             'cate' => $categrory,
             'detail' => $detail,
             'classify' => $classify,
             'skill' => $skill,
-            'decrip' => $decrip
+            'decrip' => $decrip,
+            'local' => $local
         ]);
     }
 
@@ -67,6 +71,7 @@ class ManageProfileController extends Controller
         $user = new UserDetailModel();
         $user->user_id = Auth::user()->id;
         $user->address = $request->address;
+        $user->lo_id = $request->lo_id;
         $user->tel = $request->tel;
         $user->facebook = $request->facebook;
         $user->picture = $imageName;
@@ -139,6 +144,7 @@ class ManageProfileController extends Controller
         if ($request->image == null) {
             $update = UserDetailModel::where('id', $id)->update
             (['address' => $request->address,
+                'lo_id'=>$request->lo_id,
                 'tel' => $request->tel,
                 'facebook' => $request->facebook,
                 'price_st' => $request->price_st,
@@ -152,6 +158,7 @@ class ManageProfileController extends Controller
                 $request->image->move(public_path('picture'), $imageName);
                 $update = UserDetailModel::where('id', $id)->update
                 (['address' => $request->address,
+                    'lo_id'=>$request->lo_id,
                     'tel' => $request->tel,
                     'facebook' => $request->facebook,
                     'picture' => $imageName,
