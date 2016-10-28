@@ -46,6 +46,7 @@
         .textinput {
             font-size: 15pt;
             background: #DCDCDC;
+            margin-top: -10pt;
         }
 
         .headertext {
@@ -56,27 +57,85 @@
             background-color: #A8DEEE;
             border: 1px solid #428BCA;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            /*background-color: #f9f9f9;*/
+            min-width: 160px;
+            /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+        }
+
+        .dropdown-content a:hover {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+
+        }
+
+        .dropdown:hover {
+            background-color: #2a88bd;
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 
     <div class="container ">
         <div class="row">
             <div class="col-md-offset-1">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-md" ng-click="sort = method1">Numbers</button>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="sort = method1" class="btn btn-default btn-md"> Sorting Method 1 </a>
-
-                        </li>
-                        <li><a ng-click="sort = method2" class="btn btn-default btn-md"> Sorting Method 2 </a>
-
-                        </li>
-                    </ul>
+                <div class="dropdown">
+                    <a href="showpostEmployer">
+                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
+                            โปรไฟล์
+                        </button>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="{{ url('postEmployer') }}">
+                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
+                            เพิ่มประกาศรับสมัคร
+                        </button>
+                    </a>
                 </div>
             </div>
+            <br>
+            <br>
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <div class="well well-sm font">
                     <div class="row">
@@ -111,10 +170,9 @@
                                         <option value="<?php echo $values['c_name']; ?>"><?php echo $values['c_name']; ?></option>
                                         <?php } ?>
                                     </select>
-
                                 </div>
                                 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <label for="exampleTotal" class="control-label">จำนวน</label>
+                                    <label for="exampleTotal" class="control-label">จำนวน/ตำแหน่ง</label>
                                     <input type="text" name="total" class="form-control textinput"
                                            onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}"
                                            required>

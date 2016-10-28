@@ -37,13 +37,6 @@
             background-color: #00AFF0;
         }
 
-        .back-to-top {
-            cursor: pointer;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-        }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -140,7 +133,8 @@
             <div class="col-md-offset-1">
                 <div class="dropdown">
                     <a href="showpostEmployer">
-                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
+                            โปรไฟล์
                         </button>
                     </a>
                     <div class="dropdown-content">
@@ -149,8 +143,9 @@
                 </div>
                 <div class="dropdown">
                     <a href="{{ url('postEmployer') }}">
-                    <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
-                         เพิ่มประกาศรับสมัคร</button>
+                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
+                            เพิ่มประกาศรับสมัคร
+                        </button>
                     </a>
                 </div>
             </div>
@@ -209,7 +204,7 @@
                             <?php $count = 1 ?>
                             @if(!empty($post_work))
                                 @foreach($post_work as $row)
-                                    <tr class="active">
+                                    <tr class="active" style="margin-top: 1cm">
                                         <td><?php echo $count++ ?></td>
                                         <td>
                                             <a href="{{ route('showpostEmployer.show',$row->wp_id) }}"
@@ -282,16 +277,11 @@
                             @endif
                             </tbody>
                         </table>
-                        {{ $post_work->links() }}
+                        {{ $post_work->links()}}
                     </div>
                 </div>
             </div>
         </div>
-        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"
-           title="Click to return on the top page"
-           data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span>
-        </a>
     </div>
     {{--end container--}}
-    {!! Html::script('js/sweetalert.min.js') !!}
 @endsection
