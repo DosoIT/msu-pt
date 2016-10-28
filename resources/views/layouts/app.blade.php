@@ -137,7 +137,7 @@
     <!-- Styles -->
     <!-- Scripts -->
     <script>
-        window.Laravel =; <?php echo json_encode([
+        window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
         ]); ?>
     </script>
