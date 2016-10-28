@@ -179,7 +179,7 @@
     <img src="image/pic-default.png" alt="logo" width="50" height="50" style="margin-left: -15%">
     <ul class="nav navbar-nav navbar-right">
         @if(Auth::guest())
-            <li><a href="#">กรุณาล็อกอินเพื่อใช้งานระบบ</a></li>
+            <li><a href="/login">กรุณาล็อกอินเพื่อใช้งานระบบ</a></li>
         @else
             <li><a href="{{url('show_all_pt')}}" disable>ผู้ว่าจ้าง</a></li>
             <li><a href="{{url('show_pt')}}">Part-time</a></li>

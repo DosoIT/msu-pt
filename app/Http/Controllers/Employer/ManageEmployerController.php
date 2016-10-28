@@ -55,20 +55,20 @@ class ManageEmployerController extends Controller
             $wppost->wp_email = $request->email;
             $wppost->save();
         } else {
-            $imageName = time() . '.' . $request->pic->getClientOriginalExtension();
-            $request->pic->move(public_path('picture'), $imageName);
-            $wppost = new EmployerPostModel();
-            $wppost->wp_pic = $imageName;
-            $wppost->wp_titel = $request->titelpost;
-            $wppost->wp_total = $request->total;
-            $wppost->wp_detail = $request->detail;
-            $wppost->wp_location = $request->location;
-            $wppost->wp_description = $request->description;
-            $wppost->wp_property = $request->property;
-            $wppost->wp_tel = $request->tel;
-            $wppost->wp_fb = $request->fb;
-            $wppost->wp_email = $request->email;
-            $wppost->save();
+            $newName = time() . '.' . $request->pic->getClientOriginalExtension();
+            $request->pic->move(public_path('picture'), $newName);
+            $post = new EmployerPostModel();
+            $post->wp_pic = $newName;
+            $post->wp_titel = $request->titelpost;
+            $post->wp_total = $request->total;
+            $post->wp_detail = $request->detail;
+            $post->wp_location = $request->location;
+            $post->wp_description = $request->description;
+            $post->wp_property = $request->property;
+            $post->wp_tel = $request->tel;
+            $post->wp_fb = $request->fb;
+            $post->wp_email = $request->email;
+            $post->save();
         }
         Session::get('insert');
         return redirect('showpostEmployer')->with('insert', 'บันทึกข้อมูลเรียบร้อย');

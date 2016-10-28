@@ -110,7 +110,7 @@
         <div class="row">
             <div class="col-md-offset-1">
                 <div class="dropdown">
-                    <a href="showpostEmployer">
+                    <a href="/showpostEmployer">
                         <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
                             โปรไฟล์
                         </button>
