@@ -98,8 +98,8 @@
 
             .drop > li > a {
                 text-align: center;
-                padding-left: 50px;
-                padding-right: 50px;
+                padding-left: 5px;
+                padding-right: 5px;
                 margin-right: 0;
             }
 
