@@ -48,6 +48,50 @@
             background: #DCDCDC;
         }
 
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            /*background-color: #f9f9f9;*/
+            min-width: 160px;
+            /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover {
+            background-color: #2a88bd;
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
     <div class="container ">
         <div class="row">
@@ -77,6 +121,8 @@
                     </ul>
                 </div>
             @endif
+            <br>
+            <br>
             <div class="col-xs-12  col-md-12">
                 <div class="well well-sm">
                     @if(count($profile)<1)

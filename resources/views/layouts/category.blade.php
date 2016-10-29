@@ -46,31 +46,21 @@
             </div>
             <div class="row">
                 <div class="col-md-12 btn-category">
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                    mysqli_set_charset($conn, "utf8");
+                    $sql = "SELECT * FROM category";
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_array($result)){
+
+                        ?>
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-code"></i>&nbsp;Programming</a>
+                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-code"></i><?php echo $row['c_name']?></a>
                         </div>
                     </div>
-                    <div class="col-xs-2">
-                        <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-wrench"></i>&nbsp;ซ่อมคอม</a>
-                        </div>
-                    </div>
-                    <div class="col-xs-2">
-                        <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-camera"></i>&nbsp;ช่างภาพ</a>
-                        </div>
-                    </div>
-                    <div class="col-xs-2">
-                        <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-video-camera"></i>&nbsp;ตัดต่อวิดีโอ</a>
-                        </div>
-                    </div>
-                    <div class="col-xs-2">
-                        <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-bolt"></i>&nbsp;Event</a>
-                        </div>
-                    </div>
+                    <?php } ?>
+
                 </div>
             </div>
             <div class="page-header"></div>

@@ -145,7 +145,25 @@
 
                         <div class="col-xs-6 " align="center">
                             <h3 class="h3-header">ที่อยู่</h3>
-                            <textarea name="address" class="form-control">{{$item->address}}</textarea>
+                            <div class="col-md-2">
+                                <textarea name="address">{{$item->address}}</textarea>
+                            </div>
+                            <div class="col-md-10">
+                                <label class="label-font">อำเภอ : </label>
+                                <select name="lo_id">
+                                    @foreach($local as $value)
+                                        @if($value->id == $item->lo_id)
+                                            <option value="{{$value->id}}" selected>{{$value->location}}</option>
+                                        @else
+                                            <option value="{{$value->id}}">{{$value->location}}</option>
+                                        @endif
+
+                                    @endforeach
+                                </select>
+                            </div>
+                            <label class="label-font">จังหวัด : มหสารคาม </label>
+
+
                             <div class="page-header"></div>
                             <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
                             <div align="center">
@@ -161,21 +179,21 @@
                                 @foreach($cate as $cat_value)
                                     <input type="checkbox" id="cate" name="cate_id[]"
                                            @foreach($classify as $key)
-                                             @if($cat_value->c_id == $key->c_id)
-                                                  checked
-                                             @endif
+                                           @if($cat_value->c_id == $key->c_id)
+                                           checked
+                                           @endif
                                            @endforeach
-                                     value="{{$cat_value->c_id}}"> {{$cat_value->c_name}}<br>
+                                           value="{{$cat_value->c_id}}"> {{$cat_value->c_name}}<br>
                                 @endforeach
                             </div>
 
                             <div>
                                 <h3 class="h3-header">เรทราคา</h3>
-                                <label class="label-font ">เรื่มต้น :  </label>
+                                <label class="label-font ">เรื่มต้น : </label>
                                 <input type="number" maxlength="100000" name="price_st" value="{{$item->price_st}}">
-                                <label class="label-font ">ถึง :  </label>
+                                <label class="label-font ">ถึง : </label>
                                 <input type="number" maxlength="100000" name="price_F" value="{{$item->price_fn}}">
-                                <label class="label-font ">/ บาท  </label>
+                                <label class="label-font ">/ บาท </label>
                             </div>
                             <div class="page-header"></div>
                             <h3 class="h3-header">ความสามารถ</h3><br>
@@ -236,7 +254,20 @@
 
                     <div class="col-xs-6 " align="center">
                         <h3 class="h3-header">ที่อยู่</h3>
-                        <textarea ea name="address" class="form-control"></textarea>
+                        <div class="col-md-2">
+                            <textarea name="address"></textarea>
+                        </div>
+                        <div class="col-md-10">
+                            <label class="label-font">อำเภอ : </label>
+                            <select name="lo_id">
+                                @foreach($local as $value)
+                                    <option value="{{$value->id}}">{{$value->location}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <label class="label-font">จังหวัด : มหสารคาม </label>
+
+
                         <div class="page-header"></div>
                         <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
                         <div align="left">
@@ -258,9 +289,11 @@
                         </div>
                         <div>
                             <h3 class="h3-header">เรทราคา</h3>
-                            <label class="label-font ">เรื่มต้น :  </label> <input type="number" maxlength="100000" name="price_st">
-                            <label class="label-font ">ถึง :  </label> <input type="number" maxlength="100000" name="price_F">
-                            <label class="label-font ">/ บาท  </label>
+                            <label class="label-font ">เรื่มต้น : </label> <input type="number" maxlength="100000"
+                                                                                  name="price_st">
+                            <label class="label-font ">ถึง : </label> <input type="number" maxlength="100000"
+                                                                             name="price_F">
+                            <label class="label-font ">/ บาท </label>
                         </div>
 
                         <div class="page-header"></div>

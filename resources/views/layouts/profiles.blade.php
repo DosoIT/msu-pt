@@ -79,11 +79,14 @@
                     <li>ใช้งานล่าสุด : 1 วันที่แล้ว</li>
                     <br>
                     <li>จ้างแล้ว  <?php
-                        $dts = "SELECT * FROM tb_classify WHERE user_id=" . $item['user_id'];
-                        $query = mysqli_query($conn, $dts);
-                        while ($dt = mysqli_fetch_array($query)) {?>
-                        <?php echo $dt['dt_detail'].", "; ?>
-                        <?php } ?>
+                        $rat = "SELECT COUNT(user_id) AS cnt FROM tb_rating WHERE user_id=" . $item['user_id'];
+                        $query = mysqli_query($conn, $rat);
+                            $num=mysqli_num_rows($query);
+                        if($num>0){
+                        while ($rats = mysqli_fetch_array($query)) {?>
+                        <?php echo $rats['cnt']; ?>
+                        <?php } } else{ echo " 0 "; } ?>
+                        ครั้ง
                     </li>
                     <br>
                     <li style="margin-left: 1%">

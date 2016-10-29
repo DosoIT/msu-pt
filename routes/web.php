@@ -39,6 +39,8 @@ Route::resource('profile', 'ProfileController');
 Route::resource('addPortfolio','ManagePortFolioController');
 Route::resource('managePortfolio', 'ProfileController@showmanagePF');
 
+//ค้นหา
+Route::resource('search','SearchController');
 
 
 

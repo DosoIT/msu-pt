@@ -17,6 +17,7 @@ class CreateUserDetailTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('address');
+            $table->string('lo_id');
             $table->string('tel');
             $table->string('facebook');
             $table->string('picture');
