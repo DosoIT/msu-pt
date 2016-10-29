@@ -45,4 +45,5 @@ class ProfileController extends Controller
 
        return view('noom.managePortfolio',['port'=>$port]);
     }
+    
 }
