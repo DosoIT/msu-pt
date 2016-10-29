@@ -109,10 +109,10 @@
         $sql = "SELECT * FROM user_detail";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)){
-
         ?>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <a href="{{ url('profiles') }}">
+            {{--<a href="{{ url('profiles') }}">--}}
+            <a href="profiles?id=<?php echo $row['id'] ?>">
                 <div class="thumbnail thm grid-block slide">
                     <div class="caption">
                         <p>Lorem ipsum dolor sit amet.</p>

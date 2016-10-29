@@ -9,20 +9,24 @@
             margin-right: 2%;
             list-style: none;
             font-family: ThaiNeue;
-            font-size: 16pt;
+            font-size: 14pt;
         }
+
         .btt {
             margin: 10px 0px 0px 0px;
         }
-        .bt1{
+
+        .bt1 {
             width: 150px;
             height: 50px;
             font-size: 16pt;
         }
-        .bt1>p{
+
+        .bt1 > p {
             font-size: 22pt;
             margin-top: -10px;
         }
+
         .city {
             display: none;
         }
@@ -32,27 +36,55 @@
             font-size: 16pt;
             color: #000;
         }
-        .li-icon>i{
-            margin:0px 10px 0px 10px;
+
+        .li-icon > i {
+            margin: 0px 10px 0px 10px;
         }
     </style>
 </head>
 <body>
 @section('content')
     <div class="container">
+        <?php
+        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+        mysqli_set_charset($conn, "utf8");
+        $Id = $_REQUEST['id'];
+        $sql = "SELECT * FROM user_detail WHERE id=$Id";
+        $query = mysqli_query($conn, $sql);
+        while ($item = mysqli_fetch_array($query)){?>
         <div class="row">
-            <div class="col-xs-6 col-md-4" align="right">
-                <img src="image/pic-default.png" alt="profiles" width="120" height="120">
+            <div class="col-xs-4 col-md-4" align="right">
+                {{--<img src="image/pic-default.png" alt="profiles" width="120" height="120">--}}
+                <img src="picture/<?php echo $item['picture'] ?>" alt="profiles" width="100" height="100"
+                     class="w3-circle">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4">
                 <ul class="ul-fix">
-                    <li>ชื่อ : นายพงศ์ศิริ &nbsp; นามสกลุ : อนุพันธ์</li>
+                    <?php
+                    $sql = "SELECT * FROM users WHERE id=" . $item['user_id'];
+                    $query = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_array($query);
+                    ?>
+                    <li>ชื่อ : <?php echo $row['name'] ?> </li>
                     <br>
-                    <li>ประเภทงาน : ออกแบบเว็บ</li>
+                    <li>ประเภทงาน :
+                        <?php
+                        $dts = "SELECT * FROM tb_discription WHERE user_id=" . $item['user_id'];
+                        $query = mysqli_query($conn, $dts);
+                        while ($dt = mysqli_fetch_array($query)) {?>
+                        <?php echo $dt['dt_detail'].", "; ?>
+                        <?php } ?>
+                    </li>
                     <br>
                     <li>ใช้งานล่าสุด : 1 วันที่แล้ว</li>
                     <br>
-                    <li>จ้างแล้ว 3 ครั้ง</li>
+                    <li>จ้างแล้ว  <?php
+                        $dts = "SELECT * FROM tb_classify WHERE user_id=" . $item['user_id'];
+                        $query = mysqli_query($conn, $dts);
+                        while ($dt = mysqli_fetch_array($query)) {?>
+                        <?php echo $dt['dt_detail'].", "; ?>
+                        <?php } ?>
+                    </li>
                     <br>
                     <li style="margin-left: 1%">
                         <i class="fa fa-star"></i>
@@ -63,13 +95,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-3 col-md-3" align="left">
+            <div class="col-xs-2 col-md-3">
                 <ul class="ul-fix">
                     <li>เริ่มต้น 5,000 บาท</li>
                     <br>
                     <li>
                         <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()">
-                           <p>จ้างเลย</p>
+                            <p>จ้างเลย</p>
                         </button>
                     </li>
                     <br>
@@ -97,14 +129,15 @@
                 </a>
                 <a href="javascript:void(0)" onclick="openCity(event, 'tab2');">
                     <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
-                        <i class="glyphicon glyphicon-thumbs-up"></i>&nbsp;รีวิวจากผู้ว่างจ้าง</div>
+                        <i class="glyphicon glyphicon-thumbs-up"></i>&nbsp;รีวิวจากผู้ว่างจ้าง
+                    </div>
                 </a>
                 <a href="javascript:void(0)" onclick="openCity(event, 'tab3');">
                     <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
-                        <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม</div>
+                        <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
+                    </div>
                 </a>
             </div>
-
             <div id="tab1" class="w3-container city">
                 <h2>tab1</h2>
                 <p>tab1 is the capital city of England.</p>
@@ -120,6 +153,7 @@
                 <p>tab3 is the capital of Japan.</p>
             </div>
         </div>
+        <?php } ?>
     </div>
     <script !src="">
         $(".btt").hover(
