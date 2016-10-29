@@ -117,7 +117,7 @@
                     <div class="caption">
                         <p>Lorem ipsum dolor sit amet.</p>
                         <p>Lorem ipsum dolor sit amet.</p>
-                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet..</p>
                     </div>
                     <div class="recom-img">
                         <img src="{{ url('picture/'.$row['picture']) }}" alt="picture">
