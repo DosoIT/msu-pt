@@ -33,28 +33,32 @@
     <div class="container">
         <div class="row">
             @foreach($detail_post as $values)
-            <div class="col-xs-2 col-md-2" align="right">
+            <div class="col-xs-4 col-md-4" align="center">
                 <img src="{{url('picture/'.$values->wp_pic)}}" alt="รูป ตำแหน่งที่ทำงาน" width="180" height="150">
+
+          <ul class="ul-fix" style="margin-top: 25px;">
+              <li>เบอร์  : {{ $values->wp_tel }}</li>
+              <br>
+              <li>Facebook : {{ $values->wp_fb }}</li>
+              <br>
+              <li>E-mail : {{ $values->wp_email }}</li>
+          </ul>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5" style="margin-left: -0.5cm;">
                 <ul class="ul-fix">
                     <li>ชื่อบริษัท/หัวข้อ : {{ $values->wp_titel }}</li>
-                    <li>/</li>
+                    <br>
                     <li>ประเภทงาน : {{ $values->wp_description }}</li>
                     <br>
                     <li>จำนวน/ตำแหน่ง  : <b>{{ $values->wp_total }}</b></li>
-                    <li>/</li>
+                    <br>
                     <li>รายละเอียด : {{ $values->wp_detail }}</li>
                     <br>
                     <li>สถานที่  : {{ $values->wp_location }}</li>
-                    <li>/</li>
+                    <br>
                     <li>คุณสมบัติ : {{ $values->wp_property }}</li>
                     <br>
-                    <li>เบอร์  : {{ $values->wp_location }}</li>
-                    <li>/</li>
-                    <li>Facebook : {{ $values->wp_fb }}</li>
-                    <br>
-                    <li>E-mail : {{ $values->wp_email }}</li>
+
                     <br>
                     <li style="margin-left: 1%">
                         <i class="fa fa-star"></i>
