@@ -104,14 +104,14 @@
     </div>
     <div class="row">
         <?php
-        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
-        mysqli_set_charset($conn, "utf8");
-        $sql = "SELECT * FROM user_detail";
-        $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($result)){
+            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+            mysqli_set_charset($conn, "utf8");
+            $sql = "SELECT * FROM user_detail";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_array($result)){
 
-        ?>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            ?>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <a href="{{ url('profiles') }}">
                 <div class="thumbnail thm grid-block slide">
                     <div class="caption">
