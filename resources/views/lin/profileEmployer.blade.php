@@ -38,16 +38,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="textinput">โทร :</label>
-                                            <div class="col-sm-4" style="margin-left: -0.6cm;">
-                                                <input type="text" placeholder="080-xxxxxxx" class="form-control" value="0874236079">
-                                            </div>
-                                            <label class="col-sm-2 control-label">E-mail :</label>
-                                            <div class="col-sm-4" style="margin-left: -0.6cm;">
-                                                <input type="text" placeholder="@hotmail.com" class="form-control" value="Siriwut-77@hotmail.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label class="col-sm-2 control-label">FB :</label>
                                             <div class="col-sm-4" style="margin-left: -0.6cm;">
                                                 <input type="text" placeholder="Siriwut Patsan" class="form-control" value=" Siriwut Patsan">

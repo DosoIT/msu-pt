@@ -165,7 +165,8 @@
                                         ?>
                                         <select name="description" class="form-control textinput">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                            <option value="<?php echo $values['c_name']; ?>" <?php if ($values['c_name']==$row->wp_description)
+                                            <option value="<?php echo $values['c_name']; ?>"
+                                            <?php if ($values['c_name']==$row->wp_description)
                                                 { echo 'selected'; }?>>
                                                 <?php echo $values['c_name']; ?>
                                             </option>

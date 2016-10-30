@@ -48,9 +48,11 @@ class EditProfileController extends Controller
             $insert = new UserDetailModel();
             $insert->user_id = $request->user_id;
             $insert->address = $request->address;
+            $insert->lo_id = $request->location;
             $insert->tel = $request->tel;
             $insert->facebook = $request->facebook;
-            $insert->email = $request->email;
+            $insert->price_st = 0;
+            $insert->price_fn = 0;
             $insert->save();
         }else{
             $imageName = time() . '.' . $request->image->getClientOriginalExtension();
@@ -58,9 +60,11 @@ class EditProfileController extends Controller
             $insert = new UserDetailModel();
             $insert->user_id = $request->user_id;
             $insert->address = $request->address;
+            $insert->lo_id = $request->location;
             $insert->tel = $request->tel;
             $insert->facebook = $request->facebook;
-            $insert->email = $request->email;
+            $insert->price_st = 0;
+            $insert->price_fn = 0;
             $insert->picture= $imageName;
             $insert->save();
         }
@@ -101,9 +105,10 @@ class EditProfileController extends Controller
         if ($request->image == null) {
             $update = UserDetailModel::where('id', $id)->update
             (['address' => $request->address,
+                'lo_id'=> $request->location,
                 'tel' => $request->tel,
                 'facebook' => $request->facebook,
-                'email' => $request->email,
+
             ]);
         } else {
             $img = UserDetailModel::where('id', $id)->get();
@@ -113,10 +118,10 @@ class EditProfileController extends Controller
                 $request->image->move(public_path('picture'), $imageName);
                 $update = UserDetailModel::where('id', $id)->update
                 (['address' => $request->address,
+                    'lo_id'=> $request->location,
                     'tel' => $request->tel,
                     'facebook' => $request->facebook,
-                    'email' => $request->email,
-                    'picture' => $imageName
+                    'picture' => $imageName,
                 ]);
             }
         }

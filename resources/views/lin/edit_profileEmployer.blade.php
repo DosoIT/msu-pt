@@ -52,6 +52,7 @@
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -59,13 +60,16 @@
             min-width: 160px;
             /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
         }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .dropdown {
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -74,19 +78,23 @@
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             font-size: 18px;
         }
+
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
+
         .dropdown-content a:hover {
             background-color: #00bcd4;
             color: #fff;
         }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .dropdown:hover {
             background-color: #2a88bd;
             color: #fff;
@@ -158,6 +166,24 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label class="col-sm-3 control-label labeltext" for="textinput">สถานที่
+                                                    :</label>
+                                                <div class="col-sm-5">
+                                                    <?php
+                                                    $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                                                    mysqli_set_charset($conn, "utf8");
+                                                    $sql = "SELECT * FROM tb_locations";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    ?>
+                                                    <select class="form-control textinput" name="location">
+                                                        <option value="">-- เลือกสถานที่ --</option>
+                                                        <?php while ($values = mysqli_fetch_array($query)){ ?>
+                                                        <option value="<?php echo $values['id']; ?>"><?php echo $values['location']; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="col-sm-3 control-label labeltext" for="textinput">โทร
                                                     :</label>
                                                 <div class="col-sm-5">
@@ -174,15 +200,6 @@
                                                            value="" placeholder="Facebook" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label labeltext">E-mail :</label>
-                                                <div class="col-sm-5">
-                                                    <input type="text" name="email" class="form-control textinput"
-                                                           value="{{ Auth::user()->email }}" placeholder="Facebook"
-                                                           required>
-                                                </div>
-                                            </div>
-
                                             <div class="form-group">
                                                 <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                     <div class="pull-left">
@@ -239,6 +256,27 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="col-sm-3 control-label labeltext" for="textinput">สถานที่
+                                                        :</label>
+                                                    <div class="col-sm-5">
+                                                        <?php
+                                                        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                                                        mysqli_set_charset($conn, "utf8");
+                                                        $sql = "SELECT * FROM tb_locations";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        ?>
+                                                        <select class="form-control textinput" name="location">
+                                                            <?php while ($values = mysqli_fetch_array($query)){ ?>
+                                                            <option value="<?php echo $values['id']; ?>"
+                                                            <?php if ($values['id']==$value->lo_id)
+                                                            { echo 'selected'; }?>>
+                                                                <?php echo $values['location']; ?>
+                                                            </option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
                                                     <label class="col-sm-3 control-label labeltext" for="textinput">โทร
                                                         :</label>
                                                     <div class="col-sm-5">
@@ -254,14 +292,6 @@
                                                         <input type="text" name="facebook"
                                                                class="form-control textinput"
                                                                value="{{ $value->facebook  }}" placeholder="Facebook">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label labeltext">E-mail :</label>
-                                                    <div class="col-sm-5">
-                                                        <input type="text" name="email"
-                                                               class="form-control textinput"
-                                                               value="{{ $value->email }}" placeholder="Facebook">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

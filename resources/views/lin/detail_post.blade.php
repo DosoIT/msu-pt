@@ -33,10 +33,10 @@
     <div class="container">
         <div class="row">
             @foreach($detail_post as $values)
-            <div class="col-xs-4 col-md-4" align="center">
+            <div class="col-xs-3 col-md-3" align="center">
                 <img src="{{url('picture/'.$values->wp_pic)}}" alt="รูป ตำแหน่งที่ทำงาน" width="180" height="150">
 
-          <ul class="ul-fix" style="margin-top: 25px;">
+          <ul class="ul-fix" style="margin-top: 25px; margin-left: 1px;">
               <li>เบอร์  : {{ $values->wp_tel }}</li>
               <br>
               <li>Facebook : {{ $values->wp_fb }}</li>
@@ -44,7 +44,7 @@
               <li>E-mail : {{ $values->wp_email }}</li>
           </ul>
             </div>
-            <div class="col-xs-5 col-sm-5 col-md-5" style="margin-left: -0.5cm;">
+            <div class="col-xs-6 col-sm-6 col-md-6" style="margin-left: -80px;">
                 <ul class="ul-fix">
                     <li>ชื่อบริษัท/หัวข้อ : {{ $values->wp_titel }}</li>
                     <br>
@@ -58,7 +58,6 @@
                     <br>
                     <li>คุณสมบัติ : {{ $values->wp_property }}</li>
                     <br>
-
                     <br>
                     <li style="margin-left: 1%">
                         <i class="fa fa-star"></i>

@@ -166,6 +166,7 @@
                                     $query = mysqli_query($conn, $sql);
                                     ?>
                                     <select name="description" class="form-control textinput">
+                                        <option value="">-- เลือกประเภทงาน --</option>
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                         <option value="<?php echo $values['c_name']; ?>"><?php echo $values['c_name']; ?></option>
                                         <?php } ?>
@@ -189,6 +190,7 @@
                                     $query = mysqli_query($conn, $sql);
                                     ?>
                                     <select class="form-control textinput" name="location">
+                                        <option value="">-- เลือกสถานที่ --</option>
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                         <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
                                         <?php } ?>
