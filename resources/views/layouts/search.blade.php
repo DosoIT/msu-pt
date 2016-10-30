@@ -35,22 +35,23 @@ mysqli_set_charset($conn, "utf8");
                         $cate = "SELECT * FROM category";
                         $cate_query = mysqli_query($conn, $cate);
                         ?>
-                        <select class="form-control" name="cate" style="font-family: 'ThaiNeue';font-size:14pt;">
+                        <select class="form-control txtSize" name="cate" style="border: 1px solid #000000;;font-family: 'ThaiNeue';font-size:14pt;">
+                            <option value="0">-- เลือกประเภทงาบ --</option>
                             <?php
                             while ($values = mysqli_fetch_array($cate_query)){
                             ?>
-                            <option value="<?php echo $values['c_id'] ?>"><?php echo $values['c_name'] ?></option>
+                            <option value="<?php echo $values['c_id'] ?>" class="opt"><?php echo $values['c_name'] ?></option>
                             <?php }?>
                         </select>
 
                     </div>
                     <div class="col-xs-2">
                         <label for="ex2"><h2 style="font-family: 'ThaiNeue';">ราคา</h2></label>
-                        <input class="form-control" id="ex2" type="number" style="border:1px solid #000000;" name="price_st" required>
+                        <input class="form-control" id="ex2" type="number" style="border:1px solid #000000;" name="price_st" required placeholder="฿ บาท">
                     </div>
                     <div class="col-xs-2">
                         <label for="ex2"><h2 style="font-family: 'ThaiNeue';">ถึง</h2></label>
-                        <input class="form-control" id="ex2" type="number" style="border:1px solid #000000;" name="price_fn" required>
+                        <input class="form-control" id="ex2" type="number" style="border:1px solid #000000;" name="price_fn" required placeholder="฿ บาท">
                     </div>
 
                     <div class="col-xs-2">
