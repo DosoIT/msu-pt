@@ -2,6 +2,7 @@
 <head>
     {!! Html::style("css/bootstrap.min.css") !!}
     {!! Html::script("js/jquery.min.js") !!}
+    {!! Html::style('css/slick.css') !!}
     <style>
         .ul-fix > li {
             float: left;
@@ -40,6 +41,24 @@
         .li-icon > i {
             margin: 0px 10px 0px 10px;
         }
+
+        .mthm {
+            background-color: transparent;
+            width: 100%;
+
+
+            /*-moz-box-shadow: 0 0 5px #888;*/
+            /*-webkit-box-shadow: 0 0 5px#888;*/
+            /*box-shadow: 0 0 5px #888;*/
+        }
+
+        .rimg > img {
+            margin-left: 0px;;
+            margin-right: -50px;
+            margin-bottom: -300px;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -58,7 +77,7 @@
                 <img src="picture/<?php echo $item['picture'] ?>" alt="profiles" width="100" height="100"
                      class="w3-circle">
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="col-xs-4 col-sm-4 col-md-4" >
                 <ul class="ul-fix">
                     <?php
                     $sql = "SELECT * FROM users WHERE id=" . $item['user_id'];
@@ -74,22 +93,26 @@
                         while ($dt = mysqli_fetch_array($query)) {
                             $cate = "SELECT * FROM category WHERE c_id=" . $dt['c_id'];
                             $querycate = mysqli_query($conn, $cate);
-                            while ($rowcate = mysqli_fetch_array($querycate)){
-                            echo  $rowcate['c_name']." , ";
+                            while ($rowcate = mysqli_fetch_array($querycate)) {
+                                echo $rowcate['c_name'] . " , ";
 
-                             }} ?>
+                            }
+                        } ?>
                     </li>
                     <br>
                     <li>ใช้งานล่าสุด : 1 วันที่แล้ว</li>
                     <br>
-                    <li>จ้างแล้ว  <?php
+                    <li>จ้างแล้ว <?php
                         $rat = "SELECT COUNT(user_id) AS cnt FROM tb_rating WHERE user_id=" . $item['user_id'];
                         $query = mysqli_query($conn, $rat);
-                            $num=mysqli_num_rows($query);
-                        if($num>0){
-                        while ($rats = mysqli_fetch_array($query)) {?>
+                        $num = mysqli_num_rows($query);
+                        if ($num > 0) {
+                            while ($rats = mysqli_fetch_array($query)) { ?>
                         <?php echo $rats['cnt']; ?>
-                        <?php } } else{ echo " 0 "; } ?>
+                        <?php }
+                        } else {
+                            echo " 0 ";
+                        } ?>
                         ครั้ง
                     </li>
                     <br>
@@ -104,7 +127,7 @@
             </div>
             <div class="col-xs-2 col-md-3">
                 <ul class="ul-fix">
-                    <li>เริ่มต้น <?php echo  number_format($item['price_st'])?> บาท</li>
+                    <li>เริ่มต้น <?php echo number_format($item['price_st'])?> บาท</li>
                     <br>
                     <li>
                         <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()">
@@ -160,8 +183,56 @@
                 <p>tab3 is the capital of Japan.</p>
             </div>
         </div>
-        <?php } ?>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>ผลงาน</h2>
+                <?php
+                $sqlpf = "SELECT * FROM tb_portfolio WHERE user_id=" . $item['user_id'];
+                $querypf = mysqli_query($conn, $sqlpf);
+                while ($itempf = mysqli_fetch_array($querypf)) {
+                ?>
+                <h3><?php echo $itempf['pf_name']?></h3>
+
+                <div class="row">
+                    <div class="items" style="height: 200px;">
+                        <?php
+                        $sqlpf_detail = "SELECT * FROM tb_portfolio_picture WHERE pf_id=" . $itempf['pf_id'];
+                        $querypf_detail = mysqli_query($conn, $sqlpf_detail);
+                        while ($itempf_detail = mysqli_fetch_array($querypf_detail)) {
+                        ?>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+                            <div class="mthm">
+                                <table>
+                                    <tr>
+                                        <td class="rimg" width="100%">
+                                            <img src="{{ url('images/'.$itempf_detail['pfpic_name']) }}" >
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
+            <div id="line" style="border: 1px solid #8c8c8c;margin-top: 10px;"></div>
+            <?php }?>
+        </div>
     </div>
+    <?php } ?>
+    </div>
+    {!! Html::script('js/slick.min.js') !!}
+    <script !src="">
+        $('.items').slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+        $('a.show-all').tooltip();
+    </script>
     <script !src="">
         $(".btt").hover(
                 function () {
