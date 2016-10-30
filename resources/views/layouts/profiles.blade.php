@@ -69,11 +69,15 @@
                     <br>
                     <li>ประเภทงาน :
                         <?php
-                        $dts = "SELECT * FROM tb_discription WHERE user_id=" . $item['user_id'];
+                        $dts = "SELECT * FROM tb_classify WHERE user_id=" . $item['user_id'];
                         $query = mysqli_query($conn, $dts);
-                        while ($dt = mysqli_fetch_array($query)) {?>
-                        <?php echo $dt['dt_detail'].", "; ?>
-                        <?php } ?>
+                        while ($dt = mysqli_fetch_array($query)) {
+                            $cate = "SELECT * FROM category WHERE c_id=" . $dt['c_id'];
+                            $querycate = mysqli_query($conn, $cate);
+                            while ($rowcate = mysqli_fetch_array($querycate)){
+                            echo  $rowcate['c_name']." , ";
+
+                             }} ?>
                     </li>
                     <br>
                     <li>ใช้งานล่าสุด : 1 วันที่แล้ว</li>
@@ -100,7 +104,7 @@
             </div>
             <div class="col-xs-2 col-md-3">
                 <ul class="ul-fix">
-                    <li>เริ่มต้น 5,000 บาท</li>
+                    <li>เริ่มต้น <?php echo  number_format($item['price_st'])?> บาท</li>
                     <br>
                     <li>
                         <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()">

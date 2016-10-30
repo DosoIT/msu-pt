@@ -81,7 +81,8 @@
     .details > p {
         padding-bottom: -50px;
     }
-    .fa-star-o:hover{
+
+    .fa-star-o:hover {
         color: orangered;
         zoom: 1;
     }
@@ -110,22 +111,39 @@
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)){
         ?>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            {{--<a href="{{ url('profiles') }}">--}}
-            <a href="profiles?id=<?php echo $row['id'] ?>">
-                <div class="thumbnail thm grid-block slide">
-                    <div class="caption">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <p>Lorem ipsum dolor sit amet..</p>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                {{--<a href="{{ url('profiles') }}">--}}
+                <a href="profiles?id=<?php echo $row['id'] ?>">
+                    <div class="thumbnail thm grid-block slide">
+                        <div class="caption">
+                            <?php
+                            $sqluser = "SELECT * FROM users WHERE id=" . $row['user_id'];
+                            $resultuser = mysqli_query($conn, $sqluser);
+                            while ($rowuser = mysqli_fetch_array($resultuser)){
+                            ?>
+                            <h5 style="color:#fff;"><?php echo $rowuser['name']?></h5>
+                            <?php } ?>
+                            <p style="color:#fff;">
+                                <?php
+                                $sqldt = "SELECT * FROM tb_discription WHERE user_id=" . $row['user_id'];
+                                $resultdt = mysqli_query($conn, $sqldt);
+                                while ($rowdt = mysqli_fetch_array($resultdt)) {
+                                    ?>
+
+                                 <?php echo $rowdt['dt_detail'] ?>
+
+                                <?php } ?>
+                            </p>
+                        </div>
+                        <div class="recom-img">
+                            <img src="{{ url('picture/'.$row['picture']) }}" alt="picture">
+                        </div>
+                        <button type="submit" class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
+                            <?php echo "฿ " . number_format($row['price_st']) . " - " . number_format($row['price_fn'])?>
+                        </button>
                     </div>
-                    <div class="recom-img">
-                        <img src="{{ url('picture/'.$row['picture']) }}" alt="picture">
-                    </div>
-                    <button type="submit" class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">8,000 ฿</button>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         <?php } ?>
     </div>
     <br>
