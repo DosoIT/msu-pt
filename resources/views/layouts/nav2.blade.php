@@ -32,6 +32,9 @@
 
     @media only screen and (min-width: 960px) {
         /* styles for browsers larger than 960px; */
+        .logo{
+            margin-left: -15%;
+        }
         .nav2 {
             width: 100%;
             margin-top: -1%;
@@ -69,6 +72,9 @@
 
     @media only screen and (min-width: 1440px) {
         /* styles for browsers larger than 1440px; */
+        .logo{
+            margin-left: -35%;
+        }
         .nav2 {
             width: 100%;
             margin-top: -1%;
@@ -176,7 +182,7 @@
     }
 </style>
 <nav class="nav navbar-static-top nav2" role="navigation">
-    <img src="image/pic-default.png" alt="logo" width="50" height="50" style="margin-left: -15%">
+    <img src="image/pic-default.png" alt="logo" class="logo" width="50" height="50">
     <ul class="nav navbar-nav navbar-right">
         @if(Auth::guest())
             <li><a href="/login">กรุณาล็อกอินเพื่อใช้งานระบบ</a></li>

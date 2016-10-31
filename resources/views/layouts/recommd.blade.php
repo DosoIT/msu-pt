@@ -50,7 +50,7 @@
 
     .caption h3, .caption p {
         color: #fff;
-        margin: 20px;
+        /*margin: 20px;*/
     }
 
     .caption h3 {
@@ -59,8 +59,8 @@
 
     .caption p {
         font-size: .75em;
-        line-height: 1.5em;
-        margin: 0 20px 15px;
+        line-height: 1.2em;
+        /*margin: 0 20px 15px;*/
     }
 
     .caption a.learn-more {
@@ -105,46 +105,47 @@
     </div>
     <div class="row">
         <?php
-        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+        $conn = new mysqli("localhost", "root", "", "msu_pt");
         mysqli_set_charset($conn, "utf8");
-        $sql = "SELECT * FROM user_detail";
+        $sqlch = "SELECT * FROM users WHERE status='PartTime'";
+        $qry = mysqli_query($conn, $sqlch);
+        while ($rows = mysqli_fetch_array($qry)){
+
+        $sql = "SELECT * FROM user_detail WHERE user_id = ".$rows['id'];
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)){
         ?>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                {{--<a href="{{ url('profiles') }}">--}}
-                <a href="profiles?id=<?php echo $row['id'] ?>">
-                    <div class="thumbnail thm grid-block slide">
-                        <div class="caption">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            {{--<a href="{{ url('profiles') }}">--}}
+            <a href="profiles?id=<?php echo $row['id'] ?>">
+                <div class="thumbnail thm grid-block slide">
+                    <div class="caption">
+                        <?php
+                        $sqluser = "SELECT * FROM users WHERE id=" . $row['user_id'];
+                        $resultuser = mysqli_query($conn, $sqluser);
+                        while ($rowuser = mysqli_fetch_array($resultuser)){
+                        ?>
+                        <h5 style="color:#fff;"><?php echo $rowuser['name']?></h5>
+                        <?php } ?>
+                        <p style="color:#fff;">
                             <?php
-                            $sqluser = "SELECT * FROM users WHERE id=" . $row['user_id'];
-                            $resultuser = mysqli_query($conn, $sqluser);
-                            while ($rowuser = mysqli_fetch_array($resultuser)){
-                            ?>
-                            <h5 style="color:#fff;"><?php echo $rowuser['name']?></h5>
-                            <?php } ?>
-                            <p style="color:#fff;">
-                                <?php
-                                $sqldt = "SELECT * FROM tb_discription WHERE user_id=" . $row['user_id'];
-                                $resultdt = mysqli_query($conn, $sqldt);
-                                while ($rowdt = mysqli_fetch_array($resultdt)) {
-                                    ?>
-
-                                 <?php echo $rowdt['dt_detail'] ?>
-
-                                <?php } ?>
-                            </p>
-                        </div>
-                        <div class="recom-img">
-                            <img src="{{ url('picture/'.$row['picture']) }}" alt="picture">
-                        </div>
-                        <button type="submit" class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
-                            <?php echo "฿ " . number_format($row['price_st']) . " - " . number_format($row['price_fn'])?>
-                        </button>
+                            $sqldt = "SELECT * FROM tb_discription WHERE user_id=" . $row['user_id'];
+                            $resultdt = mysqli_query($conn, $sqldt);
+                            while ($rowdt = mysqli_fetch_array($resultdt)) {
+                                echo "<p>-" . $rowdt['dt_detail'] . "</p>";
+                            } ?>
+                        </p>
                     </div>
-                </a>
-            </div>
-        <?php } ?>
+                    <div class="recom-img">
+                        <img src="{{ url('picture/'.$row['picture']) }}" alt="picture">
+                    </div>
+                    <button type="submit" class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
+                        <?php echo "฿ " . number_format($row['price_st']) . " - " . number_format($row['price_fn'])?>
+                    </button>
+                </div>
+            </a>
+        </div>
+        <?php } }  ?>
     </div>
     <br>
     <hr style="border: 1px solid #8c8c8c">

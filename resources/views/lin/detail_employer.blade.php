@@ -1,10 +1,18 @@
 @extends('layouts.template')
 {!! Html::style('css/sweetalert.css') !!}
+{!! Html::style('css/twitter.css') !!}
+{{--{!! Html::style('css/jquery-ui.css') !!}--}}
+{!! Html::style('css/jquery-confirm.css') !!}
+
 @section('content')
     <style>
+        .btns{
+            font-family: ThaiNeue;
+            font-size: 34pt;
+        }
         .fonts {
             font-family: ThaiNeue;
-            font-size: 18pt;
+            font-size: 20pt;
         }
 
         td {
@@ -41,6 +49,7 @@
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -48,13 +57,16 @@
             min-width: 160px;
             /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
         }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .dropdown {
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -63,61 +75,29 @@
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             font-size: 18px;
         }
+
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
+
         .dropdown-content a:hover {
             background-color: #00bcd4;
             color: #fff;
         }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .dropdown:hover {
             background-color: #2a88bd;
             color: #fff;
             text-decoration: none;
         }
     </style>
-
-    @if (\Session::has('updates'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('updates') !!}</li>
-            </ul>
-        </div>
-    @endif
-    @if (\Session::has('insert'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('insert') !!}</li>
-            </ul>
-        </div>
-    @endif
-    @if (\Session::has('delete'))
-        <div class="alert alert-danger">
-            <ul>
-                <li>{!! \Session::get('delete') !!}</li>
-            </ul>
-        </div>
-    @endif
-    @if (\Session::has('insertprofile'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('insertprofile') !!}</li>
-            </ul>
-        </div>
-    @endif
-    @if (\Session::has('updateprofile'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('updateprofile') !!}</li>
-            </ul>
-        </div>
-    @endif
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1">
@@ -194,6 +174,7 @@
                             <?php $count = 1 ?>
                             @if(!empty($post_work))
                                 @foreach($post_work as $row)
+                                    <?php $id=$row['wp_id']; ?>
                                     <tr class="active" style="margin-top: 1cm">
                                         <td><?php echo $count++ ?></td>
                                         <td>
@@ -218,20 +199,19 @@
                                             <form action="{{ route('postEmployer.edit',$row->wp_id) }}">
                                                 {{ method_field('GET') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-warning btn-sm link li">
+                                                <button type="submit" class="w3-btn w3-white w3-hover-yellow link li">
                                                     <li class="glyphicon glyphicon-pencil"></li>
                                                     Edit
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <form action="{{ route('postEmployer.destroy',$row->wp_id) }}" method="post"
-                                                  onclick="return confirm('คุณต้องการที่จะลบโพสต์ ใช่หรือไม่')">
-                                                {{ method_field('DELETE') }}
+                                            {{----}}
+                                            <form method="post" action="{{ route('postEmployer.destroy',$row->wp_id) }}" class="delete_form">
+                                                {{ method_field('Delete') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm link li">
-                                                    <li class="glyphicon glyphicon-trash"></li>
-                                                    Delete
+                                                <button id="delete-btn" class="w3-btn w3-grey w3-hover-red link li">
+                                                    <li class="glyphicon glyphicon-trash"></li>Delete
                                                 </button>
                                             </form>
                                         </td>
@@ -257,7 +237,8 @@
                                               onclick="return confirm('คุณต้องการที่จะลบโพสต์ ใช่หรือไม่')">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger btn-sm link li">
+                                            <button type="submit" class="btn btn-danger btn-sm link li"
+                                                    onmouseover="return cm()">
                                                 <li class="glyphicon glyphicon-trash"></li>
                                                 Delete
                                             </button>
@@ -274,4 +255,62 @@
         </div>
     </div>
     {{--end container--}}
+    {!! Html::script('js/sweetalert.min.js') !!}
+    {!! Html::script('js/jquery.min.js') !!}
+    {!! Html::script('js/jquery-confirm.min.js') !!}
+    {{--script--}}
+    <script !src="">
+        $(document).on('click', '#delete-btn', function(e) {
+            e.preventDefault();
+            var self = $(this);
+            swal({
+                        title: "คุนต้องการลบข้อมูลนี้?",
+                        text: "ข้อมูลทั้งหมดในโพสนี้จะถูกลบออกทั้งหมด!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "ใช่, ฉันต้องการลบ!",
+                        closeOnConfirm: true
+                    },
+                    function(isConfirm){
+                        if(isConfirm){
+                            swal("{!! \Session::get('delete') !!}!","ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
+                            setTimeout(function() {
+                                self.parents(".delete_form").submit();
+                            }, 1000);
+                        }
+                        else{
+                            swal("cancelled","Your categories are safe", "error");
+                        }
+                    });
+        });
+    </script>
+    @if (\Session::has('updates'))
+        <script !src="">
+        swal("{!! \Session::get('updates') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('insert'))
+        <script !src="">
+            swal("{!! \Session::get('insert') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('delete'))
+        <script !src="">
+            swal("{!! \Session::get('delete') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('insertprofile'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('insertprofile') !!}</li>
+            </ul>
+        </div>
+    @endif
+    @if (\Session::has('updateprofile'))
+        <script !src="">
+        swal("{!! \Session::get('updateprofile') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    {{--end script--}}
 @endsection
