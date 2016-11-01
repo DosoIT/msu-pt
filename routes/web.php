@@ -26,6 +26,9 @@ Route::get('/show_all_pt',function (){
 Route::get('/create_account',function (){
     return view('layouts.create_account');
 });
+Route::get('/p',function (){
+    return view('layouts.p');
+});
 //noom  manage Database
 //โปรไฟล์
 Route::resource('manageProfile', 'ManageProfileController');
