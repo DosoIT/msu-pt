@@ -171,6 +171,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                            {{-- ถ้ามีข้อมูล --}}
                             <?php $count = 1 ?>
                             @if(!empty($post_work))
                                 @foreach($post_work as $row)
@@ -218,6 +219,7 @@
                                     </tr>
                                 @endforeach
                             @else
+                                {{-- ถ้าไม่มีข้อมูล--}}
                                 <tr class="active">
                                     <td><?php echo $count++ ?></td>
                                     <td><a href="#detail" data-toggle="modal"> </a></td>
