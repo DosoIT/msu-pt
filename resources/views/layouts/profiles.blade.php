@@ -130,7 +130,7 @@
                     <li>เริ่มต้น <?php echo number_format($item['price_st'])?> บาท</li>
                     <br>
                     <li>
-                        <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()">
+                        <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()" onclick="openCity(event, 'tab3');">
                             <p>จ้างเลย</p>
                         </button>
                     </li>

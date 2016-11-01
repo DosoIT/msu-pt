@@ -1,6 +1,10 @@
 @extends('layouts.template')
 @section('content')
     <style>
+        .fnt{
+            font-family: ThaiNeue;
+            font-size: 34pt;
+        }
         .title-page h2 {
             font-family: ThaiNeue;
             font-size: 34pt;
@@ -33,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <h2>Part Time</h2>
+                <h2 class="fnt">เลือกตามหมวดหมู่</h2>
                 <div class="row">
                     <div class="col-md-12 btn-category01">
                         <div class="col-xs-3 btw-xs">

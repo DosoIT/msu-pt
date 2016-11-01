@@ -283,6 +283,7 @@
                         }
                         else{
                             swal("cancelled","Your categories are safe", "error");
+                            $('html, body').animate({ scrollTop: $('#delete-btn').offset().top-300 }, 'slow');
                         }
                     });
         });
