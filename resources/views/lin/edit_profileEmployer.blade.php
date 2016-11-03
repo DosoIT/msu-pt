@@ -145,6 +145,7 @@
                                                    onchange="loadFile(event)"/>
                                     <label for="file">
                                         <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+                                    <p style="font-size: 13pt;">*รูปประจำตัวของคุณ</p>
                                 </div>
                                 <div class="col-sm-8 col-md-8">
                                     <div class="row">
@@ -156,6 +157,7 @@
                                                     <input type="text" name="fullname" class="form-control textinput"
                                                            value="{{ Auth::user()->name }}" disabled>
                                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                                    <p style="font-size: 13pt;">*ชื่อเข้าใช้งานไม่สารมาถเปลี่ยนแปลงได้</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -163,6 +165,7 @@
                                                 <div class="col-sm-5">
                                                     <textarea name="address" id="" rows="2"
                                                               class="form-control textinput" required=""></textarea>
+                                                    <p style="font-size: 13pt;">*ที่อยู่ของท่าน</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -181,6 +184,7 @@
                                                         <option value="<?php echo $values['id']; ?>"><?php echo $values['location']; ?></option>
                                                         <?php } ?>
                                                     </select>
+                                                        <p style="font-size: 13pt;">*อำเภอ</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -204,7 +208,7 @@
                                                 <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                     <div class="pull-left">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button type="submit" class="btn btn-success btn-lg"
+                                                        <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green"
                                                                 style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
                                                             บันทึก
                                                         </button>
@@ -217,7 +221,7 @@
                             </div>
                         </form>
                     @else
-                        {{--my data--}}
+                        {{--ถ้ามีข้อมูล--}}
                         @foreach($profile as $value)
                             <form action="{{ url('editProfileEmployer',$value->id) }}" method="post"
                                   class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -233,6 +237,7 @@
                                                        onchange="loadFile(event)"/>
                                         <label for="file">
                                             <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+                                        <p style="font-size: 13pt;" align="center">*รูปประจำตัวของคุณ</p>
                                     </div>
                                     <div class="col-sm-8 col-md-8">
                                         <div class="row">
@@ -245,6 +250,7 @@
                                                         <input type="text" name="fullname"
                                                                class="form-control textinput"
                                                                value="{{ Auth::user()->name }}" disabled>
+                                                        <p style="font-size: 13pt;margin-left: -17px;">*ชื่อเข้าใช้งานไม่สารมาถเปลี่ยนแปลงได้</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -253,6 +259,7 @@
                                                 <textarea name="address" id="" rows="2" class="form-control textinput">
                                                     {{ $value->address  }}
                                                 </textarea>
+                                                        <p style="font-size: 13pt;margin-left: -17px;">*ที่อยู่ของท่าน</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -274,6 +281,7 @@
                                                             </option>
                                                             <?php } ?>
                                                         </select>
+                                                            <p style="font-size: 13pt;margin-left: -17px;">*อำเภอ</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -297,9 +305,9 @@
                                                 <div class="form-group">
                                                     <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                         <div class="pull-left">
-                                                            <button type="submit" class="btn btn-success btn-lg"
+                                                            <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green"
                                                                     style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
-                                                                บันทึก
+                                                                แก้ไข
                                                             </button>
                                                         </div>
                                                     </div>

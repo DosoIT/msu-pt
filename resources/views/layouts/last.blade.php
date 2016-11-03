@@ -51,7 +51,11 @@
             <?php
             $conn = mysqli_connect("localhost", "root", "", "msu_pt");
             mysqli_set_charset($conn, "utf8");
-            $sql = "SELECT * FROM user_detail";
+            $sqlch = "SELECT * FROM users WHERE status='PartTime'";
+            $qry = mysqli_query($conn, $sqlch);
+            while ($rows = mysqli_fetch_array($qry)){
+
+            $sql = "SELECT * FROM user_detail WHERE user_id = ".$rows['id'];
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_array($result)){
             ?>
@@ -71,7 +75,7 @@
                     </table>
                 </div>
             </div>
-            <?php } ?>
+            <?php } } ?>
         </div>
     </div>
     <hr style="border: 1px solid #8c8c8c">

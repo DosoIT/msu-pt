@@ -44,7 +44,7 @@
               <li>E-mail : {{ $values->wp_email }}</li>
           </ul>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6" style="margin-left: -80px;">
+            <div class="col-xs-7 col-sm-7 col-md-7" style="margin-left: -80px;">
                 <ul class="ul-fix">
                     <li>ชื่อบริษัท/หัวข้อ : {{ $values->wp_titel }}</li>
                     <br>
@@ -57,7 +57,6 @@
                     <li>สถานที่  : {{ $values->wp_location }}</li>
                     <br>
                     <li>คุณสมบัติ : {{ $values->wp_property }}</li>
-                    <br>
                     <br>
                     <li style="margin-left: 1%">
                         <i class="fa fa-star"></i>

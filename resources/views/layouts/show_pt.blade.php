@@ -1,10 +1,14 @@
 @extends('layouts.template')
 @section('content')
     <style>
+        .fnt {
+            font-family: ThaiNeue;
+            font-size: 34pt;
+        }
+
         .title-page h2 {
             font-family: ThaiNeue;
             font-size: 34pt;
-            text-align: center;
             /*border-bottom: 1px solid #8c8c8c;*/
         }
 
@@ -25,52 +29,35 @@
             padding-left: -1px;
         }
 
-        .btw-xs {
-            margin-top: 3%;
+        .bt {
+            margin-top: 7%;
         }
     </style>
-
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <h2>Part Time</h2>
                 <div class="row">
-                    <div class="col-md-12 btn-category01">
-                        <div class="col-xs-3 btw-xs">
-                            <a href="{{url('show_all_pt')}}">
-                                <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                                    <i class="fa fa-code"></i>&nbsp;Programming
-                                </div>
-                            </a>
+                    <div class="title-page" style="margin-left: -60%">
+                        <h2>หมวดหมู่ในเว็บของเรา</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" btn-category">
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                        mysqli_set_charset($conn, "utf8");
+                        $sql = "SELECT * FROM category";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($result)){
+
+                        ?>
+                        <div class="col-xs-2">
+                            <div class="w3-btn w3-white w3-border w3-round-large bt ">
+                                <a href="p?cId=<?php echo $row['c_id'] ?>"
+                                   onmouseover="loadSound()"><?php echo $row['c_name']?></a>
+                            </div>
                         </div>
-                        <div class="col-xs-3 btw-xs">
-                            <a href="{{url('show_all_pt')}}">
-                                <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                                    <i class="fa fa-wrench"></i>&nbsp;ซ่อมคอม
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-3 btw-xs">
-                            <a href="{{url('show_all_pt')}}">
-                                <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                                    <i class="fa fa-camera"></i>&nbsp;ช่างภาพ
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-3 btw-xs">
-                            <a href="{{url('show_all_pt')}}">
-                                <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                                    <i class="fa fa-video-camera"></i>&nbsp;ตัดต่อวิดีโอ
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-3 btw-xs">
-                            <a href="{{url('show_all_pt')}}">
-                                <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                                    <i class="fa fa-bolt"></i>&nbsp;Event
-                                </div>
-                            </a>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

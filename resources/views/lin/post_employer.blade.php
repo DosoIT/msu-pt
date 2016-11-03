@@ -38,9 +38,9 @@
             text-transform: uppercase;
         }
 
-        .link {
+        .linksubmit {
             font-family: ThaiNeue;
-            font-size: 18pt;
+            font-size: 20pt;
         }
 
         .textinput {
@@ -112,8 +112,7 @@
             text-decoration: none;
         }
     </style>
-
-    <div class="container ">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-offset-1">
                 <div class="dropdown">
@@ -146,15 +145,17 @@
                                      width="200"
                                      height="200" id="output">
                                 <br><br><input type="file" name="pic" id="file" class="inputfile"
-                                               onchange="loadFile(event)"/>
+                                               onchange="loadFile(event)">
                                 <label for="file">
                                     <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+                                <p style="font-size: 13pt;">*รูปภาพสถานที่ตั้ง</p>
                             </div>
                             <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                 <div class="form-group">
-                                    <label for="exampleTitle inputWarning">ชื่อบริษัท/หัวข้อ</label>
+                                    <label for="exampleTitle">ชื่อบริษัท/หัวข้อ</label>
                                     <input type="text" class="form-control textinput" size="5" placeholder="หัวข้อ"
                                            name="titelpost" required>
+                                    <p style="font-size: 13pt;">*ชื่อบริษัทหรือหัวข้อของท่านที่ต้องการโฟส</p>
                                 </div>
                                 <div class="form-group col-xs-7 col-sm-7 col-md-7 col-lg-7"
                                      style="margin-left: -0.4cm;">
@@ -171,17 +172,20 @@
                                         <option value="<?php echo $values['c_name']; ?>"><?php echo $values['c_name']; ?></option>
                                         <?php } ?>
                                     </select>
+                                    <p style="font-size: 13pt;">*ประเภทงานของท่าน</p>
                                 </div>
                                 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                     <label for="exampleTotal" class="control-label">จำนวน/ตำแหน่ง</label>
                                     <input type="text" name="total" class="form-control textinput"
                                            onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}"
                                            required>
+                                    <p style="font-size: 13pt;">*จำนวนคนที่ต้องการ</p>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="exampleDetail" class="control-label">รายละเอียด</label>
                                     <textarea name="detail" class="form-control textinput" rows="2"></textarea>
+                                    <p style="font-size: 13pt;">*รายละเอียดของการทำงาน</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleAddress" class="control-label">สถานที่</label>
@@ -195,10 +199,12 @@
                                         <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
                                         <?php } ?>
                                     </select>
+                                    <p style="font-size: 13pt;">*สถานที่ของที่ตั้งทำงาน</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleProperty" class="control-label">คุณสมบัติผู้สมัคร</label>
                                     <textarea name="property" class="form-control textinput" rows="2"></textarea>
+                                    <p style="font-size: 13pt;">*18ปีขึ้นไป *จบมัธยมศึกษาตอนปลาย</p>
                                 </div>
                                 <h3 class="headertext">ช่องทางการติดต่อ</h3>
                                 <div class="headerline"></div>
@@ -218,7 +224,7 @@
                                            name="email">
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-success btn-lg link col-sm-2 col-xs-2 col-md-2">
+                                <button type="submit" id="button" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green btn-lg linksubmit col-sm-2 col-xs-2 col-md-2">
                                     ประกาศ
                                 </button>
                             </div>
