@@ -3,6 +3,7 @@
     {!! Html::style("css/bootstrap.min.css") !!}
     {!! Html::script("js/jquery.min.js") !!}
     {!! Html::style('css/slick.css') !!}
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <style>
         .ul-fix > li {
             float: left;
@@ -46,7 +47,6 @@
             background-color: transparent;
             width: 100%;
 
-
             /*-moz-box-shadow: 0 0 5px #888;*/
             /*-webkit-box-shadow: 0 0 5px#888;*/
             /*box-shadow: 0 0 5px #888;*/
@@ -59,9 +59,21 @@
             width: 100%;
         }
 
+        h2 {
+            font-family: ThaiNeue;
+        }
+
     </style>
 </head>
+<?php
+if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
+    <body onload="openCity(event, 'tab3');">
+<?php } else { ?>
 <body>
+<?php }?>
+
+
+
 @section('content')
     <div class="container">
         <?php
@@ -77,7 +89,7 @@
                 <img src="picture/<?php echo $item['picture'] ?>" alt="profiles" width="100" height="100"
                      class="w3-circle">
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4" >
+            <div class="col-xs-4 col-sm-4 col-md-4">
                 <ul class="ul-fix">
                     <?php
                     $sql = "SELECT * FROM users WHERE id=" . $item['user_id'];
@@ -130,9 +142,33 @@
                     <li>เริ่มต้น <?php echo number_format($item['price_st'])?> บาท</li>
                     <br>
                     <li>
-                        <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()">
-                            <p>จ้างเลย</p>
-                        </button>
+
+                        @if(Auth::guest())
+                            <a href="/login"
+                               class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1  "
+                               onmouseover="btn()">
+                                <p>กรุณาเข้าสู่ระบบ</p>
+                            </a>
+                        @else
+                            <?php $cont = Auth::user()->id; ?>
+                            <a href="javascript:void(0)"
+                               class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1 "
+                               onmouseover="btn()"
+                               onclick="openCity(event, 'tab3'); insertRat(<?php echo $item['id']?>,<?php echo $item['user_id']?>,<?php echo $cont?>);">
+                                <p>จ้างเลย</p>
+                            </a>
+                            {{--insert rating--}}
+                            <?php
+                            if (isset($_GET['user_id']) && isset($_GET['cont'])) {
+                                $user = $_GET['user_id'];
+                                $cont = $_GET['cont'];
+                                mysqli_query($conn, "INSERT INTO tb_rating(user_id,contract_id) VALUES ($user,$cont)");
+                            } else {
+
+                            }
+                            ?>
+                        @endif
+
                     </li>
                     <br>
                     <li><p style="font-size: 13pt;color: red;">(กรุณาอ่านรายละเอียดก่อนทำการจ้างงาน)</p></li>
@@ -148,8 +184,7 @@
         <div id="line" style="border: 1px solid #8c8c8c;margin-top: 10px;"></div>
         <div class="row">
             <div align="center">
-                <button class="w3-btn w3-black w3-border w3-round-large btt" onmouseover="btn()"><span>จ้างเลย</span>
-                </button>
+                <h1 style="font-family: ThaiNeue;">ข้อมูล</h1>
             </div>
             <div class="w3-row">
                 <a href="javascript:void(0)" onclick="openCity(event, 'tab1');">
@@ -162,28 +197,63 @@
                         <i class="glyphicon glyphicon-thumbs-up"></i>&nbsp;รีวิวจากผู้ว่างจ้าง
                     </div>
                 </a>
-                <a href="javascript:void(0)" onclick="openCity(event, 'tab3');">
+
+                <a href="javascript:void(0)" onclick="openCity(event, 'tab3'); ">
                     <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
                         <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
                     </div>
                 </a>
             </div>
             <div id="tab1" class="w3-container city">
-                <h2>tab1</h2>
-                <p>tab1 is the capital city of England.</p>
+                <h2 style="font-family: ThaiNeue;">ความสามารถ</h2>
+                <?php
+                $skill = "SELECT * FROM tb_skill WHERE user_id=" . $item['user_id'];
+                $queryskill = mysqli_query($conn, $skill);
+                while ($sk = mysqli_fetch_array($queryskill)) {
+
+                    echo "<p>&nbsp;&nbsp;&nbsp; - " . $sk['s_detail'] . "</p>";
+                } ?>
+
+                <h2 style="font-family: ThaiNeue;">ลักษณะงาน</h2>
+                <?php
+                $ds = "SELECT * FROM tb_discription WHERE user_id=" . $item['user_id'];
+                $queryds = mysqli_query($conn, $ds);
+                while ($decrip = mysqli_fetch_array($queryds)) {
+
+                    echo "<p>&nbsp;&nbsp;&nbsp; - " . $decrip['dt_detail'] . "</p>";
+                } ?>
             </div>
 
             <div id="tab2" class="w3-container city">
-                <h2>tab2</h2>
-                <p>tab2 is the capital of France.</p>
+                <h2 style="font-family: ThaiNeue;">Coming soon.....</h2>
+                <p></p>
             </div>
 
-            <div id="tab3" class="w3-container city">
-                <h2>tab3</h2>
-                <p>tab3 is the capital of Japan.</p>
-            </div>
+            @if(Auth::guest())
+                <div id="tab3" class="w3-container city">
+                    <h2 style="font-family: ThaiNeue;">กรุณาเข้าสู่ระบบ...</h2>
+                </div>
+            @else
+                <div id="tab3" class="w3-container city">
+                    <h2 style="font-family: ThaiNeue;">ที่อยู่</h2>
+                    <p>&nbsp;&nbsp;&nbsp;<?php echo $item['address'];?></p>
+                    <h2 style="font-family: ThaiNeue;">โทร.</h2>
+                    <p>&nbsp;&nbsp;&nbsp;<?php echo $item['tel'];?></p>
+                    <h2 style="font-family: ThaiNeue;">Facebook</h2>
+                    <p>&nbsp;&nbsp;&nbsp;<?php echo $item['facebook'];?></p>
+
+                    <?php
+                    $user_email = "SELECT * FROM users WHERE id=" . $item['user_id'];
+                    $qt = mysqli_query($conn, $user_email);
+                    $rs = mysqli_fetch_array($qt);
+                    ?>
+                    <h2 style="font-family: ThaiNeue;">Email</h2>
+                    <p>&nbsp;&nbsp;&nbsp;<?php echo $rs['email'];?></p>
+                </div>
+            @endif
+
         </div>
-
+        <div class="page-header"></div>
         <div class="row">
             <div class="col-md-12">
                 <h2>ผลงาน</h2>
@@ -201,12 +271,12 @@
                         $querypf_detail = mysqli_query($conn, $sqlpf_detail);
                         while ($itempf_detail = mysqli_fetch_array($querypf_detail)) {
                         ?>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <div class="mthm">
                                 <table>
                                     <tr>
                                         <td class="rimg" width="100%">
-                                            <img src="{{ url('images/'.$itempf_detail['pfpic_name']) }}" >
+                                            <img src="{{ url('images/'.$itempf_detail['pfpic_name']) }}">
                                         </td>
                                     </tr>
                                 </table>
@@ -216,11 +286,14 @@
                     </div>
                 </div>
 
-            <div id="line" style="border: 1px solid #8c8c8c;margin-top: 10px;"></div>
-            <?php }?>
+                <div id="line" style="border: 1px solid #8c8c8c;margin-top: 10px;"></div>
+
+
+                <?php }?>
+            </div>
         </div>
-    </div>
-    <?php } ?>
+
+        <?php } ?>
     </div>
     {!! Html::script('js/slick.min.js') !!}
     <script !src="">
@@ -257,6 +330,18 @@
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.firstElementChild.className += " w3-border-red";
         }
+
+
     </script>
+
+    <script !src="">
+        function insertRat(id, user_id, cont) {
+            window.location = 'profiles?id=' + id + '&user_id=' + user_id + '&cont=' + cont + '';
+        }
+    </script>
+
+
+
+
 @endsection
 </body>
