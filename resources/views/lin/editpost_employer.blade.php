@@ -9,39 +9,27 @@
             position: absolute;
             z-index: -1;
         }
-
         .inputfile + label {
             font-size: 1.25em;
             font-weight: 700;
             color: gray;
             display: inline-block;
         }
-
         .inputfile + label {
             cursor: pointer; /* "hand" cursor */
         }
-
         .headerline {
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
-
         .label a {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
-
         .input {
             font-family: ThaiNeue;
             font-size: 12pt;
         }
-
-        .aherf {
-            font-family: ThaiNeue;
-            font-size: 18pt;
-            color: #0f0f0f;
-        }
-
         .h1 {
             font-family: ThaiNeue;
             font-size: 26pt;
@@ -56,7 +44,6 @@
             position: relative;
             display: inline-block;
         }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -64,16 +51,13 @@
             min-width: 160px;
             /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
         }
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
         .dropdown {
             position: relative;
             display: inline-block;
         }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -82,23 +66,19 @@
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             font-size: 18px;
         }
-
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
-
         .dropdown-content a:hover {
             background-color: #00bcd4;
             color: #fff;
         }
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
         .dropdown:hover {
             background-color: #2a88bd;
             color: #fff;
@@ -192,7 +172,7 @@
                                                   rows="5">{{ $row->wp_detail }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">สถานที่</label>
+                                        <label for="exampleLocation">สถานที่</label>
                                         {{--<input type="text" name="location" class="form-control textinput"--}}
                                                {{--placeholder="สถานที่"--}}
                                                {{--value="{{ $row->wp_location }}">--}}
@@ -223,7 +203,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">เบอร์โทร</label>
                                         <input type="tel" class="form-control textinput" placeholder="เบอร์โทร"
-                                               value="{{ $row->wp_tel }}" name="tel">
+                                               value="{{ $row->wp_tel }}" name="tel" maxlength="10">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Facebook</label>

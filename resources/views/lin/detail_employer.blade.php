@@ -197,12 +197,11 @@
                                         </td>
                                         <td>{{ $row->created_at }}</td>
                                         <td>
-                                            <form action="{{ route('postEmployer.edit',$row->wp_id) }}">
-                                                {{ method_field('GET') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="w3-btn w3-white w3-hover-yellow link li">
-                                                    <li class="glyphicon glyphicon-pencil"></li>
-                                                    Edit
+                                            <form action="{{ route('editpostemployer.edit',$row->wp_id) }}" method="post">
+                                                 {{ method_field('GET') }}
+                                                    {{ csrf_field() }}
+                                                <button type="submit" class="w3-btn w3-cyan  w3-hover-yellow link li">
+                                                    <li class="glyphicon glyphicon-pencil"></li>Edit
                                                 </button>
                                             </form>
                                         </td>
@@ -304,11 +303,9 @@
         </script>
     @endif
     @if (\Session::has('insertprofile'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('insertprofile') !!}</li>
-            </ul>
-        </div>
+        <script !src="">
+            swal("{!! \Session::get('insertprofile') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
     @endif
     @if (\Session::has('updateprofile'))
         <script !src="">
