@@ -9,27 +9,33 @@
             position: absolute;
             z-index: -1;
         }
+
         .inputfile + label {
             font-size: 1.25em;
             font-weight: 700;
             color: gray;
             display: inline-block;
         }
+
         .inputfile + label {
             cursor: pointer; /* "hand" cursor */
         }
+
         .headerline {
             border-bottom: 2px solid #8c8c8c;
             background-color: lightgrey;
         }
+
         .label a {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
+
         .input {
             font-family: ThaiNeue;
             font-size: 12pt;
         }
+
         .h1 {
             font-family: ThaiNeue;
             font-size: 26pt;
@@ -44,6 +50,7 @@
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -51,13 +58,16 @@
             min-width: 160px;
             /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
         }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .dropdown {
             position: relative;
             display: inline-block;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -66,19 +76,23 @@
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             font-size: 18px;
         }
+
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
+
         .dropdown-content a:hover {
             background-color: #00bcd4;
             color: #fff;
         }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .dropdown:hover {
             background-color: #2a88bd;
             color: #fff;
@@ -127,12 +141,14 @@
                                                    onchange="loadFile(event)"/>
                                     <label for="file">
                                         <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+                                    <p style="font-size: 13pt;">*รูปภาพสถานที่ตั้ง</p>
                                 </div>
                                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">ชื่อบริษัท/หัวข้อ</label>
                                         <input type="text" class="form-control textinput" placeholder="หัวข้อ"
                                                value="{{ $row->wp_titel }}" name="titel">
+                                        <p style="font-size: 13pt;">*ชื่อบริษัทหรือหัวข้อของท่านที่ต้องการโฟส</p>
                                     </div>
                                     <div class="form-group col-xs-7 col-sm-7 col-md-7 col-lg-7"
                                          style="margin-left: -0.4cm;">
@@ -146,24 +162,21 @@
                                         <select name="description" class="form-control textinput">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
                                             <option value="<?php echo $values['c_name']; ?>"
-                                            <?php if ($values['c_name']==$row->wp_description)
-                                                { echo 'selected'; }?>>
+                                            <?php if ($values['c_name'] == $row->wp_description) {
+                                                echo 'selected';
+                                            }?>>
                                                 <?php echo $values['c_name']; ?>
                                             </option>
                                             <?php } ?>
                                         </select>
+                                        <p style="font-size: 13pt;">*ประเภทงานของท่าน</p>
                                     </div>
-                                    {{--<div class="form-group">--}}
-                                    {{--<label for="exampleInputPassword1">ประเภทงาน</label>--}}
-                                    {{--<select name="description" class="form-control textinput">--}}
-                                    {{--<option>{{ $row->wp_description }}</option>--}}
-                                    {{--</select>--}}
-                                    {{--</div>--}}
                                     <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <label for="exampleTotal" class="control-label">จำนวน/ตำแหน่ง</label>
                                         <input type="text" name="total" class="form-control textinput"
                                                onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}"
                                                required value="{{ $row->wp_total }}">
+                                        <p style="font-size: 13pt;">*จำนวนคนที่ต้องการ</p>
                                     </div>
                                     <br>
                                     <div class="form-group">
@@ -173,9 +186,6 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleLocation">สถานที่</label>
-                                        {{--<input type="text" name="location" class="form-control textinput"--}}
-                                               {{--placeholder="สถานที่"--}}
-                                               {{--value="{{ $row->wp_location }}">--}}
                                         <?php
                                         $conn = mysqli_connect("localhost", "root", "", "msu_pt");
                                         mysqli_set_charset($conn, "utf8");
@@ -184,17 +194,20 @@
                                         ?>
                                         <select name="location" class="form-control textinput">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                            <option value="<?php echo $values['location']; ?>" <?php if ($values['location']==$row->wp_location)
-                                            { echo 'selected'; }?>>
+                                            <option value="<?php echo $values['location']; ?>" <?php if ($values['location'] == $row->wp_location) {
+                                                echo 'selected';
+                                            }?>>
                                                 <?php echo $values['location']; ?>
                                             </option>
                                             <?php } ?>
+                                            <p style="font-size: 13pt;">*สถานที่ของที่ตั้งทำงาน</p>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
                                         <textarea name="property" class="form-control textinput"
                                                   rows="5">{{ $row->wp_property }}</textarea>
+                                        <p style="font-size: 13pt;">*18ปีขึ้นไป *จบมัธยมศึกษาตอนปลาย</p>
                                     </div>
                                     <br><br>
                                     <h3>ช่องทางการติดต่อ</h3>

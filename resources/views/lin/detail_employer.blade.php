@@ -6,10 +6,11 @@
 
 @section('content')
     <style>
-        .btns{
+        .btns {
             font-family: ThaiNeue;
             font-size: 34pt;
         }
+
         .fonts {
             font-family: ThaiNeue;
             font-size: 20pt;
@@ -175,7 +176,7 @@
                             <?php $count = 1 ?>
                             @if(!empty($post_work))
                                 @foreach($post_work as $row)
-                                    <?php $id=$row['wp_id']; ?>
+                                    <?php $id = $row['wp_id']; ?>
                                     <tr class="active" style="margin-top: 1cm">
                                         <td><?php echo $count++ ?></td>
                                         <td>
@@ -197,21 +198,24 @@
                                         </td>
                                         <td>{{ $row->created_at }}</td>
                                         <td>
-                                            <form action="{{ route('editpostemployer.edit',$row->wp_id) }}" method="post">
-                                                 {{ method_field('GET') }}
-                                                    {{ csrf_field() }}
+                                            <form action="{{ route('postEmployer.edit',$row->wp_id) }}" method="post">
+                                                {{ method_field('GET') }}
+                                                {{ csrf_field() }}
                                                 <button type="submit" class="w3-btn w3-cyan  w3-hover-yellow link li">
-                                                    <li class="glyphicon glyphicon-pencil"></li>Edit
+                                                    <li class="glyphicon glyphicon-pencil"></li>
+                                                    Edit
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
                                             {{----}}
-                                            <form method="post" action="{{ route('postEmployer.destroy',$row->wp_id) }}" class="delete_form">
+                                            <form method="post" action="{{ route('postEmployer.destroy',$row->wp_id) }}"
+                                                  class="delete_form">
                                                 {{ method_field('Delete') }}
                                                 {{ csrf_field() }}
                                                 <button id="delete-btn" class="w3-btn w3-grey w3-hover-red link li">
-                                                    <li class="glyphicon glyphicon-trash"></li>Delete
+                                                    <li class="glyphicon glyphicon-trash"></li>
+                                                    Delete
                                                 </button>
                                             </form>
                                         </td>
@@ -261,7 +265,7 @@
     {!! Html::script('js/jquery-confirm.min.js') !!}
     {{--script--}}
     <script !src="">
-        $(document).on('click', '#delete-btn', function(e) {
+        $(document).on('click', '#delete-btn', function (e) {
             e.preventDefault();
             var self = $(this);
             swal({
@@ -273,23 +277,23 @@
                         confirmButtonText: "ใช่, ฉันต้องการลบ!",
                         closeOnConfirm: true
                     },
-                    function(isConfirm){
-                        if(isConfirm){
-                            swal("{!! \Session::get('delete') !!}!","ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
-                            setTimeout(function() {
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("{!! \Session::get('delete') !!}!", "ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
+                            setTimeout(function () {
                                 self.parents(".delete_form").submit();
                             }, 1000);
                         }
-                        else{
-                            swal("cancelled","Your categories are safe", "error");
-                            $('html, body').animate({ scrollTop: $('#delete-btn').offset().top-300 }, 'slow');
+                        else {
+                            swal("cancelled", "Your categories are safe", "error");
+                            $('html, body').animate({scrollTop: $('#delete-btn').offset().top - 300}, 'slow');
                         }
                     });
         });
     </script>
     @if (\Session::has('updates'))
         <script !src="">
-        swal("{!! \Session::get('updates') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+            swal("{!! \Session::get('updates') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
         </script>
     @endif
     @if (\Session::has('insert'))
@@ -309,7 +313,7 @@
     @endif
     @if (\Session::has('updateprofile'))
         <script !src="">
-        swal("{!! \Session::get('updateprofile') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+            swal("{!! \Session::get('updateprofile') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
         </script>
     @endif
     {{--end script--}}

@@ -94,7 +94,7 @@ class ManageEmployerController extends Controller
      */
     public function edit($id)
     {
-        $data = EmployerPostModel::all();
+        $data = EmployerPostModel::where('wp_id',$id)->get();
         return view('lin.editpost_employer', ['edit_post' => $data]);
     }
 
