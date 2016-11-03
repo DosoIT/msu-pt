@@ -29,6 +29,17 @@ Route::get('/create_account',function (){
 Route::get('/p',function (){
     return view('layouts.p');
 });
+
+//for facebook login
+
+// for redirect to facebook auth.
+Route::get('auth/login/facebook', 'SocialLoginController@facebookAuthRedirect');
+// facebook call back after login success.
+Route::get('auth/login/facebook/index', 'SocialLoginController@facebookSuccess');
+
+//end route socialite
+
+
 //noom  manage Database
 //โปรไฟล์
 Route::resource('manageProfile', 'ManageProfileController');
@@ -40,7 +51,6 @@ Route::resource('managePortfolio', 'ProfileController@showmanagePF');
 
 //ค้นหา
 Route::resource('search','SearchController');
-
 
 
 Route::get('/logout', function () {

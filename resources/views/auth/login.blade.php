@@ -76,12 +76,12 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4" style="margin-left: 30%">
-                                    <button type="submit" class="w3-btn w3-red w3-hover-pink">
+                                    <a href="#" type="submit" class="w3-btn w3-red w3-hover-pink">
                                         <i class="fa fa-google-plus">&nbsp;&nbsp;|&nbsp;Sign in Google+</i>
-                                    </button>
-                                    <button type="submit" class="w3-btn w3-indigo w3-hover-blue">
+                                    </a>
+                                    <a href="auth/login/facebook" type="submit" class="w3-btn w3-indigo w3-hover-blue">
                                         <i class="fa fa-facebook">&nbsp;&nbsp;|&nbsp;Sign in Facebook</i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="form-group">
