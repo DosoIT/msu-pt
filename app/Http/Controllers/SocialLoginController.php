@@ -18,12 +18,12 @@ class SocialLoginController extends Controller {
     }
 
     public function facebookAuthRedirect() {
-        return Socialite::with('facebook')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     public function facebookSuccess() {
 
-        $provider = Socialite::with('facebook');
+        $provider = Socialite::driver('facebook');
         if (Input::has('code')){
             $user = $provider->stateless()->user();
             //dd($user);
