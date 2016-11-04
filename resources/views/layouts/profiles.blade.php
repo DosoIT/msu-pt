@@ -68,9 +68,11 @@
 <?php
 if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
 <script !src="">
-    window.onload = function(){document.getElementById('focus-data').focus();}
+    window.onload = function () {
+        document.getElementById('focus-data').focus();
+    }
 </script>
-    <body onload="openCity(event, 'tab3');">
+<body onload="openCity(event, 'tab3');">
 <?php } else { ?>
 <body>
 <?php }?>
@@ -186,7 +188,7 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
             </div>
         </div>
         <div id="line" style="border: 1px solid #8c8c8c;margin-top: 10px;"></div>
-        <div class="row" id="focus-data"  tabindex="-1">
+        <div class="row" id="focus-data" tabindex="-1">
             <div align="center">
                 <h1 style="font-family: ThaiNeue;"><a onclick="focustab3();">ข้อมูล</a></h1>
             </div>
@@ -202,11 +204,23 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
                     </div>
                 </a>
 
-                <a href="javascript:void(0)" onclick="openCity(event, 'tab3'); insertRat(<?php echo $item['id']?>,<?php echo $item['user_id']?>,<?php echo $cont?>);">
-                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
-                        <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
-                    </div>
-                </a>
+                @if(Auth::guest())
+                    <a href="javascript:void(0)"
+                       onclick="openCity(event, 'tab3'); ">
+                        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
+                            <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
+                        </div>
+                    </a>
+                @else
+                    <?php $cont = Auth::user()->id; ?>
+                    <a href="javascript:void(0)"
+                       onclick="openCity(event, 'tab3'); insertRat(<?php echo $item['id']?>,<?php echo $item['user_id']?>,<?php echo $cont?>);">
+                        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
+                            <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
+                        </div>
+                    </a>
+                @endif
+
             </div>
             <div id="tab1" class="w3-container city" style="background-color: #FAFAFA">
                 <h2 style="font-family: ThaiNeue;">ความสามารถ</h2>
@@ -345,7 +359,7 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
     </script>
 
     <script !src="">
-        function focustab3(){
+        function focustab3() {
 //            .scrollIntoView('focus-data');
             alert("Noom");
         }

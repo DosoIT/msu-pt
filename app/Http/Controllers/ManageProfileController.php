@@ -144,7 +144,7 @@ class ManageProfileController extends Controller
         if ($request->image == null) {
             $update = UserDetailModel::where('id', $id)->update
             (['address' => $request->address,
-                'lo_id'=>$request->lo_id,
+                'lo_id' => $request->lo_id,
                 'tel' => $request->tel,
                 'facebook' => $request->facebook,
                 'price_st' => $request->price_st,
@@ -158,7 +158,7 @@ class ManageProfileController extends Controller
                 $request->image->move(public_path('picture'), $imageName);
                 $update = UserDetailModel::where('id', $id)->update
                 (['address' => $request->address,
-                    'lo_id'=>$request->lo_id,
+                    'lo_id' => $request->lo_id,
                     'tel' => $request->tel,
                     'facebook' => $request->facebook,
                     'picture' => $imageName,

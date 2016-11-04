@@ -31,7 +31,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">สมัครสมาชิก <i class="fa fa-user-plus"></i></div>
                     <div class="panel-body">
-                        <form class="form-horizontal " role="form" method="POST" action="{{ url('/register') }}">
+                        <form class="form-horizontal " role="form" method="POST" action="{{ url('/register') }}" >
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -93,10 +93,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-6" >
+                                <label  class="col-md-4 control-label"  style="margin-top:-15px; ">สถานะ</label>
+                                <div class="col-md-6">
                                     <input type="radio" id="status" name="status" value="ผู้ว่าจ้าง"> ผู้ว่าจ้าง
-                                    <input type="radio" id="status" name="status" value="PartTime"> Part Time
+                                    <input type="radio" id="status" name="status" value="PartTime" checked> Part Time
                                 </div>
                             </div>
 
@@ -104,11 +104,13 @@
 
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="w3-btn w3-hover-blue animated zoomIn"
-                                            style="font-family: ThaiNeue;font-size: 16pt;margin-left: 100px">
+                                            style="font-family: ThaiNeue;font-size: 16pt;margin-left: 100px" >
                                         สมัครสมาชิก
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
+
+
 @endsection

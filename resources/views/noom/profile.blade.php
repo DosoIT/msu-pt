@@ -120,7 +120,8 @@
                                                 {{$item->tel}}
                                             </p>
                                             <p class="w3-large"><b><i
-                                                            class="fa fa-money fa-fw w3-margin-right w3-text-teal"></i>เรทราคา : </b>
+                                                            class="fa fa-money fa-fw w3-margin-right w3-text-teal"></i>เรทราคา
+                                                    : </b>
 
                                                 {{number_format($item->price_st) }} - {{number_format($item->price_fn)}}
                                             </p>
@@ -349,6 +350,9 @@
             <!-- End Page Container -->
         </div>
     @endif
+    {!! Html::script('js/sweetalert.min.js') !!}
+    {!! Html::script('js/jquery.min.js') !!}
+    {!! Html::script('js/jquery-confirm.min.js') !!}
     <script>
         function openLeftMenu() {
             document.getElementById("leftMenu").style.display = "block";
@@ -356,6 +360,58 @@
         function closeLeftMenu() {
             document.getElementById("leftMenu").style.display = "none";
         }
+
+        $(document).on('click', '#delete-btn', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            swal({
+                        title: "คุนต้องการลบข้อมูลนี้?",
+                        text: "ข้อมูลทั้งหมดในโพสนี้จะถูกลบออกทั้งหมด!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "ใช่, ฉันต้องการลบ!",
+                        closeOnConfirm: true
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("{!! \Session::get('delete') !!}!", "ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
+                            setTimeout(function () {
+                                self.parents(".delete_form").submit();
+                            }, 1000);
+                        }
+                        else {
+                            swal("cancelled", "Your categories are safe", "error");
+                            $('html, body').animate({scrollTop: $('#delete-btn').offset().top - 300}, 'slow');
+                        }
+                    });
+        });
     </script>
+    @if (\Session::has('updates'))
+        <script !src="">
+            swal("{!! \Session::get('updates') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('insert'))
+        <script !src="">
+            swal("{!! \Session::get('insert') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('delete'))
+        <script !src="">
+            swal("{!! \Session::get('delete') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('insertprofile'))
+        <script !src="">
+            swal("{!! \Session::get('insertprofile') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('updateprofile'))
+        <script !src="">
+            swal("{!! \Session::get('updateprofile') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    {{--end script--}}
 
 @endsection

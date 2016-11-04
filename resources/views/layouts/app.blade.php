@@ -252,7 +252,7 @@
 <script !src="">
     $(".aa").click(function () {
         $(this).css('background-color','transparent');
-    })
+    });
     $("[name='my-checkbox']").bootstrapSwitch();
     $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
         console.log(this); // DOM element

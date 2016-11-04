@@ -191,7 +191,6 @@
                     </a>
                     <div class="dropdown-content">
                         <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
                     </div>
                 </div>
 
