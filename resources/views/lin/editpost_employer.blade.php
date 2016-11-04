@@ -209,7 +209,7 @@
                                                   rows="5">{{ $row->wp_property }}</textarea>
                                         <p style="font-size: 13pt;">*18ปีขึ้นไป *จบมัธยมศึกษาตอนปลาย</p>
                                     </div>
-                                    <br><br>
+                                    <br>
                                     <h3>ช่องทางการติดต่อ</h3>
                                     <div class="headerline"></div>
                                     <br>
@@ -228,7 +228,7 @@
                                         <input type="email" class="form-control textinput" placeholder="Facebook"
                                                value="{{ $row->wp_email }}" name="email">
                                     </div>
-                                    <button type="submit" class="btn btn-success btn-lg">แก้ไขประกาศ</button>
+                                    <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green btn-lg ">แก้ไขประกาศ</button>
                                 </div>
                                 @endforeach
                             </form>

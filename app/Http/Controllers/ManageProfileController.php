@@ -103,7 +103,7 @@ class ManageProfileController extends Controller
             $discripmodel->save();
         }
 
-        return redirect('profile');
+        return redirect('profile')->with('insert', 'บันทึกข้อมูลเรียบร้อย');
     }
 
 
@@ -201,7 +201,7 @@ class ManageProfileController extends Controller
 
             $cf->save();
         }
-        return redirect('profile');
+        return redirect('profile')->with('updates', 'อัพเดตข้อมูลเรียบร้อยแล้ว');
 
     }
 

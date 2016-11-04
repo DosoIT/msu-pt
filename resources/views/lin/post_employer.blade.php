@@ -139,7 +139,7 @@
                 <div class="well well-sm font">
                     <div class="row">
                         <h1 align="center" class="fontheader">ประกาศรับสมัครงาน</h1>
-                        <form action="{{ url('postEmployer') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('postEmployer') }}" method="post" enctype="multipart/form-data" onSubmit="return imgSubmit();">
                             <div class="col-xs-4" align="center">
                                 <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded"
                                      width="200"
@@ -238,5 +238,13 @@
     <script>
         $('#mail').css('text-transform', 'capitalize');
         $('#fb').css('text-transform', 'capitalize');
+        function imgSubmit()
+        {
+            if(document.getElementById('file').value  == ""  )
+            {
+                alert('กรุณาเลือกรูปภาพ');
+                return false;
+            }
+        }
     </script>
 @endsection

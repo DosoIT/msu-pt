@@ -1,4 +1,8 @@
 @extends('layouts/back_end')
+{!! Html::style('css/sweetalert.css') !!}
+{!! Html::style('css/twitter.css') !!}
+{{--{!! Html::style('css/jquery-ui.css') !!}--}}
+{!! Html::style('css/jquery-confirm.css') !!}
 @section('content')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -349,13 +353,55 @@
             <!-- End Page Container -->
         </div>
     @endif
-    <script>
+    {!! Html::script('js/sweetalert.min.js') !!}
+    {!! Html::script('js/jquery.min.js') !!}
+    {!! Html::script('js/jquery-confirm.min.js') !!}
+    <script !src="">
         function openLeftMenu() {
             document.getElementById("leftMenu").style.display = "block";
         }
         function closeLeftMenu() {
             document.getElementById("leftMenu").style.display = "none";
         }
+        $(document).on('click', '#delete-btn', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            swal({
+                        title: "คุนต้องการลบข้อมูลนี้?",
+                        text: "ข้อมูลทั้งหมดในโพสนี้จะถูกลบออกทั้งหมด!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "ใช่, ฉันต้องการลบ!",
+                        closeOnConfirm: true
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("{!! \Session::get('delete') !!}!", "ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
+                            setTimeout(function () {
+                                self.parents(".delete_form").submit();
+                            }, 1000);
+                        }
+                        else {
+                            swal("cancelled", "Your categories are safe", "error");
+                            $('html, body').animate({scrollTop: $('#delete-btn').offset().top - 300}, 'slow');
+                        }
+                    });
+        });
     </script>
-
+    @if (\Session::has('updates'))
+        <script !src="">
+            swal("{!! \Session::get('updates') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('insert'))
+        <script !src="">
+            swal("{!! \Session::get('insert') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('delete'))
+        <script !src="">
+            swal("{!! \Session::get('delete') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
 @endsection

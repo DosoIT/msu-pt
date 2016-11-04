@@ -135,7 +135,7 @@
                 <div class="well well-sm">
                     @if(count($profile)<1)
                         <form action="{{ url('editProfileEmployer') }}" method="post"
-                              class="form-horizontal" enctype="multipart/form-data">
+                              class="form-horizontal" enctype="multipart/form-data" onSubmit="return imgSubmit();">
                             <div class="row">
                                 <div class="col-xs-4" align="center">
                                     <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded"
@@ -250,7 +250,7 @@
                                                         <input type="text" name="fullname"
                                                                class="form-control textinput"
                                                                value="{{ Auth::user()->name }}" disabled>
-                                                        <p style="font-size: 13pt;margin-left: -17px;">*ชื่อเข้าใช้งานไม่สารมาถเปลี่ยนแปลงได้</p>
+                                                        <p style="font-size: 13pt;margin-left: -17px;">*ชื่อเข้าใช้งานไม่สามารถเปลี่ยนแปลงได้</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -328,5 +328,13 @@
     <script>
         $('#back-to-top').tooltip('show');
         $(".alert").tooltip();
+        function imgSubmit()
+        {
+            if(document.getElementById('file').value  == ""  )
+            {
+                alert('กรุณาเลือกรูปภาพ');
+                return false;
+            }
+        }
     </script>
 @endsection

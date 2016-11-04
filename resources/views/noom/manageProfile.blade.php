@@ -241,7 +241,7 @@
             <br><br>
 
         @else
-            <form action="{{url('manageProfile')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('manageProfile')}}" method="post" enctype="multipart/form-data" onSubmit="return imgSubmit();">
                 <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                 <div class="row " align="center">
                     <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
@@ -325,5 +325,14 @@
         @endif
 
     </div>
-
+    <script !src="">
+        function imgSubmit()
+        {
+            if(document.getElementById('file').value  == ""  )
+            {
+                alert('กรุณาเลือกรูปภาพ');
+                return false;
+            }
+        }
+    </script>
 @endsection
