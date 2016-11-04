@@ -96,7 +96,6 @@
                     </a>
                     <div class="dropdown-content">
                         <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
                     </div>
                 </div>
 
@@ -121,6 +120,7 @@
                     <br><br><input type="file" name="image[]" id="file" class="inputfile" onchange="loadFile(event)"
                                    required multiple/>
                     <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
+                    <p style="color: #86493f;">***สามารถเลือกได้มากกว่า 1 รูป</p>
                 </div>
                 <div class="col-xs-8">
                     <div class="form-group">
@@ -136,7 +136,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">รายละเอียด</label>
+                        <label for="exampleInputPassword1">รายละเอียด <span style="font-size: 12pt;">(กรอกรายละเอียดของผลงาน)</span></label>
                         <textarea name="pf_detail" class="form-control" rows="5" required></textarea>
                     </div>
 

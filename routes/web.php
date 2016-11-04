@@ -5,9 +5,7 @@ Route::get('/', function () {
 Route::get('/profiles', function () {
     return view('layouts.profiles');
 });
-Route::get('/home', function (){
-    return view('home');
-});
+
 Route::get('/homepage', function () {
     return view('layouts.home');
 });

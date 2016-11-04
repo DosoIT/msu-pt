@@ -3,11 +3,9 @@
     .recom-img > img {
         opacity: 1;
     }
-
     .recom-img:hover {
         background-color: #cccccc;
     }
-
     .grid-block {
         background-color: transparent;
         position: relative;
@@ -19,17 +17,14 @@
         /*-webkit-box-shadow: 0 0 5px#888;*/
         /*box-shadow: 0 0 5px #888;*/
     }
-
     .grid-block .recom-img {
         width: 100%;
         height: 85%;
     }
-
     .grid-block .recom-img > img {
         width: 100%;
         height: 100%;
     }
-
     .grid-block h4 {
         font-size: .9em;
         color: #333;
@@ -38,7 +33,6 @@
         padding: 10px;
         border: 1px solid #ddd;
     }
-
     .caption {
         display: none;
         position: absolute;
@@ -48,7 +42,6 @@
         width: 100%;
         height: 100%;
     }
-
     .caption h3, .caption p {
         color: #fff;
         /*margin: 20px;*/
@@ -64,28 +57,8 @@
         /*margin: 0 20px 15px;*/
     }
 
-    .caption a.learn-more {
-        padding: 5px 10px;
-        background: #08c;
-        color: #fff;
-        border-radius: 2px;
-        -moz-border-radius: 2px;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    .caption a.learn-more:hover {
-        background: #fff;
-        color: #08c;
-    }
-
     .details > p {
         padding-bottom: -50px;
-    }
-
-    .fa-star-o:hover {
-        color: orangered;
-        zoom: 1;
     }
 </style>
 @section('content')
@@ -135,53 +108,56 @@
                     $conn = mysqli_connect("localhost", "root", "", "msu_pt");
                     mysqli_set_charset($conn, "utf8");
                     $cid = $_GET['cId'];
-                    $sql = "SELECT * FROM tb_classify WHERE c_id ='$cid'";
+                    $sql = "SELECT * FROM tb_classify WHERE c_id ='$cid' GROUP BY user_id";
                     $query = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_array($query)){
-                        ?>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            {{--<a href="{{ url('profiles') }}">--}}
-                            <a href="profiles?id=<?php echo $row['user_id'] ?>">
-                                <div class="thumbnail thm grid-block slide">
-                                    <div class="caption">
+                    ?>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        {{--<a href="{{ url('profiles') }}">--}}
+                        <a href="profiles?id=<?php echo $row['user_id'] ?>">
+                            <div class="thumbnail thm grid-block slide">
+                                <div class="caption">
+                                    <?php
+                                    $sqluser = "SELECT * FROM users WHERE id=" . $row['user_id'];
+                                    $resultuser = mysqli_query($conn, $sqluser);
+                                    while ($rowuser = mysqli_fetch_array($resultuser)){
+                                    ?>
+                                    <h5 style="color:#fff;"><?php echo $rowuser['name']?></h5>
+                                    <?php } ?>
+                                    <p style="color:#fff;">
                                         <?php
-                                        $sqluser = "SELECT * FROM users WHERE id=" . $row['user_id'];
-                                        $resultuser = mysqli_query($conn, $sqluser);
-                                        while ($rowuser = mysqli_fetch_array($resultuser)){
-                                        ?>
-                                        <h5 style="color:#fff;"><?php echo $rowuser['name']?></h5>
-                                        <?php } ?>
-                                        <p style="color:#fff;">
-                                            <?php
-                                            $sqldt = "SELECT * FROM tb_discription WHERE user_id=" . $row['user_id'];
-                                            $resultdt = mysqli_query($conn, $sqldt);
-                                            while ($rowdt = mysqli_fetch_array($resultdt)) {
-                                                echo "<p>-" . $rowdt['dt_detail'] . "</p>";
-                                            } ?>
-                                        </p>
-                                    </div>
-                                    <div class="recom-img">
-                                        <?php
-                                        $sqluser = "SELECT * FROM user_detail WHERE id=" . $row['user_id'];
-                                        $resultuser = mysqli_query($conn, $sqluser);
-                                        while ($rowuser = mysqli_fetch_array($resultuser)){
-                                        ?>
-                                        <img src="{{ url('picture/'.$rowuser['picture']) }}" alt="picture">
-                                    </div>
-                                    <button type="submit" class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
-                                        <?php echo "฿ " . number_format($rowuser['price_st']) . " - " . number_format($rowuser['price_fn'])?>
-                                    </button>
+                                        $sqldt = "SELECT * FROM tb_discription WHERE user_id=" . $row['user_id'];
+                                        $resultdt = mysqli_query($conn, $sqldt);
+                                        while ($rowdt = mysqli_fetch_array($resultdt)) {
+                                            echo "<p>-" . $rowdt['dt_detail'] . "</p>";
+                                        } ?>
+                                    </p>
                                 </div>
-                            </a>
-                        </div>
-                    <?php } } ?>
+                                <div class="recom-img">
+                                    <?php
+                                    $sqluser = "SELECT * FROM user_detail WHERE id=" . $row['user_id'];
+                                    $resultuser = mysqli_query($conn, $sqluser);
+                                    while ($rowuser = mysqli_fetch_array($resultuser)){
+                                    ?>
+                                    <img src="{{ url('picture/'.$rowuser['picture']) }}" alt="picture">
+                                </div>
+                                <button type="submit"
+                                        class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
+                                    <?php echo "฿ " . number_format($rowuser['price_st']) . " - " . number_format($rowuser['price_fn'])?>
+                                </button>
+                                <?php } ?>
+                            </div>
+                        </a>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-        <div style="border: 1px solid #cccccc;margin-bottom: 3%"></div>
-        <div class="row">
-            @include('layouts.contact')
-        </div>
+    </div>
+    <div style="border: 1px solid #cccccc;margin-bottom: 3%"></div>
+    <div class="row">
+        @include('layouts.contact')
+    </div>
     </div>
     <script !src="">
         $('.slide').hover(

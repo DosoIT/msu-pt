@@ -67,7 +67,12 @@
 </head>
 <?php
 if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
-    <body onload="openCity(event, 'tab3');">
+<script !src="">
+    window.onload = function () {
+        document.getElementById('focus-data').focus();
+    }
+</script>
+<body onload="openCity(event, 'tab3');">
 <?php } else { ?>
 <body>
 <?php }?>
@@ -142,7 +147,7 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
                     <li>เริ่มต้น <?php echo number_format($item['price_st'])?> บาท</li>
                     <br>
                     <li>
-<<<<<<< HEAD
+
 
                         @if(Auth::guest())
                             <a href="/login"
@@ -170,11 +175,6 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
                             ?>
                         @endif
 
-=======
-                        <button class="w3-btn w3-teal btn-lg w3-border w3-round-large bt1" onmouseover="btn()" onclick="openCity(event, 'tab3');">
-                            <p>จ้างเลย</p>
-                        </button>
->>>>>>> origin/master
                     </li>
                     <br>
                     <li><p style="font-size: 13pt;color: red;">(กรุณาอ่านรายละเอียดก่อนทำการจ้างงาน)</p></li>
@@ -188,9 +188,9 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
             </div>
         </div>
         <div id="line" style="border: 1px solid #8c8c8c;margin-top: 10px;"></div>
-        <div class="row">
+        <div class="row" id="focus-data" tabindex="-1">
             <div align="center">
-                <h1 style="font-family: ThaiNeue;">ข้อมูล</h1>
+                <h1 style="font-family: ThaiNeue;"><a onclick="focustab3();">ข้อมูล</a></h1>
             </div>
             <div class="w3-row">
                 <a href="javascript:void(0)" onclick="openCity(event, 'tab1');">
@@ -204,13 +204,25 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
                     </div>
                 </a>
 
-                <a href="javascript:void(0)" onclick="openCity(event, 'tab3'); ">
-                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
-                        <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
-                    </div>
-                </a>
+                @if(Auth::guest())
+                    <a href="javascript:void(0)"
+                       onclick="openCity(event, 'tab3'); ">
+                        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
+                            <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
+                        </div>
+                    </a>
+                @else
+                    <?php $cont = Auth::user()->id; ?>
+                    <a href="javascript:void(0)"
+                       onclick="openCity(event, 'tab3'); insertRat(<?php echo $item['id']?>,<?php echo $item['user_id']?>,<?php echo $cont?>);">
+                        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">
+                            <i class="glyphicon glyphicon-earphone"></i>&nbsp;ติดต่อ-สอบถาม
+                        </div>
+                    </a>
+                @endif
+
             </div>
-            <div id="tab1" class="w3-container city">
+            <div id="tab1" class="w3-container city" style="background-color: #FAFAFA">
                 <h2 style="font-family: ThaiNeue;">ความสามารถ</h2>
                 <?php
                 $skill = "SELECT * FROM tb_skill WHERE user_id=" . $item['user_id'];
@@ -230,17 +242,17 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
                 } ?>
             </div>
 
-            <div id="tab2" class="w3-container city">
+            <div id="tab2" class="w3-container city" style="background-color: #FAFAFA">
                 <h2 style="font-family: ThaiNeue;">Coming soon.....</h2>
                 <p></p>
             </div>
 
             @if(Auth::guest())
-                <div id="tab3" class="w3-container city">
+                <div id="tab3" class="w3-container city" style="background-color: #FAFAFA">
                     <h2 style="font-family: ThaiNeue;">กรุณาเข้าสู่ระบบ...</h2>
                 </div>
             @else
-                <div id="tab3" class="w3-container city">
+                <div id="tab3" class="w3-container city" style="background-color: #FAFAFA">
                     <h2 style="font-family: ThaiNeue;">ที่อยู่</h2>
                     <p>&nbsp;&nbsp;&nbsp;<?php echo $item['address'];?></p>
                     <h2 style="font-family: ThaiNeue;">โทร.</h2>
@@ -346,8 +358,12 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
         }
     </script>
 
-
-
+    <script !src="">
+        function focustab3() {
+//            .scrollIntoView('focus-data');
+            alert("Noom");
+        }
+    </script>
 
 @endsection
 </body>

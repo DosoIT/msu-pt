@@ -107,11 +107,11 @@
         <?php
         $conn = new mysqli("localhost", "root", "", "msu_pt");
         mysqli_set_charset($conn, "utf8");
-        $sqlch = "SELECT * FROM users WHERE status='PartTime'";
+        $sqlch = "SELECT * FROM tb_rating  GROUP by user_id";
         $qry = mysqli_query($conn, $sqlch);
         while ($rows = mysqli_fetch_array($qry)){
 
-        $sql = "SELECT * FROM user_detail WHERE user_id = ".$rows['id'];
+        $sql = "SELECT * FROM user_detail WHERE user_id = ".$rows['user_id'];
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)){
         ?>

@@ -4,9 +4,26 @@
         width: 100%;
         height: 60%;
     }
-    ul{list-style: none outside none; margin:0; padding: 0; text-align: center}
-    .contact-l>li { margin: 0 10px; display: inline; }
-    .contact-r>li { margin: 20px 50px; display: inline; }
+
+    ul {
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        text-align: center
+    }
+
+    .contact-l > li {
+        margin: 0 10px;
+        display: inline;
+    }
+    .contact-l > img{
+        margin-bottom: 20px;
+    }
+
+    .contact-r > li {
+        margin: 20px 50px;
+        display: inline;
+    }
 </style>
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -18,7 +35,7 @@
                     </li>
                     <br>
                     <li>
-                        <p>คฯะวิทยาการสารสนเทศ ภาควิชาเทคโนโลยีสารสนเทศ</p>
+                        <p>คณะวิทยาการสารสนเทศ ภาควิชาเทคโนโลยีสารสนเทศ</p>
                         <p>มหาวิทยาลัยมหาสารคาม</p>
                         <p>ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150</p>
                         <p>โทรศัพท์ 0-4375-4359 , FAX: 0-4375-4359</p>
@@ -34,8 +51,10 @@
                     </li>
                     <br><br>
                     <li>
-                        <img src="https://cdnil20.fiverrcdn.com/assets/v2_buttons/en/btn-play-store-40-179b5ea7c58e42508ebc0ced60d48a58.svg" alt="LOGO">
-                        <img src="https://cdnil20.fiverrcdn.com/assets/v2_buttons/en/btn-app-store-40-f93b303c19c00340ec37f630bc9ff15b.svg" alt="LOGO">
+                        <img src="https://cdnil20.fiverrcdn.com/assets/v2_buttons/en/btn-play-store-40-179b5ea7c58e42508ebc0ced60d48a58.svg"
+                             alt="LOGO">
+                        <img src="https://cdnil20.fiverrcdn.com/assets/v2_buttons/en/btn-app-store-40-f93b303c19c00340ec37f630bc9ff15b.svg"
+                             alt="LOGO">
                     </li>
                     <br>
                     <li>

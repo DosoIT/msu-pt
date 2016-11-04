@@ -113,7 +113,6 @@
                     </a>
                     <div class="dropdown-content">
                         <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
-                        <a href="managePortfolio"><i class="glyphicon glyphicon-pencil"></i> แก้ไขโปรไฟล์</a>
                     </div>
                 </div>
 
@@ -194,6 +193,7 @@
                                 <label class="label-font ">ถึง : </label>
                                 <input type="number" maxlength="100000" name="price_F" value="{{$item->price_fn}}">
                                 <label class="label-font ">/ บาท </label>
+                                <p style="color: #86493f;">*กรอกเรทราคาตามต้องการ</p>
                             </div>
                             <div class="page-header"></div>
                             <h3 class="h3-header">ความสามารถ</h3><br>
@@ -207,6 +207,7 @@
                                                value="{{$kk->s_id}}"
                                         />
                                     @endforeach
+                                    <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น สามารถเขียนโปรแแกรมด้วยภาษา PHP ได้</p>
                                 </div>
                             </div>
 
@@ -221,6 +222,7 @@
                                         <input type="hidden" name="job_id[]" class="form-control"
                                                value="{{$dd->dt_id}}"/>
                                     @endforeach
+                                    <p style="color: #86493f;">***กรอกลักษณะงานที่ต้องการทำ เช่น รับเขียนเว็ปแอพพริเคชั่น</p>
                                 </div>
 
                                 <br>
@@ -294,13 +296,14 @@
                             <label class="label-font ">ถึง : </label> <input type="number" maxlength="100000"
                                                                              name="price_F">
                             <label class="label-font ">/ บาท </label>
+                            <p style="color: #86493f;">***กรอกเรทราคาตามต้องการ</p>
                         </div>
 
                         <div class="page-header"></div>
-                        <h3 class="h3-header">ความสามารถ</h3><br>
+                        <h3 class="h3-header">ความสามารถ</h3>
                         <div class="input_fields_01">
-                            <br>
                             <div><input type="text" name="skill[]" class="form-control" required/></div>
+                            <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น สามารถเขียนโปรแแกรมด้วยภาษา PHP ได้</p>
                             <button class="add_field_01 btn btn-success">เพิ่มความสามารถ</button>
                         </div>
 
@@ -309,6 +312,7 @@
                         <div class="input_fields_02">
                             <br>
                             <div><input type="text" name="job[]" class="form-control" required/></div>
+                            <p style="color: #86493f;">***กรอกลักษณะงานที่ต้องการทำ เช่น รับเขียนเว็ปแอพพริเคชั่น</p>
                             <button class="add_field_02 btn btn-success">เพิ่มความสามารถ</button>
                             <br>
                         </div>
