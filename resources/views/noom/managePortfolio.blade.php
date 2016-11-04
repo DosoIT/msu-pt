@@ -1,4 +1,7 @@
 @extends('layouts/back_end')
+{!! Html::style('css/sweetalert.css') !!}
+{!! Html::style('css/twitter.css') !!}
+{!! Html::style('css/jquery-confirm.css') !!}
 @section('content')
     <style>
         td {
@@ -247,10 +250,10 @@
                                 </form>
                             </td>
                             <td align="Left">
-                                <form action="{{ url('addPortfolio',$value->pf_id) }}" method="post">
+                                <form action="{{ url('addPortfolio',$value->pf_id) }}" method="post" class="delete_form">
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-danger" Onclick="return ConfirmDelete();">
+                                    <button class="btn btn-danger" id="delete-btn">
                                         <li class="glyphicon glyphicon-trash"></li>
                                         Delete
                                     </button>
@@ -268,28 +271,35 @@
         </div>
     </div>
     <br>
+    {!! Html::script('js/sweetalert.min.js') !!}
     {!! Html::script('js/jquery.min.js') !!}
-    {!! Html::script('js/bootstrap.min.js') !!}
-    <script !src="">
-        var modal = document.getElementById('myModal');
-
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var img = document.getElementById('myImg');
-        var modalImg = document.getElementById("img01");
-        img.onclick = function () {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-        };
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-    </script>
+    {!! Html::script('js/jquery-confirm.min.js') !!}
     <script>
+        $(document).on('click', '#delete-btn', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            swal({
+                        title: "คุนต้องการลบข้อมูลนี้?",
+                        text: "ข้อมูลทั้งหมดในโพสนี้จะถูกลบออกทั้งหมด!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "ใช่, ฉันต้องการลบ!",
+                        closeOnConfirm: true
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("{!! \Session::get('delete') !!}!", "ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
+                            setTimeout(function () {
+                                self.parents(".delete_form").submit();
+                            }, 1000);
+                        }
+                        else {
+                            swal("cancelled", "Your categories are safe", "error");
+                            $('html, body').animate({scrollTop: $('#delete-btn').offset().top - 300}, 'slow');
+                        }
+                    });
+        });
         function ConfirmDelete() {
             var x = confirm("ต้องการลบข้อมูล หรือไม่ !!");
             if (x)
@@ -298,4 +308,14 @@
                 return false;
         }
     </script>
+    @if (\Session::has('insertfolio'))
+        <script !src="">
+            swal("{!! \Session::get('insertfolio') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('editfolio'))
+        <script !src="">
+            swal("{!! \Session::get('editfolio') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
 @endsection

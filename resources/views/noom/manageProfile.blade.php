@@ -1,4 +1,7 @@
 @extends('layouts/back_end')
+{!! Html::style('css/sweetalert.css') !!}
+{!! Html::style('css/twitter.css') !!}
+{!! Html::style('css/jquery-confirm.css') !!}
 @section('content')
     <style>
         .ft {
@@ -327,8 +330,10 @@
             </form>
             <br><br>
         @endif
-
     </div>
+    {!! Html::script('js/sweetalert.min.js') !!}
+    {!! Html::script('js/jquery.min.js') !!}
+    {!! Html::script('js/jquery-confirm.min.js') !!}
     <script !src="">
         function imgSubmit()
         {
@@ -338,5 +343,40 @@
                 return false;
             }
         }
+        $(document).on('click', '#delete-btn', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            swal({
+                        title: "คุนต้องการลบข้อมูลนี้?",
+                        text: "ข้อมูลทั้งหมดในโพสนี้จะถูกลบออกทั้งหมด!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "ใช่, ฉันต้องการลบ!",
+                        closeOnConfirm: true
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("{!! \Session::get('delete') !!}!", "ข้อมูลทั้งหมดถูกลบเรียบร้อย", "success");
+                            setTimeout(function () {
+                                self.parents(".delete_form").submit();
+                            }, 1000);
+                        }
+                        else {
+                            swal("cancelled", "Your categories are safe", "error");
+                            $('html, body').animate({scrollTop: $('#delete-btn').offset().top - 300}, 'slow');
+                        }
+                    });
+        });
     </script>
+    @if (\Session::has('insertfolio'))
+        <script !src="">
+            swal("{!! \Session::get('insertfolio') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
+    @if (\Session::has('editfolio'))
+        <script !src="">
+            swal("{!! \Session::get('editfolio') !!}", "ขอบคุณที่ใช้บริการผ่านเว็บไซต์ของเรา", "success");
+        </script>
+    @endif
 @endsection

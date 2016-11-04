@@ -61,7 +61,7 @@ class ManagePortFolioController extends Controller
             $value->move(public_path('images'), $imageName);
         }
 
-        return redirect('managePortfolio');
+        return redirect('managePortfolio')->with('insertfolio', 'บันทึกข้อมูลเรียบร้อย');
 
     }
 
@@ -103,7 +103,7 @@ class ManagePortFolioController extends Controller
             'pf_detail' => $request->pf_detail,
             'c_id' => $request->c_id
         ]);
-        return redirect('managePortfolio');
+        return redirect('managePortfolio')->with('editfolio', 'บันทึกข้อมูลเรียบร้อย');
     }
 
     /**

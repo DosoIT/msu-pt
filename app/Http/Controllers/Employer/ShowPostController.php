@@ -19,10 +19,6 @@ class ShowPostController extends Controller
      */
     public function index()
     {
-//        $emp=EmployerPostModel::all();
-//        return view('lin.detail_employer',['post_work'=>$emp]);
-
-
             $post_work = EmployerPostModel::paginate(5);
             $profile = UserDetailModel::where('user_id', Auth::user()->id)->get();
 

@@ -112,13 +112,13 @@
         <br><br>
         <div class="row">
             <h1 align="center">เพิ่มผลงาน</h1>
-            <form action="{{url('addPortfolio')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('addPortfolio')}}" method="post" enctype="multipart/form-data" onSubmit="return imgSubmit();">
                 <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                 <div class="col-xs-4" align="center">
                     <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
                          height="200" id="output">
                     <br><br><input type="file" name="image[]" id="file" class="inputfile" onchange="loadFile(event)"
-                                   required multiple/>
+                                    multiple/>
                     <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
                     <p style="color: #86493f;">***สามารถเลือกได้มากกว่า 1 รูป</p>
                 </div>
@@ -146,4 +146,14 @@
             </form>
         </div>
     </div>
+    <script !src="">
+        function imgSubmit()
+        {
+            if(document.getElementById('file').value  == ""  )
+            {
+                alert('กรุณาเลือกรูปภาพ');
+                return false;
+            }
+        }
+    </script>
 @endsection
