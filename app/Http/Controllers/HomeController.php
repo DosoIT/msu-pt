@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->status=='ผู้ว่าจ้าง'){
+            return redirect('/showpostEmployer');
+        }
+        else if(Auth::user()->status=='PartTime'){
+            return redirect('/manageProfile');
+        }else {
+            return redirect('/homepage');
+        }
     }
 }
