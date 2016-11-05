@@ -182,29 +182,37 @@
                 width: 100%;
             }
         }
+        .btnBorder{
+            border: 1px solid Gray;
+            width: 100%;
+            height: 50px;
+        }
+        .btnBorder > p{
+            font-family: ThaiNeue;
+            font-size: 18pt;
+
+        }
     </style>
     <div class="container">
         <div class="row">
-            <div class="page-header">
-
+            <div class="page-header w3-right">
                 <div class="dropdown">
                     <a href="profile">
-                        <button class="btn btn-default  btn-lg"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
                         </button>
                     </a>
-                    <div class="dropdown-content">
+                    <div class="dropdown-content w3-hover-Teal">
                         <a href="manageProfile"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
-                    <button class="btn btn-default btn-lg "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
-                    <div class="dropdown-content">
+                    <button class="w3-btn w3-white w3-hover-green w3-large btnBorder "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
+                    <div class="dropdown-content w3-hover-Teal">
                         <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
                         <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
                     </div>
                 </div>
-
             </div>
         </div>
         <br><br><br>

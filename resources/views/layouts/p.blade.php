@@ -1,67 +1,75 @@
 @extends('layouts.template')
-<style>
-    .recom-img > img {
-        opacity: 1;
-    }
-    .recom-img:hover {
-        background-color: #cccccc;
-    }
-    .grid-block {
-        background-color: transparent;
-        position: relative;
-        float: left;
-        width: 180px;
-        height: 250px;
-        margin: 0 0 30px 30px;
-        /*-moz-box-shadow: 0 0 5px #888;*/
-        /*-webkit-box-shadow: 0 0 5px#888;*/
-        /*box-shadow: 0 0 5px #888;*/
-    }
-    .grid-block .recom-img {
-        width: 100%;
-        height: 85%;
-    }
-    .grid-block .recom-img > img {
-        width: 100%;
-        height: 100%;
-    }
-    .grid-block h4 {
-        font-size: .9em;
-        color: #333;
-        background: #f5f5f5;
-        margin: 0;
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
-    .caption {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-image: url("image/blank.png");
-        width: 100%;
-        height: 100%;
-    }
-    .caption h3, .caption p {
-        color: #fff;
-        /*margin: 20px;*/
-    }
 
-    .caption h3 {
-        margin: 20px 20px 10px;
-    }
-
-    .caption p {
-        font-size: .75em;
-        line-height: 1.2em;
-        /*margin: 0 20px 15px;*/
-    }
-
-    .details > p {
-        padding-bottom: -50px;
-    }
-</style>
 @section('content')
+    <style>
+        .recom-img > img {
+            opacity: 1;
+        }
+
+        .recom-img:hover {
+            background-color: #cccccc;
+        }
+
+        .grid-block {
+            background-color: transparent;
+            position: relative;
+            float: left;
+            width: 180px;
+            height: 250px;
+            margin: 0 0 30px 30px;
+            /*-moz-box-shadow: 0 0 5px #888;*/
+            /*-webkit-box-shadow: 0 0 5px#888;*/
+            /*box-shadow: 0 0 5px #888;*/
+        }
+
+        .grid-block .recom-img {
+            width: 100%;
+            height: 85%;
+        }
+
+        .grid-block .recom-img > img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid-block h4 {
+            font-size: .9em;
+            color: #333;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .caption {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("image/blank.png");
+            width: 100%;
+            height: 100%;
+        }
+
+        .caption h3, .caption p {
+            color: #fff;
+            /*margin: 20px;*/
+        }
+
+        .caption h3 {
+            margin: 20px 20px 10px;
+        }
+
+        .caption p {
+            font-size: .75em;
+            line-height: 1.2em;
+            /*margin: 0 20px 15px;*/
+        }
+
+        .details > p {
+            padding-bottom: -50px;
+        }
+    </style>
     <style>
         .fnt {
             font-family: ThaiNeue;
@@ -135,17 +143,19 @@
                                 </div>
                                 <div class="recom-img">
                                     <?php
-                                    $sqluser = "SELECT * FROM user_detail WHERE id=" . $row['user_id'];
-                                    $resultuser = mysqli_query($conn, $sqluser);
-                                    while ($rowuser = mysqli_fetch_array($resultuser)){
+                                    $sqluserdt = "SELECT * FROM user_detail  WHERE user_id=" . $row['user_id'];
+                                    $resultuserdt = mysqli_query($conn, $sqluserdt);
+                                    while ($rowuserdt = mysqli_fetch_array($resultuserdt)){
                                     ?>
-                                    <img src="{{ url('picture/'.$rowuser['picture']) }}" alt="picture">
+                                    <img src="{{ url('picture/'.$rowuserdt['picture']) }}" alt="picture">
+
                                 </div>
                                 <button type="submit"
                                         class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
-                                    <?php echo "฿ " . number_format($rowuser['price_st']) . " - " . number_format($rowuser['price_fn'])?>
+                                    <?php echo "฿ " . number_format($rowuserdt['price_st']) . " - " . number_format($rowuserdt['price_fn'])?>
                                 </button>
                                 <?php } ?>
+
                             </div>
                         </a>
                     </div>
@@ -153,12 +163,13 @@
                 </div>
             </div>
         </div>
+        <div style="border: 1px solid #cccccc;margin-bottom: 3%"></div>
+        <div class="row">
+            @include('layouts.contact')
+        </div>
     </div>
-    <div style="border: 1px solid #cccccc;margin-bottom: 3%"></div>
-    <div class="row">
-        @include('layouts.contact')
-    </div>
-    </div>
+
+
     <script !src="">
         $('.slide').hover(
                 function () {
