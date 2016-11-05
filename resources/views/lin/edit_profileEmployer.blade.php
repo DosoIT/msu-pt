@@ -18,12 +18,7 @@
         }
 
         .inputfile + label {
-            cursor: pointer; /* "hand" cursor */
-        }
-
-        .headerline {
-            border-bottom: 2px solid #8c8c8c;
-            background-color: lightgrey;
+            cursor: pointer;
         }
 
         .labeltext {
@@ -36,11 +31,6 @@
             font-size: 12pt;
         }
 
-        .alink {
-            font-family: ThaiNeue;
-            font-size: 18pt;
-        }
-
         .textinput {
             margin-top: 11px;
             margin-left: -20px;
@@ -48,7 +38,7 @@
             background: #DCDCDC;
         }
 
-        .dropdown {
+        .dropdownlinks {
             position: relative;
             display: inline-block;
         }
@@ -56,16 +46,16 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            /*background-color: #f9f9f9;*/
+            background-color: #f9f9f9;
             min-width: 160px;
-            /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown {
+        .dropdownlinks {
             position: relative;
             display: inline-block;
         }
@@ -91,33 +81,45 @@
             color: #fff;
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown:hover {
+        .dropdownlinks:hover {
             background-color: #2a88bd;
             color: #fff;
             text-decoration: none;
+        }
+
+        .btnBorder {
+            border: 1px solid Gray;
+            width: 100%;
+            height: 50px;
+        }
+
+        .btnBorder > p {
+            font-family: ThaiNeue;
+            font-size: 18pt;
+
         }
     </style>
     <div class="container ">
         <div class="row">
             <div class="col-md-offset-1">
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="showpostEmployer">
-                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
-                            โปรไฟล์
+                        <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder">
+                            <p><i class="glyphicon glyphicon-user"></i>โปรไฟล์</p>
                         </button>
                     </a>
-                    <div class="dropdown-content">
-                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    <div class="dropdown-content w3-hover-Teal">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench "></i> จัดการโปรไฟล์</a>
                     </div>
                 </div>
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="{{ url('postEmployer') }}">
-                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
-                            เพิ่มประกาศรับสมัคร
+                        <button class="w3-btn w3-white w3-hover-green w3-large btnBorder">
+                            <p><i class="glyphicon glyphicon-plus"></i>เพิ่มประกาศรับสมัคร</p>
                         </button>
                     </a>
                 </div>
@@ -157,7 +159,8 @@
                                                     <input type="text" name="fullname" class="form-control textinput"
                                                            value="{{ Auth::user()->name }}" disabled>
                                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                                    <p style="font-size: 13pt;">*ชื่อเข้าใช้งานไม่สารมาถเปลี่ยนแปลงได้</p>
+                                                    <p style="font-size: 13pt;">
+                                                        *ชื่อเข้าใช้งานไม่สารมาถเปลี่ยนแปลงได้</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -165,7 +168,7 @@
                                                 <div class="col-sm-5">
                                                     <textarea name="address" id="" rows="2"
                                                               class="form-control textinput" required=""></textarea>
-                                                    <p style="font-size: 13pt;">*ที่อยู่ของท่าน</p>
+                                                    <p style="font-size: 13pt;">*ที่อยู่ของคุณ</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -184,7 +187,7 @@
                                                         <option value="<?php echo $values['id']; ?>"><?php echo $values['location']; ?></option>
                                                         <?php } ?>
                                                     </select>
-                                                        <p style="font-size: 13pt;">*อำเภอ</p>
+                                                    <p style="font-size: 13pt;">*อำเภอ</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -208,7 +211,8 @@
                                                 <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                     <div class="pull-left">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green"
+                                                        <button type="submit"
+                                                                class="btn btn-success btn-lg w3-btn w3-white w3-hover-green"
                                                                 style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
                                                             บันทึก
                                                         </button>
@@ -250,7 +254,8 @@
                                                         <input type="text" name="fullname"
                                                                class="form-control textinput"
                                                                value="{{ Auth::user()->name }}" disabled>
-                                                        <p style="font-size: 13pt;margin-left: -17px;">*ชื่อเข้าใช้งานไม่สามารถเปลี่ยนแปลงได้</p>
+                                                        <p style="font-size: 13pt;margin-left: -17px;">
+                                                            *ชื่อเข้าใช้งานไม่สามารถเปลี่ยนแปลงได้</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -259,7 +264,8 @@
                                                 <textarea name="address" id="" rows="2" class="form-control textinput">
                                                     {{ $value->address  }}
                                                 </textarea>
-                                                        <p style="font-size: 13pt;margin-left: -17px;">*ที่อยู่ของท่าน</p>
+                                                        <p style="font-size: 13pt;margin-left: -17px;">
+                                                            *ที่อยู่ของคุณ</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -275,13 +281,14 @@
                                                         <select class="form-control textinput" name="location">
                                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
                                                             <option value="<?php echo $values['id']; ?>"
-                                                            <?php if ($values['id']==$value->lo_id)
-                                                            { echo 'selected'; }?>>
+                                                            <?php if ($values['id'] == $value->lo_id) {
+                                                                echo 'selected';
+                                                            }?>>
                                                                 <?php echo $values['location']; ?>
                                                             </option>
                                                             <?php } ?>
                                                         </select>
-                                                            <p style="font-size: 13pt;margin-left: -17px;">*อำเภอ</p>
+                                                        <p style="font-size: 13pt;margin-left: -17px;">*อำเภอ</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -305,7 +312,8 @@
                                                 <div class="form-group">
                                                     <div class="col-sm-offset-3 col-sm-10 col-md-10">
                                                         <div class="pull-left">
-                                                            <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green"
+                                                            <button type="submit"
+                                                                    class="btn btn-success btn-lg w3-btn w3-white w3-hover-green"
                                                                     style="margin-top: 11px;margin-left: -20px;font-size: 15pt;">
                                                                 แก้ไข
                                                             </button>
@@ -328,10 +336,8 @@
     <script>
         $('#back-to-top').tooltip('show');
         $(".alert").tooltip();
-        function imgSubmit()
-        {
-            if(document.getElementById('file').value  == ""  )
-            {
+        function imgSubmit() {
+            if (document.getElementById('file').value == "") {
                 alert('กรุณาเลือกรูปภาพ');
                 return false;
             }

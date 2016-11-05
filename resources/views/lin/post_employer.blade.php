@@ -53,28 +53,19 @@
             font-size: 20pt;
             text-transform: uppercase;
         }
-        .dropdown-menu{
-            background-color: #A8DEEE;
-            border: 1px solid #428BCA;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
         .dropdown-content {
             display: none;
             position: absolute;
-            /*background-color: #f9f9f9;*/
+            background-color: #f9f9f9;
             min-width: 160px;
-            /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdownlinks-content {
             display: block;
         }
 
-        .dropdown {
+        .dropdownlinks {
             position: relative;
             display: inline-block;
         }
@@ -101,34 +92,44 @@
             color: #fff;
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdown-content {
             display: block;
 
         }
 
-        .dropdown:hover {
+        .dropdownlinks:hover {
             background-color: #2a88bd;
             color: #fff;
             text-decoration: none;
+        }
+        .btnBorder{
+            border: 1px solid Gray;
+            width: 100%;
+            height: 50px;
+        }
+        .btnBorder > p{
+            font-family: ThaiNeue;
+            font-size: 18pt;
+
         }
     </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-offset-1">
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="showpostEmployer">
-                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
-                            โปรไฟล์
+                        <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder">
+                            <p><i class="glyphicon glyphicon-user"></i>โปรไฟล์</p>
                         </button>
                     </a>
-                    <div class="dropdown-content">
-                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    <div class="dropdown-content w3-hover-Teal">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench "></i> จัดการโปรไฟล์</a>
                     </div>
                 </div>
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="{{ url('postEmployer') }}">
-                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
-                            เพิ่มประกาศรับสมัคร
+                        <button class="w3-btn w3-white w3-hover-green w3-large btnBorder">
+                            <p><i class="glyphicon glyphicon-plus"></i>เพิ่มประกาศรับสมัคร</p>
                         </button>
                     </a>
                 </div>

@@ -1,24 +1,13 @@
 @extends('layouts.template')
 {!! Html::style('css/sweetalert.css') !!}
 {!! Html::style('css/twitter.css') !!}
-{{--{!! Html::style('css/jquery-ui.css') !!}--}}
 {!! Html::style('css/jquery-confirm.css') !!}
 
 @section('content')
     <style>
-        .btns {
-            font-family: ThaiNeue;
-            font-size: 34pt;
-        }
-
         .fonts {
             font-family: ThaiNeue;
             font-size: 20pt;
-        }
-
-        td {
-            font-family: ThaiNeue;
-            font-size: 18pt;
         }
 
         tr {
@@ -53,11 +42,11 @@
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdownlinks-content {
             display: block;
         }
 
-        .dropdown {
+        .dropdownlinks {
             position: relative;
             display: inline-block;
             background-color: Teal;
@@ -78,11 +67,10 @@
             text-decoration: none;
             display: block;
         }
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdown-content {
             display: block;
         }
-
-        .dropdown:hover {
+        .dropdownlinks:hover {
             background-color: rebeccapurple;
             color: #fff;
             text-decoration: none;
@@ -101,7 +89,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1">
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="showpostEmployer">
                         <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder">
                             <p><i class="glyphicon glyphicon-user"></i>โปรไฟล์</p>
@@ -111,7 +99,7 @@
                         <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench "></i> จัดการโปรไฟล์</a>
                     </div>
                 </div>
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="{{ url('postEmployer') }}">
                         <button class="w3-btn w3-white w3-hover-green w3-large btnBorder">
                             <p><i class="glyphicon glyphicon-plus"></i>เพิ่มประกาศรับสมัคร</p>

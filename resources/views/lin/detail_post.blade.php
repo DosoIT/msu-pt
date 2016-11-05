@@ -72,7 +72,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal"
+    <button type="button" class="btn btn-info btn-sm w3-hover-green" data-dismiss="modal"
             style="font-family: ThaiNeue;font-size: 18pt;">Close
     </button>
 </div>

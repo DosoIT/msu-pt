@@ -46,7 +46,7 @@
             background: #DCDCDC;
         }
 
-        .dropdown {
+        .dropdownlinks {
             position: relative;
             display: inline-block;
         }
@@ -59,11 +59,11 @@
             /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);*/
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown {
+        .dropdownlinks {
             position: relative;
             display: inline-block;
         }
@@ -89,34 +89,44 @@
             color: #fff;
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdownlinks:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown:hover {
+        .dropdownlinks:hover {
             background-color: #2a88bd;
             color: #fff;
             text-decoration: none;
+        }
+        .btnBorder{
+            border: 1px solid Gray;
+            width: 100%;
+            height: 50px;
+        }
+        .btnBorder > p{
+            font-family: ThaiNeue;
+            font-size: 18pt;
+
         }
     </style>
 
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1">
-                <div class="dropdown">
-                    <a href="/showpostEmployer">
-                        <button class="btn btn-default  btn-lg dropdown-toggle"><i class="glyphicon glyphicon-user"></i>
-                            โปรไฟล์
+                <div class="dropdownlinks">
+                    <a href="showpostEmployer">
+                        <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder">
+                            <p><i class="glyphicon glyphicon-user"></i>โปรไฟล์</p>
                         </button>
                     </a>
-                    <div class="dropdown-content">
-                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench"></i> จัดการโปรไฟล์</a>
+                    <div class="dropdown-content w3-hover-Teal">
+                        <a href="editProfileEmployer"><i class="glyphicon glyphicon-wrench "></i> จัดการโปรไฟล์</a>
                     </div>
                 </div>
-                <div class="dropdown">
+                <div class="dropdownlinks">
                     <a href="{{ url('postEmployer') }}">
-                        <button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-plus"></i>
-                            เพิ่มประกาศรับสมัคร
+                        <button class="w3-btn w3-white w3-hover-green w3-large btnBorder">
+                            <p><i class="glyphicon glyphicon-plus"></i>เพิ่มประกาศรับสมัคร</p>
                         </button>
                     </a>
                 </div>
@@ -169,7 +179,7 @@
                                             </option>
                                             <?php } ?>
                                         </select>
-                                        <p style="font-size: 13pt;">*ประเภทงานของท่าน</p>
+                                        <p style="font-size: 13pt;">*ประเภทงานคุณ</p>
                                     </div>
                                     <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <label for="exampleTotal" class="control-label">จำนวน/ตำแหน่ง</label>
