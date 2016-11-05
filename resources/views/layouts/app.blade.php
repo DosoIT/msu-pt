@@ -223,16 +223,7 @@
                                 <div class="navbar-footer">
                                     <div class="navbar-footer-content">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <a href="{{ url('password/reset') }}"
-                                                   class="w3-btn w3-white w3-border w3-round-large"
-                                                   onclick="event.preventDefault();document.getElementById('reset-form').submit();">เปลี่ยนรหัสผ่าน</a>
-                                                <form id="reset-form" action="{{ url('password/reset') }}" method="POST"
-                                                      style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
-                                            </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12 ">
                                                 <a href="{{ url('/logout') }}"
                                                    class="w3-btn w3-white w3-border w3-round-large pull-right"
                                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">ออกจากระบบ</a>
