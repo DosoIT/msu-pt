@@ -30,6 +30,7 @@
             .navbar-xs a {
                 color: #f0f0f0;
             }
+
             .navbar-xs .brand {
                 font-family: ThaiNeue;
                 font-size: 16pt;
@@ -176,7 +177,8 @@
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle aa" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle aa" data-toggle="dropdown" role="button"
+                           aria-expanded="false">
                             <i class="fa fa-circle-o" style="color: #20ff07"></i>
                             {{ Auth::user()->name }}
                             <span class="caret"></span>
@@ -186,8 +188,17 @@
                                 <div class="navbar-content">
                                     <div class="row">
                                         <div class="col-md-5">
-                                            {!! Html::image('image/pic-default.png') !!}
-                                            <p class="text-center small" style="margin-top: 10%"><a href="#">Change Photo</a></p>
+                                            <?php
+                                            $id = Auth::user()->id;
+                                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                                            mysqli_set_charset($conn, "utf8");
+                                            $sql = "SELECT * FROM user_detail WHERE user_id =" . $id;
+                                            $query = mysqli_query($conn, $sql);
+                                            while ($row = mysqli_fetch_array($query)){
+                                            ?>
+                                            {!! Html::image('picture/'.$row['picture']) !!}
+                                            <?php } ?>
+
                                         </div>
                                         <div class="col-md-7">
                                             <span>{{ Auth::user()->name }}</span>
@@ -202,7 +213,9 @@
                                                    class="w3-btn w3-white w3-border w3-border-blue w3-hover-blue w3-round-xlarge">ดูโปร์ไฟล์</a>
                                             @endif
                                             <div class="divider"></div>
-                                            <input type="checkbox" name="my-checkbox" data-size="mini" data-off-text="กลางวัน" data-on-text="กลางคืน" data-label-text="โหมด">
+                                            <input type="checkbox" name="my-checkbox" data-size="mini"
+                                                   data-off-text="กลางวัน" data-on-text="กลางคืน"
+                                                   data-label-text="โหมด">
                                             <div class="divider"></div>
                                         </div>
                                     </div>
@@ -251,17 +264,17 @@
 {!! Html::script('js/bootstrap-switch.min.js') !!}
 <script !src="">
     $(".aa").click(function () {
-        $(this).css('background-color','transparent');
+        $(this).css('background-color', 'transparent');
     });
     $("[name='my-checkbox']").bootstrapSwitch();
-    $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+    $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
         console.log(this); // DOM element
         console.log(event); // jQuery event
         console.log(state); // true | false
-        if(state==true){
-            $('body').css('background-color','#000');
-        }else{
-            $('body').css('background-color','#fff');
+        if (state == true) {
+            $('body').css('background-color', '#000');
+        } else {
+            $('body').css('background-color', '#fff');
         }
     });
 </script>
