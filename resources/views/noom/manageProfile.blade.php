@@ -102,12 +102,14 @@
             display: block;
 
         }
-        .btnBorder{
+
+        .btnBorder {
             border: 1px solid Gray;
             width: 100%;
             height: 50px;
         }
-        .btnBorder > p{
+
+        .btnBorder > p {
             font-family: ThaiNeue;
             font-size: 18pt;
 
@@ -120,7 +122,8 @@
             <div class="page-header w3-right">
                 <div class="dropdown">
                     <a href="profile">
-                        <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder"><i class="glyphicon glyphicon-user"></i> โปรไฟล์
+                        <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder"><i
+                                    class="glyphicon glyphicon-user"></i> โปรไฟล์
                         </button>
                     </a>
                     <div class="dropdown-content w3-hover-Teal">
@@ -129,7 +132,9 @@
                 </div>
 
                 <div class="dropdown">
-                    <button class="w3-btn w3-white w3-hover-green w3-large btnBorder "><i class="glyphicon glyphicon-list"></i> ผลงาน</button>
+                    <button class="w3-btn w3-white w3-hover-green w3-large btnBorder "><i
+                                class="glyphicon glyphicon-list"></i> ผลงาน
+                    </button>
                     <div class="dropdown-content w3-hover-Teal">
                         <a href="addPortfolio"><i class="glyphicon glyphicon-plus"></i> เพิ่มผลงาน</a>
                         <a href="managePortfolio"><i class="glyphicon glyphicon-wrench"></i> จัดการผลงาน</a>
@@ -178,9 +183,9 @@
                             <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
                             <div align="center">
                                 <img src="{{ url('image/call.png') }}" width="30" height="30"> :
-                                <input type="text" name="tel" value="{{$item->tel}}"><br><br>
+                                <input type="text" name="tel" value="{{$item->tel}}" required><br><br>
                                 <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
-                                <input type="text" name="facebook" value="{{$item->facebook}}"><br><br>
+                                <input type="text" name="facebook" value="{{$item->facebook}}" required><br><br>
                             </div>
                         </div>
                         <div class="col-xs-6" align="left">
@@ -200,9 +205,11 @@
                             <div>
                                 <h3 class="h3-header">เรทราคา</h3>
                                 <label class="label-font ">เรื่มต้น : </label>
-                                <input type="number" maxlength="100000" name="price_st" value="{{$item->price_st}}">
+                                <input type="number" maxlength="100000" name="price_st" value="{{$item->price_st}}"
+                                       required>
                                 <label class="label-font ">ถึง : </label>
-                                <input type="number" maxlength="100000" name="price_F" value="{{$item->price_fn}}">
+                                <input type="number" maxlength="100000" name="price_F" value="{{$item->price_fn}}"
+                                       required>
                                 <label class="label-font ">/ บาท </label>
                                 <p style="color: #86493f;">*กรอกเรทราคาตามต้องการ</p>
                             </div>
@@ -218,7 +225,8 @@
                                                value="{{$kk->s_id}}"
                                         />
                                     @endforeach
-                                    <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น สามารถเขียนโปรแแกรมด้วยภาษา PHP ได้</p>
+                                    <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น
+                                        สามารถเขียนโปรแแกรมด้วยภาษา PHP ได้</p>
                                 </div>
                             </div>
 
@@ -233,7 +241,8 @@
                                         <input type="hidden" name="job_id[]" class="form-control"
                                                value="{{$dd->dt_id}}"/>
                                     @endforeach
-                                    <p style="color: #86493f;">***กรอกลักษณะงานที่ต้องการทำ เช่น รับเขียนเว็ปแอพพริเคชั่น</p>
+                                    <p style="color: #86493f;">***กรอกลักษณะงานที่ต้องการทำ เช่น
+                                        รับเขียนเว็ปแอพพริเคชั่น</p>
                                 </div>
 
                                 <br>
@@ -254,7 +263,8 @@
             <br><br>
 
         @else
-            <form action="{{url('manageProfile')}}" method="post" enctype="multipart/form-data" onSubmit="return imgSubmit();">
+            <form action="{{url('manageProfile')}}" method="post" enctype="multipart/form-data"
+                  onSubmit="return imgSubmit();">
                 <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                 <div class="row " align="center">
                     <img src="{{url('image/pic-default.png')}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
@@ -285,10 +295,9 @@
                         <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
                         <div align="left">
                             <img src="{{ url('image/call.png') }}" width="30" height="30"> :
-                            <input type="text" name="tel"><br><br>
+                            <input type="text" name="tel" required><br><br>
                             <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
-                            <input type="text" name="facebook"><br><br>
-
+                            <input type="text" name="facebook" required><br><br>
                         </div>
                     </div>
                     <div class="col-xs-6" align="left">
@@ -302,10 +311,10 @@
                         </div>
                         <div>
                             <h3 class="h3-header">เรทราคา</h3>
-                            <label class="label-font ">เรื่มต้น : </label> <input type="number" maxlength="100000"
-                                                                                  name="price_st">
-                            <label class="label-font ">ถึง : </label> <input type="number" maxlength="100000"
-                                                                             name="price_F">
+                            <label class="label-font ">เรื่มต้น : </label>
+                            <input type="number" maxlength="100000" name="price_st" required>
+                            <label class="label-font ">ถึง : </label>
+                            <input type="number" maxlength="100000" name="price_F" required>
                             <label class="label-font ">/ บาท </label>
                             <p style="color: #86493f;">***กรอกเรทราคาตามต้องการ</p>
                         </div>
@@ -314,7 +323,8 @@
                         <h3 class="h3-header">ความสามารถ</h3>
                         <div class="input_fields_01">
                             <div><input type="text" name="skill[]" class="form-control" required/></div>
-                            <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น สามารถเขียนโปรแแกรมด้วยภาษา PHP ได้</p>
+                            <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น สามารถเขียนโปรแแกรมด้วยภาษา PHP
+                                ได้</p>
                             <button class="add_field_01 btn btn-success">เพิ่มความสามารถ</button>
                         </div>
 
@@ -343,11 +353,13 @@
     {!! Html::script('js/jquery.min.js') !!}
     {!! Html::script('js/jquery-confirm.min.js') !!}
     <script !src="">
-        function imgSubmit()
-        {
-            if(document.getElementById('file').value  == ""  )
-            {
+        function imgSubmit() {
+            if (document.getElementById('file').value == "") {
                 alert('กรุณาเลือกรูปภาพ');
+                return false;
+            }
+            if (document.getElementById('cate').checked == false) {
+                alert('กรุณาเลือกประเภทงาน');
                 return false;
             }
         }
