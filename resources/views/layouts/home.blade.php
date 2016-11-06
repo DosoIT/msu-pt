@@ -3,6 +3,6 @@
     @include('layouts.recommd')
     @include('layouts.last')
     @include('layouts.folio')
-    @include('layouts.addOn')
+    @include('layouts.link')
     @include('layouts.contact')
 @endsection
