@@ -23,6 +23,7 @@ class CreateWorkPostTable extends Migration
             $table->string('wp_description');
             $table->string('wp_property');
             $table->string('wp_tel');
+            $table->string('wp_line');
             $table->string('wp_fb');
             $table->string('wp_email');
             $table->timestamps();

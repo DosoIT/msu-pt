@@ -51,7 +51,8 @@ class ManageEmployerController extends Controller
             $wppost->wp_description = $request->description;
             $wppost->wp_property = $request->property;
             $wppost->wp_tel = $request->tel;
-            $wppost->wp_fb = $request->fb;
+            $wppost->wp_tel = $request->tel;
+            $wppost->wp_line = $request->line;
             $wppost->wp_email = $request->email;
             $wppost->save();
         } else {
@@ -66,6 +67,7 @@ class ManageEmployerController extends Controller
             $post->wp_description = $request->description;
             $post->wp_property = $request->property;
             $post->wp_tel = $request->tel;
+            $post->wp_line = $request->line;
             $post->wp_fb = $request->fb;
             $post->wp_email = $request->email;
             $post->save();
@@ -115,6 +117,7 @@ class ManageEmployerController extends Controller
                 'wp_description' => $request->description,
                 'wp_property' => $request->property,
                 'wp_tel' => $request->tel,
+                'wp_line' => $request->line,
                 'wp_fb' => $request->fb,
                 'wp_email' => $request->email,
             ]);
@@ -132,6 +135,7 @@ class ManageEmployerController extends Controller
                     'wp_description' => $request->description,
                     'wp_property' => $request->property,
                     'wp_tel' => $request->tel,
+                    'wp_line' => $request->line,
                     'wp_fb' => $request->fb,
                     'wp_email' => $request->email,
                 ]);

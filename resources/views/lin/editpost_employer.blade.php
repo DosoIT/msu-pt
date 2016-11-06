@@ -156,7 +156,7 @@
                                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">ชื่อบริษัท/หัวข้อ</label>
-                                        <input type="text" class="form-control textinput" placeholder="หัวข้อ"
+                                        <input type="text" class="w3-input w3-animate-input txt" placeholder="หัวข้อ"
                                                value="{{ $row->wp_titel }}" name="titel">
                                         <p style="font-size: 13pt;">*ชื่อบริษัทหรือหัวข้อของท่านที่ต้องการโฟส</p>
                                     </div>
@@ -169,7 +169,7 @@
                                         $sql = "SELECT * FROM category";
                                         $query = mysqli_query($conn, $sql);
                                         ?>
-                                        <select name="description" class="form-control textinput">
+                                        <select name="description" class="w3-input w3-animate-input txt">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
                                             <option value="<?php echo $values['c_name']; ?>"
                                             <?php if ($values['c_name'] == $row->wp_description) {
@@ -183,7 +183,7 @@
                                     </div>
                                     <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <label for="exampleTotal" class="control-label">จำนวน/ตำแหน่ง</label>
-                                        <input type="text" name="total" class="form-control textinput"
+                                        <input type="text" name="total" class="w3-input w3-animate-input txt"
                                                onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}"
                                                required value="{{ $row->wp_total }}">
                                         <p style="font-size: 13pt;">*จำนวนคนที่ต้องการ</p>
@@ -191,7 +191,7 @@
                                     <br>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">รายละเอียด</label>
-                                        <textarea name="detail" class="form-control textinput"
+                                        <textarea name="detail" class="w3-input w3-animate-input txt"
                                                   rows="5">{{ $row->wp_detail }}</textarea>
                                     </div>
                                     <div class="form-group">
@@ -202,7 +202,7 @@
                                         $sql = "SELECT * FROM tb_locations";
                                         $query = mysqli_query($conn, $sql);
                                         ?>
-                                        <select name="location" class="form-control textinput">
+                                        <select name="location" class="w3-input w3-animate-input txt">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
                                             <option value="<?php echo $values['location']; ?>" <?php if ($values['location'] == $row->wp_location) {
                                                 echo 'selected';
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">คุณสมบัติผู้สมัคร</label>
-                                        <textarea name="property" class="form-control textinput"
+                                        <textarea name="property" class="w3-input w3-animate-input txt"
                                                   rows="5">{{ $row->wp_property }}</textarea>
                                         <p style="font-size: 13pt;">*18ปีขึ้นไป *จบมัธยมศึกษาตอนปลาย</p>
                                     </div>
@@ -224,18 +224,23 @@
                                     <div class="headerline"></div>
                                     <br>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">เบอร์โทร</label>
-                                        <input type="tel" class="form-control textinput" placeholder="เบอร์โทร"
+                                        <label for="exampleInput">เบอร์โทร</label>
+                                        <input type="tel" class="w3-input w3-animate-input txt" placeholder="เบอร์โทร"
                                                value="{{ $row->wp_tel }}" name="tel" maxlength="10">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Facebook</label>
-                                        <input type="text" class="form-control textinput" placeholder="Facebook"
+                                        <label for="exampleInput">Line</label>
+                                        <input type="tel" class="w3-input w3-animate-input txt" placeholder="เบอร์โทร"
+                                               value="{{ $row->wp_tel }}" name="tel" maxlength="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInput">Facebook</label>
+                                        <input type="text" class="w3-input w3-animate-input txt" placeholder="Facebook"
                                                value="{{ $row->wp_fb }}" name="fb">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">E-mail</label>
-                                        <input type="email" class="form-control textinput" placeholder="Facebook"
+                                        <label for="exampleInput">E-mail</label>
+                                        <input type="email" class="w3-input w3-animate-input txt" placeholder="E-mail"
                                                value="{{ $row->wp_email }}" name="email">
                                     </div>
                                     <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green btn-lg ">แก้ไขประกาศ</button>

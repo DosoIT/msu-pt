@@ -21,14 +21,14 @@
             cursor: pointer;
         }
 
-        .labeltext {
+        .intext {
             font-family: ThaiNeue;
             font-size: 18pt;
         }
 
-        input {
+        .labeltext {
             font-family: ThaiNeue;
-            font-size: 12pt;
+            font-size: 18pt;
         }
 
         .textinput {
@@ -147,19 +147,20 @@
                                                    onchange="loadFile(event)"/>
                                     <label for="file">
                                         <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
-                                    <p style="font-size: 13pt;">*รูปประจำตัวของคุณ</p>
+                                    <p style="font-size: 11pt;">*รูปประจำตัวของคุณ</p>
                                 </div>
                                 <div class="col-sm-8 col-md-8">
                                     <div class="row">
                                         <fieldset>
-                                            <legend class="font">เพิ่มโปร์ไฟล์</legend>
+                                            <legend class="w3-xxlarge" style="font-family: ThaiNeue; font-size: 22pt;">เพิ่มโปร์ไฟล์</legend>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 control-label labeltext">ชื่อเข้าใช้งาน :</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" name="fullname" class="form-control textinput"
+                                                    <input type="text" name="fullname"
+                                                           class="w3-input w3-animate-input w3-large txt"
                                                            value="{{ Auth::user()->name }}" disabled>
                                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                                    <p style="font-size: 13pt;">
+                                                    <p style="font-size: 11pt;">
                                                         *ชื่อเข้าใช้งานไม่สารมาถเปลี่ยนแปลงได้</p>
                                                 </div>
                                             </div>
@@ -167,8 +168,9 @@
                                                 <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
                                                 <div class="col-sm-5">
                                                     <textarea name="address" id="" rows="2"
-                                                              class="form-control textinput" required=""></textarea>
-                                                    <p style="font-size: 13pt;">*ที่อยู่ของคุณ</p>
+                                                              class="w3-input w3-animate-input txt intext"
+                                                              required=""></textarea>
+                                                    <p style="font-size: 11pt;">*ที่อยู่ของคุณ</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -181,13 +183,13 @@
                                                     $sql = "SELECT * FROM tb_locations";
                                                     $query = mysqli_query($conn, $sql);
                                                     ?>
-                                                    <select class="form-control textinput" name="location">
+                                                    <select class="w3-input w3-animate-input txt intext" name="location">
                                                         <option value="">-- เลือกสถานที่ --</option>
                                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                                         <option value="<?php echo $values['id']; ?>"><?php echo $values['location']; ?></option>
                                                         <?php } ?>
                                                     </select>
-                                                    <p style="font-size: 13pt;">*อำเภอ</p>
+                                                    <p style="font-size: 11pt;">*อำเภอ</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -195,15 +197,25 @@
                                                     :</label>
                                                 <div class="col-sm-5">
                                                     <input type="tel" name="tel" placeholder="080-xxxxxxx"
-                                                           class="form-control textinput" value=""
+                                                           class="w3-input w3-animate-input txt" value=""
                                                            maxlength="10" required
                                                            onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label class="col-sm-3 control-label labeltext" for="textinput">Line
+                                                    :</label>
+                                                <div class="col-sm-5">
+                                                    <input type="tel" name="tel" placeholder="ID-Line"
+                                                           class="w3-input w3-animate-input txt" value=""
+                                                           maxlength="10" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="col-sm-3 control-label labeltext">Faecbook :</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" name="facebook" class="form-control textinput"
+                                                    <input type="text" name="facebook"
+                                                           class="w3-input w3-animate-input txt"
                                                            value="" placeholder="Facebook" required>
                                                 </div>
                                             </div>
@@ -241,7 +253,7 @@
                                                        onchange="loadFile(event)"/>
                                         <label for="file">
                                             <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
-                                        <p style="font-size: 13pt;" align="center">*รูปประจำตัวของคุณ</p>
+                                        <p style="font-size: 11pt;" align="center">*รูปประจำตัวของคุณ</p>
                                     </div>
                                     <div class="col-sm-8 col-md-8">
                                         <div class="row">
@@ -254,7 +266,7 @@
                                                         <input type="text" name="fullname"
                                                                class="form-control textinput"
                                                                value="{{ Auth::user()->name }}" disabled>
-                                                        <p style="font-size: 13pt;margin-left: -17px;">
+                                                        <p style="font-size: 11pt;margin-left: -17px;">
                                                             *ชื่อเข้าใช้งานไม่สามารถเปลี่ยนแปลงได้</p>
                                                     </div>
                                                 </div>
@@ -264,7 +276,7 @@
                                                 <textarea name="address" id="" rows="2" class="form-control textinput">
                                                     {{ $value->address  }}
                                                 </textarea>
-                                                        <p style="font-size: 13pt;margin-left: -17px;">
+                                                        <p style="font-size: 11pt;margin-left: -17px;">
                                                             *ที่อยู่ของคุณ</p>
                                                     </div>
                                                 </div>
@@ -288,7 +300,7 @@
                                                             </option>
                                                             <?php } ?>
                                                         </select>
-                                                        <p style="font-size: 13pt;margin-left: -17px;">*อำเภอ</p>
+                                                        <p style="font-size: 11pt;margin-left: -17px;">*อำเภอ</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

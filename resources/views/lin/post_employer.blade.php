@@ -154,7 +154,7 @@
                             <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                 <div class="form-group">
                                     <label for="exampleTitle">ชื่อบริษัท/หัวข้อ</label>
-                                    <input type="text" class="form-control textinput" size="5" placeholder="หัวข้อ"
+                                    <input type="text" class="w3-input w3-animate-input txt" size="5" placeholder="หัวข้อ"
                                            name="titelpost" required>
                                     <p style="font-size: 13pt;">*ชื่อบริษัทหรือหัวข้อของท่านที่ต้องการโฟส</p>
                                 </div>
@@ -167,7 +167,7 @@
                                     $sql = "SELECT * FROM category";
                                     $query = mysqli_query($conn, $sql);
                                     ?>
-                                    <select name="description" class="form-control textinput">
+                                    <select name="description" class="w3-input w3-animate-input txt">
                                         <option value="">-- เลือกประเภทงาน --</option>
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                         <option value="<?php echo $values['c_name']; ?>"><?php echo $values['c_name']; ?></option>
@@ -177,7 +177,7 @@
                                 </div>
                                 <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                     <label for="exampleTotal" class="control-label">จำนวน/ตำแหน่ง</label>
-                                    <input type="text" name="total" class="form-control textinput"
+                                    <input type="text" name="total" class="w3-input w3-animate-input txt"
                                            onkeyup="if(isNaN(this.value)){alert('จำนวนต้องเป็นตัวเลขเท่านั้น!'); this.value='';}"
                                            required>
                                     <p style="font-size: 13pt;">*จำนวนคนที่ต้องการ</p>
@@ -185,7 +185,7 @@
                                 <br>
                                 <div class="form-group">
                                     <label for="exampleDetail" class="control-label">รายละเอียด</label>
-                                    <textarea name="detail" class="form-control textinput" rows="2"></textarea>
+                                    <textarea name="detail" class="w3-input w3-animate-input txt" rows="2" required></textarea>
                                     <p style="font-size: 13pt;">*รายละเอียดของการทำงาน</p>
                                 </div>
                                 <div class="form-group">
@@ -194,7 +194,7 @@
                                     $sql = "SELECT * FROM tb_locations";
                                     $query = mysqli_query($conn, $sql);
                                     ?>
-                                    <select class="form-control textinput" name="location">
+                                    <select class="w3-select txt" name="location">
                                         <option value="">-- เลือกสถานที่ --</option>
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                         <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
@@ -204,24 +204,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleProperty" class="control-label">คุณสมบัติผู้สมัคร</label>
-                                    <textarea name="property" class="form-control textinput" rows="2"></textarea>
+                                    <textarea name="property" class="w3-input w3-animate-input txt" rows="2" required></textarea>
                                     <p style="font-size: 13pt;">*18ปีขึ้นไป *จบมัธยมศึกษาตอนปลาย</p>
                                 </div>
                                 <h3 class="headertext">ช่องทางการติดต่อ</h3>
                                 <div class="headerline"></div>
                                 <div class="form-group">
                                     <label for="exampleTel" class="control-label">เบอร์โทร</label>
-                                    <input type="tel" name="tel" class="form-control textinput" placeholder="เบอร์โทร"
+                                    <input type="tel" name="tel" class="w3-input w3-animate-input txt" placeholder="เบอร์โทร"
                                            maxlength="10"
-                                           onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
+                                           onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleTel" class="control-label" id="line">Line</label>
+                                    <input type="tel" name="line" class="w3-input w3-animate-input txt" placeholder="ID-Line"
+                                           maxlength="10">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFacebook" class="control-label" id="fb">Facebook</label>
-                                    <input type="text" name="fb" class="form-control textinput" placeholder="Facebook">
+                                    <input type="text" name="fb" class="w3-input w3-animate-input txt" placeholder="Facebook">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleEmail" id="mail">E-mail</label>
-                                    <input type="email" class="form-control textinput" placeholder="E-mail" value=""
+                                    <input type="email" class="w3-input w3-animate-input txt" placeholder="E-mail" value=""
                                            name="email">
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -239,6 +244,7 @@
     <script>
         $('#mail').css('text-transform', 'capitalize');
         $('#fb').css('text-transform', 'capitalize');
+        $('#line').css('text-transform', 'capitalize');
         function imgSubmit()
         {
             if(document.getElementById('file').value  == ""  )
