@@ -32,7 +32,7 @@
         var beep = new Audio();
         beep.src = "audio/beep.mp3";
         beep.play().speed = 1000;
-        beep.volume=0.1;
+        beep.volume = 0.1;
     }
 </script>
 
@@ -48,31 +48,73 @@
                 <div class="col-md-12 btn-category">
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-code"></i>&nbsp;Programming</a>
+                            <?php
+                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            mysqli_set_charset($conn, "utf8");
+                            $sql = "SELECT * FROM category WHERE c_id = 1";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result)){
+                            ?>
+                            <a href="p?cId=<?php echo $row['c_id'] ?>" onmouseover="loadSound()"><i class="fa fa-code"></i>&nbsp;<?php echo $row['c_name']; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
 
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-camera"></i>&nbsp;ช่างภาพ</a>
+                            <?php
+                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            mysqli_set_charset($conn, "utf8");
+                            $sql = "SELECT * FROM category WHERE c_id = 2";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result)){
+                                ?>
+                            <a href="p?cId=<?php echo $row['c_id'] ?>" onmouseover="loadSound()"><i
+                                        class="fa fa-camera"></i>&nbsp;&nbsp;<?php echo $row['c_name']; ?></a>
+                                <?php } ?>
                         </div>
                     </div>
 
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-wrench"></i>&nbsp;ซ่อมคอม</a>
+                            <?php
+                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            mysqli_set_charset($conn, "utf8");
+                            $sql = "SELECT * FROM category WHERE c_id = 3";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result)){
+                                ?>
+                            <a href="p?cId=<?php echo $row['c_id'] ?>" onmouseover="loadSound()"><i
+                                        class="fa fa-wrench"></i>&nbsp;&nbsp;<?php echo $row['c_name']; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
 
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-video-camera"></i>&nbsp;ตัดต่อวีดีโอ</a>
+                            <?php
+                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            mysqli_set_charset($conn, "utf8");
+                            $sql = "SELECT * FROM category WHERE c_id = 4";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result)){
+                                ?>
+                            <a href="p?cId=<?php echo $row['c_id'] ?>" onmouseover="loadSound()"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;<?php echo $row['c_name']; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
 
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
-                            <a href="show_all_pt" onmouseover="loadSound()"><i class="fa fa-ellipsis-h"></i>&nbsp;อีเว้นท์</a>
+                            <?php
+                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            mysqli_set_charset($conn, "utf8");
+                            $sql = "SELECT * FROM category WHERE c_id = 5";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_array($result)){
+                                ?>
+                            <a href="p?cId=<?php echo $row['c_id'] ?>" onmouseover="loadSound()"><i class="fa fa-ellipsis-h"></i>&nbsp;&nbsp;<?php echo $row['c_name']; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
