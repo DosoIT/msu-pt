@@ -49,7 +49,6 @@
                         $sql = "SELECT * FROM category";
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($result)){
-
                         ?>
                         <div class="col-xs-2">
                             <div class="w3-btn w3-white w3-border w3-round-large bt ">

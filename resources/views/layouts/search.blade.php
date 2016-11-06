@@ -3,6 +3,10 @@ $conn = mysqli_connect("localhost", "root", "", "msu_pt");
 mysqli_set_charset($conn, "utf8");
 ?>
 <style>
+    #ex2{
+        font-family: ThaiNeue;
+        font-size: 18pt;
+    }
     @media only screen and (max-device-width: 480px) {
         /* styles for mobile browsers smaller than 480px; (iPhone) */
         .col-xs-12 h2 {
@@ -25,11 +29,10 @@ mysqli_set_charset($conn, "utf8");
             <div class="row">
                 <div class="col-xs-12"><h1 style="font-family: 'ThaiNeue'; font-size: 48px;">ค้นหางาน</h1></div>
             </div>
-            <label for="ex2"><h1 style="font-family: 'ThaiNeue';">เลือกกาารค้นหา</h1></label>
-            <p  id="ex2">
-                <input type="radio" id="chkPart" name="chk"> Part Time &nbsp;&nbsp;
-                <input type="radio" id="chkEmp" name="chk"> การรับสมัครงาน
-            </p>
+            <div id="ex2">
+                <button id="chkPart" name="chk" class="w3-btn w3-white w3-border w3-round-large"><i class="fa fa-search"></i>&nbsp;Part Time </button>
+                <button id="chkEmp" name="chk" class="w3-btn w3-white w3-border w3-round-large"><i class="fa fa-search"></i>&nbsp; การรับสมัครงาน </button>
+            </div>
 
             {{--parttime--}}
             <div id="part-time" style="display: none;">
