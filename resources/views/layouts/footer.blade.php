@@ -23,7 +23,7 @@
 
         .page-footer a:hover {
             border-color: transparent;
-            color: #ff1aba;
+            color: #2ca02c;
 
         }
 
@@ -105,23 +105,28 @@
         right: 20px;
         display: none;
     }
+
     #back-to-top:hover {
-         background-color:#7cc1de;
-         opacity:1;filter:"alpha(opacity=100)";
-         -ms-filter:"alpha(opacity=100)";
-     }
+        background-color: #7cc1de;
+        opacity: 1;
+        filter: "alpha(opacity=100)";
+        -ms-filter: "alpha(opacity=100)";
+    }
+    .textinfo{
+        font-family: ThaiNeue;
+        font-size: 18pt;
+    }
 </style>
 <footer>
-    <div class="col-xs-3 col-sm-3 col-md-12">
+    <div class="col-xs-3 col-sm-3 col-md-12  textinfo">
         <div class="row">
             <div class="col-xs-3 col-sm-3 page-footer">
                 <p>ABOUT US</p>
                 <hr>
-                <a href="#">Info</a></p>
-                <a href="#">Blog</a></p>
-                <a href="#">Jobs</a></p>
-                <a href="#">Advertise with us</a></p>
-                <a href="#">Policies</a></p>
+                <a href="http://reg.msu.ac.th/registrar/home.asp" target="_blank">มหาวิทยาลัยมหาสารคาม</a>
+                <a href="http://it.msu.ac.th/th/" target="_blank">คณะวิทยาการสารสนเทศ</a>
+                <a href="https://www.facebook.com/informationtechnologyMSU/?fref=ts" target="_blank">สาขาเทคโนโลยีสารสนเทศ</a>
+                <a href="http://www.wbi.msu.ac.th" target="_blank">wbi.msu.ac.th</a>
             </div>
             <div class="col-xs-3 col-sm-3 page-footer">
                 <p>Help</p>
@@ -148,17 +153,16 @@
             <div class="col-xs-6 col-sm-4 page-footer">
                 <a href="#">INFORMATION</a><br>
                 <hr>
-                Add:<a href="#">Mahasarakham University</a><br>
-                Tel:<a href="#">043700219</a><br>
-                Email:<a href="#" style="color: #20ff07">it@msu.ac.th</a><br>
-                Hotline:<a href="#" style="color: #20ff07">096669999</a>
-                <hr>
-                <a href="#">{!! Html::image('image/minimap.jpg','minimap',array('width'=>180,'height'=>100)) !!}</a>
+                Add :<a href="http://reg.msu.ac.th/registrar/home.asp" target="_blank"> Mahasarakham University </a><br>
+                Tel :<a style="color: #20ff07"> 043700219</a><br>
+                Email :<a  style="color: #20ff07"> it@msu.ac.th</a><br>
+                Hotline :<a  style="color: #20ff07"> 096669999</a>
+                {!! Html::image('image/minimap.jpg','minimap',array('width'=>180,'height'=>10)) !!}
             </div>
         </div>
     </div>
+    <!-- BackToTop Button -->
     <div>
-        <!-- BackToTop Button -->
         <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"
            title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span
                     class="glyphicon glyphicon-chevron-up"></span></a>

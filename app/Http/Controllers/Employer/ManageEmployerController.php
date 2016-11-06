@@ -47,7 +47,7 @@ class ManageEmployerController extends Controller
             $wppost->wp_titel = $request->titelpost;
             $wppost->wp_total = $request->total;
             $wppost->wp_detail = $request->detail;
-            $wppost->wp_location = $request->location;
+            $wppost->wp_location = $request->lo_id;
             $wppost->wp_description = $request->description;
             $wppost->wp_property = $request->property;
             $wppost->wp_tel = $request->tel;
@@ -63,7 +63,7 @@ class ManageEmployerController extends Controller
             $post->wp_titel = $request->titelpost;
             $post->wp_total = $request->total;
             $post->wp_detail = $request->detail;
-            $post->wp_location = $request->location;
+            $post->wp_location = $request->lo_id;
             $post->wp_description = $request->description;
             $post->wp_property = $request->property;
             $post->wp_tel = $request->tel;
@@ -113,8 +113,8 @@ class ManageEmployerController extends Controller
             $updates = EmployerPostModel::where('wp_id', $id)->update(['wp_titel' => $request->titel,
                 'wp_total' => $request->total,
                 'wp_detail' => $request->detail,
-                'wp_location' => $request->location,
-                'wp_description' => $request->description,
+                'wp_location' => $request->lo_id,
+                'wp_description' => $request->c_id,
                 'wp_property' => $request->property,
                 'wp_tel' => $request->tel,
                 'wp_line' => $request->line,
@@ -131,7 +131,7 @@ class ManageEmployerController extends Controller
                     'wp_pic' => $imageName,
                     'wp_titel' => $request->titel,
                     'wp_detail' => $request->detail,
-                    'wp_location' => $request->location,
+                    'wp_location' => $request->lo_id,
                     'wp_description' => $request->description,
                     'wp_property' => $request->property,
                     'wp_tel' => $request->tel,

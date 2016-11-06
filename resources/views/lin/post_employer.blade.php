@@ -170,7 +170,7 @@
                                     <select name="description" class="w3-input w3-animate-input txt">
                                         <option value="">-- เลือกประเภทงาน --</option>
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                        <option value="<?php echo $values['c_name']; ?>"><?php echo $values['c_name']; ?></option>
+                                        <option value="<?php echo $values['c_id']; ?>"><?php echo $values['c_name']; ?></option>
                                         <?php } ?>
                                     </select>
                                     <p style="font-size: 13pt;">*ประเภทงานของท่าน</p>
@@ -194,10 +194,10 @@
                                     $sql = "SELECT * FROM tb_locations";
                                     $query = mysqli_query($conn, $sql);
                                     ?>
-                                    <select class="w3-select txt" name="location">
+                                    <select class="w3-select txt" name="lo_id">
                                         <option value="">-- เลือกสถานที่ --</option>
                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                        <option value="<?php echo $values['location']; ?>"><?php echo $values['location']; ?></option>
+                                        <option value="<?php echo $values['id']; ?>"><?php echo $values['location']; ?></option>
                                         <?php } ?>
                                     </select>
                                     <p style="font-size: 13pt;">*สถานที่ของที่ตั้งทำงาน</p>

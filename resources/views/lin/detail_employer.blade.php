@@ -121,25 +121,34 @@
                                 <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
                                                                     height="30">
                                     โทร : {{ $values->tel }}</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/line.png') }}" width="30"
+                                                                    height="30">
+                                    Line : {{ $values->line }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30"
                                                                     height="30">
                                     Facebook : {{ $values->facebook }}</h4>
                                 <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
+                                                                    height="30">
+                                    E-mail : {{ Auth::user()->email }}</h4>
+                                <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
                                                                     height="3">
-                                    ที่อยู่ : {{ $values->address }} </h4>
+                                    สถานที่ : {{ $values->address }} </h4>
                             @endforeach
                         @else
                             {{-- ถ้าไม่มี --}}
                             <img src="{{url('image/pic-default.png')}}" class="img-Thumbnail" width="150" height="150">
-                            <h4 class="fonts">Username : {{Auth::user()->name }}</h4>
+                            <h4 class="fonts">Username : {{ Auth::user()->name }}</h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/call.png') }}" width="30"
                                                                 height="30">
                                 โทร : </h4>
+                            <h4 class="fonts" align="left"><img src="{{ url('image/line.png') }}" width="30"
+                                                                height="30">
+                                Line : </h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/facebook.png') }}" width="30"
                                                                 height="30"> Facebook : </h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/email.png') }}" width="30"
                                                                 height="30">
-                                E-mail : </h4>
+                                E-mail : {{ Auth::user()->email }} </h4>
                             <h4 class="fonts" align="left"><img src="{{ url('image/location.png') }}" width="30"
                                                                 height="30"> สถานที่ : </h4>
                         @endif

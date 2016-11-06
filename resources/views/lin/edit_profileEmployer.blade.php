@@ -152,7 +152,9 @@
                                 <div class="col-sm-8 col-md-8">
                                     <div class="row">
                                         <fieldset>
-                                            <legend class="w3-xxlarge" style="font-family: ThaiNeue; font-size: 22pt;">เพิ่มโปร์ไฟล์</legend>
+                                            <legend class="w3-xxlarge" style="font-family: ThaiNeue; font-size: 22pt;">
+                                                เพิ่มโปร์ไฟล์
+                                            </legend>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 control-label labeltext">ชื่อเข้าใช้งาน :</label>
                                                 <div class="col-sm-5">
@@ -183,7 +185,8 @@
                                                     $sql = "SELECT * FROM tb_locations";
                                                     $query = mysqli_query($conn, $sql);
                                                     ?>
-                                                    <select class="w3-input w3-animate-input txt intext" name="location">
+                                                    <select class="w3-input w3-animate-input txt intext"
+                                                            name="location">
                                                         <option value="">-- เลือกสถานที่ --</option>
                                                         <?php while ($values = mysqli_fetch_array($query)){ ?>
                                                         <option value="<?php echo $values['id']; ?>"><?php echo $values['location']; ?></option>
@@ -206,7 +209,7 @@
                                                 <label class="col-sm-3 control-label labeltext" for="textinput">Line
                                                     :</label>
                                                 <div class="col-sm-5">
-                                                    <input type="tel" name="tel" placeholder="ID-Line"
+                                                    <input type="tel" name="line" placeholder="ID-Line"
                                                            class="w3-input w3-animate-input txt" value=""
                                                            maxlength="10" required>
                                                 </div>
@@ -264,19 +267,19 @@
                                                         :</label>
                                                     <div class="col-sm-5">
                                                         <input type="text" name="fullname"
-                                                               class="form-control textinput"
+                                                               class="w3-input w3-animate-input txt"
                                                                value="{{ Auth::user()->name }}" disabled>
-                                                        <p style="font-size: 11pt;margin-left: -17px;">
+                                                        <p style="font-size: 11pt;">
                                                             *ชื่อเข้าใช้งานไม่สามารถเปลี่ยนแปลงได้</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label labeltext">ที่อยู่ :</label>
                                                     <div class="col-sm-5">
-                                                <textarea name="address" id="" rows="2" class="form-control textinput">
+                                                <textarea name="address" id="" rows="2" class="w3-input w3-animate-input txt">
                                                     {{ $value->address  }}
                                                 </textarea>
-                                                        <p style="font-size: 11pt;margin-left: -17px;">
+                                                        <p style="font-size: 11pt;">
                                                             *ที่อยู่ของคุณ</p>
                                                     </div>
                                                 </div>
@@ -290,9 +293,9 @@
                                                         $sql = "SELECT * FROM tb_locations";
                                                         $query = mysqli_query($conn, $sql);
                                                         ?>
-                                                        <select class="form-control textinput" name="location">
+                                                        <select class="w3-input w3-animate-input txt" name="location">
                                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                                            <option value="<?php echo $values['id']; ?>"
+                                                            <option value="<?php echo $values['lo_id']; ?>"
                                                             <?php if ($values['id'] == $value->lo_id) {
                                                                 echo 'selected';
                                                             }?>>
@@ -300,7 +303,7 @@
                                                             </option>
                                                             <?php } ?>
                                                         </select>
-                                                        <p style="font-size: 11pt;margin-left: -17px;">*อำเภอ</p>
+                                                        <p style="font-size: 11pt;">*อำเภอ</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -308,16 +311,27 @@
                                                         :</label>
                                                     <div class="col-sm-5">
                                                         <input type="tel" name="tel" placeholder="080-xxxxxxx"
-                                                               class="form-control textinput" value="{{ $value->tel  }}"
+                                                               class="w3-input w3-animate-input txt" value="{{ $value->tel  }}"
                                                                maxlength="10"
                                                                onkeyup="if(isNaN(this.value)){alert('เบอร์โทรต้องเป็นตัวเลขเท่านั้น!'); this.value='';}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label labeltext" for="textinput">Line
+                                                        :</label>
+                                                    <div class="col-sm-5">
+                                                        <input type="tel" name="line" placeholder="ID-Line"
+                                                               class="w3-input w3-animate-input txt"
+                                                               value="{{ $value->line  }}"
+                                                               maxlength="10"
+                                                        >
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label labeltext">Faecbook :</label>
                                                     <div class="col-sm-5">
                                                         <input type="text" name="facebook"
-                                                               class="form-control textinput"
+                                                               class="w3-input w3-animate-input txt"
                                                                value="{{ $value->facebook  }}" placeholder="Facebook">
                                                     </div>
                                                 </div>

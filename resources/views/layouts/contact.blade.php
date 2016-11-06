@@ -24,6 +24,10 @@
         margin: 20px 50px;
         display: inline;
     }
+    .textinfo{
+        font-family: ThaiNeue;
+        font-size: 18pt;
+    }
 </style>
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -34,7 +38,7 @@
                         <img src="image/LOGO_it.png" alt="LOGO">
                     </li>
                     <br>
-                    <li>
+                    <li class="textinfo">
                         <p>คณะวิทยาการสารสนเทศ ภาควิชาเทคโนโลยีสารสนเทศ</p>
                         <p>มหาวิทยาลัยมหาสารคาม</p>
                         <p>ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150</p>
@@ -47,17 +51,10 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <ul class="contact-r">
                     <li>
-                        <img src="image/pic-default.png" alt="logo" width="150" class="w3-circle w3-border">
-                    </li>
-                    <br><br>
-                    <li>
-                        <img src="https://cdnil20.fiverrcdn.com/assets/v2_buttons/en/btn-play-store-40-179b5ea7c58e42508ebc0ced60d48a58.svg"
-                             alt="LOGO">
-                        <img src="https://cdnil20.fiverrcdn.com/assets/v2_buttons/en/btn-app-store-40-f93b303c19c00340ec37f630bc9ff15b.svg"
-                             alt="LOGO">
+                        <img src="image/msu.png" alt="logo" width="150" class="w3-circle w3-border">
                     </li>
                     <br>
-                    <li>
+                    <li class="textinfo">
                         <p>เว็บไซต์จัดจ้างและฝึกทักษะวิชาชีพ สำหรับนิสิต</p>
                         <p>มหาวิทยาลัยมหาสารคาม</p>
                         <p>ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150</p>

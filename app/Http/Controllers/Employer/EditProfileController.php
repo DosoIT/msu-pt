@@ -50,6 +50,7 @@ class EditProfileController extends Controller
             $insert->address = $request->address;
             $insert->lo_id = $request->location;
             $insert->tel = $request->tel;
+            $insert->line = $request->line;
             $insert->facebook = $request->facebook;
             $insert->price_st = 0;
             $insert->price_fn = 0;
@@ -62,6 +63,7 @@ class EditProfileController extends Controller
             $insert->address = $request->address;
             $insert->lo_id = $request->location;
             $insert->tel = $request->tel;
+            $insert->line = $request->line;
             $insert->facebook = $request->facebook;
             $insert->price_st = 0;
             $insert->price_fn = 0;
@@ -107,6 +109,7 @@ class EditProfileController extends Controller
             (['address' => $request->address,
                 'lo_id'=> $request->location,
                 'tel' => $request->tel,
+                'line' => $request->line,
                 'facebook' => $request->facebook,
 
             ]);
@@ -120,6 +123,7 @@ class EditProfileController extends Controller
                 (['address' => $request->address,
                     'lo_id'=> $request->location,
                     'tel' => $request->tel,
+                    'line' => $request->line,
                     'facebook' => $request->facebook,
                     'picture' => $imageName,
                 ]);

@@ -33,40 +33,51 @@
     <div class="container">
         <div class="row">
             @foreach($detail_post as $values)
-            <div class="col-xs-3 col-md-3" align="center">
-                <img src="{{url('picture/'.$values->wp_pic)}}" alt="รูป ตำแหน่งที่ทำงาน" width="180" height="150">
+                <div class="col-xs-3 col-md-3" align="center">
+                    <img src="{{url('picture/'.$values->wp_pic)}}" alt="รูป ตำแหน่งที่ทำงาน" width="180" height="150">
 
-          <ul class="ul-fix" style="margin-top: 25px; margin-left: 1px;">
-              <li>เบอร์  : {{ $values->wp_tel }}</li>
-              <br>
-              <li>Facebook : {{ $values->wp_fb }}</li>
-              <br>
-              <li>E-mail : {{ $values->wp_email }}</li>
-          </ul>
-            </div>
-            <div class="col-xs-7 col-sm-7 col-md-7" style="margin-left: -80px;">
-                <ul class="ul-fix">
-                    <li>ชื่อบริษัท/หัวข้อ : {{ $values->wp_titel }}</li>
-                    <br>
-                    <li>ประเภทงาน : {{ $values->wp_description }}</li>
-                    <br>
-                    <li>จำนวน/ตำแหน่ง  : <b>{{ $values->wp_total }}</b></li>
-                    <br>
-                    <li>รายละเอียด : {{ $values->wp_detail }}</li>
-                    <br>
-                    <li>สถานที่  : {{ $values->wp_location }}</li>
-                    <br>
-                    <li>คุณสมบัติ : {{ $values->wp_property }}</li>
-                    <br>
-                    <li style="margin-left: 1%">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="ul-fix" style="margin-top: 25px; margin-left: 1px;">
+                        <li>เบอร์ : {{ $values->wp_tel }}</li>
+                        <br>
+                        <li>Line : {{ $values->wp_line }}</li>
+                        <br>
+                        <li>Facebook : {{ $values->wp_fb }}</li>
+                        <br>
+                        <li>E-mail : {{ $values->wp_email }}</li>
+                    </ul>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7" style="margin-left: -80px;">
+                    <ul class="ul-fix">
+                        <li>ชื่อบริษัท/หัวข้อ : {{ $values->wp_titel }}</li>
+                        <br>
+                        <li>ประเภทงาน : {{ $values->wp_description }}</li>
+                        <br>
+                        <li>จำนวน/ตำแหน่ง : <b>{{ $values->wp_total }}</b></li>
+                        <br>
+                        <li>รายละเอียด : {{ $values->wp_detail }}</li>
+                        <br>
+                        <?php
+                        $lo_id = $values->wp_location;
+                        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                        mysqli_set_charset($conn, "utf8");
+                        $sql = "SELECT * FROM tb_locations WHERE id=" . $lo_id;
+                        $query = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_array($query);
+                        ?>
+                        <li>สถานที่ : <?php echo $row['location'] ?>
+                        </li>
+                        <br>
+                        <li>คุณสมบัติ : {{ $values->wp_property }}</li>
+                        <br>
+                        <li style="margin-left: 1%">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </li>
+                    </ul>
+                </div>
             @endforeach
         </div>
     </div>

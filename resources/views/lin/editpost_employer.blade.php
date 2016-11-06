@@ -98,12 +98,14 @@
             color: #fff;
             text-decoration: none;
         }
-        .btnBorder{
+
+        .btnBorder {
             border: 1px solid Gray;
             width: 100%;
             height: 50px;
         }
-        .btnBorder > p{
+
+        .btnBorder > p {
             font-family: ThaiNeue;
             font-size: 18pt;
 
@@ -114,7 +116,7 @@
         <div class="row">
             <div class="col-md-offset-1">
                 <div class="dropdownlinks">
-                    <a href="showpostEmployer">
+                    <a href="/showpostEmployer">
                         <button class="dropdown-toggle w3-btn w3-white w3-hover-green btnBorder">
                             <p><i class="glyphicon glyphicon-user"></i>โปรไฟล์</p>
                         </button>
@@ -169,10 +171,10 @@
                                         $sql = "SELECT * FROM category";
                                         $query = mysqli_query($conn, $sql);
                                         ?>
-                                        <select name="description" class="w3-input w3-animate-input txt">
+                                        <select name="c_id" class="w3-input w3-animate-input txt">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                            <option value="<?php echo $values['c_name']; ?>"
-                                            <?php if ($values['c_name'] == $row->wp_description) {
+                                            <option value="<?php echo $values['c_id']; ?>"
+                                            <?php if ($values['c_id'] == $row->wp_description) {
                                                 echo 'selected';
                                             }?>>
                                                 <?php echo $values['c_name']; ?>
@@ -202,10 +204,11 @@
                                         $sql = "SELECT * FROM tb_locations";
                                         $query = mysqli_query($conn, $sql);
                                         ?>
-                                        <select name="location" class="w3-input w3-animate-input txt">
+                                        <select name="lo_id" class="w3-input w3-animate-input txt">
                                             <?php while ($values = mysqli_fetch_array($query)){ ?>
-                                            <option value="<?php echo $values['location']; ?>" <?php if ($values['location'] == $row->wp_location) {
-                                                echo 'selected';
+                                            <option value="<?php echo $values['id']; ?>"
+                                                <?php if ($values['id'] == $row->wp_location) {
+                                                    echo 'selected';
                                             }?>>
                                                 <?php echo $values['location']; ?>
                                             </option>
@@ -231,7 +234,7 @@
                                     <div class="form-group">
                                         <label for="exampleInput">Line</label>
                                         <input type="tel" class="w3-input w3-animate-input txt" placeholder="เบอร์โทร"
-                                               value="{{ $row->wp_tel }}" name="tel" maxlength="10">
+                                               value="{{ $row->wp_line }}" name="line" maxlength="10">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInput">Facebook</label>
@@ -243,7 +246,10 @@
                                         <input type="email" class="w3-input w3-animate-input txt" placeholder="E-mail"
                                                value="{{ $row->wp_email }}" name="email">
                                     </div>
-                                    <button type="submit" class="btn btn-success btn-lg w3-btn w3-white w3-hover-green btn-lg ">แก้ไขประกาศ</button>
+                                    <button type="submit"
+                                            class="btn btn-success btn-lg w3-btn w3-white w3-hover-green btn-lg ">
+                                        แก้ไขประกาศ
+                                    </button>
                                 </div>
                                 @endforeach
                             </form>
