@@ -23,6 +23,14 @@ mysqli_set_charset($conn, "utf8");
 
     }
 </style>
+<script>
+    function loadSound() {
+        var beep = new Audio();
+        beep.src = "audio/beep.mp3";
+        beep.play().speed = 1000;
+        beep.volume = 0.1;
+    }
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-12" id="src">
@@ -30,8 +38,8 @@ mysqli_set_charset($conn, "utf8");
                 <div class="col-xs-12"><h1 style="font-family: 'ThaiNeue'; font-size: 48px;">ค้นหางาน</h1></div>
             </div>
             <div id="ex2">
-                <button id="chkPart" name="chk" class="w3-btn w3-white w3-border w3-round-large"><i class="fa fa-search"></i>&nbsp;Part Time </button>
-                <button id="chkEmp" name="chk" class="w3-btn w3-white w3-border w3-round-large"><i class="fa fa-search"></i>&nbsp; การรับสมัครงาน </button>
+                <button onmouseover="loadSound()" id="chkPart" name="chk" class="w3-btn w3-white w3-border w3-round-large"><i class="fa fa-search"></i>&nbsp;Part Time </button>
+                <button onmouseover="loadSound()" id="chkEmp" name="chk" class="w3-btn w3-white w3-border w3-round-large"><i class="fa fa-search"></i>&nbsp; การรับสมัครงาน </button>
             </div>
 
             {{--parttime--}}
