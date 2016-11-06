@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ClassifyModel;
+use App\EmployerPostModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,7 +48,7 @@ class SearchController extends Controller
             }
             return view('layouts.search_detail', ['data' => $data]);
         } else {
-            return redirect('homepage');
+            return view('layouts.search_detail', ['datanull'=> 0]);
         }
     }
 
@@ -94,5 +95,16 @@ class SearchController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function searchEmp(Request $request)
+    {
+
+        $emp =  $data = DB::select("SELECT * FROM work_posts WHERE wp_description = $request->cate  AND wp_titel LIKE '%$request->title%'");
+        if (count($emp)) {
+            return view('layouts.search_Emp', ['data' => $data]);
+        } else {
+            return view('layouts.search_Emp', ['datanull' => $data]);
+        }
     }
 }

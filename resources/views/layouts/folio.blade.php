@@ -15,7 +15,7 @@
                                                                                    class="w3-tag w3-teal">งานใหม่ในรอบสัปดาห์!</span>
             </h2>
             <h2 style="font-family: 'ThaiNeue'; font-size: 26pt;margin:40px 30px 0px 0px" class="w3-display-topright">
-                <a href="#" class="show-all" title="'คลิก' ดูทั้งหมด">ทั้งหมด >></a>
+                <a href="show_all_pt" class="show-all" title="'คลิก' ดูทั้งหมด">ทั้งหมด >></a>
             </h2>
         </div>
     </div>

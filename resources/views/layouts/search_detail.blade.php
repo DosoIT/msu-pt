@@ -107,28 +107,34 @@
             </div>
         </div>
         <div class="row">
-            @if(count($data)>0)
-                @foreach($data as $value)
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <a href="{{ url('profiles') }}">
-                            <div class="thumbnail thm grid-block slide">
-                                <div class="caption">
-                                    <p>Lorem ipsum dolor sit amet.</p>
-                                    <p>Lorem ipsum dolor sit amet.</p>
-                                    <p>Lorem ipsum dolor sit amet.</p>
+            @if(isset($data))
+                @if(count($data)>0)
+                    @foreach($data as $value)
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a href="{{ url('profiles') }}">
+                                <div class="thumbnail thm grid-block slide">
+                                    <div class="caption">
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                    <div class="recom-img">
+                                        <img src="{{ url('picture/'.$value->picture) }}" alt="picture">
+                                    </div>
+                                    <button type="submit"
+                                            class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
+                                        {{"$ ".number_format($value->price_st)." - ".number_format($value->price_fn)}}
+                                    </button>
                                 </div>
-                                <div class="recom-img">
-                                    <img src="{{ url('picture/'.$value->picture) }}" alt="picture">
-                                </div>
-                                <button type="submit"
-                                        class="btn-jang w3-btn w3-white w3-hover-black w3-display-bottomright">
-                                    {{"$ ".number_format($value->price_st)." - ".number_format($value->price_fn)}}
-                                </button>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-md-12" align="center">
+                        <h3>ไม่พบข้อมูลที่ค้นหา............</h3>
                     </div>
-                @endforeach
-            @else
+                @endif
+            @elseif(isset($datanull))
                 <div class="col-md-12" align="center">
                     <h3>ไม่พบข้อมูลที่ค้นหา............</h3>
                 </div>

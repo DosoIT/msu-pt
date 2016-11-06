@@ -9,6 +9,9 @@ Route::get('/profiles', function () {
 Route::get('/homepage', function () {
     return view('layouts.home');
 });
+Route::get('/recommd_all', function () {
+    return view('layouts.recommd_all');
+});
 Route::get('/employer',function (){
     return view('layouts.employer');
 });
@@ -49,6 +52,7 @@ Route::resource('managePortfolio', 'ProfileController@showmanagePF');
 
 //ค้นหา
 Route::resource('search','SearchController');
+Route::resource('searchEmp','SearchController@searchEmp');
 
 
 Route::get('/logout', function () {

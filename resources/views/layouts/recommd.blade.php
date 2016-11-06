@@ -99,7 +99,7 @@
                 <span style="font-size: 14pt;" class="fa fa-star-o"></span>
             </h2>
             <h2 style="font-family: 'ThaiNeue'; font-size: 26pt;margin:40px 30px 0px 0px" class="w3-display-topright">
-                <a href="#" class="show-all" title="'คลิก' ดูทั้งหมด">ทั้งหมด >></a>
+                <a href="recommd_all" class="show-all" title="'คลิก' ดูทั้งหมด">ทั้งหมด >></a>
             </h2>
         </div>
     </div>
