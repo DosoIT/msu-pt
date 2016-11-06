@@ -255,18 +255,24 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
                 <div id="tab3" class="w3-container city" style="background-color: #FAFAFA">
                     <h2 style="font-family: ThaiNeue;">ที่อยู่</h2>
                     <p>&nbsp;&nbsp;&nbsp;<?php echo $item['address'];?></p>
-                    <h2 style="font-family: ThaiNeue;">โทร.</h2>
-                    <p>&nbsp;&nbsp;&nbsp;<?php echo $item['tel'];?></p>
-                    <h2 style="font-family: ThaiNeue;">Facebook</h2>
-                    <p>&nbsp;&nbsp;&nbsp;<?php echo $item['facebook'];?></p>
-
+                    <h2 style="font-family: ThaiNeue;"><img src="{{ url('image/call.png') }}" width="30" height="30">
+                     <?php echo " : " . $item['tel'];?>
+                    </h2>
+                    <h2 style="font-family: ThaiNeue;"><img src="{{ url('image/facebook.png') }}" width="30"
+                                                            height="30">
+                     <?php echo " : " . $item['facebook'];?>
+                    </h2>
+                    <h2 style="font-family: ThaiNeue;"><img src="{{ url('image/line.png') }}" width="30" height="30">
+                        <?php echo " : " . $item['line'];?>
+                    </h2>
                     <?php
                     $user_email = "SELECT * FROM users WHERE id=" . $item['user_id'];
                     $qt = mysqli_query($conn, $user_email);
                     $rs = mysqli_fetch_array($qt);
                     ?>
-                    <h2 style="font-family: ThaiNeue;">Email</h2>
-                    <p>&nbsp;&nbsp;&nbsp;<?php echo $rs['email'];?></p>
+                    <h2 style="font-family: ThaiNeue;"><img src="{{ url('image/email.png') }}" width="30" height="30">
+                    <?php echo " : " . $rs['email'];?>
+                    </h2>
                 </div>
             @endif
 

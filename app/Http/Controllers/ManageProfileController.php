@@ -74,6 +74,7 @@ class ManageProfileController extends Controller
         $user->lo_id = $request->lo_id;
         $user->tel = $request->tel;
         $user->facebook = $request->facebook;
+        $user->line = $request->line;
         $user->picture = $imageName;
         $user->price_st = $request->price_st;
         $user->price_fn = $request->price_F;
@@ -147,6 +148,7 @@ class ManageProfileController extends Controller
                 'lo_id'=>$request->lo_id,
                 'tel' => $request->tel,
                 'facebook' => $request->facebook,
+                'line' => $request->line,
                 'price_st' => $request->price_st,
                 'price_fn' => $request->price_F,
             ]);
@@ -161,6 +163,7 @@ class ManageProfileController extends Controller
                     'lo_id'=>$request->lo_id,
                     'tel' => $request->tel,
                     'facebook' => $request->facebook,
+                    'line' => $request->line,
                     'picture' => $imageName,
                     'price_st' => $request->price_st,
                     'price_fn' => $request->price_F,

@@ -128,11 +128,18 @@
                                                 {{$item->address}}
                                             </p>
                                             <p>
-                                                <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                                                {{Auth::user()->email }}
+                                                <i ><img src="{{ url('image/email.png') }}" width="30" height="30"></i>
+                                                : {{Auth::user()->email }}
                                             </p>
-                                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
-                                                {{$item->tel}}
+                                            <p><i><img src="{{ url('image/call.png') }}" width="30" height="30"></i>
+                                                : {{$item->tel}}
+                                            </p>
+                                            </p>
+                                            <p><i ><img src="{{ url('image/facebook.png') }}" width="30" height="30"></i>
+                                                : {{$item->facebook}}
+                                            </p>
+                                            <p><i ><img src="{{ url('image/line.png') }}" width="30" height="30"></i>
+                                                : {{$item->line}}
                                             </p>
                                             <p class="w3-large"><b><i
                                                             class="fa fa-money fa-fw w3-margin-right w3-text-teal"></i>เรทราคา : </b>

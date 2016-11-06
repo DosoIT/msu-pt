@@ -19,7 +19,8 @@ class CreateUserDetailTable extends Migration
             $table->string('address');
             $table->string('lo_id');
             $table->string('tel');
-            $table->string('facebook');
+            $table->string('facebook')->nullable();
+            $table->string('line')->nullable();
             $table->string('picture');
             $table->string('price_st');
             $table->string('price_fn');

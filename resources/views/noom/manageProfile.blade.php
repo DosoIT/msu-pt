@@ -170,47 +170,84 @@
                     <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
                     <div class="row " align="center">
                         <img src="{{url('picture/'.$item->picture)}}" alt="เลือกรูปภาพ" class="img-rounded" width="200"
-                             height="150" id="output" name="image">
+                             height="150" id="output">
                         <br><br><input type="file" name="image" id="file" class="inputfile" onchange="loadFile(event)"/>
-                        <label for="file"> <i class="glyphicon glyphicon-upload"></i> Choose a Picture...</label>
-                        <label for="caption">กรุณาเลือกรูปภาพโปร์ไฟล์</label>
+                        <label for="file"> <i class="glyphicon glyphicon-upload w3-hover-red"></i>
+                            กรุณาเลือกรูปภาพโปร์ไฟล์</label>
 
-                        <br><br><label class="label-font">{{ Auth::user()->name }}</label>
-                        <div class="page-header"></div>
-
-                        <div class="col-xs-6 " align="center">
-                            <h3 class="h3-header">ที่อยู่</h3>
-                            <div class="col-md-2">
-                                <textarea name="address">{{$item->address}}</textarea>
-                            </div>
-                            <div class="col-md-10">
-                                <label class="label-font">อำเภอ : </label>
-                                <select name="lo_id">
-                                    @foreach($local as $value)
-                                        @if($value->id == $item->lo_id)
-                                            <option value="{{$value->id}}" selected>{{$value->location}}</option>
-                                        @else
-                                            <option value="{{$value->id}}">{{$value->location}}</option>
-                                        @endif
-
-                                    @endforeach
-                                </select>
-                            </div>
-                            <label class="label-font">จังหวัด : </label>
-
-
-                            <div class="page-header"></div>
-                            <h3 class="h3-header">ข้อมูลการติดต่อ</h3><br>
-                            <div align="center">
-                                <img src="{{ url('image/call.png') }}" width="30" height="30"> :
-                                <input type="text" name="tel" value="{{$item->tel}}" required><br><br>
-                                <img src="{{ url('image/facebook.png') }}" width="30" height="30"> :
-                                <input type="text" name="facebook" value="{{$item->facebook}}" required><br><br>
+                        <br><br><label class="label-font">ยินดีต้อนรับคุณ : {{ Auth::user()->name }}</label>
+                        <p>กรุณากรอกข้อมูลที่เป็นลักษณะงานของคุณ เพื่อให้เราทราบถึงรายละเอียดเกี่ยวกับคุณ
+                            และเพื่อความสะดวกให้การจัดจ้างและหางาน</p>
+                        <div class="col-xs-8 col-md-8">
+                            <div class="row">
+                                <div class="col-xs-8 col-md-12">
+                                    <p class="blocktext" style="color: red">*** ข้อกำหนด</p>
+                                    <p class="blocktext">1.&nbsp;กรอกข้อมูลการติดต่อที่สามารถติดต่อได้จริง</p>
+                                    <p class="blocktext">2.&nbsp;กรอก ประเภทงาน ได้มากกว่า 1 ประเภท ตามที่คุณถนัด</p>
+                                    <p class="blocktext">3.&nbsp;กรุณาตั้งเรทราคาเริ่มต้น-มากที่สุด ตามความเหมาะสม</p>
+                                    <p class="blocktext">4.&nbsp;ระบุความสามารถของคุณได้มากกว่า 1 ความสามารถ</p>
+                                    <p class="blocktext">5.&nbsp;ระบุลักษณะงาน เช่น รับเขียนเว็ปแอพพริเคชั่น ,
+                                        E-commerce</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-6" align="left">
-                            <h3 class="h3-header">ประเภทงาน</h3><br>
-                            <div>
+
+                        <div class="page-header"></div>
+                        <div class="col-xs-6 col-md-12" align="center">
+                            <h3 class="h3-header">&nbsp;<i class="fa fa-map-marker"></i>&nbsp;ข้อมูลการติดต่อ</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="label-font">ที่อยู่ : </label>
+                                    <input name="address" class="w3-input w3-animate-input txt" type="text"
+                                           style="width:235px" required placeholder="Address"
+                                           value="{{$item->address}}"><br>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="label-font">อำเภอ : </label>
+                                    <select name="lo_id" class="w3-select txt">
+                                        @foreach($local as $value)
+                                            @if($value->id == $item->lo_id)
+                                                <option value="{{$value->id}}" selected>{{$value->location}}</option>
+                                            @else
+                                                <option value="{{$value->id}}">{{$value->location}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="label-font">จังหวัด : มหสารคาม </label>
+                                    <input class="w3-input w3-animate-input txt" type="text" style="width:235px"
+                                           placeholder="มหาสารคาม" readonly value="มหาสารคาม"><br>
+                                </div>
+                                <div class="col-md-4">
+                                    <input name="facebook" class="w3-input w3-animate-input txt" type="text"
+                                           style="width:235px"
+                                           required placeholder="Facebook" value="{{$item->facebook}}"><br>
+                                    <img src="{{ url('image/facebook.png') }}" class="w3-label w3-validate" width="30"
+                                         height="30"> :
+                                </div>
+                                <div class="col-md-4">
+                                    <input name="tel" class="w3-input w3-animate-input txt" type="text"
+                                           style="width:235px"
+                                           required placeholder="Phone Number" value="{{$item->tel}}"><br>
+                                    <img src="{{ url('image/call.png') }}" class="w3-label w3-validate" width="30"
+                                         height="30"> :
+                                </div>
+                                <div class="col-md-4">
+                                    <input name="line" class="w3-input w3-animate-input txt" type="text"
+                                           style="width:235px"
+                                           required placeholder="Line" value="{{$item->line}}"><br>
+                                    <img src="{{ url('image/line.png') }}" class="w3-label w3-validate" width="30"
+                                         height="30"> :
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-md-12" align="left">
+                            <h3 class="h3-header">&nbsp;<i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;ประเภทงาน
+                            </h3><br>
+                            <p class="txt">
                                 @foreach($cate as $cat_value)
                                     <input type="checkbox" id="cate" name="cate_id[]"
                                            @foreach($classify as $key)
@@ -220,51 +257,62 @@
                                            @endforeach
                                            value="{{$cat_value->c_id}}"> {{$cat_value->c_name}}<br>
                                 @endforeach
+                            </p>
+                            <div>
+                                <h3 class="h3-header">&nbsp;<i class="fa fa-money" aria-hidden="true"></i>&nbsp;เรทราคา
+                                </h3>
+                                <label class="label-font ">เรื่มต้น : </label>
+                                <input type="number" maxlength="100000" name="price_st" class="w3-input txt"
+                                       placeholder="บาท" required value="{{$item->price_st}}">
+                                <label class="label-font; ">ถึง : </label>
+                                <input type="number" maxlength="100000" name="price_F" class="w3-input txt"
+                                       placeholder="บาท" required value="{{$item->price_fn}}">
+                                <p style="color: #86493f;">***กรอกเรทราคาตามต้องการ</p>
                             </div>
 
-                            <div>
-                                <h3 class="h3-header">เรทราคา</h3>
-                                <label class="label-font ">เรื่มต้น : </label>
-                                <input type="number" maxlength="100000" name="price_st" value="{{$item->price_st}}"
-                                       required>
-                                <label class="label-font ">ถึง : </label>
-                                <input type="number" maxlength="100000" name="price_F" value="{{$item->price_fn}}"
-                                       required>
-                                <label class="label-font ">/ บาท </label>
-                                <p style="color: #86493f;">*กรอกเรทราคาตามต้องการ</p>
-                            </div>
                             <div class="page-header"></div>
-                            <h3 class="h3-header">ความสามารถ</h3><br>
+                            <h3 class="h3-header">&nbsp;<i class="fa fa-angellist" aria-hidden="true"></i>&nbsp;ความสามารถ
+                            </h3>
                             <div class="input_fields_01">
-                                <br>
                                 <div>
                                     @foreach($skill as $kk)
-                                        <input type="text" name="skill[]" class="form-control" value="{{$kk->s_detail}}"
+                                        <input type="text" name="skill[]" class="form-control txt"
+                                               value="{{$kk->s_detail}}"
                                                required/>
-                                        <input type="hidden" name="skill_id[]" class="form-control"
+                                        <input type="hidden" name="skill_id[]" class="form-control txt"
                                                value="{{$kk->s_id}}"
                                         />
+                                        <br>
                                     @endforeach
-                                    <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น
-                                        สามารถเขียนโปรแแกรมด้วยภาษา PHP ได้</p>
                                 </div>
+                                <p style="color: #86493f;">***กรอกความสามรถของตัวเอง เช่น สามารถเขียนโปรแแกรมด้วยภาษา
+                                    PHP
+                                    ได้</p>
+                                <button class="add_field_01 w3-btn w3-light-grey w3-hover-grey">&nbsp;<i
+                                            class="fa fa-plus"
+                                            aria-hidden="true"></i>&nbsp;เพิ่มความสามารถ
+                                </button>
                             </div>
 
                             <div class="page-header"></div>
-                            <h3 class="h3-header">ลักษณะงาน</h3><br>
+                            <h3 class="h3-header">&nbsp;<i class="fa fa-align-justify" aria-hidden="true"></i>&nbsp;ลักษณะงาน
+                            </h3><br>
                             <div class="input_fields_02">
                                 <br>
                                 <div>
                                     @foreach( $decrip as $dd)
-                                        <input type="text" name="job[]" class="form-control"
+                                        <input type="text" name="job[]" class="form-control txt"
                                                value="{{$dd->dt_detail}}"/>
-                                        <input type="hidden" name="job_id[]" class="form-control"
-                                               value="{{$dd->dt_id}}"/>
+                                        <input type="hidden" name="job_id[]" class="form-control txt"
+                                               value="{{$dd->dt_id}}"/><br>
                                     @endforeach
-                                    <p style="color: #86493f;">***กรอกลักษณะงานที่ต้องการทำ เช่น
-                                        รับเขียนเว็ปแอพพริเคชั่น</p>
                                 </div>
-
+                                <p style="color: #86493f;">***กรอกลักษณะงานที่ต้องการทำ เช่น
+                                    รับเขียนเว็ปแอพพริเคชั่น</p>
+                                <button class="add_field_02 w3-btn w3-light-grey w3-hover-grey">&nbsp;<i
+                                            class="fa fa-plus"
+                                            aria-hidden="true"></i>&nbsp;เพิ่มความสามารถ
+                                </button>
                                 <br>
                             </div>
                         </div>
@@ -275,8 +323,10 @@
                         @foreach($classify as $key)
                             <input type="hidden" name="class_id[]" value="{{$key->cf_id}}">
                         @endforeach
-                        <input type="submit" value="แก้ไขข้อมูล" class="btn btn-success"
-                               style="font-family: ThaiNeue;font-size: 18pt;height: 30px;">
+                        <button type="submit" class="w3-btn w3-light-grey w3-hover-grey"
+                                style="font-family: ThaiNeue;font-size: 18pt;">
+                            &nbsp;บันทึกการแก้ไข&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </form>
             @endforeach
@@ -304,7 +354,8 @@
                                 <p class="blocktext">2.&nbsp;กรอก ประเภทงาน ได้มากกว่า 1 ประเภท ตามที่คุณถนัด</p>
                                 <p class="blocktext">3.&nbsp;กรุณาตั้งเรทราคาเริ่มต้น-มากที่สุด ตามความเหมาะสม</p>
                                 <p class="blocktext">4.&nbsp;ระบุความสามารถของคุณได้มากกว่า 1 ความสามารถ</p>
-                                <p class="blocktext">5.&nbsp;ระบุลักษณะงาน เช่น รับเขียนเว็ปแอพพริเคชั่น , E-commerce</p>
+                                <p class="blocktext">5.&nbsp;ระบุลักษณะงาน เช่น รับเขียนเว็ปแอพพริเคชั่น ,
+                                    E-commerce</p>
                             </div>
                         </div>
                     </div>
@@ -316,7 +367,7 @@
                             <div class="col-md-4">
                                 <label class="label-font">ที่อยู่ : </label>
                                 <input name="address" class="w3-input w3-animate-input txt" type="text"
-                                       style="width:235px" required><br>
+                                       style="width:235px" required placeholder="Address"><br>
                             </div>
 
                             <div class="col-md-4">
@@ -335,19 +386,19 @@
                             <div class="col-md-4">
                                 <input name="facebook" class="w3-input w3-animate-input txt" type="text"
                                        style="width:235px"
-                                       required><br>
+                                       required placeholder="Facebook"><br>
                                 <img src="{{ url('image/facebook.png') }}" class="w3-label w3-validate" width="30"
                                      height="30"> :
                             </div>
                             <div class="col-md-4">
                                 <input name="tel" class="w3-input w3-animate-input txt" type="text" style="width:235px"
-                                       required><br>
-                                <img src="{{ url('image/call1.png') }}" class="w3-label w3-validate" width="30"
+                                       required placeholder="Phone Number"><br>
+                                <img src="{{ url('image/call.png') }}" class="w3-label w3-validate" width="30"
                                      height="30"> :
                             </div>
                             <div class="col-md-4">
-                                <input name="tel" class="w3-input w3-animate-input txt" type="text" style="width:235px"
-                                       required><br>
+                                <input name="line" class="w3-input w3-animate-input txt" type="text" style="width:235px"
+                                       required placeholder="Line"><br>
                                 <img src="{{ url('image/line.png') }}" class="w3-label w3-validate" width="30"
                                      height="30"> :
                             </div>
@@ -368,9 +419,11 @@
                         <div>
                             <h3 class="h3-header">&nbsp;<i class="fa fa-money" aria-hidden="true"></i>&nbsp;เรทราคา</h3>
                             <label class="label-font ">เรื่มต้น : </label>
-                            <input type="number" maxlength="100000" name="price_st" class="w3-input txt" placeholder="บาท" required>
+                            <input type="number" maxlength="100000" name="price_st" class="w3-input txt"
+                                   placeholder="บาท" required>
                             <label class="label-font ">ถึง : </label>
-                            <input type="number" maxlength="100000" name="price_F" class="w3-input txt" placeholder="บาท" required>
+                            <input type="number" maxlength="100000" name="price_F" class="w3-input txt"
+                                   placeholder="บาท" required>
                             <p style="color: #86493f;">***กรอกเรทราคาตามต้องการ</p>
                         </div>
 
@@ -403,7 +456,8 @@
                 </div>
                 <div align="center">
                     <br><br>
-                    <button type="submit" class="w3-btn w3-light-grey w3-hover-grey" style="font-family: ThaiNeue;font-size: 18pt;">
+                    <button type="submit" class="w3-btn w3-light-grey w3-hover-grey"
+                            style="font-family: ThaiNeue;font-size: 18pt;">
                         &nbsp;บันทึก&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </button>
                 </div>
