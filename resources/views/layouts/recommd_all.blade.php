@@ -113,7 +113,7 @@
                 </div>
                 <div class="row">
                     <?php
-                    $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
+                    $conn = mysqli_connect("http://202.28.34.207", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                     mysqli_set_charset($conn, "utf8");
                     $sql = "SELECT * FROM tb_rating  GROUP BY user_id";
                     $query = mysqli_query($conn, $sql);
