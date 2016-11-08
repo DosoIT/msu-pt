@@ -49,7 +49,7 @@
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
                             <?php
-                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                             mysqli_set_charset($conn, "utf8");
                             $sql = "SELECT * FROM category WHERE c_id = 1";
                             $result = mysqli_query($conn, $sql);
@@ -63,7 +63,7 @@
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
                             <?php
-                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                             mysqli_set_charset($conn, "utf8");
                             $sql = "SELECT * FROM category WHERE c_id = 2";
                             $result = mysqli_query($conn, $sql);
@@ -78,7 +78,7 @@
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
                             <?php
-                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                             mysqli_set_charset($conn, "utf8");
                             $sql = "SELECT * FROM category WHERE c_id = 3";
                             $result = mysqli_query($conn, $sql);
@@ -93,7 +93,7 @@
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
                             <?php
-                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                             mysqli_set_charset($conn, "utf8");
                             $sql = "SELECT * FROM category WHERE c_id = 4";
                             $result = mysqli_query($conn, $sql);
@@ -107,7 +107,7 @@
                     <div class="col-xs-2">
                         <div class="w3-btn w3-white w3-border w3-round-large bt ">
                             <?php
-                            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                            $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                             mysqli_set_charset($conn, "utf8");
                             $sql = "SELECT * FROM category WHERE c_id = 5";
                             $result = mysqli_query($conn, $sql);

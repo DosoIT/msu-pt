@@ -51,7 +51,7 @@
     <div class="row">
         <div class="items">
             <?php
-            $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+            $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
             mysqli_set_charset($conn, "utf8");
             $sqlch = "SELECT * FROM users WHERE status='PartTime'";
             $qry = mysqli_query($conn, $sqlch);

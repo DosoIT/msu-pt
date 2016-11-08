@@ -82,7 +82,7 @@ if (isset($_GET['user_id']) && isset($_GET['cont'])) {?>
 @section('content')
     <div class="container">
         <?php
-        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+        $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
         mysqli_set_charset($conn, "utf8");
         $Id = $_REQUEST['id'];
         $sql = "SELECT * FROM user_detail WHERE id=$Id";

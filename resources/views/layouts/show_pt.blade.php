@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class=" btn-category">
                         <?php
-                        $conn = mysqli_connect("localhost", "root", "", "msu_pt");
+                        $conn = mysqli_connect("http://202.28.34.207/etc/apps/phpmyadmin/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
                         mysqli_set_charset($conn, "utf8");
                         $sql = "SELECT * FROM category";
                         $result = mysqli_query($conn, $sql);

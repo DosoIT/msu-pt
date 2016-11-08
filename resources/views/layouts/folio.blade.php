@@ -24,10 +24,10 @@
             <table class="table table-hover">
                 <tbody>
                 <?php
-                $mysqli = mysqli_connect('localhost', 'root', '', 'msu_pt') or die('Connect DB Error');
-                mysqli_set_charset($mysqli, 'utf8');
+                $conn = mysqli_connect("http://202.28.34.207/etc/apps/", "dekfreelance", "rnpcnPZpG", "dekfreelance_db1");
+                mysqli_set_charset($conn, 'utf8');
                 $query = "SELECT * FROM work_posts";
-                $result = mysqli_query($mysqli, $query);
+                $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)){
                 ?>
                 <tr>
